@@ -68,7 +68,15 @@ export const teams: Record<string, Team> = {
 
   // --- BLAST Bounty S2 field (lower seeds) ---
   wildcard: { slug: "wildcard", name: "Wildcard", tag: "WC", logo: "/teams/wildcard.svg", brand: "#FE273C", ink: "white", region: "NA", worldRank: 33 },
-  threedmax: { slug: "threedmax", name: "3DMAX", tag: "3DM", logo: "/teams/threedmax.svg", brand: "#E41013", ink: "white", region: "EU", worldRank: 35 },
+  /* 3DMAX виступають як ENVY. Ключ і адреса лишаються старими, щоб не
+     обірвати склади турнірів і посилання, які на них уже ведуть. Плитка
+     чорна, бо саме такий оригінальний знак Envy — біла літера в колі. */
+  threedmax: { slug: "threedmax", name: "ENVY", tag: "NV", logo: "/teams/envy.svg", brand: "#0F0F11", ink: "white", region: "EU", worldRank: 35 },
+  /* Кольори плиток зняті з оригінальних емблем: у SAW знак чорний,
+     у BBL золотий #CC9903, у Eternal Fire приглушене золото #968865. */
+  saw: { slug: "saw", name: "SAW", tag: "SAW", logo: "/teams/saw.svg", brand: "#101012", ink: "white", region: "EU", worldRank: 62 },
+  bbl: { slug: "bbl", name: "BBL", tag: "BBL", logo: "/teams/bbl.svg", brand: "#CC9903", ink: "black", region: "EU", worldRank: 44 },
+  eternalfire: { slug: "eternalfire", name: "Eternal Fire", tag: "EF", logo: "/teams/eternalfire.svg", brand: "#968865", ink: "black", region: "EU", worldRank: 46 },
   alliance: { slug: "alliance", name: "Alliance", tag: "ALL", logo: "/teams/alliance.svg", brand: "#44D62C", ink: "black", region: "EU", worldRank: 17 },
   gentlemates: { slug: "gentlemates", name: "Gentle Mates", tag: "M8", logo: "/teams/gentlemates.svg", brand: "#E63980", ink: "white", region: "EU", worldRank: 37 },
   hotu: { slug: "hotu", name: "HOTU", tag: "HOTU", logo: "/teams/hotu.svg", brand: "#1D1D20", ink: "white", region: "EU", worldRank: 42 },
