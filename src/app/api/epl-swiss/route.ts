@@ -73,5 +73,18 @@ export async function POST(req: Request) {
     .upsert({ user_id: user.id, picks, updated_at: new Date().toISOString() }, { onConflict: "user_id" });
 
   if (error) return NextResponse.json({ error: error.message }, { status: 400 });
+
+  /* Заповнена картка — це участь в івенті, нарівні з першою ставкою. Лідерборд
+     показує тих, у кого стоїть ця позначка, інакше в ньому був би список із
+     шестисот однакових п'ятисоток замість дошки. Ставиться службовим клієнтом:
+     профіль гравця від його ж імені не оновлюється — цьому заважає захист із
+     0052, який відновлює колонки при самостійному записі. */
+  const admin = createAdminClient();
+  await admin
+    .from("profiles")
+    .update({ event_joined_at: new Date().toISOString() })
+    .eq("id", user.id)
+    .is("event_joined_at", null);
+
   return NextResponse.json({ ok: true, closesAt: window.closesAt });
 }

@@ -23,6 +23,9 @@ import {
 } from "@/components/layout/NavGlyphs";
 import { BlastMark } from "@/components/ui/BlastMark";
 import { EwcMark } from "@/components/ui/EwcMark";
+import { EplMark } from "@/components/ui/EplMark";
+import { SwissBracket } from "@/components/tournament/SwissBracket";
+import { EplSwissCard } from "@/components/tournament/EplSwissCard";
 import { TeamLogo } from "@/components/ui/TeamLogo";
 import { MatchDayGroups } from "@/components/cards/MatchDayGroups";
 import { LeaderboardTable } from "@/components/leaderboard/LeaderboardTable";
@@ -79,7 +82,18 @@ export function TournamentView({
     // event's own mark rather than a generic bracket glyph.
     //
     // Each event flies its own mark rather than a generic bracket glyph.
-    ...(t.skin === "porto"
+    ...(t.skin === "epl"
+      ? [
+          {
+            id: "predictor" as Tab,
+            label: "Інтерактиви",
+            icon: EplMark,
+            // Локап вертикальний (582×779), тож по висоті, як і решта
+            // неквадратних знаків у цьому рядку.
+            iconClass: "h-4 w-auto shrink-0",
+          },
+        ]
+      : t.skin === "porto"
       ? [
           {
             id: "predictor" as Tab,
@@ -379,7 +393,9 @@ export function TournamentView({
               <h2 className="text-sm font-bold uppercase tracking-wide text-ink-muted">
                 Сітка турніру
               </h2>
-              {t.skin === "porto" ? (
+              {t.skin === "epl" ? (
+                <SwissBracket matches={matches} teamSlugs={t.teamSlugs} />
+              ) : t.skin === "porto" ? (
                 <PortoBracket matches={matches} />
               ) : (
                 <EwcBracket matches={matches} />
@@ -427,7 +443,11 @@ export function TournamentView({
           one-shot entry; every other tournament gets the sandbox simulator,
           which saves nothing and pays nothing. */}
       {tab === "predictor" &&
-        (t.skin === "porto" ? (
+        (t.skin === "epl" ? (
+          <div className="space-y-3">
+            <EplSwissCard teamSlugs={t.teamSlugs} />
+          </div>
+        ) : t.skin === "porto" ? (
           <div className="space-y-3">
             <PortoGroupCard />
             <MyDuels matches={matches} />
@@ -461,7 +481,13 @@ export function TournamentView({
               rows={leaderboard}
               blastPoints={t.skin === "blast"}
               pointsIcon={
-                t.skin === "ewc" ? "points-ewc" : t.skin === "porto" ? "points-porto" : "points"
+                t.skin === "ewc"
+                  ? "points-ewc"
+                  : t.skin === "porto"
+                    ? "points-porto"
+                    : t.skin === "epl"
+                      ? "points-epl"
+                      : "points"
               }
               // A streak belongs to a player across the season, not to one
               // tournament, so no event board carries the column.
