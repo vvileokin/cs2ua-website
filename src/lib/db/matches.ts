@@ -217,10 +217,17 @@ export const getLiveTeamMatches = cache(async function getLiveTeamMatches(): Pro
   const out = new Map<string, Match>();
   try {
     const sb = await createClient();
+    /* Вікно, бо «live» у базі — це не завжди живе. Статус ставить людина, і
+       матчі, які ніхто не закрив, лишаються живими місяцями: у рядку команди
+       тоді світився рахунок із позаминулого турніру. Серія BO5 триває годин
+       шість, тож усе, що почалося понад дванадцять годин тому, живим уже бути
+       не може, хоч би що казала колонка. */
+    const since = new Date(Date.now() - 12 * 3600_000).toISOString();
     const { data } = await sb
       .from("matches")
       .select("*")
       .eq("status", "live")
+      .gte("start_at", since)
       .order("start_at", { ascending: true, nullsFirst: false });
 
     for (const row of data ?? []) {
