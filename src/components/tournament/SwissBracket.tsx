@@ -3,30 +3,35 @@
 import * as React from "react";
 import { Link } from "@/i18n/navigation";
 import { TeamLogo } from "@/components/ui/TeamLogo";
-import { getTeam, slotTimeLabel, type Match } from "@/lib/data";
+import { getTeam, type Match } from "@/lib/data";
 import { swissState, SWISS_THROUGH, SWISS_OUT, SWISS_BUCKET_SIZE } from "@/lib/swiss";
 import { cn } from "@/lib/utils";
 
 /**
- * Швейцарка EPL S24 — повна форма турніру, а не те, що встигли зіграти.
+ * Швейцарка EPL S24 — уся форма турніру одразу, а не те, що встигли зіграти.
  *
- * Колонки стоять так, як поле ділиться: спільний старт 0:0, далі гілка
- * переможців угору, програлих униз, і з кожним туром на одну пару менше.
- * Праворуч — два підсумки: хто вже вийшов і хто вже вилетів, розкладені за
- * рахунком, бо 3:0 і 3:2 — це різні історії, хоч обидві ведуть у плейоф.
+ * Колонки стоять так, як ділиться поле: спільний старт 0:0, далі гілка
+ * переможців угору, програлих униз, і останній тур 2:2, де шестеро грають за
+ * останні три місця. Праворуч два підсумки: хто вийшов і хто вилетів, за
+ * рахунком — 3:0 і 3:2 ведуть в один плейоф, але це різні історії.
  *
- * Порожні картки намальовані навмисне. Пари наступного туру стають відомі
- * тільки після поточного, і сітка, що росте з кожним днем, читається як
- * помилка; сітка, у якій видно всі місця з самого початку, читається як
- * турнір, у якому ще не все зіграно.
+ * Картка — це дві емблеми й «vs», і нічого більше. Герб тут єдине, що читач
+ * справді розпізнає з відстані, тож він великий, а плитка рівно така, щоб його
+ * тримати: перша версія була вдвічі довша, з годиною і форматом у шапці, і з
+ * неї читалися саме ті дві речі, яких у сітці й так ніхто не шукає.
+ *
+ * Порожні місця намальовані навмисне. Пари наступного туру стають відомі аж
+ * після поточного, і сітка, що росте на колонку щодня, читається як поламана;
+ * сітка, у якій усі місця видно з першого дня, читається як турнір, у якому
+ * ще є що грати.
  */
 export function SwissBracket({ matches, teamSlugs }: { matches: Match[]; teamSlugs: string[] }) {
   const state = React.useMemo(() => swissState(matches, teamSlugs), [matches, teamSlugs]);
   const col = (key: string) => state.columns.find((c) => c.key === key);
 
   return (
-    <div className="-mx-3 overflow-x-auto px-3 pb-1 sm:mx-0 sm:px-0">
-      <div className="flex min-w-[52rem] items-stretch gap-3">
+    <div className="-mx-3 overflow-x-auto px-3 pb-2 sm:mx-0 sm:px-0">
+      <div className="flex min-w-[58rem] items-start gap-4">
         <Stack>
           <SwissColumnView c={col("0-0")} />
         </Stack>
@@ -44,8 +49,9 @@ export function SwissBracket({ matches, teamSlugs }: { matches: Match[]; teamSlu
           <SwissColumnView c={col("1-2")} />
         </Stack>
         <Stack>
-          <Bucket title="Проходять" keys={SWISS_THROUGH} teams={state.through} tone="through" />
-          <Bucket title="Вилітають" keys={SWISS_OUT} teams={state.out} tone="out" />
+          <Bucket keys={SWISS_THROUGH} teams={state.through} tone="through" />
+          <SwissColumnView c={col("2-2")} />
+          <Bucket keys={SWISS_OUT} teams={state.out} tone="out" />
         </Stack>
       </div>
     </div>
@@ -53,15 +59,15 @@ export function SwissBracket({ matches, teamSlugs }: { matches: Match[]; teamSlu
 }
 
 function Stack({ children }: { children: React.ReactNode }) {
-  return <div className="flex min-w-[10.5rem] flex-1 flex-col gap-4">{children}</div>;
+  return <div className="flex w-[11rem] shrink-0 flex-col gap-5">{children}</div>;
 }
 
 function SwissColumnView({ c }: { c?: ReturnType<typeof swissState>["columns"][number] }) {
   if (!c) return null;
   return (
-    <section className="space-y-1.5">
-      <p className="font-mono text-[0.6875rem] font-bold tracking-wide text-white/40">{c.label}</p>
-      <div className="space-y-1.5">
+    <section className="space-y-2">
+      <p className="font-mono text-sm font-bold text-white/55">{c.label}</p>
+      <div className="space-y-2">
         {c.cells.map((cell, i) => (
           <Pair key={cell.match?.id ?? `${c.key}-${i}`} cell={cell} />
         ))}
@@ -70,7 +76,13 @@ function SwissColumnView({ c }: { c?: ReturnType<typeof swissState>["columns"][n
   );
 }
 
-/** Одна пара. Зіграна показує рахунок, майбутня — час, невідома — питальники. */
+/**
+ * Одна пара.
+ *
+ * Зіграна показує рахунок під гербами, майбутня — нічого: час матчу живе на
+ * його сторінці, а тут він додавав рядок до кожної з двадцяти семи плиток і
+ * робив колонку вдвічі довшою за те, що в ній намальовано.
+ */
 function Pair({ cell }: { cell: { match?: Match; a?: string; b?: string } }) {
   const m = cell.match;
   const done = m?.status === "finished";
@@ -80,26 +92,18 @@ function Pair({ cell }: { cell: { match?: Match; a?: string; b?: string } }) {
   const body = (
     <div
       className={cn(
-        "rounded-lg bg-black/35 px-2 py-1.5 shadow-[inset_0_0_0_1px_rgb(var(--skin-ring)/0.16)]",
-        live && "shadow-[inset_0_0_0_1px_rgb(var(--skin-ring)/0.55)]",
+        "flex items-center justify-center gap-2 rounded-lg bg-black/30 px-2 py-2 shadow-[inset_0_0_0_1px_rgb(var(--skin-ring)/0.14)]",
+        live && "bg-[rgb(var(--skin-glow)/0.12)] shadow-[inset_0_0_0_1px_rgb(var(--skin-ring)/0.6)]",
       )}
     >
-      {m && (
-        <p className="mb-1 flex items-center justify-between text-[0.5625rem] font-semibold uppercase tracking-wide text-white/35">
-          <span>{m.startISO ? slotTimeLabel(m.startISO) : "TBD"}</span>
-          {live && <span className="text-[rgb(var(--skin-ring))]">live</span>}
-        </p>
-      )}
-      <div className="flex items-center gap-1.5">
-        <Corner slug={cell.a} score={m && done ? m.scoreA : undefined} won={winner === m?.a} />
-        <span className="shrink-0 text-[0.5625rem] font-bold uppercase text-white/25">vs</span>
-        <Corner slug={cell.b} score={m && done ? m.scoreB : undefined} won={winner === m?.b} align="right" />
-      </div>
+      <Corner slug={cell.a} score={done ? m?.scoreA : undefined} won={winner === m?.a} />
+      <span className="shrink-0 text-[0.625rem] font-bold uppercase text-white/25">vs</span>
+      <Corner slug={cell.b} score={done ? m?.scoreB : undefined} won={winner === m?.b} />
     </div>
   );
 
   return m ? (
-    <Link href={`/matches/${m.id}`} className="block transition-opacity hover:opacity-90">
+    <Link href={`/matches/${m.id}`} className="block transition-opacity hover:opacity-85">
       {body}
     </Link>
   ) : (
@@ -107,36 +111,21 @@ function Pair({ cell }: { cell: { match?: Match; a?: string; b?: string } }) {
   );
 }
 
-function Corner({
-  slug,
-  score,
-  won,
-  align,
-}: {
-  slug?: string;
-  score?: number;
-  won?: boolean;
-  align?: "right";
-}) {
+function Corner({ slug, score, won }: { slug?: string; score?: number; won?: boolean }) {
   const t = slug ? getTeam(slug) : undefined;
   return (
-    <div
-      className={cn(
-        "flex min-w-0 flex-1 items-center gap-1.5",
-        align === "right" && "flex-row-reverse",
-      )}
-    >
+    <div className="flex flex-col items-center gap-0.5">
       {t ? (
-        <TeamLogo team={t} size="xs" />
+        <TeamLogo team={t} size="cardCrest" />
       ) : (
-        <span className="grid size-5 shrink-0 place-items-center rounded bg-white/5 text-[0.625rem] font-bold text-white/30">
+        <span className="grid size-[2.125rem] place-items-center rounded-md bg-white/[0.06] text-xs font-bold text-white/25">
           ?
         </span>
       )}
       {score !== undefined && (
         <span
           className={cn(
-            "tnum shrink-0 font-mono text-[0.6875rem] font-bold",
+            "tnum font-mono text-[0.6875rem] font-bold leading-none",
             won ? "text-[rgb(var(--skin-ring))]" : "text-white/40",
           )}
         >
@@ -150,17 +139,15 @@ function Corner({
 /**
  * Підсумковий кошик.
  *
- * Зелений і червоний тут — не прикраса, а єдине місце на сторінці, де колір
- * щось означає: турнір ділить поле надвоє, і ці дві панелі і є той поділ.
- * Місця в кошику видно наперед — їх рівно стільки, скільки туди поміститься.
+ * Зелений і червоний — єдине місце на сторінці, де колір щось означає: турнір
+ * ділить поле надвоє, і ці дві панелі і є той поділ. Місця видно наперед, бо
+ * їх завжди стільки, скільки туди поміститься.
  */
 function Bucket({
-  title,
   keys,
   teams,
   tone,
 }: {
-  title: string;
   keys: readonly string[];
   teams: Record<string, string[]>;
   tone: "through" | "out";
@@ -168,40 +155,37 @@ function Bucket({
   return (
     <section
       className={cn(
-        "space-y-2 rounded-xl p-2.5",
+        "flex gap-3 rounded-xl p-2.5",
         tone === "through"
-          ? "bg-[color-mix(in_oklch,oklch(0.62_0.17_150)_22%,transparent)] shadow-[inset_0_0_0_1px_color-mix(in_oklch,oklch(0.62_0.17_150)_45%,transparent)]"
-          : "bg-[color-mix(in_oklch,oklch(0.55_0.2_25)_22%,transparent)] shadow-[inset_0_0_0_1px_color-mix(in_oklch,oklch(0.55_0.2_25)_45%,transparent)]",
+          ? "bg-[color-mix(in_oklch,oklch(0.6_0.19_148)_26%,transparent)] shadow-[inset_0_0_0_1px_color-mix(in_oklch,oklch(0.6_0.19_148)_55%,transparent)]"
+          : "bg-[color-mix(in_oklch,oklch(0.52_0.21_27)_26%,transparent)] shadow-[inset_0_0_0_1px_color-mix(in_oklch,oklch(0.52_0.21_27)_55%,transparent)]",
       )}
     >
-      <p className="text-[0.625rem] font-bold uppercase tracking-wide text-white/55">{title}</p>
-      <div className="space-y-2">
-        {keys.map((k) => {
-          const slots = SWISS_BUCKET_SIZE[k] ?? 0;
-          const list = teams[k] ?? [];
-          return (
-            <div key={k} className="space-y-1">
-              <p className="font-mono text-[0.6875rem] font-bold text-white/70">{k.replace("-", ":")}</p>
-              <div className="flex flex-wrap gap-1">
-                {Array.from({ length: slots }, (_, i) => {
-                  const slug = list[i];
-                  const t = slug ? getTeam(slug) : undefined;
-                  return t ? (
-                    <TeamLogo key={slug} team={t} size="sm" />
-                  ) : (
-                    <span
-                      key={`${k}-${i}`}
-                      className="grid size-7 place-items-center rounded-md bg-black/30 text-[0.625rem] font-bold text-white/25"
-                    >
-                      ?
-                    </span>
-                  );
-                })}
-              </div>
+      {keys.map((k) => {
+        const slots = SWISS_BUCKET_SIZE[k] ?? 0;
+        const list = teams[k] ?? [];
+        return (
+          <div key={k} className="flex-1 space-y-1.5">
+            <p className="text-center font-mono text-xs font-bold text-white">{k.replace("-", ":")}</p>
+            <div className="flex flex-col items-center gap-1.5">
+              {Array.from({ length: slots }, (_, i) => {
+                const slug = list[i];
+                const t = slug ? getTeam(slug) : undefined;
+                return t ? (
+                  <TeamLogo key={slug} team={t} size="cardCrest" />
+                ) : (
+                  <span
+                    key={`${k}-${i}`}
+                    className="grid size-[2.125rem] place-items-center rounded-md bg-black/25 text-xs font-bold text-white/25"
+                  >
+                    ?
+                  </span>
+                );
+              })}
             </div>
-          );
-        })}
-      </div>
+          </div>
+        );
+      })}
     </section>
   );
 }

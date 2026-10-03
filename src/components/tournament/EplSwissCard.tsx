@@ -101,22 +101,14 @@ export function EplSwissCard({ teamSlugs }: { teamSlugs: string[] }) {
 
   return (
     <div className="skin-aura-card space-y-4 rounded-xl p-3 sm:p-4">
-      <div className="space-y-1">
-        <h2 className="text-base font-bold text-white">Картка швейцарки</h2>
-        <p className="text-sm text-white/55">
-          Швейцарка на шістнадцять завжди закінчується однаково: двоє виходять 3-0, троє 3-1,
-          троє 3-2, троє вилітають 2-3, троє 1-3, двоє 0-3. Розсади все поле по цих кошиках.
-        </p>
-      </div>
-
-      {/* Ціни. Крайні кошики вузькі — туди треба назвати не найсильнішого,
-          а того, хто пройде без поразки, і не найслабшого, а того, хто
-          посиплеться повністю. */}
-      <dl className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs sm:grid-cols-4">
-        <Price label="3:0 або 0:3" value={EPL_SCORING.exact["3-0"]} />
-        <Price label="середній кошик" value={EPL_SCORING.exact["3-1"]} />
-        <Price label="сторона вгадана" value={EPL_SCORING.side} />
-        <Price label="уся картка" value={EPL_SCORING.perfect} />
+      {/* Жодного заголовка з абзацом: кошики підписані самі собою, а правила
+          коротші за пояснення, чим вони є. Ціни і є інструкція — з них видно
+          і що робити, і за що платять. */}
+      <dl className="grid grid-cols-1 gap-1.5 text-xs sm:grid-cols-2">
+        <Price label="Точний рахунок 3:0 або 0:3" value={EPL_SCORING.exact["3-0"]} />
+        <Price label="Точний рахунок 3:1, 3:2, 2:3, 1:3" value={EPL_SCORING.exact["3-1"]} />
+        <Price label="Команда пройшла чи вилетіла, але з іншим рахунком" value={EPL_SCORING.side} />
+        <Price label="Уся картка без помилок" value={EPL_SCORING.perfect} />
       </dl>
 
       {/* Кошики. Повний кошик перестає приймати, тож неправильну картку не
@@ -243,9 +235,9 @@ export function EplSwissCard({ teamSlugs }: { teamSlugs: string[] }) {
 
 function Price({ label, value }: { label: string; value: number }) {
   return (
-    <div className="flex items-center justify-between gap-2 sm:block">
-      <dt className="text-white/45">{label}</dt>
-      <dd className="font-mono font-bold text-white">+{value}</dd>
+    <div className="flex items-baseline justify-between gap-3 rounded-md bg-black/20 px-2 py-1.5">
+      <dt className="min-w-0 text-white/60">{label}</dt>
+      <dd className="shrink-0 font-mono font-bold text-[rgb(var(--skin-ring))]">+{value}</dd>
     </div>
   );
 }

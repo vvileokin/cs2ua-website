@@ -197,6 +197,22 @@ export function eventPointsLabel(): string {
   return live ? `${live.shortName} Points` : "івент-поінти";
 }
 
+/**
+ * Турнір, який іде просто зараз і має свою валюту.
+ *
+ * Один на весь сайт: івент-гаманець у профілі один, і поки він належить
+ * турніру, цей турнір і є відповіддю. Між івентами — нічого, і тоді гаманця
+ * нема на що показувати.
+ */
+export function runningEvent(): Tournament | undefined {
+  return tournaments.find((t) => t.skin && t.status !== "finished");
+}
+
+/** Яким каменем малюється валюта турніру. */
+export function eventGem(skin?: EventSkin | null): "points" | "points-ewc" | "points-porto" | "points-epl" {
+  return skin === "ewc" ? "points-ewc" : skin === "porto" ? "points-porto" : skin === "epl" ? "points-epl" : "points";
+}
+
 export function isAuraSkin(skin?: EventSkin | null): boolean {
   return skin === "ewc" || skin === "porto" || skin === "epl";
 }
@@ -415,9 +431,10 @@ export const allTournaments: Tournament[] = [
     format: "Швейцарка (BO3) → плейоф",
     coverImage: "/brand/epl-cover.webp",
     heroImage: "/brand/hero-epl.webp",
-    /* Жовта з емблеми турніру, переведена в oklch: картка світиться тим самим
-       кольором, що й сам логотип, а не абстрактним золотом. */
-    accent: "oklch(0.92 0.2 109)",
+    /* Зелена з ключового артворку, а не з емблеми: на фото жовта лягає на
+       бетон і стає оливковою, і картка має світитися тим кольором, який
+       читач бачить на самому банері. */
+    accent: "oklch(0.78 0.16 118)",
     skin: "epl",
   },
 ];

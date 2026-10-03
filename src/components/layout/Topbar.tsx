@@ -7,6 +7,7 @@ import { Bell, Target, Swords, Gift, TrendingUp, Check, LogIn, Loader2, X } from
 import { Brand } from "./Brand";
 import { Avatar } from "@/components/ui/Avatar";
 import { BrandIcon } from "@/components/ui/BrandIcon";
+import { runningEvent, eventGem } from "@/lib/data";
 import { displayName } from "@/lib/supabase/use-user";
 import { useProfile, refreshProfile } from "@/lib/supabase/use-profile";
 import { createClient } from "@/lib/supabase/client";
@@ -176,6 +177,10 @@ export function Topbar() {
   const handle = profile?.handle || (user ? displayName(user) : "");
   const points = profile?.points ?? 0;
   const streak = profile?.streak ?? 0;
+  /* Гаманець турніру, поки турнір іде. Між івентами його тут нема: число, яке
+     нема куди витратити, перетворює капсулу на нагадування про минуле. */
+  const event = runningEvent();
+  const eventPoints = profile?.event_points ?? 0;
   return (
     /* Impeccable: Crafted Top Bar — opaque, in the canvas's own colour, with no
        seam under it. It used to be 78% surface over a blur, so scrolled content
@@ -233,6 +238,24 @@ export function Topbar() {
             {formatInt(points)}
           </span>
         </Link>
+
+        {/* Гаманець івенту. Той самий камінь, що і в самому турнірі, і
+            кольори беруться з його палітри — `data-skin` на самій капсулі,
+            бо верхній бар живе поза сторінкою турніру і нічого про нього не
+            знає. */}
+        {event && (
+          <Link
+            href={`/tournaments/${event.slug}`}
+            data-skin={event.skin}
+            aria-label={`${formatInt(eventPoints)} ${event.shortName}`}
+            className="flex h-8 items-center gap-1 rounded-full bg-[rgb(var(--skin-glow)/0.16)] pl-1.5 pr-2.5 shadow-[0_0_0_1px_rgb(var(--skin-ring)/0.35)] transition-colors hover:bg-[rgb(var(--skin-glow)/0.24)] sm:h-10 sm:gap-1.5 sm:pl-2 sm:pr-3.5"
+          >
+            <BrandIcon name={eventGem(event.skin)} className="size-4 sm:size-5" priority />
+            <span className="tnum font-mono text-xs font-extrabold leading-none text-[rgb(var(--skin-ring))] sm:text-sm">
+              {formatInt(eventPoints)}
+            </span>
+          </Link>
+        )}
 
         {/* The event balance is gone with the event.
 
