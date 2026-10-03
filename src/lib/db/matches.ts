@@ -3,7 +3,7 @@ import { cache } from "react";
 import { createClient } from "@/lib/supabase/server";
 import { inkForColor, playedMaps, seriesScore, type Match, type Team } from "@/lib/data";
 
-type Row = {
+export type Row = {
   id: string;
   tournament_slug: string;
   is_event: boolean;
@@ -90,7 +90,7 @@ function deriveState(m: Match): Match {
   };
 }
 
-function toMatch(r: Row): Match {
+export function toMatch(r: Row): Match {
   return deriveState({
     id: r.id,
     tournamentSlug: r.tournament_slug,

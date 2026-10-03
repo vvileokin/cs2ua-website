@@ -17,6 +17,17 @@ import { EPL_SLUG, isCompleteCard, type EplSwissPicks } from "@/lib/epl-swiss";
  */
 async function cardOpen(): Promise<{ open: boolean; closesAt: string | null }> {
   const admin = createAdminClient();
+
+  /* Ручний замок адміна старший за годинник, але тільки в один бік: він уміє
+     зачинити раніше, ніж почнеться другий тур, і не вміє тримати картку
+     відкритою після нього. Відсутня колонка читається як «не закривали». */
+  const { data: settings } = await admin
+    .from("site_settings")
+    .select("epl_swiss_closed")
+    .eq("id", 1)
+    .maybeSingle();
+  if (settings?.epl_swiss_closed) return { open: false, closesAt: null };
+
   const { data } = await admin
     .from("matches")
     .select("stage, status, start_at")

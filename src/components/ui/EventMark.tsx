@@ -30,8 +30,11 @@ export function EventMark({
     return <PortoMark className={cn(caps ? "h-2.5" : "h-3.5", "w-auto shrink-0", className)} />;
   if (skin === "ewc")
     return <EwcMark className={cn(caps ? "h-[0.4375rem]" : "h-2", "w-auto shrink-0", className)} />;
+  /* EPL вищий за решту навмисно. Локап вертикальний (582×779): на висоті рядка
+     він виходив 12 пікселів завширшки, і емблема з написом «PRO LEAGUE»
+     зливалися в заокруглену пляму, у якій не впізнати ні того, ні того. */
   if (skin === "epl")
-    return <EplMark className={cn(caps ? "h-3" : "h-4", "w-auto shrink-0", className)} />;
+    return <EplMark className={cn(caps ? "h-4" : "h-6", "w-auto shrink-0", className)} />;
   if (skin === "blast")
     return <BlastMark className={cn(caps ? "size-[0.6875rem]" : "size-3.5", "shrink-0", className)} />;
   return null;

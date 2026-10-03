@@ -15,7 +15,9 @@ export type AuditArea =
   /** One-shot playoff bracket payouts. */
   | "bracket"
   /** One-shot 0-2 club payouts, a group at a time. */
-  | "porto";
+  | "porto"
+  /** Картка швейцарки EPL: замок і разовий розрахунок. */
+  | "epl";
 
 /**
  * Record one admin action. Called after the change lands, so the log only shows

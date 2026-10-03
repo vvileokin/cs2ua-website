@@ -109,9 +109,6 @@ export default async function HomePage() {
       {currentTournaments.length > 0 && (
         <section className="space-y-2.5 sm:space-y-4">
           <SectionHeader icon={TrophyGlyph} title={t("currentTournaments")} href="/tournaments" />
-          {/* Тут картка лишається звичайною, хоч турнір і один: банер угорі
-              сторінки — це той самий турнір із тією ж обкладинкою, і широка
-              картка одразу під ним показала б те саме зображення двічі. */}
           <div className="grid grid-cols-1 gap-2 sm:gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {currentTournaments.map((t) => (
               <TournamentCard key={t.slug} t={t} />

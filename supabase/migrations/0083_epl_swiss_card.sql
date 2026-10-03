@@ -128,6 +128,10 @@ end;
 $$;
 
 revoke all on function public.score_epl_swiss(jsonb) from public, anon, authenticated;
+-- Повернути право службовому клієнту обов'язково: revoke від public забирає
+-- його і в service_role, і маршрут розрахунку дістав би «permission denied for
+-- function» на першому ж виклику. Так само зроблено у 0035 і 0070.
+grant execute on function public.score_epl_swiss(jsonb) to service_role;
 
 -- Перевірка:
 --   select public.epl_swiss_shape_ok('{"spirit":"3-0"}'::jsonb);                    -- false

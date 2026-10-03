@@ -9,21 +9,7 @@ import { Badge, LiveBadge } from "@/components/ui/Badge";
 import { getTeam, formatPrize, type Tournament, isAuraSkin } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
-export function TournamentCard({
-  t,
-  /**
-   * Єдиний турнір у розділі займає всю ширину.
-   *
-   * Сітка на три колонки з однією карткою в ній — це картка на чверть екрана і
-   * порожні дві третини поруч, і читається це як недовантажена сторінка, а не
-   * як «іде один турнір». Той самий об'єкт, розгорнутий на всю ширину: вища
-   * обкладинка, а назва і склад розходяться по боках.
-   */
-  featured = false,
-}: {
-  t: Tournament;
-  featured?: boolean;
-}) {
+export function TournamentCard({ t }: { t: Tournament }) {
   const tr = useTranslations("tournaments");
   const shown = t.teamSlugs.slice(0, 5);
   const extra = t.teamSlugs.length - shown.length;
@@ -59,7 +45,7 @@ export function TournamentCard({
           pre-scales it a hair, which kills the hairline seam the browser used
           to leave along the edge mid-zoom. */}
       <div
-        className={cn("cover-zoom relative overflow-hidden", featured ? "h-40 sm:h-56" : "h-28")}
+        className="cover-zoom relative h-28 overflow-hidden"
         style={{
           background: `radial-gradient(120% 140% at 15% 0%, color-mix(in oklch, ${t.accent} 38%, var(--surface)) 0%, color-mix(in oklch, ${t.accent} 12%, var(--surface)) 45%, var(--surface) 100%)`,
         }}
@@ -70,7 +56,7 @@ export function TournamentCard({
               src={t.coverImage}
               alt=""
               fill
-              sizes={featured ? "100vw" : "(max-width:640px) 100vw, (max-width:1024px) 50vw, 440px"}
+              sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 440px"
               quality={90}
               className="object-cover transition-transform duration-[var(--dur-slow)] ease-[var(--ease-out-soft)] will-change-transform group-hover:scale-[1.04] motion-reduce:transform-none"
             />
@@ -88,19 +74,8 @@ export function TournamentCard({
         </div>
       </div>
 
-      <div
-        className={cn(
-          "relative flex flex-1 flex-col gap-2.5 p-3.5 sm:gap-3 sm:p-4",
-          featured && "sm:flex-row sm:items-center sm:gap-6",
-        )}
-      >
-        <div className={cn(featured && "min-w-0 sm:flex-1 sm:space-y-2")}>
-        <h3
-          className={cn(
-            "font-bold leading-snug tracking-tight text-ink text-balance",
-            featured ? "text-lg sm:text-2xl" : "text-base",
-          )}
-        >
+      <div className="relative flex flex-1 flex-col gap-2.5 p-3.5 sm:gap-3 sm:p-4">
+        <h3 className="text-base font-bold leading-snug tracking-tight text-ink text-balance">
           {t.name}
         </h3>
 
@@ -119,21 +94,11 @@ export function TournamentCard({
           </div>
         </dl>
 
-        </div>
-
-        <div
-          className={cn(
-            "mt-auto flex items-center justify-between gap-2 pt-3 shadow-[0_-1px_0_0_color-mix(in_oklch,var(--ink)_7%,transparent)]",
-            /* Розгорнута картка ставить склад і призові поруч із назвою, а не
-               під нею: інакше рядок лишався б єдиним мешканцем смуги завширшки
-               з екран. */
-            featured && "sm:mt-0 sm:shrink-0 sm:gap-6 sm:pt-0 sm:shadow-none",
-          )}
-        >
+        <div className="mt-auto flex items-center justify-between gap-2 pt-3 shadow-[0_-1px_0_0_color-mix(in_oklch,var(--ink)_7%,transparent)]">
           <div className="flex items-center">
             <div className="flex -space-x-1.5">
               {shown.map((slug) => (
-                <TeamLogo key={slug} team={getTeam(slug)} size={featured ? "cardCrest" : "sm"} ring />
+                <TeamLogo key={slug} team={getTeam(slug)} size="sm" ring />
               ))}
             </div>
             {extra > 0 && (
@@ -145,8 +110,7 @@ export function TournamentCard({
           <span className="flex items-center gap-1">
             <span
               className={cn(
-                "tnum font-mono font-bold",
-                featured ? "text-base sm:text-xl" : "text-sm",
+                "tnum font-mono text-sm font-bold",
                 isAuraSkin(t.skin) ? "text-[rgb(var(--skin-ring))]" : "text-accent",
               )}
             >
