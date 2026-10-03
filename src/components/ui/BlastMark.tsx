@@ -9,6 +9,8 @@ export function BlastMark({
   return (
     <svg
       viewBox="0 0 139 166"
+      width={139}
+      height={166}
       fill="none"
       className={className}
       aria-hidden

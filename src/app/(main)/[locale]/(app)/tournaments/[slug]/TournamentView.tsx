@@ -89,9 +89,10 @@ export function TournamentView({
             id: "predictor" as Tab,
             label: "Інтерактиви",
             icon: EplMark,
-            // Локап вертикальний (582×779), тож по висоті, як і решта
-            // неквадратних знаків у цьому рядку.
-            iconClass: "h-4 w-auto shrink-0",
+            // Локап вертикальний (582×779): висота рядка, ширина в тій же
+            // пропорції. `w-auto` тут не підходить — Safari не виводить її з
+            // viewBox і малює знак на всю ширину вкладки.
+            iconClass: "h-4 w-3 shrink-0",
           },
         ]
       : t.skin === "porto"

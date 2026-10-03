@@ -26,15 +26,19 @@ export function EventMark({
   className?: string;
 }) {
   const caps = size === "caps";
+  /* Ширина задана числом, а не `w-auto`.
+
+     Safari на iPhone не виводить ширину SVG із viewBox: при height у 16px він
+     бере власну, і знак розповзався на півбанера, аж поки його не підрізав
+     заокруглений кут. Тому кожен знак отримує пару висота-ширина у своїй
+     пропорції, а самі компоненти — атрибути width/height, щоб браузер знав
+     співвідношення без CSS. */
   if (skin === "porto")
-    return <PortoMark className={cn(caps ? "h-2.5" : "h-3.5", "w-auto shrink-0", className)} />;
+    return <PortoMark className={cn(caps ? "h-2.5 w-3.5" : "h-3.5 w-5", "shrink-0", className)} />;
   if (skin === "ewc")
-    return <EwcMark className={cn(caps ? "h-[0.4375rem]" : "h-2", "w-auto shrink-0", className)} />;
-  /* 16 пікселів, як і решта знаків у рядку. Вищий локап краще читався сам по
-     собі, але в банері матчу він переростав рядок, у якому стоїть, і його
-     підрізав заокруглений кут банера. */
+    return <EwcMark className={cn(caps ? "h-[0.4375rem] w-[2.1875rem]" : "h-2 w-10", "shrink-0", className)} />;
   if (skin === "epl")
-    return <EplMark className={cn(caps ? "h-3" : "h-4", "w-auto shrink-0", className)} />;
+    return <EplMark className={cn(caps ? "h-3 w-[0.5625rem]" : "h-4 w-3", "shrink-0", className)} />;
   if (skin === "blast")
     return <BlastMark className={cn(caps ? "size-[0.6875rem]" : "size-3.5", "shrink-0", className)} />;
   return null;

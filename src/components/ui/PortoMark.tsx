@@ -11,7 +11,9 @@
  */
 export function PortoMark({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 232 166" fill="currentColor" aria-hidden className={className}>
+    <svg viewBox="0 0 232 166"
+      width={232}
+      height={166} fill="currentColor" aria-hidden className={className}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"

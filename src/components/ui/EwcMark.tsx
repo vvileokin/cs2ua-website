@@ -8,7 +8,9 @@
  */
 export function EwcMark({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 135 27" fill="currentColor" aria-hidden className={className}>
+    <svg viewBox="0 0 135 27"
+      width={135}
+      height={27} fill="currentColor" aria-hidden className={className}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"
