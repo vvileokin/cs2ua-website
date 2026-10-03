@@ -26,20 +26,44 @@ export function EventMark({
   className?: string;
 }) {
   const caps = size === "caps";
-  /* Ширина задана числом, а не `w-auto`.
+  /* Розмір стоїть і в класах, і інлайном.
 
-     Safari на iPhone не виводить ширину SVG із viewBox: при height у 16px він
-     бере власну, і знак розповзався на півбанера, аж поки його не підрізав
-     заокруглений кут. Тому кожен знак отримує пару висота-ширина у своїй
-     пропорції, а самі компоненти — атрибути width/height, щоб браузер знав
-     співвідношення без CSS. */
+     Ширина окремо від висоти, бо Safari на iPhone не виводить її з viewBox:
+     при `height: 16px` і `width: auto` він бере власну, і вертикальний локап
+     582×779 розповзається на півбанера, аж поки його не підріже заокруглений
+     кут картки. А інлайн — тому, що блокувальники реклами ріжуть окремі чанки
+     з /_next/static: сторінка лишається оформленою з інших чанків, але саме
+     цього класу вже немає, і знак знову стає на весь екран. Інлайновий стиль
+     не залежить від того, чи доїхав CSS. */
+  const box = (w: number, h: number) => ({ width: w, height: h });
+
   if (skin === "porto")
-    return <PortoMark className={cn(caps ? "h-2.5 w-3.5" : "h-3.5 w-5", "shrink-0", className)} />;
+    return (
+      <PortoMark
+        className={cn(caps ? "h-2.5 w-3.5" : "h-3.5 w-5", "shrink-0", className)}
+        style={caps ? box(14, 10) : box(20, 14)}
+      />
+    );
   if (skin === "ewc")
-    return <EwcMark className={cn(caps ? "h-[0.4375rem] w-[2.1875rem]" : "h-2 w-10", "shrink-0", className)} />;
+    return (
+      <EwcMark
+        className={cn(caps ? "h-[0.4375rem] w-[2.1875rem]" : "h-2 w-10", "shrink-0", className)}
+        style={caps ? box(35, 7) : box(40, 8)}
+      />
+    );
   if (skin === "epl")
-    return <EplMark className={cn(caps ? "h-3 w-[0.5625rem]" : "h-4 w-3", "shrink-0", className)} />;
+    return (
+      <EplMark
+        className={cn(caps ? "h-3 w-[0.5625rem]" : "h-4 w-3", "shrink-0", className)}
+        style={caps ? box(9, 12) : box(12, 16)}
+      />
+    );
   if (skin === "blast")
-    return <BlastMark className={cn(caps ? "size-[0.6875rem]" : "size-3.5", "shrink-0", className)} />;
+    return (
+      <BlastMark
+        className={cn(caps ? "size-[0.6875rem]" : "size-3.5", "shrink-0", className)}
+        style={caps ? box(11, 11) : box(14, 14)}
+      />
+    );
   return null;
 }

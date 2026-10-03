@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 /**
  * EWC 2026 wordmark. Takes its colour from `currentColor`, the same way
  * `BlastMark` does, so it inherits the yellow wherever an event mark sits
@@ -6,11 +7,12 @@
  * The artwork is a wide lockup (135×27, ratio 5:1), so call sites set a
  * height and leave the width to `w-auto` — a square size class would squash it.
  */
-export function EwcMark({ className }: { className?: string }) {
+export function EwcMark({ className, style }: { className?: string; style?: CSSProperties }) {
   return (
     <svg viewBox="0 0 135 27"
       width={135}
-      height={27} fill="currentColor" aria-hidden className={className}>
+      height={27} fill="currentColor" aria-hidden className={className}
+      style={style}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"

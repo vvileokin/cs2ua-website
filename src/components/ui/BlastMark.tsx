@@ -1,9 +1,12 @@
+import type { CSSProperties } from "react";
 /** BLAST logo mark (replaces the generic crosshair). Inherits currentColor.
  *  Accepts an ignored `strokeWidth` so it's a drop-in for lucide icon slots. */
 export function BlastMark({
   className,
+  style,
 }: {
   className?: string;
+  style?: CSSProperties;
   strokeWidth?: number;
 }) {
   return (
@@ -13,6 +16,7 @@ export function BlastMark({
       height={166}
       fill="none"
       className={className}
+      style={style}
       aria-hidden
       xmlns="http://www.w3.org/2000/svg"
     >

@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 /**
  * BLAST Open Porto 2026 lockup — the A-mark over ŌPEN PORTO, one path.
  *
@@ -9,11 +10,12 @@
  * so an inline use wants a height near the surrounding text's cap height rather
  * than the hairline value the EWC strip takes.
  */
-export function PortoMark({ className }: { className?: string }) {
+export function PortoMark({ className, style }: { className?: string; style?: CSSProperties }) {
   return (
     <svg viewBox="0 0 232 166"
       width={232}
-      height={166} fill="currentColor" aria-hidden className={className}>
+      height={166} fill="currentColor" aria-hidden className={className}
+      style={style}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"

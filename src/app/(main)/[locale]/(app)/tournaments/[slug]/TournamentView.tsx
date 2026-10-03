@@ -112,7 +112,7 @@ export function TournamentView({
             // to a smudge at tab size. 139×166 is taller than wide, so it is
             // height-matched — a square class fits it by width and leaves it
             // short, the same fault the roster glyph had.
-            iconClass: "h-4 w-auto shrink-0",
+            iconClass: "h-4 w-[1.375rem] shrink-0",
           },
         ]
       : [
@@ -126,7 +126,7 @@ export function TournamentView({
                 // cap height of the label beside it — a 5:1 lockup carries far
                 // more ink across than a letter does, so equal height reads as
                 // bigger.
-                iconClass: "h-2 w-auto shrink-0",
+                iconClass: "h-2 w-10 shrink-0",
               }
             : { id: "predictor" as Tab, label: "Прогнозатор", icon: GitFork },
         ]),
