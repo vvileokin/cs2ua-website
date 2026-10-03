@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import { Link } from "@/i18n/navigation";
 import { TeamLogo } from "@/components/ui/TeamLogo";
+import { EventMark } from "@/components/ui/EventMark";
 import { MajorMode } from "@/components/major/MajorMode";
-import { findTeam } from "@/lib/data";
+import { findTeam, getTeam, matchSkin, type Match } from "@/lib/data";
+import { getLiveTeamMatches } from "@/lib/db/matches";
 import {
   getMajorProjection, regionTeams, ourTeams, stageOf,
   type MajorTeam, type MajorRegion, type MajorSlots,
@@ -40,7 +43,7 @@ const tone = (p: number) =>
   : "var(--ink-faint)";
 
 export default async function MajorPage() {
-  const data = await getMajorProjection();
+  const [data, playing] = await Promise.all([getMajorProjection(), getLiveTeamMatches()]);
 
   if (!data) {
     return (
@@ -102,10 +105,10 @@ export default async function MajorPage() {
           below is a minimum, and whatever height this column has spare goes
           there rather than inside a card. */}
       <section className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-        <RegionTable data={data} region="europe" since={since} />
+        <RegionTable data={data} region="europe" since={since} playing={playing} />
         <div className="flex min-h-0 flex-col justify-between gap-5">
-          <RegionTable data={data} region="americas" since={since} />
-          <RegionTable data={data} region="asia" since={since} />
+          <RegionTable data={data} region="americas" since={since} playing={playing} />
+          <RegionTable data={data} region="asia" since={since} playing={playing} />
         </div>
       </section>
 
@@ -250,12 +253,14 @@ function StageChip({ stage, place }: { stage: 3 | 2 | 1 | 0; place: number }) {
  * unreadable — the workbook says "Stage 3" and so does this.
  */
 function RegionTable({
-  data, region, since,
+  data, region, since, playing,
 }: {
   data: NonNullable<Awaited<ReturnType<typeof getMajorProjection>>>;
   region: MajorRegion;
   /** Human label for the window the movement badge measures. */
   since: string;
+  /** Хто з цих команд грає просто зараз, за слагом. */
+  playing: Map<string, Match>;
 }) {
   const slots = data.meta.slots[region];
   const rows = regionTeams(data, region).slice(0, DEPTH[region]);
@@ -306,6 +311,9 @@ function RegionTable({
                   <span className="size-5 shrink-0 rounded bg-fill-1" />
                 )}
                 <span className="min-w-0 flex-1 truncate font-semibold text-ink">{t.team}</span>
+                {t.slug && playing.get(t.slug) && (
+                  <PlayingNow slug={t.slug} match={playing.get(t.slug)!} />
+                )}
                 <StageMark stage={stage} />
                 <span className="flex w-[5.75rem] shrink-0 items-center justify-end gap-2.5">
                   <Move move={t.move} since={since} />
@@ -332,6 +340,44 @@ function RegionTable({
         })}
       </div>
     </div>
+  );
+}
+
+/**
+ * Що з цією командою відбувається просто зараз.
+ *
+ * Таблиця ймовірностей статична за означенням: вона показує стан на дату
+ * знімка, і поки B8 грає матч, який цей стан і змінює, рядок про це мовчав.
+ * Тут той самий рядок каже, з ким вона грає, з яким рахунком — і веде на матч.
+ *
+ * Тільки знак турніру, суперник і рахунок: рядок і так тісний, а все інше про
+ * матч стоїть на його власній сторінці, до якої звідси один дотик.
+ */
+function PlayingNow({ slug, match }: { slug: string; match: Match }) {
+  const oppSlug = match.a === slug ? match.b : match.a;
+  const mine = match.a === slug ? match.scoreA : match.scoreB;
+  const theirs = match.a === slug ? match.scoreB : match.scoreA;
+  const skin = matchSkin(match);
+
+  return (
+    <Link
+      href={`/matches/${match.id}`}
+      data-skin={skin}
+      title={`${getTeam(match.a).name} vs ${getTeam(match.b).name}`}
+      className="flex shrink-0 items-center gap-1.5 rounded-md bg-live/15 px-1.5 py-0.5 text-[0.6875rem] font-semibold text-live transition-colors hover:bg-live/25 max-sm:hidden"
+    >
+      {/* Знак турніру і герб суперника гаснуть у вузьких таблицях: Америка і
+          Азія стоять у половинній колонці, і там рядок має лишити місце назві
+          команди, а не розповідати все про матч. Повну пару називає підказка. */}
+      {skin ? <EventMark skin={skin} className="text-live max-xl:hidden" /> : null}
+      <span className="max-xl:hidden">
+        <TeamLogo team={getTeam(oppSlug)} size="xs" />
+      </span>
+      <span className="live-dot inline-block size-1.5 shrink-0 rounded-full bg-live xl:hidden" />
+      <span className="tnum font-mono font-bold">
+        {mine}:{theirs}
+      </span>
+    </Link>
   );
 }
 

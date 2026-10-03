@@ -194,3 +194,41 @@ export const getMatchById = cache(async function getMatchById(
   }
   return undefined;
 });
+
+/**
+ * Матчі, що йдуть просто зараз, за слагом команди.
+ *
+ * Для сторінки інвайтів: таблиця ймовірностей статична за означенням — вона
+ * показує стан на дату знімка, — і поки B8 грає матч, який цей стан і змінює,
+ * рядок про це мовчить.
+ *
+ * Тільки живі. Спершу сюди потрапляли й найближчі за розкладом, але рядок
+ * регіональної таблиці завширшки з триста пікселів, і чип із часом з'їдав саме
+ * назву команди, заради якої рядок існує. До того ж у базі лишаються матчі зі
+ * статусом «upcoming» і датою в минулому — їх ніхто не закрив, і вони чесно
+ * проходили будь-який фільтр «найближчі». Живий матч такої двозначності не
+ * має: він або йде, або ні.
+ *
+ * Обидві сторони потрапляють у мапу, тож пара знаходиться з будь-якого боку.
+ */
+export const getLiveTeamMatches = cache(async function getLiveTeamMatches(): Promise<
+  Map<string, Match>
+> {
+  const out = new Map<string, Match>();
+  try {
+    const sb = await createClient();
+    const { data } = await sb
+      .from("matches")
+      .select("*")
+      .eq("status", "live")
+      .order("start_at", { ascending: true, nullsFirst: false });
+
+    for (const row of data ?? []) {
+      const m = toMatch(row as Row);
+      for (const slug of [m.a, m.b]) if (!out.has(slug)) out.set(slug, m);
+    }
+  } catch {
+    /* Порожня мапа — сторінка просто не малює рядків про матчі. */
+  }
+  return out;
+});
