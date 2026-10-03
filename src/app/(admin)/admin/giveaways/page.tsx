@@ -629,6 +629,7 @@ export default function GiveawaysAdmin() {
                 onChange={(e) => setForm({ ...form, entryCurrency: e.target.value })}
               >
                 <option value="points">Поінти</option>
+                <option value="event">Поінти івенту (зелені)</option>
                 <option value="ewc">EWC Points</option>
               </select>
             </GField>

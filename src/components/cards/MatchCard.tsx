@@ -6,9 +6,7 @@ import { TargetGlyph } from "@/components/layout/NavGlyphs";
 import { TeamLogo } from "@/components/ui/TeamLogo";
 import { BrandIcon } from "@/components/ui/BrandIcon";
 import { LiveBadge } from "@/components/ui/Badge";
-import { BlastMark } from "@/components/ui/BlastMark";
-import { PortoMark } from "@/components/ui/PortoMark";
-import { EwcMark } from "@/components/ui/EwcMark";
+import { EventMark } from "@/components/ui/EventMark";
 import {
   getTournament,
   matchSkin,
@@ -17,6 +15,7 @@ import {
   type Match,
   type Team,
   isAuraSkin,
+  eventGem,
 } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
@@ -135,17 +134,15 @@ export function MatchCard({ match }: { match: Match }) {
               decoding="async"
               className="size-3.5 shrink-0 object-contain"
             />
-          ) : skin === "porto" ? (
-            /* The full lockup here: a match card names its tournament in words
-               beside the mark, so the mark is free to be the event's own. The
-               tournament page carries the bare BLAST mark instead, because
-               there it sits at tab and chip sizes where `ŌPEN` stacked under
-               the A has no room to be a word. */
-            <PortoMark className="h-3.5 w-auto shrink-0 text-[rgb(var(--skin-ring))]" />
-          ) : skin === "ewc" ? (
-            <EwcMark className="h-2 w-auto shrink-0 text-[rgb(var(--skin-ring))]" />
           ) : (
-            skin === "blast" && <BlastMark className="size-3.5 shrink-0 text-accent" />
+            /* Повний локап: картка матчу називає турнір словами поруч зі
+               знаком, тож знак може бути власним знаком івенту. Висоту кожного
+               знака тримає сам EventMark — вони намальовані в різних
+               пропорціях, і спільний розмір ламав половину з них. */
+            <EventMark
+              skin={skin}
+              className={skin === "blast" ? "text-accent" : "text-[rgb(var(--skin-ring))]"}
+            />
           )}
           {/* Full name, trimmed by CSS only when it genuinely doesn't fit. */}
           <span className="truncate font-medium">{tour?.name ?? match.tournamentName}</span>
@@ -260,7 +257,7 @@ export function MatchCard({ match }: { match: Match }) {
                 </span>
               ) : (
                 <span className={cn("tnum flex items-center gap-1 font-mono font-bold leading-none", isAuraSkin(skin) ? "text-[rgb(var(--skin-ring))]" : "text-accent")}>
-                  <BrandIcon name={skin === "ewc" ? "points-ewc" : "points"} className="size-3.5" />
+                  <BrandIcon name={eventGem(skin)} className="size-3.5" />
                   +{match.maxReward}
                 </span>
               )}

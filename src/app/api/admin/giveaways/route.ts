@@ -39,7 +39,10 @@ export async function POST(request: Request) {
     conditions: Array.isArray(g.conditions) ? g.conditions : [],
     winners_count: Math.max(1, Number(g.winners_count ?? 1)),
     entry_cost: Math.max(0, Number(g.entry_cost ?? 0)),
-    entry_currency: g.entry_currency === "ewc" ? "ewc" : "points",
+    /* Валюта квитка — одна з трьох відомих; усе інше падає в сезонні поінти,
+       бо саме їх має кожен профіль. */
+    entry_currency:
+      g.entry_currency === "ewc" || g.entry_currency === "event" ? g.entry_currency : "points",
     max_tickets: Math.max(1, Number(g.max_tickets ?? 1)),
     require_telegram: g.require_telegram === true,
     updated_at: new Date().toISOString(),

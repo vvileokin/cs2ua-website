@@ -5,7 +5,7 @@ import { Gift, Users, ArrowRight, Trophy } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 import { BrandIcon } from "@/components/ui/BrandIcon";
 import { formatInt, cn } from "@/lib/utils";
-import { type Giveaway } from "@/lib/data";
+import { entryGem, type Giveaway } from "@/lib/data";
 
 export function GiveawayCard({ g }: { g: Giveaway }) {
   const ewc = g.skin === "ewc";
@@ -98,7 +98,7 @@ export function GiveawayCard({ g }: { g: Giveaway }) {
             )}
           >
             <BrandIcon
-              name={g.entryCurrency === "ewc" ? "points-ewc" : "points"}
+              name={entryGem(g.entryCurrency, g.skin)}
               className="size-3.5"
             />
             {g.entryCost}

@@ -209,6 +209,21 @@ export function runningEvent(): Tournament | undefined {
 }
 
 /** Яким каменем малюється валюта турніру. */
+/**
+ * Чим платять за квиток розіграшу.
+ *
+ * «event» — гаманець поточного івенту, той самий, що приймає ставки на ньому.
+ * Окрема валюта, а не сезонні поінти під іншим знаком: курсу між ними немає.
+ */
+export type EntryCurrency = "points" | "ewc" | "event";
+
+/** Знак валюти, якою платять за квиток. */
+export function entryGem(currency: EntryCurrency, skin?: EventSkin | null) {
+  if (currency === "ewc") return "points-ewc" as const;
+  if (currency === "event") return eventGem(skin ?? runningEvent()?.skin);
+  return "points" as const;
+}
+
 export function eventGem(skin?: EventSkin | null): "points" | "points-ewc" | "points-porto" | "points-epl" {
   return skin === "ewc" ? "points-ewc" : skin === "porto" ? "points-porto" : skin === "epl" ? "points-epl" : "points";
 }
@@ -878,7 +893,11 @@ export function playedMaps(match: Match): PlayedMap[] {
       if (aWins >= need || bWins >= need) clinched = true;
       return { ...m, status: "finished" as MapStatus };
     }
-    if (!liveTaken) {
+    /* Жива мапа буває тільки в живому матчі. Без цієї перевірки перша мапа
+       вето підсвічувалась червоним ще до початку серії — а відколи «лайв»
+       показується самим кольором, а не підписом, така помилка вже не читається
+       як помилка. */
+    if (!liveTaken && match.status === "live") {
       liveTaken = true;
       return { ...m, status: "live" as MapStatus };
     }
@@ -1241,7 +1260,7 @@ export type Giveaway = {
   /** Price of one ticket. 0 = free to enter, the old behaviour. */
   entryCost: number;
   /** Which balance a ticket is paid from. */
-  entryCurrency: "points" | "ewc";
+  entryCurrency: EntryCurrency;
   /** Tickets one player may hold. 1 = the old one-entry-per-person giveaway. */
   maxTickets: number;
   /** Entry requires a linked Telegram account subscribed to the channel. */

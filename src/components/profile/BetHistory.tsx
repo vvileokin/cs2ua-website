@@ -30,14 +30,16 @@ type Row = {
  * into the other. Adding them and printing one mark told a player they had
  * staked 998 of something that does not exist.
  */
-type Gem = "points" | "points-ewc" | "points-porto";
+type Gem = "points" | "points-ewc" | "points-porto" | "points-epl";
 const GEM: Record<string, Gem> = {
   "blast-porto-2026": "points-porto",
+  "esl-pro-league-s24": "points-epl",
 };
 const gemFor = (slug: string | null | undefined) => GEM[slug ?? ""] ?? "points-ewc";
 
 /** Human name for the block heading, when there is more than one block. */
 const EVENT_NAME: Record<string, string> = {
+  "esl-pro-league-s24": "ESL Pro League S24",
   "blast-porto-2026": "BLAST Open Porto",
   "ewc-2026": "Esports World Cup",
 };

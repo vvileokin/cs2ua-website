@@ -21,7 +21,7 @@ import { BrandIcon } from "@/components/ui/BrandIcon";
 import { useProfile } from "@/lib/supabase/use-profile";
 import { createClient } from "@/lib/supabase/client";
 import { formatInt, cn } from "@/lib/utils";
-import { type Giveaway } from "@/lib/data";
+import { entryGem, type Giveaway } from "@/lib/data";
 
 type SubState =
   | { phase: "idle" }
@@ -110,7 +110,9 @@ export function GiveawayEntry({ giveaway }: { giveaway: Giveaway }) {
     paidBalance ??
     (giveaway.entryCurrency === "ewc"
       ? (profile?.ewc_points ?? 0)
-      : (profile?.points ?? 0));
+      : giveaway.entryCurrency === "event"
+        ? (profile?.event_points ?? 0)
+        : (profile?.points ?? 0));
 
   const left = Math.max(0, cap - tickets);
   const shortSeason = Math.max(0, giveaway.minPoints - (profile?.points ?? 0));
@@ -282,7 +284,7 @@ export function GiveawayEntry({ giveaway }: { giveaway: Giveaway }) {
                 <span className="text-ink-subtle">Ціна квитка</span>
                 <span className={cn("tnum flex items-center gap-1 font-mono font-bold", orange)}>
                   <BrandIcon
-                    name={giveaway.entryCurrency === "ewc" ? "points-ewc" : "points"}
+                    name={entryGem(giveaway.entryCurrency, giveaway.skin)}
                     className="size-4"
                   />
                   {giveaway.entryCost}
@@ -354,7 +356,7 @@ export function GiveawayEntry({ giveaway }: { giveaway: Giveaway }) {
                         <span className="tnum flex items-center gap-1 font-mono">
                           · {cost}
                           <BrandIcon
-                            name={giveaway.entryCurrency === "ewc" ? "points-ewc" : "points"}
+                            name={entryGem(giveaway.entryCurrency, giveaway.skin)}
                             className="size-4"
                           />
                         </span>
@@ -371,6 +373,7 @@ export function GiveawayEntry({ giveaway }: { giveaway: Giveaway }) {
                         {formatInt(balance)}
                       </span>
                       {giveaway.entryCurrency === "ewc" && " EWC Points"}
+                      {giveaway.entryCurrency === "event" && " поінтів івенту"}
                     </p>
                   )}
                 </div>

@@ -10,6 +10,7 @@ import { QuestionCard } from "@/components/match/QuestionCard";
 import { DuelBoard } from "@/components/match/DuelBoard";
 import { StickyMatchHeader } from "@/components/match/StickyMatchHeader";
 import { Tooltip } from "@/components/ui/Tooltip";
+import { EventMark } from "@/components/ui/EventMark";
 import {
   getTeam,
   getTournament,
@@ -174,8 +175,12 @@ export default async function MatchPage({
             {tour ? (
               <Link
                 href={`/tournaments/${tour.slug}`}
-                className="-my-3.5 inline-flex min-h-11 items-center truncate rounded-lg py-3.5 pr-2 font-semibold transition-colors hover:text-ink sm:my-0 sm:min-h-0 sm:py-0"
+                className="-my-3.5 inline-flex min-h-11 items-center gap-1.5 truncate rounded-lg py-3.5 pr-2 font-semibold transition-colors hover:text-ink sm:my-0 sm:min-h-0 sm:py-0"
               >
+                {/* Знак івенту стоїть і тут, як на картці матчу: сторінка вже
+                    одягнена в кольори турніру, і рядок без знака читався як
+                    чужий підпис під цим одягом. */}
+                <EventMark skin={skin} className="text-[rgb(var(--skin-ring))]" />
                 {tour.name}
               </Link>
             ) : (
@@ -585,8 +590,11 @@ function MapScoreStrip({
             key={i}
             className={cn(
               "inline-flex cursor-help items-center gap-1.5 rounded-lg py-1 pl-1.5 pr-2.5 text-xs font-semibold",
+              /* Жива мапа — це колір, а не слово. Підпис «live» стояв поруч із
+                 назвою мапи і з'їдав стрічку вдвічі ширше, ніж важив; червоний
+                 чип і так видно першим на всій сторінці. */
               m.status === "live"
-                ? "bg-live/15 text-live ring-1 ring-live/30"
+                ? "bg-live/18 text-live ring-1 ring-live/45"
                 : m.status === "finished"
                   ? "bg-fill-2 text-ink"
                   : m.status === "skipped"
@@ -619,13 +627,9 @@ function MapScoreStrip({
               <span className="w-0.5" />
             )}
             {m.name}
-            {m.status === "finished" ? (
+            {m.status === "finished" || (m.status === "live" && m.a + m.b > 0) ? (
               <span className="tnum font-mono">
                 {m.a}:{m.b}
-              </span>
-            ) : m.status === "live" ? (
-              <span className="inline-flex items-center gap-1 text-[0.625rem] font-bold uppercase">
-                <span className="size-1.5 animate-pulse rounded-full bg-live" /> live
               </span>
             ) : null}
           </Tooltip>
