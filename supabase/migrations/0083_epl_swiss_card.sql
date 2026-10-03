@@ -13,10 +13,38 @@
 --     сторона вгадана, кошик ні    20
 --     уся картка точно            +500
 --
--- Одна картка на гравця. Закривається першим матчем турніру — так само, як
--- група Porto закривалася своїм першим матчем, і з тієї ж причини: статус у
--- таблиці ставить людина, а час старту не забуває ніхто.
+-- Одна картка на гравця. Закривається першим матчем другого туру — турнір уже
+-- йшов, коли картка з'явилася, тож замок на першому матчі зачинив би її ще до
+-- того, як хтось її побачив. За годинником, а не за колонкою статусу: статус
+-- ставить людина, а час старту не забуває ніхто.
+--
+-- Форма картки перевіряється функцією, а не виразом у `check`: Postgres не
+-- дозволяє підзапит в обмеженні, а порахувати ключі jsonb без нього не можна.
+-- Тому одна незмінна функція тримає обидві умови — шістнадцять команд і рівно
+-- заповнені кошики.
 
+-- ---------------------------------------------------------------------------
+-- Форма картки
+-- ---------------------------------------------------------------------------
+create or replace function public.epl_swiss_shape_ok(p_picks jsonb)
+returns boolean
+language sql
+immutable
+as $$
+  select
+    jsonb_typeof(p_picks) = 'object'
+    and (select count(*) from jsonb_object_keys(p_picks)) = 16
+    and not exists (
+      select 1
+        from (values ('3-0', 2), ('3-1', 3), ('3-2', 3), ('2-3', 3), ('1-3', 3), ('0-3', 2))
+          as b(bucket, cap)
+       where (select count(*) from jsonb_each_text(p_picks) e where e.value = b.bucket) <> b.cap
+    );
+$$;
+
+-- ---------------------------------------------------------------------------
+-- Картка
+-- ---------------------------------------------------------------------------
 create table if not exists public.epl_swiss (
   user_id    uuid primary key references auth.users (id) on delete cascade,
   -- { "spirit": "3-0", "tyloo": "0-3", ... } — рівно шістнадцять пар.
@@ -24,9 +52,12 @@ create table if not exists public.epl_swiss (
   points     integer not null default 0,
   scored_at  timestamptz,
   created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now(),
-  constraint epl_swiss_sixteen check (jsonb_typeof(picks) = 'object' and (select count(*) from jsonb_object_keys(picks)) = 16)
+  updated_at timestamptz not null default now()
 );
+
+alter table public.epl_swiss drop constraint if exists epl_swiss_shape;
+alter table public.epl_swiss
+  add constraint epl_swiss_shape check (public.epl_swiss_shape_ok(picks));
 
 alter table public.epl_swiss enable row level security;
 
@@ -43,27 +74,7 @@ create policy "own epl card updatable" on public.epl_swiss
   for update using (auth.uid() = user_id and scored_at is null)
   with check (auth.uid() = user_id);
 
--- ---------------------------------------------------------------------------
--- Місткість кошиків
--- ---------------------------------------------------------------------------
--- Перевірка в самій базі, а не лише в маршруті: картка з чотирма трійками
--- нулями не може бути правильною ні за яких обставин, і дешевше не дати її
--- записати, ніж потім пояснювати нарахування.
-create or replace function public.epl_swiss_shape_ok(p_picks jsonb)
-returns boolean
-language sql
-immutable
-as $$
-  select coalesce(bool_and(ok), false) from (
-    select (select count(*) from jsonb_each_text(p_picks) where value = b.bucket) = b.cap as ok
-      from (values ('3-0', 2), ('3-1', 3), ('3-2', 3), ('2-3', 3), ('1-3', 3), ('0-3', 2))
-        as b(bucket, cap)
-  ) t;
-$$;
-
-alter table public.epl_swiss drop constraint if exists epl_swiss_shape;
-alter table public.epl_swiss
-  add constraint epl_swiss_shape check (public.epl_swiss_shape_ok(picks));
+grant select, insert, update on public.epl_swiss to authenticated;
 
 -- ---------------------------------------------------------------------------
 -- Нарахування
@@ -83,8 +94,6 @@ declare
   v_exact integer;
 begin
   for v_rec in select * from public.epl_swiss where scored_at is null loop
-    v_points := 0;
-    v_exact := 0;
     select
       coalesce(sum(
         case
@@ -120,8 +129,7 @@ $$;
 
 revoke all on function public.score_epl_swiss(jsonb) from public, anon, authenticated;
 
-grant select, insert, update on public.epl_swiss to authenticated;
-
 -- Перевірка:
---   select public.epl_swiss_shape_ok('{"spirit":"3-0"}'::jsonb);  -- false
+--   select public.epl_swiss_shape_ok('{"spirit":"3-0"}'::jsonb);                    -- false
+--   select public.epl_swiss_shape_ok((select picks from public.epl_swiss limit 1)); -- true
 --   select count(*) from public.epl_swiss;
