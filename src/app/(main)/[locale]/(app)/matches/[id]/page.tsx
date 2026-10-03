@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import { ChevronLeft, Ban, CircleCheck, History } from "lucide-react";
-import { SwordsGlyph, TargetGlyph, type GlyphIcon } from "@/components/layout/NavGlyphs";
+import { SwordsGlyph, TargetGlyph, TrophyGlyph, type GlyphIcon } from "@/components/layout/NavGlyphs";
 import { TeamLogo } from "@/components/ui/TeamLogo";
 import { Badge } from "@/components/ui/Badge";
 import { QuestionCard } from "@/components/match/QuestionCard";
@@ -24,6 +24,7 @@ import {
 import { getMatchById } from "@/lib/db/matches";
 import { getQuestionsForMatch } from "@/lib/db/questions";
 import { getWorldRanks } from "@/lib/db/team-ranks";
+import { getMatchSwing, type Swing } from "@/lib/db/match-swing";
 import { mapArt, mapIcon } from "@/lib/maps";
 import { cn } from "@/lib/utils";
 
@@ -61,9 +62,10 @@ export default async function MatchPage({
 }) {
   const { id } = await params;
   // Both are keyed by the same id, so fetch them side by side.
-  const [match, questions] = await Promise.all([
+  const [match, questions, swing] = await Promise.all([
     getMatchById(id),
     getQuestionsForMatch(id),
+    getMatchSwing(id),
   ]);
   if (!match) notFound();
 
@@ -300,6 +302,16 @@ export default async function MatchPage({
       </div>
       </StickyMatchHeader>
       </div>
+
+      {/* Що цей матч робить із гонкою за інвайт. Стоїть над прогнозами, бо це
+          найсильніша причина натиснути «ставка»: не «хто сильніший», а «чого
+          це коштує». Малюється лише там, де модель порахувала обидві гілки. */}
+      {swing.size > 0 && (
+        <section className="space-y-4">
+          <SectionLabel icon={TrophyGlyph}>Що дає цей матч</SectionLabel>
+          <InviteSwing a={a} b={b} swing={swing} skin={skin} />
+        </section>
+      )}
 
       {/* PRIMARY: predictions */}
       <section className="space-y-4">
@@ -757,6 +769,99 @@ function MobileTeamRow({
     </div>
   );
 }
+
+/**
+ * Шанс на інвайт до матчу і після нього, по гілках.
+ *
+ * Числа рахує модель інвайтів офлайн (0086): у кожній гілці перераховується
+ * весь регіон, бо місць фіксована кількість — перемога однієї команди опускає
+ * всіх, хто поруч із межею.
+ *
+ * Для команди, що вже пройшла, обидві гілки показують те саме, і рядок це не
+ * ховає: «99.8% → 99.8% / 99.8%» — чесна відповідь на питання «чого вартий цей
+ * матч» для Spirit. Ховати її означало б малювати блок лише для тих, кому
+ * пощастило бути на межі, і читач не знав би, чому його часом немає.
+ */
+function InviteSwing({
+  a,
+  b,
+  swing,
+  skin,
+}: {
+  a: ReturnType<typeof getTeam>;
+  b: ReturnType<typeof getTeam>;
+  swing: Map<string, Swing>;
+  skin: ReturnType<typeof matchSkin>;
+}) {
+  const rows = [a, b].filter((t) => swing.has(t.slug));
+  if (rows.length === 0) return null;
+
+  return (
+    <div
+      className={cn(
+        "overflow-hidden rounded-2xl",
+        isAuraSkin(skin) ? "skin-aura-card" : "surface-1",
+      )}
+    >
+      {rows.map((t) => {
+        const s = swing.get(t.slug)!;
+        return (
+          <div
+            key={t.slug}
+            className="flex items-center gap-3 px-3.5 py-3 shadow-[0_-1px_0_0_color-mix(in_oklch,var(--ink)_6%,transparent)] first:shadow-none"
+          >
+            <TeamLogo team={t} size="sm" />
+            <span className="min-w-0 flex-1 truncate text-sm font-bold text-ink">{t.name}</span>
+            <span className="tnum shrink-0 font-mono text-sm font-bold text-ink-muted">
+              {pct(s.pNow)}
+            </span>
+            <span className="flex shrink-0 items-center gap-1.5">
+              <Branch value={s.pWin} delta={s.pWin - s.pNow} tone="up" />
+              <Branch value={s.pLose} delta={s.pLose - s.pNow} tone="down" />
+            </span>
+          </div>
+        );
+      })}
+      <Link
+        href="/major"
+        className="flex items-center justify-between gap-2 bg-black/20 px-3.5 py-2 text-[0.6875rem] text-ink-subtle transition-colors hover:text-ink"
+      >
+        <span className="truncate">Шанс на інвайт: зараз · виграє · програє</span>
+        <span className="shrink-0 font-semibold">Усі інвайти →</span>
+      </Link>
+    </div>
+  );
+}
+
+/** Одна гілка: куди йде шанс і на скільки. */
+function Branch({ value, delta, tone }: { value: number; delta: number; tone: "up" | "down" }) {
+  /* Нуль буває чесним: команда, що вже пройшла, не рухається від одного матчу.
+     Тоді гілка стоїть сірою — це відповідь, а не відсутність відповіді. */
+  const moved = Math.abs(delta) >= 0.0005;
+  return (
+    <span
+      className={cn(
+        "tnum flex w-[4.25rem] items-center justify-end gap-1 rounded-md px-1.5 py-1 font-mono text-xs font-bold",
+        !moved
+          ? "bg-white/[0.05] text-ink-subtle"
+          : tone === "up"
+            ? "bg-success/15 text-success"
+            : "bg-danger/15 text-danger",
+      )}
+    >
+      {moved && (
+        <span className="text-[0.625rem] font-semibold opacity-80">
+          {delta > 0 ? "+" : "−"}
+          {Math.abs(delta * 100).toFixed(1)}
+        </span>
+      )}
+      {pct(value)}
+    </span>
+  );
+}
+
+/** Один знак після коми: «70%» і «70.3%» — різні твердження. */
+const pct = (v: number) => (v * 100).toFixed(1) + "%";
 
 function TeamMini({
   team,
