@@ -222,7 +222,10 @@ export default async function MatchPage({
               the map strip, so the crests centre against a column that's as tall
               as they are — which is what closes the hole that used to sit under
               the logos. */}
-          <div className="mt-2.5 hidden grid-cols-[1fr_auto_1fr] items-center gap-5 md:grid lg:gap-8">
+          {/* Ширина обмежена: на 1440 табло розповзалося на 1200 пікселів, і
+              між гербом і назвою команди ставала діра, через яку пара читалася
+              як дві окремі картки. Межа тримає його одним об'єктом. */}
+          <div className="mx-auto mt-2.5 hidden w-full max-w-4xl grid-cols-[1fr_auto_1fr] items-center gap-5 md:grid lg:gap-8">
             <div className="flex items-center gap-4">
               {/* Impeccable: Crafted Team Plinth — brand-coloured pool of light
                   under each crest, so the two sides read at a glance. */}
@@ -301,13 +304,25 @@ export default async function MatchPage({
       </StickyMatchHeader>
       </div>
 
+      {/* Тіло сторінки — дві колонки на десктопі.
+
+          Доти всі блоки стояли один під одним на всю ширину контейнера, і на
+          1440 кожен з них розтягувався до 1150 пікселів: картка прогнозу з
+          двома варіантами ставала смугою, у якій назва команди і коефіцієнт
+          тулилися до лівого краю, а решта була порожня. Ліворуч — те, що
+          роблять (прогнози, дуелі), праворуч — те, що читають (вето, історія).
+          Так само ділять сторінку матчу HLTV і thespike. */}
+      <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2">
+      <div className="space-y-8">
       {/* PRIMARY: predictions */}
       <section className="space-y-4">
         <SectionLabel icon={TargetGlyph} level="h2">Прогнози на матч</SectionLabel>
         {/* `match` is passed for the option crests, not for the match header
             row — that one is gated on `withMatch`, which stays off here. */}
         {questions.length > 0 ? (
-          <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
+          /* Одна колонка: картки стоять у половині сторінки, і ділити її ще
+             навпіл означало б 280 пікселів на варіант із гербом. */
+          <div className="grid grid-cols-1 gap-3">
             {questions.map((q) => (
               <QuestionCard key={q.id} question={q} match={match} />
             ))}
@@ -325,9 +340,10 @@ export default async function MatchPage({
           exist anywhere else, and an empty panel on every other match page
           would be worse than none. */}
       {skin === "porto" && <DuelBoard match={match} />}
+      </div>
 
       {/* CONTEXT: subordinate */}
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+      <div className="space-y-8">
         {veto.length > 0 && (
         <section className="space-y-4">
           <SectionLabel icon={SwordsGlyph}>Map veto</SectionLabel>
@@ -540,6 +556,7 @@ export default async function MatchPage({
             </div>
           )}
         </section>
+      </div>
       </div>
     </div>
   );

@@ -15,10 +15,24 @@ import { cn } from "@/lib/utils";
  *
  * Колір береться з currentColor, тож рядок фарбує знак разом із текстом.
  */
-export function EventMark({ skin, className }: { skin?: EventSkin | null; className?: string }) {
-  if (skin === "porto") return <PortoMark className={cn("h-3.5 w-auto shrink-0", className)} />;
-  if (skin === "ewc") return <EwcMark className={cn("h-2 w-auto shrink-0", className)} />;
-  if (skin === "epl") return <EplMark className={cn("h-4 w-auto shrink-0", className)} />;
-  if (skin === "blast") return <BlastMark className={cn("size-3.5 shrink-0", className)} />;
+export function EventMark({
+  skin,
+  size = "row",
+  className,
+}: {
+  skin?: EventSkin | null;
+  /** «row» — поруч із назвою турніру, «caps» — у рядку дрібною капітеллю. */
+  size?: "row" | "caps";
+  className?: string;
+}) {
+  const caps = size === "caps";
+  if (skin === "porto")
+    return <PortoMark className={cn(caps ? "h-2.5" : "h-3.5", "w-auto shrink-0", className)} />;
+  if (skin === "ewc")
+    return <EwcMark className={cn(caps ? "h-[0.4375rem]" : "h-2", "w-auto shrink-0", className)} />;
+  if (skin === "epl")
+    return <EplMark className={cn(caps ? "h-3" : "h-4", "w-auto shrink-0", className)} />;
+  if (skin === "blast")
+    return <BlastMark className={cn(caps ? "size-[0.6875rem]" : "size-3.5", "shrink-0", className)} />;
   return null;
 }

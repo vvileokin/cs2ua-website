@@ -23,6 +23,7 @@ import {
 } from "@/components/layout/NavGlyphs";
 import { BlastMark } from "@/components/ui/BlastMark";
 import { EwcMark } from "@/components/ui/EwcMark";
+import { EventMark } from "@/components/ui/EventMark";
 import { EplMark } from "@/components/ui/EplMark";
 import { SwissBracket } from "@/components/tournament/SwissBracket";
 import { EplSwissCard } from "@/components/tournament/EplSwissCard";
@@ -226,11 +227,7 @@ export function TournamentView({
                       The generic BLAST A-mark was right about the organiser and
                       wrong about the tournament: two views of one event were
                       carrying two different logos. */}
-                  {t.skin === "ewc" ? (
-                    <EwcMark className="h-[0.4375rem] w-auto" />
-                  ) : (
-                    <BlastMark className="size-[0.6875rem]" />
-                  )}
+                  <EventMark skin={t.skin} size="caps" />
                   Event
                 </span>
                 <Sep />

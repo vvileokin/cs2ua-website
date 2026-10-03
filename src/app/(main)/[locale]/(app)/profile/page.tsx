@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { Suspense } from "react";
 import { redirect } from "next/navigation";
-import { Target, Package, KeyRound } from "lucide-react";
+import { Target, Package, KeyRound, type LucideIcon } from "lucide-react";
+import { Link } from "@/i18n/navigation";
+import { EventMark } from "@/components/ui/EventMark";
 import { Avatar } from "@/components/ui/Avatar";
 import { BrandIcon } from "@/components/ui/BrandIcon";
 import { AuthMethods } from "@/components/profile/AuthMethods";
@@ -12,7 +15,7 @@ import { Inventory } from "@/components/profile/Inventory";
 import { BetHistory } from "@/components/profile/BetHistory";
 import { getInventory } from "@/lib/db/inventory";
 import { createClient } from "@/lib/supabase/server";
-import { getQuestion } from "@/lib/data";
+import { getQuestion, runningEvent, eventGem } from "@/lib/data";
 import { formatInt } from "@/lib/utils";
 
 export const metadata: Metadata = { title: "Профіль" };
@@ -102,6 +105,32 @@ export default async function ProfilePage() {
       };
     })
     .filter((x): x is HistoryItem => x !== null);
+
+  /* Гаманець івенту. Окремим запитом з тієї ж причини, що й два вище: колонки
+     приїхали пізнішими міграціями, а PostgREST валить увесь select через одну
+     незнайому назву — і сторінка лишилася б без імені й поінтів через рядок,
+     якого на ній могло й не бути. */
+  const event = runningEvent();
+  const { data: ev } = event
+    ? await supabase
+        .from("profiles")
+        .select("event_points, event_joined_at")
+        .eq("id", user.id)
+        .maybeSingle()
+    : { data: null };
+  const eventPoints = (ev?.event_points as number | null | undefined) ?? 0;
+  const joinedEvent = !!(ev?.event_joined_at as string | null | undefined);
+  /* Місце в івенті рахується серед тих, хто вже зіграв зеленими, — тією ж
+     умовою, що й сама дошка. Інакше профіль назвав би місце, якого в дошці
+     немає. */
+  const { count: aboveEvent } = joinedEvent
+    ? await supabase
+        .from("profiles")
+        .select("*", { count: "exact", head: true })
+        .not("event_joined_at", "is", null)
+        .gt("event_points", eventPoints)
+    : { count: null };
+  const eventRank = aboveEvent === null ? null : aboveEvent + 1;
 
   const inventory = await getInventory(user.id);
 
@@ -193,51 +222,96 @@ export default async function ProfilePage() {
         </dl>
       </div>
 
-      {/* Sign-in methods. Telegram is the one with a job beyond convenience —
-          the EWC giveaway is gated on it — so the section earns its place on
-          the page rather than hiding in a settings screen. */}
-      {/* Above the account plumbing: it's the part of the profile that changes
-          week to week. Renders nothing until there's a bet to show, so a fresh
-          account doesn't carry an empty drawer. */}
-      <BetHistory />
+      {/* Дві колонки з lg.
 
-      <section className="space-y-3">
-        <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-ink-muted">
-          <KeyRound className="size-4 text-ink-subtle" /> Способи входу
-        </h2>
-        <Suspense fallback={null}>
-          <AuthMethods
-            email={user.email ?? undefined}
-            provider={provider}
-            telegramLinked={telegramLinked}
-            telegramUsername={telegramUsername}
-          />
-        </Suspense>
-      </section>
+          Доти профіль був однією стрічкою з пʼяти несумісних блоків: ставки,
+          спосіб входу, інвентар, прогнози. Акаунтна сантехніка стояла між двома
+          списками того, що гравець зробив, і сторінка читалася як купа — на
+          десктопі ще й у колонку завширшки з телефон, із порожнечею по боках.
 
-      {/* Inventory — always shown, because an empty case here is the whole
-          point: it tells a new player there's something to win. */}
-      <section className="space-y-3">
-        <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-ink-muted">
-          <Package className="size-4 text-ink-subtle" /> Інвентар
-          {inventory.length > 0 && (
-            <span className="tnum font-mono text-ink-subtle">
-              {inventory.length}
-            </span>
+          Ліворуч те, що гравець робив і має, праворуч — івент і сам акаунт.
+          Правий стовпець липкий: він короткий, і без цього під ним лишалася б
+          та сама порожнеча, тільки вужча. */}
+      <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_19rem]">
+        <div className="space-y-6">
+          {/* Найсвіжіше вгорі: ставки змінюються щодня, інвентар — раз на
+              кілька тижнів. Нічого не малює, доки немає першої ставки. */}
+          <BetHistory />
+
+          <section className="space-y-3">
+            <SectionTitle icon={Package} count={inventory.length}>Інвентар</SectionTitle>
+            <Inventory items={inventory} />
+          </section>
+
+          {history.length > 0 && (
+            <section className="space-y-3">
+              <SectionTitle icon={Target}>Історія прогнозів</SectionTitle>
+              <PredictionHistory items={history} />
+            </section>
           )}
-        </h2>
-        <Inventory items={inventory} />
-      </section>
+        </div>
 
-      {/* History — only once the player actually has predictions */}
-      {history.length > 0 && (
-        <section className="space-y-3">
-          <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-ink-muted">
-            <Target className="size-4 text-ink-subtle" /> Історія прогнозів
-          </h2>
-          <PredictionHistory items={history} />
-        </section>
-      )}
+        <div className="space-y-6 lg:sticky lg:top-20">
+          {event && (
+            <section className="space-y-3">
+              <SectionTitle icon={Target}>Івент</SectionTitle>
+              <Link
+                href={`/tournaments/${event.slug}`}
+                data-skin={event.skin}
+                className="skin-aura-card block rounded-xl p-4 transition-opacity hover:opacity-90"
+              >
+                <span className="flex items-center gap-2 text-xs font-semibold text-white/70">
+                  <EventMark skin={event.skin} className="text-[rgb(var(--skin-ring))]" />
+                  <span className="truncate">{event.name}</span>
+                </span>
+                <span className="mt-3 flex items-baseline gap-1.5">
+                  <BrandIcon name={eventGem(event.skin)} className="size-5 self-center" />
+                  <span className="tnum font-mono text-2xl font-extrabold leading-none text-[rgb(var(--skin-ring))]">
+                    {formatInt(eventPoints)}
+                  </span>
+                </span>
+                {/* Поки гравець не зіграв зеленими, місця немає — і написати
+                    «#1» тому, кого в дошці ще немає, було б неправдою. */}
+                <span className="mt-2 block text-xs text-white/55">
+                  {eventRank ? `Місце в івенті — #${eventRank}` : "Зроби ставку, щоб потрапити в дошку"}
+                </span>
+              </Link>
+            </section>
+          )}
+
+          <section className="space-y-3">
+            <SectionTitle icon={KeyRound}>Способи входу</SectionTitle>
+            <Suspense fallback={null}>
+              <AuthMethods
+                email={user.email ?? undefined}
+                provider={provider}
+                telegramLinked={telegramLinked}
+                telegramUsername={telegramUsername}
+              />
+            </Suspense>
+          </section>
+        </div>
+      </div>
     </div>
+  );
+}
+
+/** Заголовок розділу профілю: усі однакові, бо всі важать однаково. */
+function SectionTitle({
+  icon: Icon,
+  count,
+  children,
+}: {
+  icon: LucideIcon;
+  count?: number;
+  children: ReactNode;
+}) {
+  return (
+    <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-ink-muted">
+      <Icon className="size-4 text-ink-subtle" /> {children}
+      {count !== undefined && count > 0 && (
+        <span className="tnum font-mono text-ink-subtle">{count}</span>
+      )}
+    </h2>
   );
 }

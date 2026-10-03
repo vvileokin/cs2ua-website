@@ -73,7 +73,21 @@ function TeamRow({
   );
 }
 
-export function MatchCard({ match }: { match: Match }) {
+export function MatchCard({
+  match,
+  /**
+   * Назву турніру винесено в заголовок групи над карткою.
+   *
+   * На сторінці матчів поспіль стоять вісім карток одного турніру, і кожна
+   * повторювала його назву — обрізану до «ESL Pro Leagu…», бо на неї немає
+   * ширини. Повторене і обрізане водночас: рядок не називає турнір і забирає
+   * місце. Там, де група вже його назвала, картка лишає тільки стадію.
+   */
+  hideTournament = false,
+}: {
+  match: Match;
+  hideTournament?: boolean;
+}) {
   const t = useTranslations("matches");
   const tour = getTournament(match.tournamentSlug);
   const isEvent = match.isEvent ?? tour?.isEvent ?? false;
@@ -123,6 +137,10 @@ export function MatchCard({ match }: { match: Match }) {
     >
       <div className="relative flex items-center justify-between gap-2 px-3.5 pt-2.5 sm:px-4 sm:pt-3">
         <span className="flex min-w-0 items-center gap-2 text-xs text-ink-subtle">
+          {hideTournament ? (
+            match.stage && <span className="truncate font-medium">{match.stage}</span>
+          ) : (
+            <>
           {match.tournamentIcon ? (
             /* eslint-disable-next-line @next/next/no-img-element */
             <img
@@ -148,6 +166,8 @@ export function MatchCard({ match }: { match: Match }) {
           <span className="truncate font-medium">{tour?.name ?? match.tournamentName}</span>
           {match.stage && <span className="text-ink-faint max-sm:hidden">·</span>}
           {match.stage && <span className="shrink-0 max-sm:hidden">{match.stage}</span>}
+            </>
+          )}
         </span>
         {/* Impeccable: Crafted Header Rail — the kickoff sits here on every
             width now.
@@ -191,45 +211,22 @@ export function MatchCard({ match }: { match: Match }) {
         <TeamRow team={matchTeam(match, "b")} score={match.scoreB} leading={bLead} dim={isFinished && aLead} showScore={showScore} />
       </div>
 
-      {/* Context strip — always present so every state has equal height */}
-      {/* Impeccable: Crafted Context Rail — a recessed slot in the card face
-          (inset shadow, no border) rather than another outlined box. */}
-      {/* The kickoff is already on this card once — in the header on desktop,
-          on the left of this rail on phones — so this slot never repeats it.
-          It carries a state word or nothing. */}
-      <div className="relative mx-3.5 mb-2.5 sm:mx-4 sm:mb-3 flex items-center justify-between gap-2 rounded-lg bg-fill-1 px-2.5 py-1.5 text-xs shadow-[0_1px_0_0_color-mix(in_oklch,var(--ink)_6%,transparent)_inset,0_-1px_0_0_oklch(0_0_0/0.35)_inset]">
-        <span className="flex min-w-0 items-center gap-1.5 text-ink-subtle">
-          {match.format}
-        </span>
-        <span className="flex shrink-0 items-center gap-1.5">
-        {isLive ? (
-          <span className="shrink-0 font-semibold text-live">У прямому ефірі</span>
-        ) : isFinished ? (
-          <span className="shrink-0 font-semibold text-ink-subtle">{t("finishedLabel")}</span>
-        ) : hasQuestions ? (
-          <span
-            className={cn(
-              "shrink-0 font-semibold",
-              // Same rule as the kickoff time above it: an event card wears the
-              // event's ring, an ordinary one wears the product's yellow. Azure
-              // is this site's link colour and reads as somewhere to go.
-              isAuraSkin(skin) ? "text-[rgb(var(--skin-ring))]" : "text-accent",
-            )}
-          >
-            {t("predictionsOpen")}
-          </span>
-        ) : null}
-        </span>
-      </div>
-
       {/* Hairline of light instead of a hard divider — reads as a seam, not a rule. */}
       <div className="relative mt-auto flex items-center justify-between px-3.5 py-2 shadow-[0_-1px_0_0_color-mix(in_oklch,var(--ink)_7%,transparent)] sm:px-4 sm:py-2.5">
         {hasQuestions ? (
           <>
-            <span className="flex items-center gap-1.5 text-xs font-semibold text-ink-muted">
+            <span className="flex min-w-0 items-center gap-1.5 text-xs font-semibold text-ink-muted">
+              {/* Формат стоїть тут, а не в окремій смузі над цим рядком. Та
+                  смуга несла два слова — «BO3» і стан матчу — і коштувала
+                  картці третьої горизонтальної панелі довкола двох рядків
+                  змісту. Стан і так сказано: лайв горить у шапці, рахунок
+                  говорить, що матч зіграно, а «прогнози відкриті» — те саме, що
+                  «1 ставка · до ×5.86» праворуч. */}
+              <span className="shrink-0 text-ink-subtle">{match.format}</span>
+              <span aria-hidden className="text-ink-faint">·</span>
               <TargetGlyph
                 className={cn(
-                  "size-3.5",
+                  "size-3.5 shrink-0",
                   isAuraSkin(skin) ? "text-[rgb(var(--skin-ring))]" : "text-accent",
                 )}
               />
@@ -266,8 +263,10 @@ export function MatchCard({ match }: { match: Match }) {
           </>
         ) : (
           <>
-            <span className="text-xs font-medium text-ink-subtle">
-              {isFinished ? t("finishedLabel") : "Деталі матчу"}
+            <span className="flex min-w-0 items-center gap-1.5 text-xs font-medium text-ink-subtle">
+              <span className="shrink-0">{match.format}</span>
+              <span aria-hidden className="text-ink-faint">·</span>
+              <span className="truncate">{isFinished ? t("finishedLabel") : "Деталі матчу"}</span>
             </span>
             <ChevronRight className="size-4 text-ink-subtle transition-transform duration-200 group-hover:translate-x-0.5" />
           </>
