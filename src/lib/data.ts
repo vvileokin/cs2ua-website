@@ -1382,9 +1382,13 @@ export const socials = [
   /* Адреси справжні, а не на головні сторінки платформ: цей список читає і
      сторінка /links, яку кладуть у шапку телеграм-каналу, і з неї мають
      відкриватися саме наші профілі. */
-  { key: "telegram", label: "Telegram", handle: "@UA_CS2", followers: 94500, url: "https://t.me/UA_CS2" },
-  { key: "instagram", label: "Instagram", handle: "@cs2_ua", followers: 128000, url: "https://www.instagram.com/cs2_ua" },
-  { key: "tiktok", label: "TikTok", handle: "@cs2_ua", followers: 212000, url: "https://www.tiktok.com/@cs2_ua" },
+  /* Підписники зняті з самих профілів 3 жовтня 2026. Числа, що стояли тут
+     раніше (94 500 / 128 000 / 212 000), були заглушками з часів макета і
+     завищували кожну цифру в кілька разів — а сторінка /links показує їх
+     людям як причину підписатися. */
+  { key: "telegram", label: "Telegram", handle: "@UA_CS2", followers: 23133, url: "https://t.me/UA_CS2" },
+  { key: "instagram", label: "Instagram", handle: "@cs2_ua", followers: 14500, url: "https://www.instagram.com/cs2_ua" },
+  { key: "tiktok", label: "TikTok", handle: "@cs2_ua", followers: 24500, url: "https://www.tiktok.com/@cs2_ua" },
 ] as const;
 
 /* --- Helpers --- */

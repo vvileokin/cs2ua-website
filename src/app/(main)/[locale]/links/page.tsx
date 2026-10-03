@@ -38,7 +38,7 @@ export default function LinksPage() {
       <div className="flex flex-col items-center gap-3 text-center">
         <Brand />
         <p className="text-sm text-ink-muted text-balance">
-          Найбільша спільнота з CS2 в Україні. Обирай, де тобі зручніше.
+          Найбільша спільнота з CS2 в Україні.
         </p>
       </div>
 
