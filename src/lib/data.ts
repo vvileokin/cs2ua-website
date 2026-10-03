@@ -1379,9 +1379,12 @@ export function promoHref(p: PromoBanner): string {
 /* --- Social proof (editable in admin) --- */
 
 export const socials = [
-  { key: "instagram", label: "Instagram", handle: "@cs2ua", followers: 128000, url: "https://instagram.com" },
-  { key: "telegram", label: "Telegram", handle: "CS2 UA", followers: 94500, url: "https://telegram.org" },
-  { key: "tiktok", label: "TikTok", handle: "@cs2.ua", followers: 212000, url: "https://tiktok.com" },
+  /* Адреси справжні, а не на головні сторінки платформ: цей список читає і
+     сторінка /links, яку кладуть у шапку телеграм-каналу, і з неї мають
+     відкриватися саме наші профілі. */
+  { key: "telegram", label: "Telegram", handle: "@cs2ua", followers: 94500, url: "https://t.me/cs2ua" },
+  { key: "instagram", label: "Instagram", handle: "@cs2ua", followers: 128000, url: "https://instagram.com/cs2ua" },
+  { key: "tiktok", label: "TikTok", handle: "@cs2.ua", followers: 212000, url: "https://tiktok.com/@cs2.ua" },
 ] as const;
 
 /* --- Helpers --- */
