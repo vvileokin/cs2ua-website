@@ -413,6 +413,8 @@ export const allTournaments: Tournament[] = [
       "natus", "betboom", "ninez", "parivision", "m80", "tyloo", "onewin", "shinden",
     ],
     format: "Швейцарка (BO3) → плейоф",
+    coverImage: "/brand/epl-cover.webp",
+    heroImage: "/brand/hero-epl.webp",
     /* Жовта з емблеми турніру, переведена в oklch: картка світиться тим самим
        кольором, що й сам логотип, а не абстрактним золотом. */
     accent: "oklch(0.92 0.2 109)",
