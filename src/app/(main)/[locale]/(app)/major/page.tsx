@@ -114,7 +114,9 @@ export default async function MajorPage() {
           so the credit sits directly under the tables it made possible rather
           than in a footer nobody reaches. Quiet on purpose: it is a source line,
           not a banner. */}
-      <p className="text-center text-[0.8125rem] leading-relaxed text-ink-subtle">
+      {/* Відсунуто нижче за звичайний крок сітки: рядок джерела не має читатись
+          як підпис до останньої таблиці, йому потрібна пауза після неї. */}
+      <p className="mt-3 text-center text-[0.8125rem] leading-relaxed text-ink-subtle sm:mt-5">
         Партнери, які надали дані для симуляцій:{" "}
         <a
           href="https://t.me/cs2ua"

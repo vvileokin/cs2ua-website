@@ -741,6 +741,22 @@ body {
   --skin-art: none;
 }
 
+/* ESL Pro League Season 24. Знято з емблеми самого турніру: майже чорне поле
+   (#151716 і #08090b займають більшу частину зображення) і одна електрична
+   жовта #fdfd0a. Відтінку рівно два, тож глибина робиться не третім кольором,
+   а приглушеною оливковою — тією ж жовтою, опущеною в темряву.
+
+   Кільце лишається жовтим: на цьому полі воно дає контраст близько 15:1, тож
+   ним можна писати дрібний текст, а не лише обводити плитки. */
+[data-skin="epl"] {
+  --skin-base: #0d0f0c;
+  --skin-glow: 238 238 18;
+  --skin-deep: 58 64 10;
+  --skin-ring: 232 230 70;
+  --skin-hot: 255 255 150;
+  --skin-art: none;
+}
+
 /* Banner. The artwork rides on top via `.skin-art`, so the gradients here have
    to give it a floor to sit on — and that floor has to carry real light, not
    just a dark tint. Unifying the banner with the card dimmed these pools to

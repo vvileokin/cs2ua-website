@@ -171,8 +171,10 @@ export type Tournament = {
  *   ewc   — Esports World Cup: drifting fire over near-black
  *   porto — BLAST Open Porto: scarlet falling into violet, off the event's own
  *           key art — the city at dusk under a red sky.
+ *   epl   — ESL Pro League S24: електрична жовта на майже чорному, з емблеми
+ *           турніру.
  */
-export type EventSkin = "blast" | "ewc" | "porto";
+export type EventSkin = "blast" | "ewc" | "porto" | "epl";
 
 /**
  * Skins that dress a surface with the event's own floor, glow and ring.
@@ -196,7 +198,7 @@ export function eventPointsLabel(): string {
 }
 
 export function isAuraSkin(skin?: EventSkin | null): boolean {
-  return skin === "ewc" || skin === "porto";
+  return skin === "ewc" || skin === "porto" || skin === "epl";
 }
 
 export const allTournaments: Tournament[] = [
@@ -391,13 +393,41 @@ export const allTournaments: Tournament[] = [
     // gets turned on with the mechanics it belongs to, not with the dress.
     skin: "porto",
   },
+  {
+    slug: "esl-pro-league-s24",
+    name: "ESL Pro League Season 24",
+    shortName: "EPL S24",
+    tier: 1,
+    status: "live",
+    startISO: "2026-10-03",
+    endISO: "2026-10-11",
+    dateLabel: "3 – 11 жовт",
+    location: "Катовіце",
+    online: false,
+    prizeUSD: 1000000,
+    /* Шістнадцять у порядку посіву першого туру: пари швейцарки зводять
+       першого з дев'ятим, другого з десятим і так далі, тож список читається
+       парами згори вниз так, як вони зустрілися. */
+    teamSlugs: [
+      "spirit", "vitality", "furia", "mouz", "falcons", "legacy", "g2", "aurora",
+      "natus", "betboom", "ninez", "parivision", "m80", "tyloo", "onewin", "shinden",
+    ],
+    format: "Швейцарка (BO3) → плейоф",
+    /* Жовта з емблеми турніру, переведена в oklch: картка світиться тим самим
+       кольором, що й сам логотип, а не абстрактним золотом. */
+    accent: "oklch(0.92 0.2 109)",
+    skin: "epl",
+  },
 ];
 
 // Only the BLAST Bounty event is public for now (other events are kept as
 // internal demo data and can be re-enabled later).
 export const tournaments: Tournament[] = allTournaments.filter(
   (t) =>
-    t.slug === "blast-bounty-s2" || t.slug === "ewc-2026" || t.slug === "blast-porto-2026",
+    t.slug === "blast-bounty-s2" ||
+    t.slug === "ewc-2026" ||
+    t.slug === "blast-porto-2026" ||
+    t.slug === "esl-pro-league-s24",
 );
 
 /* --- BLAST Bounty S2: seeds & bounty stages --- */
