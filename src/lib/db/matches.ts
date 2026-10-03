@@ -1,7 +1,7 @@
 import "server-only";
 import { cache } from "react";
 import { createClient } from "@/lib/supabase/server";
-import { inkForColor, playedMaps, seriesScore, type Match, type Team } from "@/lib/data";
+import { getTournament, inkForColor, playedMaps, seriesScore, type Match, type Team } from "@/lib/data";
 
 export type Row = {
   id: string;
@@ -232,6 +232,13 @@ export const getLiveTeamMatches = cache(async function getLiveTeamMatches(): Pro
       /* Серія могла догратись, але статус лишитись: `toMatch` виводить його з
          рахунку по мапах, і тут ми довіряємо саме виведеному. */
       if (m.status === "finished") continue;
+      /* І турнір має йти. У базі лежать матчі давно завершених подій, яких
+         ніхто не закрив: липневий BLAST світився в рядку команди як живий
+         через два місяці після фіналу. Турнір, що вже скінчився, живих матчів
+         не має за визначенням — а турнір, якого немає в каталозі, сайт і так
+         нікуди не веде. */
+      const tour = getTournament(m.tournamentSlug);
+      if (!tour || tour.status === "finished") continue;
       for (const slug of [m.a, m.b]) if (!out.has(slug)) out.set(slug, m);
     }
   } catch {
