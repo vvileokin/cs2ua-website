@@ -6,7 +6,7 @@ import { Link, useRouter } from "@/i18n/navigation";
 import { Check, Flame } from "lucide-react";
 import { TeamLogo } from "@/components/ui/TeamLogo";
 import { BrandIcon } from "@/components/ui/BrandIcon";
-import { getMatch, matchTeam, teamByLabel, teams, type Question, type Match, isAuraSkin, matchSkin, matchWallet, eventGem as gemFor } from "@/lib/data";
+import { getMatch, matchTeam, teamByLabel, teams, type Question, type Match, isAuraSkin, matchSkin, matchWallet, matchTimeLabel, eventGem as gemFor } from "@/lib/data";
 import { useUser } from "@/lib/supabase/use-user";
 import { useProfile } from "@/lib/supabase/use-profile";
 import { createClient } from "@/lib/supabase/client";
@@ -312,7 +312,27 @@ export function QuestionCard({
           <span className="shrink-0 text-ink-faint">vs</span>
           <span className="truncate font-semibold">{matchTeam(match, "b").name}</span>
           <TeamLogo team={matchTeam(match, "b")} size="xs" />
-          <span className="ml-auto truncate text-ink-subtle">{match.stage}</span>
+          {/* Коли. У стрічці інтерактивів картка не казала, на що саме ти
+              ставиш у часі: стадія була, години не було — а ставка живе рівно
+              до початку матчу. Стадія поступається їй на вузькому екрані. */}
+          <span className="ml-auto flex shrink-0 items-center gap-1.5">
+            {match.stage && <span className="truncate text-ink-subtle max-sm:hidden">{match.stage}</span>}
+            {match.status === "live" ? (
+              <span className="flex items-center gap-1 font-bold text-live">
+                <span className="live-dot inline-block size-1.5 rounded-full bg-live" />
+                Live
+              </span>
+            ) : (
+              <span
+                className={cn(
+                  "font-semibold",
+                  dressed ? "text-[rgb(var(--skin-ring))]" : "text-accent",
+                )}
+              >
+                {matchTimeLabel(match)}
+              </span>
+            )}
+          </span>
         </Link>
       )}
 

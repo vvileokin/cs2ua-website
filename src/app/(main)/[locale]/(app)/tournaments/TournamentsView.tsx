@@ -33,7 +33,11 @@ export function TournamentsView({ tournaments }: { tournaments: Tournament[] }) 
         onChange={(v) => setFilter(v as Filter)}
       />
 
-      {filtered.length > 0 ? (
+      {/* Один турнір — одна широка картка, а не чверть екрана з порожнечею
+          поруч. Сітка на три колонки чесна, коли колонки є чим заповнити. */}
+      {filtered.length === 1 ? (
+        <TournamentCard t={filtered[0]} featured />
+      ) : filtered.length > 0 ? (
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((t) => (
             <TournamentCard key={t.slug} t={t} />
