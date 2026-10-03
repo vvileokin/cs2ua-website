@@ -1382,9 +1382,9 @@ export const socials = [
   /* Адреси справжні, а не на головні сторінки платформ: цей список читає і
      сторінка /links, яку кладуть у шапку телеграм-каналу, і з неї мають
      відкриватися саме наші профілі. */
-  { key: "telegram", label: "Telegram", handle: "@cs2ua", followers: 94500, url: "https://t.me/cs2ua" },
-  { key: "instagram", label: "Instagram", handle: "@cs2ua", followers: 128000, url: "https://instagram.com/cs2ua" },
-  { key: "tiktok", label: "TikTok", handle: "@cs2.ua", followers: 212000, url: "https://tiktok.com/@cs2.ua" },
+  { key: "telegram", label: "Telegram", handle: "@UA_CS2", followers: 94500, url: "https://t.me/UA_CS2" },
+  { key: "instagram", label: "Instagram", handle: "@cs2_ua", followers: 128000, url: "https://www.instagram.com/cs2_ua" },
+  { key: "tiktok", label: "TikTok", handle: "@cs2_ua", followers: 212000, url: "https://www.tiktok.com/@cs2_ua" },
 ] as const;
 
 /* --- Helpers --- */
