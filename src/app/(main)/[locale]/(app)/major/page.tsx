@@ -17,8 +17,13 @@ export const metadata: Metadata = {
 };
 
 /** One decimal, always. "70%" and "70.3%" are different claims, and rounding a
- *  bubble team to the nearest whole point hides the movement the page is for. */
-const pct = (v: number) => (v * 100).toFixed(1) + "%";
+ *  bubble team to the nearest whole point hides the movement the page is for.
+ *
+ *  Рівного нуля сторінка не друкує. Нуль — це твердження «не вийде ніколи», а
+ *  модель такого не каже: вона каже «менше десятої відсотка», і саме це тут і
+ *  написано. Те саме зверху: сто відсотків не буває, доки турнір не зіграний. */
+const pct = (v: number) =>
+  v * 100 < 0.05 ? "<0,1%" : v * 100 > 99.95 ? ">99,9%" : (v * 100).toFixed(1) + "%";
 
 const REGION_NAME: Record<MajorRegion, string> = {
   europe: "Європа", americas: "Америка", asia: "Азія",
