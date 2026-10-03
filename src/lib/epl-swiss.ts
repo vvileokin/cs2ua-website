@@ -33,7 +33,7 @@ export const EPL_SCORING = {
   perfect: 500,
 } as const;
 
-/** 1 320 за ідеальну картку: 2×150 + 3×60 + 3×60 + 3×60 + 3×60 + 2×150 + 500. */
+/** 1 820 за ідеальну картку: 2×150 + 4×3×60 + 2×150 = 1 320, і 500 за безпомилковість. */
 export const EPL_MAX =
   EPL_BUCKETS.reduce((sum, b) => sum + EPL_SCORING.exact[b] * EPL_CAPACITY[b], 0) +
   EPL_SCORING.perfect;

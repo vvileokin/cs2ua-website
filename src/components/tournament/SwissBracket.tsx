@@ -66,7 +66,7 @@ function SwissColumnView({ c }: { c?: ReturnType<typeof swissState>["columns"][n
   if (!c) return null;
   return (
     <section className="space-y-2">
-      <p className="font-mono text-sm font-bold text-white/55">{c.label}</p>
+      <p className="font-mono text-sm font-bold text-[rgb(var(--skin-ring))]">{c.label}</p>
       <div className="space-y-2">
         {c.cells.map((cell, i) => (
           <Pair key={cell.match?.id ?? `${c.key}-${i}`} cell={cell} />
@@ -92,12 +92,15 @@ function Pair({ cell }: { cell: { match?: Match; a?: string; b?: string } }) {
   const body = (
     <div
       className={cn(
-        "flex items-center justify-center gap-2 rounded-lg bg-black/30 px-2 py-2 shadow-[inset_0_0_0_1px_rgb(var(--skin-ring)/0.14)]",
-        live && "bg-[rgb(var(--skin-glow)/0.12)] shadow-[inset_0_0_0_1px_rgb(var(--skin-ring)/0.6)]",
+        /* Герби по краях, «vs» посередині. Зсунуті докупи, вони читалися як
+           одна пляма з двох значків; розведені — як дві сторони. */
+        "flex items-center justify-between gap-1 rounded-lg px-2.5 py-2",
+        "bg-[rgb(var(--skin-deep)/0.5)] shadow-[inset_0_0_0_1px_rgb(var(--skin-ring)/0.28)]",
+        live && "bg-[rgb(var(--skin-glow)/0.16)] shadow-[inset_0_0_0_1px_rgb(var(--skin-ring)/0.7)]",
       )}
     >
       <Corner slug={cell.a} score={done ? m?.scoreA : undefined} won={winner === m?.a} />
-      <span className="shrink-0 text-[0.625rem] font-bold uppercase text-white/25">vs</span>
+      <span className="shrink-0 text-[0.625rem] font-bold uppercase text-[rgb(var(--skin-ring)/0.5)]">vs</span>
       <Corner slug={cell.b} score={done ? m?.scoreB : undefined} won={winner === m?.b} />
     </div>
   );
@@ -118,7 +121,7 @@ function Corner({ slug, score, won }: { slug?: string; score?: number; won?: boo
       {t ? (
         <TeamLogo team={t} size="cardCrest" />
       ) : (
-        <span className="grid size-[2.125rem] place-items-center rounded-md bg-white/[0.06] text-xs font-bold text-white/25">
+        <span className="grid size-[2.125rem] place-items-center rounded-md bg-black/30 text-xs font-bold text-[rgb(var(--skin-ring)/0.35)]">
           ?
         </span>
       )}

@@ -38,9 +38,14 @@ export default async function TournamentPage({
   // and your own row has to be found even when you rank well below the cut.
   const [allMatches, leaderboard, ranks] = await Promise.all([
     getMatches(),
+    /* Дошка турніру — це дошка його валюти. Івентовий гаманець один на сайт,
+       тож будь-який турнір, що ним живе, читає ту саму таблицю: той, хто ще не
+       зробив ставку, у ній не з'являється. Перевірка за назвою турніру лишала
+       EPL на сезонній дошці, і в ній стояли люди з жовтими поінтами, які до
+       цього турніру не торкались. */
     t.slug === "ewc-2026"
       ? getEwcLeaderboard(200)
-      : t.skin === "porto"
+      : t.skin === "porto" || t.skin === "epl"
         ? getEventLeaderboard(200)
         : t.isEvent
           ? getBountyLeaderboard(200)

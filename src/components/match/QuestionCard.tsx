@@ -6,7 +6,7 @@ import { Link, useRouter } from "@/i18n/navigation";
 import { Check, Flame } from "lucide-react";
 import { TeamLogo } from "@/components/ui/TeamLogo";
 import { BrandIcon } from "@/components/ui/BrandIcon";
-import { getMatch, matchTeam, teamByLabel, teams, type Question, type Match, isAuraSkin, matchSkin, matchWallet } from "@/lib/data";
+import { getMatch, matchTeam, teamByLabel, teams, type Question, type Match, isAuraSkin, matchSkin, matchWallet, eventGem as gemFor } from "@/lib/data";
 import { useUser } from "@/lib/supabase/use-user";
 import { useProfile } from "@/lib/supabase/use-profile";
 import { createClient } from "@/lib/supabase/client";
@@ -74,8 +74,7 @@ export function QuestionCard({
   const wallet = match ? matchWallet(match) : null;
   const dressed = isAuraSkin(wallet);
   /** The currency mark this question is staked and paid in. */
-  const eventGem =
-    wallet === "ewc" ? "points-ewc" : wallet === "porto" ? "points-porto" : "points";
+  const eventGem = gemFor(wallet);
 
   // Load this user's saved answer.
   React.useEffect(() => {
