@@ -427,13 +427,15 @@ export default async function MatchPage({
                 isAuraSkin(skin) ? "skin-aura-card" : "surface-1",
               )}
             >
-              {/* `1fr auto 1fr`, not `justify-between`. With flex the middle
-                  column is content-sized between two flexible flanks, so the
-                  score drifted toward whichever team had the shorter name —
-                  Falcons against The MongolZ pushed it visibly off centre. A
-                  grid puts it on the axis and keeps it there whatever the
-                  names weigh. */}
-              <div className="grid grid-cols-[1fr_auto_1fr] items-center">
+              {/* `minmax(0,1fr) auto minmax(0,1fr)`, не `justify-between` і не
+                  просто `1fr`. З флексом середня колонка міряється вмістом між
+                  двома гнучкими боками, і рахунок зсувався до тієї команди, у
+                  якої коротша назва. Сітка ставить його на вісь — але тільки з
+                  `minmax(0,…)`: звичайний `1fr` має дно в min-content, тож довга
+                  назва розпирала свою колонку понад рівну частку і зсувала
+                  центр так само, лише менше. Нуль у дні дозволяє колонці
+                  стиснутися, а назві — обрізатися. */}
+              <div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center">
                 <TeamMini team={a} />
                 <div className="px-4 text-center">
                   <p
@@ -766,12 +768,15 @@ function TeamMini({
   return (
     <div
       className={cn(
-        "flex items-center gap-2",
+        "flex min-w-0 items-center gap-2",
         align === "right" && "flex-row-reverse",
       )}
     >
       <TeamLogo team={team} size="sm" />
-      <span className="truncate text-sm font-bold text-ink">{team.name}</span>
+      {/* Обрізається назва, а не колонка: щоб `truncate` спрацював, елементу
+          потрібне дно в нулі, інакше він правдами й неправдами лишається
+          завширшки зі свій текст. */}
+      <span className="min-w-0 truncate text-sm font-bold text-ink">{team.name}</span>
     </div>
   );
 }
