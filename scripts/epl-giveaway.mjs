@@ -29,8 +29,8 @@ const GIVEAWAY = {
   prize: "5× AWP | Крижане вугілля",
   sponsor: "CS2UA",
   value_usd: 0,
-  end_iso: "2026-10-11T21:00:00+00:00",
-  end_label: "до 11 жовтня",
+  end_iso: "2026-10-12T21:00:00+00:00",
+  end_label: "до 12 жовтня",
   entrants: 0,
   min_points: 0,
   status: "open",
@@ -74,12 +74,13 @@ if (r.ok) {
   console.log("розіграш створено:", GIVEAWAY.slug);
 } else {
   const text = await r.text();
-  const needsMigration = text.includes("entry_currency") || text.includes("23514");
+  /* Називаємо міграцію за конкретною перевіркою, а не за кодом помилки: 23514
+     означає «якась перевірка не пройшла», і першого разу цей скрипт звинуватив
+     у цьому 0084, хоча валюту таблиця вже приймала, а спотикалася на скіні. */
+  const miss = text.includes("giveaways_entry_currency_check") ? "0084 (валюта «event»)"
+    : text.includes("giveaways_skin_check") ? "0087 (скін «epl»)"
+    : null;
   console.error(r.status, text.slice(0, 300));
-  if (needsMigration) {
-    console.error(
-      "\nСхоже, міграція 0084 ще не запущена: таблиця не приймає валюту «event».",
-    );
-  }
+  if (miss) console.error(`\nСхоже, не запущена міграція ${miss}.`);
   process.exit(1);
 }
