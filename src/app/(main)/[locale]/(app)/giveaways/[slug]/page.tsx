@@ -2,10 +2,9 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import type { Metadata } from "next";
-import { ChevronLeft, Check, ListChecks, Trophy } from "lucide-react";
-import { Badge } from "@/components/ui/Badge";
+import { ChevronLeft, Check, ListChecks } from "lucide-react";
 import { GiveawayEntry } from "@/components/giveaway/GiveawayEntry";
-import { formatPrize, isAuraSkin } from "@/lib/data";
+import { isAuraSkin } from "@/lib/data";
 import { getGiveawayBySlug } from "@/lib/db/giveaways";
 import { cn } from "@/lib/utils";
 
@@ -84,23 +83,16 @@ export default async function GiveawayPage({
                 repeated here: at full page width it needed a scrim heavy
                 enough to bury the skin, which made the hero worse at both
                 jobs. This block is the title, and the title only. */}
-            <div className="relative flex flex-col justify-end p-5 sm:p-6">
-              <div className="mb-2 flex flex-wrap items-center gap-1.5">
-                {g.winners.length > 0 || g.status === "finished" ? (
-                  <Badge tone={dressed ? "ewc" : "accent"}>
-                    <Trophy className="size-3" />
-                    {g.winners.length > 0 ? "Розіграно" : "Завершено"}
-                  </Badge>
-                ) : g.status === "ending" ? (
-                  <Badge tone="live">Завершується</Badge>
-                ) : (
-                  <Badge tone={dressed ? "ewc" : "success"}>Активний</Badge>
-                )}
-                {/* A dollar figure is worth showing when there is one. This
-                    giveaway is priced in EWC points, so the chip was rendering
-                    a literal "$0" next to a prize that costs ten of them. */}
-                {g.valueUSD > 0 && <Badge tone="neutral">{formatPrize(g.valueUSD)}</Badge>}
-              </div>
+            {/* Банер — це назва, і більше нічого.
+
+                Плашка стану звідси пішла: «Активний» на сторінці, де під нею
+                цокає таймер і стоїть кнопка участі, нічого не додає. Стан, який
+                справді змінює справу — що розіграно, — лишається на картці в
+                стрічці й у блоці переможців нижче.
+
+                Разом із плашкою пішли і її відступи: без ряду бейджів банеру
+                вистачає одного кроку сітки замість півтора. */}
+            <div className="relative flex flex-col justify-end px-5 py-4 sm:px-6 sm:py-5">
               <h1 className="text-balance text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
                 {g.prize}
               </h1>
