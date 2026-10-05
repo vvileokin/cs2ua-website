@@ -21,7 +21,7 @@ import { BrandIcon } from "@/components/ui/BrandIcon";
 import { useProfile } from "@/lib/supabase/use-profile";
 import { createClient } from "@/lib/supabase/client";
 import { formatInt, cn } from "@/lib/utils";
-import { entryGem, type Giveaway } from "@/lib/data";
+import { entryGem, isAuraSkin, type Giveaway } from "@/lib/data";
 
 type SubState =
   | { phase: "idle" }
@@ -47,7 +47,9 @@ export function GiveawayEntry({ giveaway }: { giveaway: Giveaway }) {
   const router = useRouter();
   const { user, profile } = useProfile();
 
-  const ewc = giveaway.skin === "ewc";
+  /* Одягнений івент — будь-який, не лише EWC: інакше зелений розіграш EPL
+     лишався з жовтими кнопками й жовтим таймером. */
+  const ewc = isAuraSkin(giveaway.skin);
   const paid = giveaway.entryCost > 0;
   const cap = Math.max(1, giveaway.maxTickets);
 

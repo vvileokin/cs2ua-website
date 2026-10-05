@@ -5,10 +5,15 @@ import { Gift, Users, ArrowRight, Trophy } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 import { BrandIcon } from "@/components/ui/BrandIcon";
 import { formatInt, cn } from "@/lib/utils";
-import { entryGem, type Giveaway } from "@/lib/data";
+import { entryGem, isAuraSkin, type Giveaway } from "@/lib/data";
 
 export function GiveawayCard({ g }: { g: Giveaway }) {
-  const ewc = g.skin === "ewc";
+  /* Будь-який івент, не тільки EWC.
+     Перевірка стояла на одному скіні, тож розіграш EPL падав у загальну гілку
+     і світився власним `cover` — яскраво-салатовим, тоді як картка турніру
+     поруч темно-оливкова. Одна подія має виглядати однаково скрізь, тож тут
+     той самий aura-скін і той самий `data-skin`, що на картці турніру. */
+  const dressed = isAuraSkin(g.skin);
   return (
     /* Impeccable: Crafted Giveaway Card — a prize card should feel like a
        prize. The body carries the giveaway's own colour pooled up from the
@@ -16,17 +21,18 @@ export function GiveawayCard({ g }: { g: Giveaway }) {
        strip, and the artwork sits in a stronger pool of the same hue. */
     <Link
       href={`/giveaways/${g.slug}`}
+      data-skin={g.skin}
       style={
         {
           "--aura-1": g.cover,
           "--aura-2": "var(--accent)",
           // What the card throws onto the canvas when it lifts.
-          "--glow": ewc ? "rgb(255 88 16)" : g.cover,
+          "--glow": dressed ? "rgb(var(--skin-ring))" : g.cover,
         } as CSSProperties
       }
       className={cn(
         "group lift relative flex h-full flex-col overflow-hidden rounded-2xl focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2",
-        ewc ? "skin-aura-card" : "surface-1 aura",
+        dressed ? "skin-aura-card" : "surface-1 aura",
       )}
     >
       {/* A fixed 3:1 slot rather than a fixed 96px height: the card is a
@@ -35,7 +41,7 @@ export function GiveawayCard({ g }: { g: Giveaway }) {
       <div
         className="relative flex aspect-[3/1] items-center justify-center"
         style={
-          ewc
+          dressed
             ? undefined
             : {
                 background: `radial-gradient(90% 130% at 50% 128%, color-mix(in oklch, ${g.cover} 34%, transparent), transparent 62%), linear-gradient(135deg, color-mix(in oklch, ${g.cover} 20%, var(--surface)), var(--surface) 78%)`,
@@ -58,7 +64,7 @@ export function GiveawayCard({ g }: { g: Giveaway }) {
           <Gift
             className="size-10 text-ink opacity-80 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-0.5"
             strokeWidth={1.75}
-            style={{ color: ewc ? "rgb(255 138 24)" : g.cover }}
+            style={{ color: dressed ? "rgb(var(--skin-ring))" : g.cover }}
           />
         )}
         {/* `flex`, not a bare block: the badge is inline-flex, so inside a block
@@ -73,15 +79,18 @@ export function GiveawayCard({ g }: { g: Giveaway }) {
                back for, and the neutral chip made it read as archived. The word
                follows the facts — "Розіграно" is a claim about winners, and
                entries can be shut before there are any. */
-            <Badge tone={ewc ? "ewc" : "accent"}>
+            <Badge tone={dressed ? "ewc" : "accent"}>
               <Trophy className="size-3" />
               {g.winners.length > 0 ? "Розіграно" : "Завершено"}
             </Badge>
           ) : g.status === "ending" ? (
             <Badge tone="live">Завершується</Badge>
-          ) : (
-            <Badge tone={ewc ? "ewc" : "success"}>Активний</Badge>
-          )}
+          ) : null}
+          {/* «Активний» не пишемо: розіграш, у якому ще можна взяти участь, —
+              це норма, а не новина. Плашка горіла на кожній відкритій картці й
+              повторювала те, що й так видно з кнопки «Участь» і таймера.
+              Лишилися стани, які справді змінюють справу: розіграно, завершено
+              і той, що добігає кінця. */}
         </div>
 
         {/* The price of a ticket, opposite the status. A paid giveaway that
@@ -94,7 +103,7 @@ export function GiveawayCard({ g }: { g: Giveaway }) {
               // one line across the card instead of each finding its own centre.
               "tnum absolute right-3 top-3 flex h-[1.375rem] items-center gap-1 rounded-md px-2 font-mono text-xs font-bold",
               "bg-black/45 backdrop-blur-[2px]",
-              ewc ? "text-[rgb(var(--skin-ring))]" : "text-accent",
+              dressed ? "text-[rgb(var(--skin-ring))]" : "text-accent",
             )}
           >
             <BrandIcon
@@ -121,7 +130,7 @@ export function GiveawayCard({ g }: { g: Giveaway }) {
           <span
             className={cn(
               "flex items-center gap-1 text-xs font-semibold",
-              ewc ? "text-[rgb(var(--skin-ring))]" : "text-accent",
+              dressed ? "text-[rgb(var(--skin-ring))]" : "text-accent",
             )}
           >
             Участь

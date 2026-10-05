@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import { ChevronLeft, Check, ListChecks, Trophy } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 import { GiveawayEntry } from "@/components/giveaway/GiveawayEntry";
-import { formatPrize } from "@/lib/data";
+import { formatPrize, isAuraSkin } from "@/lib/data";
 import { getGiveawayBySlug } from "@/lib/db/giveaways";
 import { cn } from "@/lib/utils";
 
@@ -28,8 +28,15 @@ export default async function GiveawayPage({
   const g = await getGiveawayBySlug(slug);
   if (!g) notFound();
 
+  /* Будь-який івент, не лише EWC: перевірка на один скін лишала розіграш EPL
+     на сірій плиті під зеленою карткою, з якої на нього прийшли. */
+  const dressed = isAuraSkin(g.skin);
+
   return (
-    <div className="space-y-6">
+    /* Скін на корені, а не лише на банері: палітра івенту потрібна і кнопці
+       участі, і таймеру, і списку умов — усі вони читають `--skin-ring`, який
+       живе на `data-skin`. */
+    <div data-skin={g.skin} className="space-y-6">
       {/* The link and the banner it introduces are one group, on 8px, exactly
           as on the tournament and match pages. As a bare child of `space-y-6`
           it stood 24px clear of the banner and the header read as further down
@@ -55,15 +62,18 @@ export default async function GiveawayPage({
           `image` set the artwork *is* the hero; without it the block is simply
           shorter. */}
       {(() => {
-        const ewc = g.skin === "ewc";
+        /* `skin-art` і далі тільки для EWC — це їхнє полум'я, в інших подій
+           його просто немає. */
         return (
           <div
+            data-skin={g.skin}
             className={cn(
               "relative overflow-hidden rounded-xl",
-              ewc ? "skin-aura skin-art" : "surface-1",
+              dressed ? "skin-aura" : "surface-1",
+              g.skin === "ewc" && "skin-art",
             )}
             style={
-              ewc
+              dressed
                 ? undefined
                 : {
                     background: `linear-gradient(120deg, color-mix(in oklch, ${g.cover} 22%, var(--surface)), var(--surface) 70%)`,
@@ -77,14 +87,14 @@ export default async function GiveawayPage({
             <div className="relative flex flex-col justify-end p-5 sm:p-6">
               <div className="mb-2 flex flex-wrap items-center gap-1.5">
                 {g.winners.length > 0 || g.status === "finished" ? (
-                  <Badge tone={ewc ? "ewc" : "accent"}>
+                  <Badge tone={dressed ? "ewc" : "accent"}>
                     <Trophy className="size-3" />
                     {g.winners.length > 0 ? "Розіграно" : "Завершено"}
                   </Badge>
                 ) : g.status === "ending" ? (
                   <Badge tone="live">Завершується</Badge>
                 ) : (
-                  <Badge tone={ewc ? "ewc" : "success"}>Активний</Badge>
+                  <Badge tone={dressed ? "ewc" : "success"}>Активний</Badge>
                 )}
                 {/* A dollar figure is worth showing when there is one. This
                     giveaway is priced in EWC points, so the chip was rendering
@@ -121,7 +131,7 @@ export default async function GiveawayPage({
                 // A white hairline across an ember plate is the one seam that
                 // reads as a scratch rather than a division — it's the only
                 // cool-toned thing on the panel. Warm it to the same family.
-                g.skin === "ewc"
+                dressed
                   ? "skin-aura-card skin-divide"
                   : "surface-1 divide-[color-mix(in_oklch,var(--ink)_6%,transparent)]",
               )}
@@ -134,7 +144,7 @@ export default async function GiveawayPage({
                   <span
                     className={cn(
                       "grid size-5 shrink-0 place-items-center rounded-full",
-                      g.skin === "ewc"
+                      dressed
                         ? "bg-[rgb(var(--skin-glow)/0.20)] text-[rgb(var(--skin-ring))]"
                         : "bg-success/15 text-success",
                     )}
