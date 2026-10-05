@@ -33,8 +33,11 @@ export async function POST(request: Request) {
     status: String(g.status ?? "open"),
     cover: String(g.cover ?? "oklch(0.64 0.235 24)"),
     image: g.image || null,
-    // Only the two skins the card knows how to draw; anything else is no skin.
-    skin: g.skin === "ewc" || g.skin === "blast" ? g.skin : null,
+    /* Скіни каталогу, а не ті дві, що існували навесні. Через старий список
+       збереження розіграшу з адмінки мовчки стирало «epl»: адмін міняв
+       картинку, а картка знімала з себе кольори івенту. Список той самий, що в
+       EventSkin і в перевірці 0087 — міняти доведеться в трьох місцях одразу. */
+    skin: ["blast", "ewc", "porto", "epl"].includes(String(g.skin)) ? String(g.skin) : null,
     description: g.description ? String(g.description) : null,
     conditions: Array.isArray(g.conditions) ? g.conditions : [],
     winners_count: Math.max(1, Number(g.winners_count ?? 1)),

@@ -546,6 +546,8 @@ export default function GiveawaysAdmin() {
               onChange={(e) => setForm({ ...form, skin: e.target.value })}
             >
               <option value="">Звичайний</option>
+              <option value="epl">ESL Pro League</option>
+              <option value="porto">BLAST Open Porto</option>
               <option value="ewc">Esports World Cup</option>
               <option value="blast">BLAST</option>
             </select>
