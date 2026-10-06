@@ -16,10 +16,19 @@ import { cn, formatInt } from "@/lib/utils";
  * вистачає. Другий вхід і є головний: обмінник потрібен не тоді, коли про нього
  * згадали, а тоді, коли ставка не проходить.
  *
- * Чому залишок стелі показано окремим рядком. Межа тут не одна, а дві —
+ * Чому він виглядає саме так. Обмін — це дві валюти й стрілка між ними, тож
+ * вікно побудоване навколо цієї пари, а не навколо поля вводу: два стовпці —
+ * скільки віддаєш і скільки отримаєш, — із яких редагується лише лівий. Курс
+ * стоїть рядком під ними, бо він одного разу прочитується і більше не потрібен;
+ * окремим банером угорі він з'їдав третину вікна, щоб повідомити «3 → 1».
+ *
+ * Саме вікно вбране в кольори турніру — підлога, кант, шапка, — тож пара
+ * стовпців не потребує власної рамки, щоб бути івентовою.
+ *
+ * Стеля показана смугою, а не числом у дужках. Межа тут не одна, а дві —
  * скільки золота на руках і скільки з тисячі ще не куплено, — і людина, яка
- * бачить одне число «доступно», не розуміє, чому воно менше за її баланс. Тому
- * під полем стоїть другий рядок, і тільки поки стеля справді тисне.
+ * бачить одне «доступно», не розуміє, чому воно менше за її баланс. Смуга
+ * відповідає на це одним поглядом.
  */
 export function EventConvertModal({
   open,
@@ -30,6 +39,10 @@ export function EventConvertModal({
   onClose: () => void;
   skin?: EventSkin | null;
 }) {
+  const event = runningEvent();
+  const dress = skin ?? event?.skin ?? null;
+  const gem = eventGem(dress);
+
   const [limit, setLimit] = React.useState<number | null>(null);
   const [rate, setRate] = React.useState(3);
   const [cap, setCap] = React.useState(1000);
@@ -39,13 +52,12 @@ export function EventConvertModal({
   const [error, setError] = React.useState<string | null>(null);
   const [done, setDone] = React.useState<number | null>(null);
 
-  const gem = eventGem(skin ?? runningEvent()?.skin);
-
   React.useEffect(() => {
     if (!open) return;
     let cancelled = false;
     setDone(null);
     setError(null);
+    setGold("");
     fetch("/api/event-convert", { cache: "no-store" })
       .then((r) => r.json())
       .then((d) => {
@@ -64,6 +76,8 @@ export function EventConvertModal({
   const amount = Number(gold || 0);
   const gain = Math.floor(amount / rate);
   const max = limit ?? 0;
+  const bought = capLeft === null ? 0 : cap - capLeft;
+
   const problem =
     amount === 0
       ? null
@@ -73,6 +87,11 @@ export function EventConvertModal({
           ? `Сума має ділитись на ${rate}`
           : null;
   const valid = amount >= rate && amount <= max && amount % rate === 0;
+
+  /* Пресети кратні курсу і обрізані по тому, що людина реально може віддати:
+     кнопка, яка пропонує суму, більшу за дозволену, — це відмова, намальована
+     як пропозиція. */
+  const chips = [rate * 50, rate * 100, rate * 200].filter((c) => c <= max);
 
   async function convert() {
     setBusy(true);
@@ -102,64 +121,111 @@ export function EventConvertModal({
   }
 
   return (
-    <Modal open={open} onClose={onClose} title="Обмін на поінти івенту">
+    <Modal open={open} onClose={onClose} title="Обмін на поінти івенту" skin={dress}>
       <div className="space-y-3">
-        <p className="text-sm leading-relaxed text-ink-muted">
-          {rate} CS2UA Points — 1 поінт івенту. За весь турнір можна купити{" "}
-          <span className="font-semibold text-ink">{formatInt(cap)}</span>.
-        </p>
-
-        <div className="flex items-center justify-between rounded-xl surface-2 px-3 py-2.5">
-          <span className="text-xs text-ink-subtle">Доступно до обміну</span>
-          <span className="tnum flex items-center gap-1 font-mono text-sm font-extrabold text-accent">
-            <BrandIcon name="points" className="size-4" />
-            {limit === null ? "…" : formatInt(max)}
-          </span>
-        </div>
-
         {done !== null ? (
-          <p className="tnum flex items-center justify-center gap-1 rounded-xl bg-success/10 px-3 py-3 text-sm font-bold text-success">
+          <p className="tnum flex items-center justify-center gap-1.5 rounded-xl bg-[rgb(var(--skin-glow)/0.16)] px-3 py-3.5 text-sm font-bold text-[rgb(var(--skin-coin))] shadow-[inset_0_0_0_1px_rgb(var(--skin-ring)/0.35)]">
             Отримано +{formatInt(done)}
             <BrandIcon name={gem} className="size-4" />
           </p>
         ) : (
           <>
-            <div className="flex items-center gap-2">
-              <input
-                autoFocus
-                type="text"
-                inputMode="numeric"
-                value={gold}
-                placeholder="CS2UA Points"
-                aria-label="Скільки CS2UA Points обміняти"
-                onChange={(e) => setGold(e.target.value.replace(/\D/g, "").slice(0, 7))}
-                className="tnum h-11 min-w-0 flex-1 rounded-xl border border-border bg-surface-2 px-3 font-mono text-sm font-bold text-ink outline-none placeholder:font-sans placeholder:font-medium placeholder:text-ink-subtle focus:border-accent focus-visible:outline-none! focus-visible:rounded-xl!"
-              />
+            {/* Дві колонки замість поля і рядка під ним: ліва редагується,
+                права показує, що з цього вийде. Обмін — це пара, і виглядати
+                він має парою. */}
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+              <label className="min-w-0">
+                <span className="mb-1 block text-[0.6875rem] font-semibold text-ink-subtle">Віддаєш</span>
+                <span className="flex h-12 items-center gap-1.5 rounded-xl bg-black/30 px-2.5 shadow-[inset_0_0_0_1px_rgb(var(--skin-ring)/0.22)] focus-within:shadow-[inset_0_0_0_1px_rgb(var(--skin-ring)/0.75)]">
+                  <BrandIcon name="points" className="size-4 shrink-0" />
+                  <input
+                    autoFocus
+                    type="text"
+                    inputMode="numeric"
+                    value={gold}
+                    placeholder="0"
+                    aria-label="Скільки CS2UA Points обміняти"
+                    onChange={(e) => setGold(e.target.value.replace(/\D/g, "").slice(0, 7))}
+                    className="tnum w-full min-w-0 bg-transparent font-mono text-base font-extrabold text-ink outline-none placeholder:text-ink-faint focus-visible:outline-none!"
+                  />
+                </span>
+              </label>
+
+              <ArrowRight className="mt-5 size-3.5 shrink-0 text-ink-faint" strokeWidth={3} />
+
+              <div className="min-w-0">
+                <span className="mb-1 block text-[0.6875rem] font-semibold text-ink-subtle">Отримаєш</span>
+                {/* Не поле: обидва боки редагувати нема сенсу, а те, що виглядає
+                    як поле і не приймає ввід, читається як зламане. */}
+                <output className="tnum flex h-12 items-center gap-1.5 rounded-xl bg-[rgb(var(--skin-glow)/0.14)] px-2.5 font-mono text-base font-extrabold text-[rgb(var(--skin-coin))] shadow-[inset_0_0_0_1px_rgb(var(--skin-ring)/0.3)]">
+                  <BrandIcon name={gem} className="size-4 shrink-0" />
+                  {formatInt(gain)}
+                </output>
+              </div>
+            </div>
+
+            {/* Курс одним рядком між парою і пресетами: він пояснює стрілку
+                вище, а не відкриває вікно. */}
+            <p className="tnum flex items-center justify-center gap-1.5 font-mono text-xs font-semibold text-[rgb(var(--skin-ring)/0.85)]">
+              <BrandIcon name="points" className="size-3.5" />
+              {rate}
+              <span className="text-ink-faint">=</span>
+              <BrandIcon name={gem} className="size-3.5" />1
+              <span className="ml-1 font-sans font-medium text-ink-subtle">
+                · {event?.shortName ?? "івент"}
+              </span>
+            </p>
+
+            <div className="flex gap-1.5">
+              {chips.map((c) => (
+                <button
+                  key={c}
+                  onClick={() => setGold(String(c))}
+                  className={cn(
+                    "tnum h-9 flex-1 rounded-lg font-mono text-xs font-bold transition-colors",
+                    amount === c
+                      ? "bg-[rgb(var(--skin-ring))] text-black"
+                      : "bg-black/30 text-ink-muted hover:bg-black/45",
+                  )}
+                >
+                  {formatInt(c)}
+                </button>
+              ))}
               <button
                 onClick={() => setGold(String(max))}
                 disabled={max < rate}
-                className="h-11 shrink-0 rounded-xl border border-border px-3 text-xs font-semibold text-ink-muted transition-colors hover:bg-surface-2 disabled:opacity-40"
+                className={cn(
+                  "h-9 flex-1 rounded-lg text-xs font-bold transition-colors disabled:opacity-35",
+                  amount === max && max >= rate
+                    ? "bg-[rgb(var(--skin-ring))] text-black"
+                    : "bg-black/30 text-ink-muted hover:bg-black/45",
+                )}
               >
                 Усе
               </button>
             </div>
 
-            {amount > 0 && (
-              <p className="tnum flex h-11 items-center justify-center gap-1 rounded-xl surface-2 font-mono text-sm font-bold text-accent">
-                <BrandIcon name="points" className="size-4" />
-                {formatInt(amount)}
-                <span className="mx-1.5 font-normal text-ink-subtle">÷ {rate}</span>
-                <ArrowRight className="mr-1.5 size-3.5 shrink-0 text-ink-faint" strokeWidth={3} />
-                <BrandIcon name={gem} className="size-4" />
-                {formatInt(gain)}
+            {/* Скільки з тисячі вже витрачено. Смуга лишається на місці й коли
+                не куплено нічого: порожня шкала теж відповідь, а поява блоку
+                після першого обміну зсувала б кнопку під пальцем. */}
+            <div className="space-y-1.5 rounded-xl bg-black/30 px-3 py-2.5 shadow-[inset_0_0_0_1px_rgb(var(--skin-ring)/0.14)]">
+              <div className="flex items-baseline justify-between text-[0.6875rem]">
+                <span className="text-ink-subtle">Куплено за івент</span>
+                <span className="tnum font-mono font-bold text-ink">
+                  {capLeft === null ? "…" : formatInt(bought)}
+                  <span className="text-ink-faint"> / {formatInt(cap)}</span>
+                </span>
+              </div>
+              <div className="h-1 overflow-hidden rounded-full bg-[rgb(var(--skin-ring)/0.14)]">
+                <div
+                  className="h-full rounded-full bg-[rgb(var(--skin-ring))] transition-[width] duration-300"
+                  style={{ width: `${Math.min(100, (100 * (bought + gain)) / cap)}%` }}
+                />
+              </div>
+              <p className="tnum text-[0.6875rem] text-ink-subtle">
+                Доступно до обміну {limit === null ? "…" : formatInt(max)} CS2UA Points
               </p>
-            )}
-
-            {capLeft !== null && capLeft < cap && (
-              <p className="text-center text-xs text-ink-subtle">
-                Залишилось купити {formatInt(capLeft)} за цей івент
-              </p>
-            )}
+            </div>
 
             {(problem || error) && (
               <p role="alert" className="text-center text-xs font-semibold text-danger">
@@ -171,9 +237,9 @@ export function EventConvertModal({
               onClick={convert}
               disabled={!valid || busy}
               className={cn(
-                "flex h-11 w-full items-center justify-center gap-2 rounded-xl text-sm font-bold transition-colors",
-                "bg-accent text-accent-ink hover:bg-accent-hover",
-                "disabled:cursor-not-allowed disabled:bg-surface-3 disabled:text-ink-faint",
+                "flex h-12 w-full items-center justify-center gap-2 rounded-xl text-sm font-bold transition-[filter,background-color]",
+                "bg-[rgb(var(--skin-ring))] text-black hover:brightness-110",
+                "disabled:cursor-not-allowed disabled:bg-black/35 disabled:text-white/30 disabled:hover:brightness-100",
               )}
             >
               {busy && <Loader2 className="size-4 animate-spin" />}
