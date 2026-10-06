@@ -311,14 +311,14 @@ export default async function MatchPage({
           виграє» вже не питання, а зсув, який стався, видно в самій таблиці
           інвайтів. */}
       {swing.size > 0 && match.status !== "finished" && (
-        <section className="space-y-4">
+        <section className="space-y-2.5 sm:space-y-4">
           <SectionLabel icon={TrophyGlyph}>Що дає цей матч</SectionLabel>
           <InviteSwing a={a} b={b} swing={swing} skin={skin} />
         </section>
       )}
 
       {/* PRIMARY: predictions */}
-      <section className="space-y-4">
+      <section className="space-y-2.5 sm:space-y-4">
         <SectionLabel icon={TargetGlyph} level="h2">Прогнози на матч</SectionLabel>
         {/* `match` is passed for the option crests, not for the match header
             row — that one is gated on `withMatch`, which stays off here. */}
@@ -345,7 +345,7 @@ export default async function MatchPage({
       {/* CONTEXT: subordinate */}
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
         {veto.length > 0 && (
-        <section className="space-y-4">
+        <section className="space-y-2.5 sm:space-y-4">
           <SectionLabel icon={SwordsGlyph}>Map veto</SectionLabel>
           {/* Impeccable: Crafted Veto Ledger — every row carries the map's own
               art, held to the right and masked so the labels always win. A map
@@ -434,7 +434,7 @@ export default async function MatchPage({
         </section>
         )}
 
-        <section className="space-y-4">
+        <section className="space-y-2.5 sm:space-y-4">
           <SectionLabel icon={History}>Історія зустрічей</SectionLabel>
           {match.h2h && (match.h2h.a > 0 || match.h2h.b > 0) ? (
             <div
@@ -548,6 +548,11 @@ export default async function MatchPage({
  * heading that starts on exactly the same pixel as the panel under it reads as
  * stuck to it.
  */
+/* Проміжок між написом і блоком на телефоні 10px, а не 16. На столі секція
+   стоїть серед повітря, і шістнадцять читаються як пауза перед новим розділом;
+   на вузькій колонці те саме число відриває напис від того, що він називає, і
+   він починає виглядати підписом під попереднім блоком. Проміжок між секціями
+   (28px) лишається — саме він і має бути більшим за внутрішній. */
 function SectionLabel({
   icon: Icon,
   level = "h3",
