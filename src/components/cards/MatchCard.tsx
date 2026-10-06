@@ -256,7 +256,7 @@ export function MatchCard({ match }: { match: Match }) {
                   ×{match.maxOdds.toFixed(2)}
                 </span>
               ) : (
-                <span className={cn("tnum flex items-center gap-1 font-mono font-bold leading-none", isAuraSkin(skin) ? "text-[rgb(var(--skin-ring))]" : "text-accent")}>
+                <span className={cn("tnum flex items-center gap-1 font-mono font-bold leading-none", isAuraSkin(skin) ? "text-[rgb(var(--skin-coin))]" : "text-accent")}>
                   <BrandIcon name={eventGem(skin)} className="size-3.5" />
                   +{match.maxReward}
                 </span>

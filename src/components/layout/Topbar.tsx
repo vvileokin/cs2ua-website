@@ -257,7 +257,7 @@ export function Topbar() {
             className="flex h-8 items-center gap-1 rounded-full bg-[rgb(var(--skin-glow)/0.16)] pl-1.5 pr-2.5 shadow-[0_0_0_1px_rgb(var(--skin-ring)/0.35)] transition-colors hover:bg-[rgb(var(--skin-glow)/0.24)] sm:h-10 sm:gap-1.5 sm:pl-2 sm:pr-3.5"
           >
             <BrandIcon name={eventGem(event.skin)} className="size-4 sm:size-5" priority />
-            <span className="tnum font-mono text-xs font-extrabold leading-none text-[rgb(var(--skin-ring))] sm:text-sm">
+            <span className="tnum font-mono text-xs font-extrabold leading-none text-[rgb(var(--skin-coin))] sm:text-sm">
               {formatInt(eventPoints)}
             </span>
           </button>
