@@ -39,8 +39,7 @@ export function EventConvertModal({
   onClose: () => void;
   skin?: EventSkin | null;
 }) {
-  const event = runningEvent();
-  const dress = skin ?? event?.skin ?? null;
+  const dress = skin ?? runningEvent()?.skin ?? null;
   const gem = eventGem(dress);
 
   const [limit, setLimit] = React.useState<number | null>(null);
@@ -171,9 +170,6 @@ export function EventConvertModal({
               {rate}
               <span className="text-ink-faint">=</span>
               <BrandIcon name={gem} className="size-3.5" />1
-              <span className="ml-1 font-sans font-medium text-ink-subtle">
-                · {event?.shortName ?? "івент"}
-              </span>
             </p>
 
             <div className="flex gap-1.5">
@@ -208,7 +204,12 @@ export function EventConvertModal({
             {/* Скільки з тисячі вже витрачено. Смуга лишається на місці й коли
                 не куплено нічого: порожня шкала теж відповідь, а поява блоку
                 після першого обміну зсувала б кнопку під пальцем. */}
-            <div className="space-y-1.5 rounded-xl bg-black/30 px-3 py-2.5 shadow-[inset_0_0_0_1px_rgb(var(--skin-ring)/0.14)]">
+            {/* Проміжки тут не рівні навмисне. Смуга — це картинка того самого
+                числа, що стоїть рядком вище, тож вона тулиться до нього; а
+                «доступно» — вже інша думка, і йому потрібне своє повітря. Рівні
+                шість пікселів ставили смугу посередині між двома рядками, і
+                вона читалась як окремий третій елемент. */}
+            <div className="rounded-xl bg-black/30 px-3 py-2.5 shadow-[inset_0_0_0_1px_rgb(var(--skin-ring)/0.14)]">
               <div className="flex items-baseline justify-between text-[0.6875rem]">
                 <span className="text-ink-subtle">Куплено за івент</span>
                 <span className="tnum font-mono font-bold text-ink">
@@ -216,13 +217,13 @@ export function EventConvertModal({
                   <span className="text-ink-faint"> / {formatInt(cap)}</span>
                 </span>
               </div>
-              <div className="h-1 overflow-hidden rounded-full bg-[rgb(var(--skin-ring)/0.14)]">
+              <div className="mt-1 h-1 overflow-hidden rounded-full bg-[rgb(var(--skin-ring)/0.14)]">
                 <div
                   className="h-full rounded-full bg-[rgb(var(--skin-ring))] transition-[width] duration-300"
                   style={{ width: `${Math.min(100, (100 * (bought + gain)) / cap)}%` }}
                 />
               </div>
-              <p className="tnum text-[0.6875rem] text-ink-subtle">
+              <p className="tnum mt-2 text-[0.6875rem] text-ink-subtle">
                 Доступно до обміну {limit === null ? "…" : formatInt(max)} CS2UA Points
               </p>
             </div>

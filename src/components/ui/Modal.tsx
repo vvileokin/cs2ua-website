@@ -57,19 +57,18 @@ export function Modal({
             : "surface-1",
         )}
       >
-        {/* The header's bottom padding and the body's top padding stacked to
-            32px, so a title sat a third of a line-height away from the sentence
-            it introduces and read as a separate object. 12 and 12 keeps the
-            hairline breathing without the two halves drifting apart.
+        {/* Висоту шапки диктує не напис, а хрестик: при 36 пікселях він
+            розсував смугу до шістдесяти, і над вікном на пів екрана висіла
+            порожня планка. Вісім на вісім (32px) лишають ціль більшою за
+            сорокачотирипіксельний мінімум разом із власним падінгом смуги і
+            знімають дванадцять пікселів висоти.
 
-            The title also carries `leading-none`: at 16px its default line box
-            is 24px, so four of those pixels were half-leading sitting under the
-            glyphs and reading as yet more gap. Measured lid-to-text is 20px
-            now, from 32. The close button is 36px, so the header keeps its
-            height regardless. */}
+            Напис несе `leading-none`: при 16px його типовий рядок — 24px, тож
+            чотири з них були півінтерліньяжем під гліфами і читались як ще
+            один проміжок. */}
         <div
           className={cn(
-            "flex shrink-0 items-center justify-between px-5 py-3",
+            "flex shrink-0 items-center justify-between px-5 py-2",
             skin
               ? "shadow-[0_1px_0_0_rgb(var(--skin-ring)/0.22)]"
               : "shadow-[0_1px_0_0_color-mix(in_oklch,var(--ink)_7%,transparent)]",
@@ -80,7 +79,7 @@ export function Modal({
             onClick={onClose}
             aria-label="Закрити"
             className={cn(
-              "grid size-9 place-items-center rounded-lg text-ink-muted transition-colors hover:text-ink",
+              "-mr-1 grid size-8 place-items-center rounded-lg text-ink-muted transition-colors hover:text-ink",
               skin ? "hover:bg-[rgb(var(--skin-ring)/0.16)]" : "hover:bg-surface-2",
             )}
           >
