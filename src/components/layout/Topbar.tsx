@@ -6,6 +6,7 @@ import { Link } from "@/i18n/navigation";
 import { Bell, Target, Swords, Gift, TrendingUp, Check, LogIn, Loader2, X } from "lucide-react";
 import { Brand } from "./Brand";
 import { Avatar } from "@/components/ui/Avatar";
+import { EventConvertModal } from "./EventConvertModal";
 import { BrandIcon } from "@/components/ui/BrandIcon";
 import { runningEvent, eventGem } from "@/lib/data";
 import { displayName } from "@/lib/supabase/use-user";
@@ -174,6 +175,8 @@ export function Topbar() {
     }
   }
 
+  const [exchange, setExchange] = React.useState(false);
+
   const handle = profile?.handle || (user ? displayName(user) : "");
   const points = profile?.points ?? 0;
   const streak = profile?.streak ?? 0;
@@ -243,18 +246,21 @@ export function Topbar() {
             кольори беруться з його палітри — `data-skin` на самій капсулі,
             бо верхній бар живе поза сторінкою турніру і нічого про нього не
             знає. */}
+        {/* Капсула веде не на турнір, а в обмінник. Посилання на сторінку
+            івенту тут дублювало боковий бар, а з гаманця людині потрібне рівно
+            одне — долити, коли на ставку не вистачає. Баланс і є кнопка. */}
         {event && (
-          <Link
-            href={`/tournaments/${event.slug}`}
+          <button
+            onClick={() => setExchange(true)}
             data-skin={event.skin}
-            aria-label={`${formatInt(eventPoints)} ${event.shortName}`}
+            aria-label={`${formatInt(eventPoints)} ${event.shortName} — обміняти поінти`}
             className="flex h-8 items-center gap-1 rounded-full bg-[rgb(var(--skin-glow)/0.16)] pl-1.5 pr-2.5 shadow-[0_0_0_1px_rgb(var(--skin-ring)/0.35)] transition-colors hover:bg-[rgb(var(--skin-glow)/0.24)] sm:h-10 sm:gap-1.5 sm:pl-2 sm:pr-3.5"
           >
             <BrandIcon name={eventGem(event.skin)} className="size-4 sm:size-5" priority />
             <span className="tnum font-mono text-xs font-extrabold leading-none text-[rgb(var(--skin-ring))] sm:text-sm">
               {formatInt(eventPoints)}
             </span>
-          </Link>
+          </button>
         )}
 
         {/* The event balance is gone with the event.
@@ -421,6 +427,10 @@ export function Topbar() {
           )}
         </div>
       </div>
+      )}
+
+      {event && (
+        <EventConvertModal open={exchange} onClose={() => setExchange(false)} skin={event.skin} />
       )}
     </header>
   );

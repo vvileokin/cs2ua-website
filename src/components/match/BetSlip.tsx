@@ -5,6 +5,7 @@ import { ArrowRight, ChevronLeft, Flame, Loader2, Plus, X } from "lucide-react";
 import { BrandIcon, type BrandIconName } from "@/components/ui/BrandIcon";
 import { eventPointsLabel } from "@/lib/data";
 import { refreshProfile } from "@/lib/supabase/use-profile";
+import { EventConvertModal } from "@/components/layout/EventConvertModal";
 import { cn, formatInt } from "@/lib/utils";
 
 /**
@@ -70,6 +71,7 @@ export function BetSlip({
   const [custom, setCustom] = React.useState(false);
   const [busy, setBusy] = React.useState(false);
   const [error, setError] = React.useState<string | null>(null);
+  const [exchange, setExchange] = React.useState(false);
 
 
   async function cancel() {
@@ -187,6 +189,9 @@ export function BetSlip({
 
   const affordable = stake >= MIN_STAKE && stake <= balance;
   const valid = affordable && !!optionId && !!odds;
+  /* Не вистачає — і це можна полагодити, не йдучи зі сторінки. Обмінник живе
+     тільки на гаманці івенту: сезонні поінти нема на що міняти. */
+  const short = !!optionId && stake > balance && gem !== "points";
 
   async function place() {
     if (!optionId) return;
@@ -321,25 +326,21 @@ export function BetSlip({
           At full strength this filled a third of the card with the brightest
           thing on the page and pulled the eye off the options, which are the
           actual decision. */}
-      {/* Short of points, and able to do something about it.
-          Shown only when the exchange would actually close the gap. Someone
-          holding 20 gold against a 100-point shortfall is not helped by a
-          button that leaves them short anyway, and a way out dangled in front
-          of a player who has none is worse than saying nothing. It converts
-          exactly what is missing, so the next tap is the bet itself. */}
-      {/* The top-up offer is gone.
+      {/* Поповнення повернулось, і цього разу воно справді працює.
 
-          It converted season gold into `ewc_points` at 5:1, which funded a bet
-          when bets were paid out of that wallet. They are not any more — the
-          event has its own balance — so the button would have taken a player's
-          gold and left them exactly as unable to bet as before, with the
-          shortfall unchanged and the gold spent. A control that cannot do what
-          it says is worse than a refusal a player can act on. */}
+          Його прибрали, коли ставки перейшли на гаманець івенту: обмінник тоді
+          купував `ewc_points`, тобто забирав золото і лишав людину так само
+          неспроможною поставити. Тепер курс веде саме в ту валюту, якою
+          оплачується ця ставка, тож кнопка робить те, що каже.
+
+          Окремого рядка під слипом немає навмисне. Коли не вистачає, сама
+          кнопка ставки стає кнопкою обміну — одне місце, у яке людина вже
+          цілиться пальцем, замість другої дії поряд із першою. */}
 
       <button
-        onClick={place}
-        disabled={!valid || busy}
-        aria-label="Зробити ставку"
+        onClick={short ? () => setExchange(true) : place}
+        disabled={busy || (short ? false : !valid)}
+        aria-label={short ? "Обміняти поінти" : "Зробити ставку"}
         className={cn(
           "flex h-11 w-full items-center justify-center gap-1.5 rounded-lg text-sm font-bold transition-colors",
           // Same rule as the stake chips above: `--skin-ring` has a root
@@ -353,6 +354,8 @@ export function BetSlip({
       >
         {busy ? (
           <Loader2 className="size-4 animate-spin" />
+        ) : short ? (
+          "Обміняти поінти"
         ) : !optionId ? (
           // The prompt lives on the control it's about. As its own line under
           // the slip it was a permanent row of chrome explaining a button the
@@ -372,6 +375,10 @@ export function BetSlip({
         <p role="alert" className="text-center text-[0.6875rem] font-semibold text-danger">
           {error}
         </p>
+      )}
+
+      {gem !== "points" && (
+        <EventConvertModal open={exchange} onClose={() => setExchange(false)} />
       )}
     </div>
   );
