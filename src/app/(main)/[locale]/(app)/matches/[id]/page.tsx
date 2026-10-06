@@ -19,6 +19,7 @@ import {
   playedMaps,
   type Match,
   type PlayedMap,
+  type EventSkin,
   isAuraSkin,
 } from "@/lib/data";
 import { getMatchById } from "@/lib/db/matches";
@@ -442,51 +443,28 @@ export default async function MatchPage({
                 isAuraSkin(skin) ? "skin-aura-card" : "surface-1",
               )}
             >
-              {/* Самі герби, без назв. Назва тут нічого не додавала — та сама
-                  пара стоїть у шапці сторінки великим кеглем на два рядки вище,
-                  — зате тягла за собою всю геометрію: колонки доводилось
-                  міряти `minmax(0,1fr)`, бо довша назва розпирала свій бік і
-                  зсувала рахунок із осі. Без тексту колонки рівні за
-                  визначенням, рахунок стоїть посередині сам, а герб звільнив
-                  місце, щоб вирости з 28 до 44 — рівно під висоту рахунку з
-                  підписом. */}
-              <div className="grid grid-cols-3 items-center justify-items-center">
-                <TeamLogo team={a} size="md" />
-                <div className="px-4 text-center">
-                  <p
-                    className={cn(
-                      "font-mono text-2xl font-bold",
-                      isAuraSkin(skin) ? "text-white" : "text-ink",
-                    )}
-                  >
-                    <span
-                      className={cn(
-                        match.h2h.a >= match.h2h.b &&
-                          (isAuraSkin(skin) ? "text-[rgb(var(--skin-ring))]" : "text-accent"),
-                      )}
-                    >
-                      {match.h2h.a}
-                    </span>
-                    <span className="mx-1.5 text-ink-faint">–</span>
-                    <span
-                      className={cn(
-                        match.h2h.b > match.h2h.a &&
-                          (isAuraSkin(skin) ? "text-[rgb(var(--skin-ring))]" : "text-accent"),
-                      )}
-                    >
-                      {match.h2h.b}
-                    </span>
-                  </p>
-                  <p
-                    className={cn(
-                      "text-[0.6875rem]",
-                      isAuraSkin(skin) ? "text-white/45" : "text-ink-subtle",
-                    )}
-                  >
-                    особисті зустрічі
-                  </p>
-                </div>
-                <TeamLogo team={b} size="md" />
+              {/* Два рядки на дві ширини, а не один компроміс між ними.
+
+                  На столі місця вистачає, тож назва лишається, а герб малий —
+                  рядок читається як підпис під тим, що вже сказано в шапці
+                  сторінки. На телефоні ж назва з'їдала всю геометрію: колонки
+                  доводилось міряти `minmax(0,1fr)`, бо довша з двох розпирала
+                  свій бік і зсувала рахунок із осі. Там вона знята, герби
+                  розведені по краях і виросли до 56 — на вузькій картці це
+                  єдине, що взагалі читається з відстані.
+
+                  Розмір герба інлайновий (`TeamLogo` пише ширину в `style`),
+                  тож одним елементом із брейкпойнтом його не змінити — звідси
+                  два блоки, а не один з адаптивними класами. */}
+              <div className="flex items-center justify-between sm:hidden">
+                <TeamLogo team={a} size="lg" />
+                <H2hScore h2h={match.h2h} skin={skin} />
+                <TeamLogo team={b} size="lg" />
+              </div>
+              <div className="hidden grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center sm:grid">
+                <TeamMini team={a} />
+                <H2hScore h2h={match.h2h} skin={skin} />
+                <TeamMini team={b} align="right" />
               </div>
               {/* Impeccable: Crafted Meeting Ledger — when, who won, where, how.
                   Four columns read left to right in the order the question is
@@ -865,3 +843,53 @@ function Branch({ value, delta, tone }: { value: number; delta: number; tone: "u
 
 /** Один знак після коми: «70%» і «70.3%» — різні твердження. */
 const pct = (v: number) => (v * 100).toFixed(1) + "%";
+
+function TeamMini({
+  team,
+  align,
+}: {
+  team: ReturnType<typeof getTeam>;
+  align?: "right";
+}) {
+  return (
+    <div
+      className={cn(
+        "flex min-w-0 items-center gap-2",
+        align === "right" && "flex-row-reverse",
+      )}
+    >
+      <TeamLogo team={team} size="sm" />
+      {/* Обрізається назва, а не колонка: щоб `truncate` спрацював, елементу
+          потрібне дно в нулі, інакше він правдами й неправдами лишається
+          завширшки зі свій текст. */}
+      <span className="min-w-0 truncate text-sm font-bold text-ink">{team.name}</span>
+    </div>
+  );
+}
+
+/** Рахунок очних зустрічей. Один на обидві ширини — різниться тільки оправа. */
+function H2hScore({
+  h2h,
+  skin,
+}: {
+  h2h: { a: number; b: number };
+  skin?: EventSkin | null;
+}) {
+  const aura = isAuraSkin(skin);
+  return (
+    <div className="px-4 text-center">
+      <p className={cn("font-mono text-2xl font-bold", aura ? "text-white" : "text-ink")}>
+        <span className={cn(h2h.a >= h2h.b && (aura ? "text-[rgb(var(--skin-ring))]" : "text-accent"))}>
+          {h2h.a}
+        </span>
+        <span className="mx-1.5 text-ink-faint">–</span>
+        <span className={cn(h2h.b > h2h.a && (aura ? "text-[rgb(var(--skin-ring))]" : "text-accent"))}>
+          {h2h.b}
+        </span>
+      </p>
+      <p className={cn("text-[0.6875rem]", aura ? "text-white/45" : "text-ink-subtle")}>
+        особисті зустрічі
+      </p>
+    </div>
+  );
+}
