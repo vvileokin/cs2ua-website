@@ -442,16 +442,16 @@ export default async function MatchPage({
                 isAuraSkin(skin) ? "skin-aura-card" : "surface-1",
               )}
             >
-              {/* `minmax(0,1fr) auto minmax(0,1fr)`, не `justify-between` і не
-                  просто `1fr`. З флексом середня колонка міряється вмістом між
-                  двома гнучкими боками, і рахунок зсувався до тієї команди, у
-                  якої коротша назва. Сітка ставить його на вісь — але тільки з
-                  `minmax(0,…)`: звичайний `1fr` має дно в min-content, тож довга
-                  назва розпирала свою колонку понад рівну частку і зсувала
-                  центр так само, лише менше. Нуль у дні дозволяє колонці
-                  стиснутися, а назві — обрізатися. */}
-              <div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center">
-                <TeamMini team={a} />
+              {/* Самі герби, без назв. Назва тут нічого не додавала — та сама
+                  пара стоїть у шапці сторінки великим кеглем на два рядки вище,
+                  — зате тягла за собою всю геометрію: колонки доводилось
+                  міряти `minmax(0,1fr)`, бо довша назва розпирала свій бік і
+                  зсувала рахунок із осі. Без тексту колонки рівні за
+                  визначенням, рахунок стоїть посередині сам, а герб звільнив
+                  місце, щоб вирости з 28 до 44 — рівно під висоту рахунку з
+                  підписом. */}
+              <div className="grid grid-cols-3 items-center justify-items-center">
+                <TeamLogo team={a} size="md" />
                 <div className="px-4 text-center">
                   <p
                     className={cn(
@@ -486,7 +486,7 @@ export default async function MatchPage({
                     особисті зустрічі
                   </p>
                 </div>
-                <TeamMini team={b} align="right" />
+                <TeamLogo team={b} size="md" />
               </div>
               {/* Impeccable: Crafted Meeting Ledger — when, who won, where, how.
                   Four columns read left to right in the order the question is
@@ -865,26 +865,3 @@ function Branch({ value, delta, tone }: { value: number; delta: number; tone: "u
 
 /** Один знак після коми: «70%» і «70.3%» — різні твердження. */
 const pct = (v: number) => (v * 100).toFixed(1) + "%";
-
-function TeamMini({
-  team,
-  align,
-}: {
-  team: ReturnType<typeof getTeam>;
-  align?: "right";
-}) {
-  return (
-    <div
-      className={cn(
-        "flex min-w-0 items-center gap-2",
-        align === "right" && "flex-row-reverse",
-      )}
-    >
-      <TeamLogo team={team} size="sm" />
-      {/* Обрізається назва, а не колонка: щоб `truncate` спрацював, елементу
-          потрібне дно в нулі, інакше він правдами й неправдами лишається
-          завширшки зі свій текст. */}
-      <span className="min-w-0 truncate text-sm font-bold text-ink">{team.name}</span>
-    </div>
-  );
-}
