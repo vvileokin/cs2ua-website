@@ -31,7 +31,13 @@ export function SwissBracket({ matches, teamSlugs }: { matches: Match[]; teamSlu
 
   return (
     <div className="-mx-3 overflow-x-auto px-3 pb-2 sm:mx-0 sm:px-0">
-      <div className="flex min-w-[58rem] items-start gap-4">
+      {/* Колонки стоять по центру, а не від верху. Причина видна на сітці:
+          у 0:0 вісім пар, у 2:1 — три, і при верхньому вирівнюванні короткі
+          групи висять під своїм написом угорі, а півколонки під ними порожні.
+          Зсунуті до середини, вони опиняються навпроти тих пар, з яких вийшли,
+          — і сітка читається як рух зліва направо, а не як стовпчики різної
+          довжини, приклеєні до чисел. */}
+      <div className="flex min-w-[58rem] items-center gap-4">
         <Stack>
           <SwissColumnView c={col("0-0")} />
         </Stack>
@@ -59,14 +65,14 @@ export function SwissBracket({ matches, teamSlugs }: { matches: Match[]; teamSlu
 }
 
 function Stack({ children }: { children: React.ReactNode }) {
-  return <div className="flex w-[11rem] shrink-0 flex-col gap-5">{children}</div>;
+  return <div className="flex w-[11rem] shrink-0 flex-col gap-8">{children}</div>;
 }
 
 function SwissColumnView({ c }: { c?: ReturnType<typeof swissState>["columns"][number] }) {
   if (!c) return null;
   return (
-    <section className="space-y-2">
-      <p className="font-mono text-sm font-bold text-[rgb(var(--skin-ring))]">{c.label}</p>
+    <section className="space-y-2.5">
+      <p className="font-mono text-sm font-bold leading-none text-[rgb(var(--skin-ring))]">{c.label}</p>
       <div className="space-y-2">
         {c.cells.map((cell, i) => (
           <Pair key={cell.match?.id ?? `${c.key}-${i}`} cell={cell} />
