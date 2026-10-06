@@ -3,6 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { fetchAllRows } from "@/lib/db/paginate";
 import { rankByPoints, type LeaderRow } from "@/lib/data";
+import { exceptUnranked, unrankedIds } from "@/lib/db/unranked";
 
 /** Season leaderboard from real profiles. Empty when there are none. */
 export async function getLeaderboard(limit = 50): Promise<LeaderRow[]> {
@@ -13,16 +14,17 @@ export async function getLeaderboard(limit = 50): Promise<LeaderRow[]> {
       {
         data: { user },
       },
-      { data, error },
-    ] = await Promise.all([
-      sb.auth.getUser(),
+      hidden,
+    ] = await Promise.all([sb.auth.getUser(), unrankedIds()]);
+    const { data, error } = await exceptUnranked(
       sb
         .from("profiles")
-        .select("id, handle, avatar_url, points, correct, streak")
-        .order("points", { ascending: false })
-        .order("correct", { ascending: false })
-        .limit(limit),
-    ]);
+        .select("id, handle, avatar_url, points, correct, streak"),
+      hidden,
+    )
+      .order("points", { ascending: false })
+      .order("correct", { ascending: false })
+      .limit(limit);
     if (error || !data) return [];
 
     const rows: LeaderRow[] = rankByPoints(
@@ -38,8 +40,8 @@ export async function getLeaderboard(limit = 50): Promise<LeaderRow[]> {
 
     // Rank far below the slice? Append your own row so the board can still show
     // where you stand — otherwise you simply vanish from every collapsed board.
-    if (user && !rows.some((r) => r.isYou)) {
-      const mine = await ownRow(sb, user.id);
+    if (user && !hidden.includes(user.id) && !rows.some((r) => r.isYou)) {
+      const mine = await ownRow(sb, user.id, hidden);
       if (mine) rows.push(mine);
     }
     return rows;
@@ -55,7 +57,7 @@ type SB = Awaited<ReturnType<typeof createClient>>;
  * from the fetched slice — it's counted across every profile, the same way the
  * profile page does it, including the tie span ("100–101").
  */
-async function ownRow(sb: SB, userId: string): Promise<LeaderRow | null> {
+async function ownRow(sb: SB, userId: string, hidden: string[]): Promise<LeaderRow | null> {
   const { data: me } = await sb
     .from("profiles")
     .select("handle, avatar_url, points, correct, streak")
@@ -64,8 +66,14 @@ async function ownRow(sb: SB, userId: string): Promise<LeaderRow | null> {
   if (!me) return null;
 
   const [{ count: above }, { count: same }] = await Promise.all([
-    sb.from("profiles").select("id", { count: "exact", head: true }).gt("points", me.points),
-    sb.from("profiles").select("id", { count: "exact", head: true }).eq("points", me.points),
+    exceptUnranked(
+      sb.from("profiles").select("id", { count: "exact", head: true }),
+      hidden,
+    ).gt("points", me.points),
+    exceptUnranked(
+      sb.from("profiles").select("id", { count: "exact", head: true }),
+      hidden,
+    ).eq("points", me.points),
   ]);
   const rank = (above ?? 0) + 1;
 
@@ -104,7 +112,8 @@ export async function getBountyLeaderboard(limit = 50): Promise<LeaderRow[]> {
     const { rows: picks } = await fetchAllRows<{ user_id: string }>((from, to) =>
       admin.from("bounty_picks").select("user_id").order("id", { ascending: true }).range(from, to),
     );
-    const ids = [...new Set(picks.map((p) => p.user_id))];
+    const hidden = new Set(await unrankedIds());
+    const ids = [...new Set(picks.map((p) => p.user_id))].filter((id) => !hidden.has(id));
     if (ids.length === 0) return [];
 
     // Prefer the bounty stat columns, but if the migration that adds them isn't
@@ -159,9 +168,10 @@ export async function getEwcLeaderboard(limit = 50): Promise<LeaderRow[]> {
       data: { user },
     } = await sb.auth.getUser();
 
-    const { data, error } = await sb
-      .from("profiles")
-      .select("id, handle, avatar_url, ewc_points, ewc_correct")
+    const { data, error } = await exceptUnranked(
+      sb.from("profiles").select("id, handle, avatar_url, ewc_points, ewc_correct"),
+      await unrankedIds(),
+    )
       .gt("ewc_points", 0)
       .order("ewc_points", { ascending: false })
       .limit(Math.max(limit, 200));
@@ -209,9 +219,10 @@ export async function getEventLeaderboard(limit = 50): Promise<LeaderRow[]> {
     // points" would list all 556 accounts tied on 500 — a register, not a
     // ranking. `event_joined_at` is stamped by the first real action: a bet, a
     // duel, or a scored prediction. Untouched stake, no row.
-    const { data, error } = await sb
-      .from("profiles")
-      .select("id, handle, avatar_url, event_points")
+    const { data, error } = await exceptUnranked(
+      sb.from("profiles").select("id, handle, avatar_url, event_points"),
+      await unrankedIds(),
+    )
       .not("event_joined_at", "is", null)
       .order("event_points", { ascending: false })
       .limit(Math.max(limit, 200));
