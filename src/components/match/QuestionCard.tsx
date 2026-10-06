@@ -457,9 +457,15 @@ export function QuestionCard({
                     taller than the logo and the whole row read as unaligned. */}
                 <span className="flex h-[2.125rem] min-w-0 flex-1 flex-col justify-between">
                   <span className="flex min-w-0 max-w-full items-baseline gap-1.5">
+                    {/* `leading-tight`, не `leading-none`: разом із `truncate`
+                        нульовий інтерліньяж робить рядок заввишки рівно в
+                        кегль, а `overflow: hidden` зрізає все, що з нього
+                        виходить, — тобто виносні елементи. На «Legacy» це
+                        видно прямо: хвіст «g» обрубаний. 17,5px замість 14
+                        вистачає на 16px, які займає гліф. */}
                     <span
                       className={cn(
-                        "truncate text-sm font-bold leading-none",
+                        "truncate text-sm font-bold leading-tight",
                         selected ? "text-ink" : "text-ink-muted group-hover/opt:text-ink",
                       )}
                     >

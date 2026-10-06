@@ -160,7 +160,7 @@ function Row({
       <span className="flex min-w-0 flex-1 flex-col gap-0.5">
         <span className="text-sm font-semibold leading-none text-ink">{label}</span>
         {detail && (
-          <span className="truncate text-xs leading-none text-ink-subtle">{detail}</span>
+          <span className="truncate text-xs leading-tight text-ink-subtle">{detail}</span>
         )}
       </span>
       {action}
