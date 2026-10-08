@@ -26,6 +26,7 @@ import { EwcMark } from "@/components/ui/EwcMark";
 import { EventMark } from "@/components/ui/EventMark";
 import { EplMark } from "@/components/ui/EplMark";
 import { SwissBracket } from "@/components/tournament/SwissBracket";
+import { PlayoffBracket } from "@/components/tournament/PlayoffBracket";
 import { EplSwissCard } from "@/components/tournament/EplSwissCard";
 import { TeamLogo } from "@/components/ui/TeamLogo";
 import { MatchDayGroups } from "@/components/cards/MatchDayGroups";
@@ -392,7 +393,19 @@ export function TournamentView({
                 Сітка турніру
               </h2>
               {t.skin === "epl" ? (
-                <SwissBracket matches={matches} teamSlugs={t.teamSlugs} />
+                /* Дві сітки одна під одною, бо турнір і справді дві різні
+                   речі: швейцарка відбирає вісьмох, плейоф розігрує між ними
+                   трофей. Малюються вони однаково — та сама картка з двох
+                   гербів, — тож другий підпис достатньо тонкий, щоб їх
+                   розрізняти, і не настільки важкий, щоб вони читались як два
+                   окремі турніри. */
+                <div className="space-y-5">
+                  <SwissBracket matches={matches} teamSlugs={t.teamSlugs} />
+                  <div className="space-y-2.5 border-t border-white/[0.07] pt-5">
+                    <p className="text-xs font-bold uppercase tracking-wide text-ink-subtle">Плейоф</p>
+                    <PlayoffBracket matches={matches} />
+                  </div>
+                </div>
               ) : t.skin === "porto" ? (
                 <PortoBracket matches={matches} />
               ) : (
