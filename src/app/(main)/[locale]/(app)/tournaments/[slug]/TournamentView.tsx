@@ -27,6 +27,7 @@ import { EventMark } from "@/components/ui/EventMark";
 import { EplMark } from "@/components/ui/EplMark";
 import { SwissBracket } from "@/components/tournament/SwissBracket";
 import { PlayoffBracket } from "@/components/tournament/PlayoffBracket";
+import { BracketPanel } from "@/components/tournament/BracketPanel";
 import { EplSwissCard } from "@/components/tournament/EplSwissCard";
 import { TeamLogo } from "@/components/ui/TeamLogo";
 import { MatchDayGroups } from "@/components/cards/MatchDayGroups";
@@ -393,18 +394,18 @@ export function TournamentView({
                 Сітка турніру
               </h2>
               {t.skin === "epl" ? (
-                /* Дві сітки одна під одною, бо турнір і справді дві різні
-                   речі: швейцарка відбирає вісьмох, плейоф розігрує між ними
-                   трофей. Малюються вони однаково — та сама картка з двох
-                   гербів, — тож другий підпис достатньо тонкий, щоб їх
-                   розрізняти, і не настільки важкий, щоб вони читались як два
-                   окремі турніри. */
-                <div className="space-y-5">
-                  <SwissBracket matches={matches} teamSlugs={t.teamSlugs} />
-                  <div className="space-y-2.5 border-t border-white/[0.07] pt-5">
-                    <p className="text-xs font-bold uppercase tracking-wide text-ink-subtle">Плейоф</p>
+                /* Дві панелі, бо турнір і справді дві різні речі: швейцарка
+                   відбирає вісьмох, плейоф розігрує між ними трофей. Разом
+                   вони займають майже два екрани, тож кожна згортається
+                   окремо — і заголовок панелі заразом робить ту роботу, яку
+                   раніше робив тонкий підпис над сіткою. */
+                <div className="space-y-3">
+                  <BracketPanel label="Швейцарка">
+                    <SwissBracket matches={matches} teamSlugs={t.teamSlugs} />
+                  </BracketPanel>
+                  <BracketPanel label="Плейоф">
                     <PlayoffBracket matches={matches} />
-                  </div>
+                  </BracketPanel>
                 </div>
               ) : t.skin === "porto" ? (
                 <PortoBracket matches={matches} />
