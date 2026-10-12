@@ -431,7 +431,7 @@ export const allTournaments: Tournament[] = [
     name: "ESL Pro League Season 24",
     shortName: "EPL S24",
     tier: 1,
-    status: "live",
+    status: "finished",
     startISO: "2026-10-03",
     endISO: "2026-10-11",
     dateLabel: "3 – 11 жовт",

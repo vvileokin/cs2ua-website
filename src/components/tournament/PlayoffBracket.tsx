@@ -34,9 +34,16 @@ export function PlayoffBracket({ matches }: { matches: Match[] }) {
             {/* Проміжок росте разом із колонкою: у чвертьфіналах чотири картки
                 стоять щільно, а фінал один — йому порожнеча навколо і дає
                 видимість. */}
-            <div className={cn("flex flex-col", ["gap-2", "gap-10", "gap-2"][i])}>
+            <div className={cn("flex flex-col", ["gap-2", "gap-10", "gap-5"][i])}>
               {cells.map((cell) => (
-                <Pair key={cell.slot.id} cell={cell} />
+                <div key={cell.slot.id} className="space-y-1.5">
+                  {cell.slot.label && (
+                    <p className="font-mono text-[0.6875rem] font-bold leading-none text-[rgb(var(--skin-ring)/0.7)]">
+                      {cell.slot.label}
+                    </p>
+                  )}
+                  <Pair cell={cell} />
+                </div>
               ))}
             </div>
           </section>
