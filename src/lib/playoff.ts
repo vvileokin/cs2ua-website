@@ -31,6 +31,11 @@ export type PlayoffRound = { key: string; label: string; slots: PlayoffSlot[] };
  * Порядок пар узято з публікації ESL і не вгадується: перші дві чвертки
  * сходяться в один півфінал, другі дві — в інший.
  */
+/* Ідентифікатори тут — ті, під якими матчі реально живуть у базі, а не ті, які
+   було б логічно їм дати. Вони різностильні (`aurora-vs-vitality-2`,
+   `aurora-vs-spirit`, `vitality-vs-mouz-2`), бо заводились через адмінку в
+   різний час, і саме на них висять ставки. Перейменувати їх означало б
+   відчепити від ставок — тож сітка підлаштовується під базу, не навпаки. */
 export const PLAYOFF: PlayoffRound[] = [
   {
     key: "qf",
@@ -46,7 +51,7 @@ export const PLAYOFF: PlayoffRound[] = [
     key: "sf",
     label: "Півфінали",
     slots: [
-      { id: "sf1", matchId: "vitality-vs-aurora-epl24", from: ["qf1", "qf2"] },
+      { id: "sf1", matchId: "aurora-vs-vitality-2", from: ["qf1", "qf2"] },
       { id: "sf2", matchId: "spirit-vs-mouz-epl24", from: ["qf3", "qf4"] },
     ],
   },
@@ -54,14 +59,14 @@ export const PLAYOFF: PlayoffRound[] = [
     key: "gf",
     label: "Фінал",
     slots: [
-      { id: "gf", matchId: "vitality-vs-mouz-epl24", from: ["sf1", "sf2"] },
+      { id: "gf", matchId: "vitality-vs-mouz-2", from: ["sf1", "sf2"] },
       /* Матч за третє місце стоїть тут, під фіналом, а не окремою колонкою:
          з нього нікуди не виходять, тож колонка справа від фіналу читалася б
          як ще один раунд. `from` у нього немає навмисне — сюди сходяться ті,
          хто півфінали програв, а сітка вміє проводити тільки переможців;
          заводити зворотний зв'язок заради одного матчу на турнір не варто,
          а щойно пара склалась, слот наповнює сам матч. */
-      { id: "bronze", label: "За 3-тє місце", matchId: "aurora-vs-spirit-epl24" },
+      { id: "bronze", label: "За 3-тє місце", matchId: "aurora-vs-spirit" },
     ],
   },
 ];

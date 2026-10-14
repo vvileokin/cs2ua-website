@@ -59,7 +59,29 @@ export type SwissState = {
 
 const at = (m: Match) => (m.startISO ? Date.parse(m.startISO) : Number.MAX_SAFE_INTEGER);
 
-export function swissState(matches: Match[], teamSlugs: string[] = []): SwissState {
+/**
+ * Відбір матчів швейцарки.
+ *
+ * Сторінка турніру віддає обом сіткам усі матчі події, і доки плейофа не було,
+ * це збігалося. Щойно він з'явився, швейцарка почала перепрогравати і його:
+ * Vitality після трьох перемог у групі набирали ще три в плейофі, рахунки
+ * поповзли, а плейофні картки осідали у випадкових колонках і виштовхували
+ * звідти справжні. Назовні це читалось як «пропали два матчі» в колонці 2:2.
+ *
+ * Правило позитивне — беремо те, що назвалось швейцаркою, — а не «все, крім
+ * плейофа». Перша спроба була саме такою і пропустила матчі, підписані
+ * «Playoffs» і «Гранд-фінал»: назви стадій заводились через адмінку в різний
+ * час і одного стилю не мають. Перелічувати їх усі — програшна гра, а назва
+ * самої швейцарки одна.
+ *
+ * Якщо жоден матч так не підписаний (стара подія, імпорт), беремо всі: порожня
+ * сітка була б гіршою відповіддю, ніж та, що була до цієї правки.
+ */
+const isSwiss = (m: Match) => /швейцарк/i.test(m.stage ?? "");
+
+export function swissState(all: Match[], teamSlugs: string[] = []): SwissState {
+  const named = all.filter(isSwiss);
+  const matches = named.length ? named : all;
   const records = new Map<string, { w: number; l: number }>();
   for (const slug of teamSlugs) records.set(slug, { w: 0, l: 0 });
   const rec = (slug: string) => {
