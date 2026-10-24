@@ -31,9 +31,15 @@ begin;
 -- скидання на дошці PGL з першої ж хвилини стояв би 171 профіль із чужими
 -- балансами, і перший, хто зайде, побачив би готовий топ, у якому ще ніхто не
 -- поставив жодного поінта на цей турнір.
+-- `event_converted` — лічильник обмінника з 0088, і він теж іде за івентом.
+-- Межа там тисяча поінтів на людину за турнір; без скидання двадцять шість
+-- профілів заходили б у PGL із уже вибраним лімітом EPL, а один — із рівно
+-- 1000 / 1000, тобто без права обміняти жодного поінта. 0088 просить скидати
+-- його тим самим рухом, і спершу цього рядка тут не було.
 update public.profiles
    set event_points = 500,
-       event_joined_at = null;
+       event_joined_at = null,
+       event_converted = 0;
 
 -- Нові акаунти, що з'являться під час турніру, отримують те саме. Типове
 -- значення стоїть з 0060 і не змінювалось — рядок лишається для повноти.
@@ -54,4 +60,5 @@ commit;
 -- Перевірка після запуску:
 --   select count(*), event_points from public.profiles group by 2 order by 1 desc;
 --   select count(*) from public.profiles where event_joined_at is not null;  -- 0
+--   select count(*) from public.profiles where event_converted <> 0;          -- 0
 --   select * from public.event_tournaments;
