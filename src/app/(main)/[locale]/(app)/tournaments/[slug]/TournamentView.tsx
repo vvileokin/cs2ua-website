@@ -130,8 +130,19 @@ export function TournamentView({
                 // bigger.
                 iconClass: "h-2 w-10 shrink-0",
               }
-            : { id: "predictor" as Tab, label: "Прогнозатор", icon: GitFork },
-        ]),
+            : /* Пісочниця-симулятор малює сітку з перших восьми слаґів складу,
+                 і для турніру з плейофом на чотири це правда, а для швейцарки
+                 на шістнадцять — ні: PGL показував «ПІВФІНАЛ 1 Spirit —
+                 BetBoom», хоча це пара першого туру групового етапу.
+
+                 Тому подія зі своїм оформленням, але без власного інтерактиву,
+                 вкладки не отримує взагалі. Порожнє місце чесніше за сітку,
+                 яка називає груповий матч півфіналом; щойно для PGL зроблять
+                 свою картку — гілка стане така сама, як в EPL вище. */
+              t.skin
+                ? null
+                : { id: "predictor" as Tab, label: "Прогнозатор", icon: GitFork },
+        ].filter((x) => x !== null)),
     {
       id: "leaderboard",
       label: "Лідерборд",
@@ -393,18 +404,23 @@ export function TournamentView({
               <h2 className="text-sm font-bold uppercase tracking-wide text-ink-muted">
                 Сітка турніру
               </h2>
-              {t.skin === "epl" ? (
+              {t.skin === "epl" || t.skin === "pgl" ? (
                 /* Дві панелі, бо турнір і справді дві різні речі: швейцарка
                    відбирає вісьмох, плейоф розігрує між ними трофей. Разом
                    вони займають майже два екрани, тож кожна згортається
                    окремо — і заголовок панелі заразом робить ту роботу, яку
-                   раніше робив тонкий підпис над сіткою. */
+                   раніше робив тонкий підпис над сіткою.
+
+                   EPL і PGL ідуть однією гілкою, бо формат у них той самий:
+                   швейцарка на шістнадцять, далі вісімка на виліт. Різниця
+                   тільки в ідентифікаторах матчів плейофа, і за ними сітка
+                   ходить сама — звідси `slug`. */
                 <div className="space-y-3">
                   <BracketPanel label="Швейцарка">
                     <SwissBracket matches={matches} teamSlugs={t.teamSlugs} />
                   </BracketPanel>
                   <BracketPanel label="Плейоф">
-                    <PlayoffBracket matches={matches} />
+                    <PlayoffBracket matches={matches} slug={t.slug} />
                   </BracketPanel>
                 </div>
               ) : t.skin === "porto" ? (

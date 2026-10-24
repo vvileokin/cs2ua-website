@@ -27,6 +27,8 @@ const SOURCES = {
   "points-porto": "/brand/points-porto.webp",
   /** Event currency for ESL Pro League S24 — the same solid in the event's acid green. */
   "points-epl": "/brand/points-epl.webp",
+  /** Event currency for PGL Masters Bucharest — the same solid in the event's cobalt. */
+  "points-pgl": "/brand/points-pgl.webp",
   /**
    * The same solid in silver, identical geometry to `points-ewc`.
    *

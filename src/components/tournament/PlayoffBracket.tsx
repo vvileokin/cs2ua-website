@@ -4,7 +4,7 @@ import * as React from "react";
 import { Link } from "@/i18n/navigation";
 import { TeamLogo } from "@/components/ui/TeamLogo";
 import { getTeam, type Match } from "@/lib/data";
-import { playoffState, PLAYOFF, type PlayoffCell } from "@/lib/playoff";
+import { playoffState, playoffBracket, type PlayoffCell } from "@/lib/playoff";
 import { cn } from "@/lib/utils";
 
 /**
@@ -20,16 +20,19 @@ import { cn } from "@/lib/utils";
  * удвічі коротша, тож вони вирівняні по центру — так пара видно навпроти тих
  * двох, з яких вона складеться.
  */
-export function PlayoffBracket({ matches }: { matches: Match[] }) {
-  const rounds = React.useMemo(() => playoffState(matches), [matches]);
+export function PlayoffBracket({ matches, slug }: { matches: Match[]; slug?: string }) {
+  /* Сітка береться за слаґом турніру: форма в усіх однакова, а ідентифікатори
+     матчів — ні, і саме вони вирішують, що в якій клітинці стоїть. */
+  const bracket = React.useMemo(() => playoffBracket(slug), [slug]);
+  const rounds = React.useMemo(() => playoffState(matches, bracket), [matches, bracket]);
 
   return (
     <div className="-mx-3 overflow-x-auto px-3 pb-2 sm:mx-0 sm:px-0">
       <div className="flex min-w-[36rem] items-center gap-4">
         {rounds.map((cells, i) => (
-          <section key={PLAYOFF[i].key} className="flex w-[11rem] shrink-0 flex-col gap-3">
+          <section key={bracket[i].key} className="flex w-[11rem] shrink-0 flex-col gap-3">
             <p className="font-mono text-sm font-bold leading-none text-[rgb(var(--skin-ring))]">
-              {PLAYOFF[i].label}
+              {bracket[i].label}
             </p>
             {/* Проміжок росте разом із колонкою: у чвертьфіналах чотири картки
                 стоять щільно, а фінал один — йому порожнеча навколо і дає

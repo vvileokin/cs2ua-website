@@ -1,7 +1,7 @@
 import type { Match } from "@/lib/data";
 
 /**
- * Плейоф EPL S24 — сітка на вісім, відома наперед.
+ * Плейоф на вісім — сітка, відома наперед.
  *
  * Тут усе навпаки проти швейцарки. Там колонку матчу доводиться вираховувати з
  * рахунку обох команд, бо пари наступного туру стають відомі аж після
@@ -28,15 +28,22 @@ export type PlayoffSlot = {
 export type PlayoffRound = { key: string; label: string; slots: PlayoffSlot[] };
 
 /**
- * Порядок пар узято з публікації ESL і не вгадується: перші дві чвертки
+ * Сітки по турнірах.
+ *
+ * Спочатку тут був один масив, бо турнір був один. З появою PGL стало видно,
+ * що спільного між ними — форма (чотири чвертки, два півфінали, фінал і матч
+ * за третє), а різного — ідентифікатори матчів, і саме вони роблять сітку
+ * чужою. Тож форма лишається в коді один раз, а ключ — слаґ турніру.
+ *
+ * Порядок пар у EPL узято з публікації ESL і не вгадується: перші дві чвертки
  * сходяться в один півфінал, другі дві — в інший.
  */
-/* Ідентифікатори тут — ті, під якими матчі реально живуть у базі, а не ті, які
+/* Ідентифікатори EPL — ті, під якими матчі реально живуть у базі, а не ті, які
    було б логічно їм дати. Вони різностильні (`aurora-vs-vitality-2`,
    `aurora-vs-spirit`, `vitality-vs-mouz-2`), бо заводились через адмінку в
    різний час, і саме на них висять ставки. Перейменувати їх означало б
    відчепити від ставок — тож сітка підлаштовується під базу, не навпаки. */
-export const PLAYOFF: PlayoffRound[] = [
+const EPL_S24: PlayoffRound[] = [
   {
     key: "qf",
     label: "Чвертьфінали",
@@ -71,6 +78,52 @@ export const PLAYOFF: PlayoffRound[] = [
   },
 ];
 
+/* PGL Masters Bucharest 2026. Плейоф починається 29 жовтня, тож матчів у базі
+   ще немає — сітка поки стоїть порожня з питальниками, і це навмисне: пари
+   стануть відомі аж тоді, коли швейцарка видасть вісімку.
+
+   Ідентифікатори прописані наперед, бо цього разу матчі заводить скрипт, а не
+   адмінка, і йому є на що орієнтуватись. Щойно рядки з'являться під цими
+   іменами, сітка наповниться сама, без правки коду. */
+const PGL_BUCHAREST: PlayoffRound[] = [
+  {
+    key: "qf",
+    label: "Чвертьфінали",
+    slots: [
+      { id: "qf1", matchId: "pgl26-qf1" },
+      { id: "qf2", matchId: "pgl26-qf2" },
+      { id: "qf3", matchId: "pgl26-qf3" },
+      { id: "qf4", matchId: "pgl26-qf4" },
+    ],
+  },
+  {
+    key: "sf",
+    label: "Півфінали",
+    slots: [
+      { id: "sf1", matchId: "pgl26-sf1", from: ["qf1", "qf2"] },
+      { id: "sf2", matchId: "pgl26-sf2", from: ["qf3", "qf4"] },
+    ],
+  },
+  {
+    key: "gf",
+    label: "Фінал",
+    slots: [
+      { id: "gf", matchId: "pgl26-gf", from: ["sf1", "sf2"] },
+      { id: "bronze", label: "За 3-тє місце", matchId: "pgl26-bronze" },
+    ],
+  },
+];
+
+export const PLAYOFFS: Record<string, PlayoffRound[]> = {
+  "esl-pro-league-s24": EPL_S24,
+  "pgl-masters-bucharest-2026": PGL_BUCHAREST,
+};
+
+/** Сітка турніру; EPL лишається відповіддю за замовчуванням для старих викликів. */
+export function playoffBracket(slug?: string): PlayoffRound[] {
+  return (slug && PLAYOFFS[slug]) || EPL_S24;
+}
+
 export type PlayoffCell = {
   slot: PlayoffSlot;
   match?: Match;
@@ -89,11 +142,14 @@ const winnerOf = (m?: Match) =>
  * переможець з'являється у своєму півфіналі, і для цього не треба ні окремого
  * запису в базі, ні того, щоб півфінальний матч уже існував.
  */
-export function playoffState(matches: Match[]): PlayoffCell[][] {
+export function playoffState(
+  matches: Match[],
+  bracket: PlayoffRound[] = EPL_S24,
+): PlayoffCell[][] {
   const byId = new Map(matches.map((m) => [m.id, m]));
   const won = new Map<string, string | undefined>();
 
-  return PLAYOFF.map((round) =>
+  return bracket.map((round) =>
     round.slots.map((slot) => {
       const match = slot.matchId ? byId.get(slot.matchId) : undefined;
       const a = match?.a ?? (slot.from && won.get(slot.from[0]));

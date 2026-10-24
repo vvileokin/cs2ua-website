@@ -2,16 +2,18 @@ import { BlastMark } from "@/components/ui/BlastMark";
 import { PortoMark } from "@/components/ui/PortoMark";
 import { EwcMark } from "@/components/ui/EwcMark";
 import { EplMark } from "@/components/ui/EplMark";
+import { PglMark } from "@/components/ui/PglMark";
 import type { EventSkin } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 /**
  * Знак івенту для текстового рядка.
  *
- * Чотири локапи намальовані в різних пропорціях: BLAST квадратний, EWC — довга
- * низька стрічка, Porto і EPL вертикальні. Тому висоту задає сам знак, а не
- * місце виклику: один спільний клас розміру робив EWC смужкою завтовшки з
- * волосину, а EPL — стовпчиком, вищим за рядок, у якому він стоїть.
+ * П'ять локапів намальовані в різних пропорціях: BLAST квадратний, EWC — довга
+ * низька стрічка, Porto і EPL вертикальні, PGL майже квадратний (7:6). Тому
+ * висоту задає сам знак, а не місце виклику: один спільний клас розміру робив
+ * EWC смужкою завтовшки з волосину, а EPL — стовпчиком, вищим за рядок, у
+ * якому він стоїть.
  *
  * Колір береться з currentColor, тож рядок фарбує знак разом із текстом.
  */
@@ -56,6 +58,13 @@ export function EventMark({
       <EplMark
         className={cn(caps ? "h-3 w-[0.5625rem]" : "h-4 w-3", "shrink-0", className)}
         style={caps ? box(9, 12) : box(12, 16)}
+      />
+    );
+  if (skin === "pgl")
+    return (
+      <PglMark
+        className={cn(caps ? "h-3 w-[0.875rem]" : "h-4 w-[1.1875rem]", "shrink-0", className)}
+        style={caps ? box(14, 12) : box(19, 16)}
       />
     );
   if (skin === "blast")

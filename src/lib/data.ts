@@ -173,8 +173,10 @@ export type Tournament = {
  *           key art — the city at dusk under a red sky.
  *   epl   — ESL Pro League S24: електрична жовта на майже чорному, з емблеми
  *           турніру.
+ *   pgl   — PGL Masters Bucharest 2026: кобальт на темно-синьому, з ключового
+ *           арту події.
  */
-export type EventSkin = "blast" | "ewc" | "porto" | "epl";
+export type EventSkin = "blast" | "ewc" | "porto" | "epl" | "pgl";
 
 /**
  * Skins that dress a surface with the event's own floor, glow and ring.
@@ -226,12 +228,18 @@ export function entryGem(currency: EntryCurrency, skin?: EventSkin | null) {
   return "points" as const;
 }
 
-export function eventGem(skin?: EventSkin | null): "points" | "points-ewc" | "points-porto" | "points-epl" {
-  return skin === "ewc" ? "points-ewc" : skin === "porto" ? "points-porto" : skin === "epl" ? "points-epl" : "points";
+export function eventGem(
+  skin?: EventSkin | null,
+): "points" | "points-ewc" | "points-porto" | "points-epl" | "points-pgl" {
+  return skin === "ewc" ? "points-ewc"
+    : skin === "porto" ? "points-porto"
+    : skin === "epl" ? "points-epl"
+    : skin === "pgl" ? "points-pgl"
+    : "points";
 }
 
 export function isAuraSkin(skin?: EventSkin | null): boolean {
-  return skin === "ewc" || skin === "porto" || skin === "epl";
+  return skin === "ewc" || skin === "porto" || skin === "epl" || skin === "pgl";
 }
 
 export const allTournaments: Tournament[] = [
@@ -454,6 +462,37 @@ export const allTournaments: Tournament[] = [
     accent: "oklch(0.78 0.16 118)",
     skin: "epl",
   },
+  {
+    slug: "pgl-masters-bucharest-2026",
+    name: "PGL Masters Bucharest 2026",
+    shortName: "PGL Bucharest",
+    tier: 1,
+    status: "live",
+    startISO: "2026-10-24",
+    endISO: "2026-10-31",
+    dateLabel: "24 – 31 жовт",
+    location: "Бухарест, Румунія",
+    online: false,
+    prizeUSD: 1250000,
+    /* Шістнадцять у порядку посіву, парами згори вниз так, як їх звів жереб
+       першого туру: Spirit — BETBOOM, Vitality — 9z, FURIA — DENDELE,
+       MOUZ — Liquid, Aurora — The MongolZ, Legacy — Nemiga, G2 — NAVI,
+       FUT — TYLOO. На відміну від EPL, тут пари першого туру тягнули жеребом
+       усередині кошиків, а не зводили перший номер із дев'ятим, тож порядок
+       узято зі сторінки події, а не виведено з посіву. */
+    teamSlugs: [
+      "spirit", "betboom", "vitality", "ninez", "furia", "sharks", "mouz", "liquid",
+      "aurora", "mongolz", "legacy", "nemiga", "g2", "natus", "fut", "tyloo",
+    ],
+    format: "Швейцарка (BO3) → плейоф",
+    coverImage: "/brand/pgl-cover.webp",
+    heroImage: "/brand/hero-pgl.webp",
+    /* Кобальт із самого локапа, а не з поля банера: поле йде майже в чорний
+       синій і світитися ним нічому, а щит і літери PGL стоять на чистому
+       синьому, і саме його читач запам'ятовує з картки. */
+    accent: "oklch(0.58 0.22 264)",
+    skin: "pgl",
+  },
 ];
 
 // Only the BLAST Bounty event is public for now (other events are kept as
@@ -463,7 +502,8 @@ export const tournaments: Tournament[] = allTournaments.filter(
     t.slug === "blast-bounty-s2" ||
     t.slug === "ewc-2026" ||
     t.slug === "blast-porto-2026" ||
-    t.slug === "esl-pro-league-s24",
+    t.slug === "esl-pro-league-s24" ||
+    t.slug === "pgl-masters-bucharest-2026",
 );
 
 /* --- BLAST Bounty S2: seeds & bounty stages --- */

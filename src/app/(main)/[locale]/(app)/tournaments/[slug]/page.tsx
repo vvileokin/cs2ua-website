@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { tournaments } from "@/lib/data";
+import { tournaments, isAuraSkin } from "@/lib/data";
 import { findTournament } from "@/lib/db/tournaments";
 import { getSiteSettings } from "@/lib/db/settings";
 import { getMatches } from "@/lib/db/matches";
@@ -42,10 +42,15 @@ export default async function TournamentPage({
        тож будь-який турнір, що ним живе, читає ту саму таблицю: той, хто ще не
        зробив ставку, у ній не з'являється. Перевірка за назвою турніру лишала
        EPL на сезонній дошці, і в ній стояли люди з жовтими поінтами, які до
-       цього турніру не торкались. */
+       цього турніру не торкались.
+
+       Перелік скінів тут теж не годиться — з появою PGL він знову б відстав.
+       Питання насправді одне: чи живе турнір з івентового гаманця, а це рівно
+       `isAuraSkin`. EWC лишається окремо, бо в нього власна дошка, старша за
+       спільний гаманець. */
     t.slug === "ewc-2026"
       ? getEwcLeaderboard(200)
-      : t.skin === "porto" || t.skin === "epl"
+      : isAuraSkin(t.skin)
         ? getEventLeaderboard(200)
         : t.isEvent
           ? getBountyLeaderboard(200)

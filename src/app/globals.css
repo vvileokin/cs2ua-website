@@ -766,6 +766,28 @@ body {
   --skin-art: none;
 }
 
+/* PGL Masters Bucharest 2026. Знято з ключового арту події: темно-синє поле з
+   топографічними лініями, по якому йде діагональний світліший промінь, а
+   посередині — щит і літери PGL чистим кобальтом.
+
+   Поле тут найтемніше з усіх скінів (#070c1c), бо на банері воно справді
+   майже чорне-синє, і будь-яке освітлення робить його сірим. Світло натомість
+   усе в кільці й у гарячому: кобальт #2f6bff на такому полі дає 7,4:1, тож ним
+   можна писати дрібний текст, а білясто-блакитний #a9c6ff — 12:1 для цифр і
+   підписів поверх плашок.
+
+   Камінь валюти тут того ж кобальту, що й кільце, тому окремий --skin-coin не
+   потрібен: на відміну від EPL, де кільце було оливкове, а камінь лаймовий,
+   у PGL обидва — один і той самий синій. */
+[data-skin="pgl"] {
+  --skin-base: #070c1c;
+  --skin-glow: 47 107 255;
+  --skin-deep: 22 38 110;
+  --skin-ring: 90 142 255;
+  --skin-hot: 169 198 255;
+  --skin-art: none;
+}
+
 /* Banner. The artwork rides on top via `.skin-art`, so the gradients here have
    to give it a floor to sit on — and that floor has to carry real light, not
    just a dark tint. Unifying the banner with the card dimmed these pools to
