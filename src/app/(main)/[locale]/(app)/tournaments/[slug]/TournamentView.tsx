@@ -50,6 +50,7 @@ import {
   type LeaderRow,
   type EventSkin,
   isAuraSkin,
+  eventGem,
 } from "@/lib/data";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -508,15 +509,13 @@ export function TournamentView({
             <LeaderboardTable
               rows={leaderboard}
               blastPoints={t.skin === "blast"}
-              pointsIcon={
-                t.skin === "ewc"
-                  ? "points-ewc"
-                  : t.skin === "porto"
-                    ? "points-porto"
-                    : t.skin === "epl"
-                      ? "points-epl"
-                      : "points"
-              }
+              /* Камінь валюти — той самий, що всюди: `eventGem` знає про нього
+                 один раз, а перелік скінів тут уже відставав — PGL отримував
+                 сірий сезонний камінь замість свого синього. */
+              pointsIcon={eventGem(t.skin)}
+              /* Палітра їде на саму дошку: без неї `--skin-*` беруться з
+                 `:root`, де стоїть EWC, і подіум світив помаранчевим. */
+              skin={t.skin}
               // A streak belongs to a player across the season, not to one
               // tournament, so no event board carries the column.
               showStreak={!isAuraSkin(t.skin)}

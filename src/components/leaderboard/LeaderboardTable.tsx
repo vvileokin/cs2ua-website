@@ -3,7 +3,7 @@
 import * as React from "react";
 import { ChevronUp, ChevronDown, Minus, Swords } from "lucide-react";
 import { formatInt } from "@/lib/utils";
-import { type LeaderRow } from "@/lib/data";
+import { type LeaderRow, type EventSkin } from "@/lib/data";
 import { Avatar } from "@/components/ui/Avatar";
 import { BrandIcon, type BrandIconName } from "@/components/ui/BrandIcon";
 import { BlastMark } from "@/components/ui/BlastMark";
@@ -228,9 +228,14 @@ function Podium({
   // readers and keyboard order still get the real ranking.
   const order = ["order-2", "order-1", "order-3"];
   // At the event the podium's rank light is the ember, not the brand yellow.
+  /* Кільце бере колір із палітри події, а не з літерального бурштину.
+     Числа 255 122 44 тут стояли з часів, коли подія була одна — EWC, — і на
+     синьому PGL вони лишали помаранчеву обводку навколо аватара переможця і
+     помаранчеву цифру поруч із синім каменем. Тепер це `--skin-ring`, і
+     подіум одягається в той самий колір, що й усе навколо. */
   const ringOf = (i: number) =>
     ewc
-      ? ["rgb(255 122 44)", "rgb(255 122 44 / 0.55)", "rgb(255 122 44 / 0.38)"][i]
+      ? ["rgb(var(--skin-ring))", "rgb(var(--skin-ring) / 0.55)", "rgb(var(--skin-ring) / 0.38)"][i]
       : PODIUM_TONE[i].ring;
   return (
     <div
@@ -244,7 +249,7 @@ function Podium({
         className={cn(
           "pointer-events-none absolute inset-0 -z-10 rounded-2xl",
           ewc
-            ? "bg-[radial-gradient(52%_62%_at_50%_34%,rgb(255_96_20/0.12),transparent_70%)]"
+            ? "bg-[radial-gradient(52%_62%_at_50%_34%,rgb(var(--skin-glow)/0.12),transparent_70%)]"
             : "bg-[radial-gradient(52%_62%_at_50%_34%,color-mix(in_oklch,var(--accent)_8%,transparent),transparent_70%)]",
         )}
       />
@@ -267,7 +272,7 @@ function Podium({
                   // Only the winner is lit. Second and third get the ring alone,
                   // so the glow reads as a rank signal rather than decoration.
                   boxShadow: first
-                    ? `0 0 0 2px ${ringOf(i)}, 0 8px 30px -14px ${ewc ? "rgb(255 122 44 / 0.75)" : "color-mix(in oklch, var(--accent) 75%, transparent)"}`
+                    ? `0 0 0 2px ${ringOf(i)}, 0 8px 30px -14px ${ewc ? "rgb(var(--skin-ring) / 0.75)" : "color-mix(in oklch, var(--accent) 75%, transparent)"}`
                     : `0 0 0 1.5px ${ringOf(i)}`,
                 }}
               >
@@ -385,6 +390,7 @@ export function LeaderboardTable({
   expandable = false,
   podium = false,
   onChallenge,
+  skin,
   className,
 }: {
   rows: LeaderRow[];
@@ -409,6 +415,15 @@ export function LeaderboardTable({
    * at a person you want to beat.
    */
   onChallenge?: (row: LeaderRow) => void;
+  /**
+   * Палітра події, якій належить ця дошка.
+   *
+   * Без неї `--skin-*` беруться з `:root`, а там живе EWC, і дошка PGL світила
+   * помаранчевим на синьому. Атрибут стоїть на самій дошці, а не на сторінці:
+   * головна виводить сезонну таблицю поруч із картками кількох турнірів, і
+   * кожна поверхня має фарбуватись сама.
+   */
+  skin?: EventSkin | null;
   className?: string;
 }) {
   const [expanded, setExpanded] = React.useState(false);
@@ -444,7 +459,7 @@ export function LeaderboardTable({
       /* 6px, the same step the rows use between themselves — the podium was
          sitting 12px off the list, which read as a stray gap rather than a
          group break. */
-      <div className={cn("space-y-1.5", className)}>
+      <div {...(skin ? { "data-skin": skin } : {})} className={cn("space-y-1.5", className)}>
         <Podium rows={onPodium} blastPoints={blastPoints} pointsIcon={pointsIcon} showStreak={showStreak} ewc={ewc} onChallenge={onChallenge} />
         <div className="flex flex-col gap-1.5">
           {inline.map((row, i) => (
@@ -475,6 +490,7 @@ export function LeaderboardTable({
 
   return (
     <div
+      {...(skin ? { "data-skin": skin } : {})}
       className={cn(
         "flex flex-col gap-1.5",
         className,
