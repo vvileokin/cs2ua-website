@@ -3,9 +3,9 @@ import fs from "node:fs";
 /**
  * Анонс старту PGL Masters Bucharest у бота.
  *
- * Два рядки й кнопка. Емодзі — власні, з двох пакунків івенту, і це єдина
- * причина, чому тут скрипт, а не рядок у таблиці: ідентифікатори треба знати
- * наперед, а взяти їх можна лише з `getStickerSet`.
+ * Два абзаци через порожній рядок і кнопка. Емодзі — власні, з двох пакунків
+ * івенту, і це єдина причина, чому тут скрипт, а не рядок у таблиці:
+ * ідентифікатори треба знати наперед, а взяти їх можна лише з `getStickerSet`.
  *
  *   t.me/addemoji/BLASTWEB              — логотипи події та команд
  *   t.me/addemoji/PGLBucharestMatches   — локап «NAVI проти G2», сім плиток
@@ -57,7 +57,7 @@ const DUEL = [
 
 const TEXT =
   `${PGL} <b>Стартує останній тір-1 івент перед мейджор, на ньому ми дізнаємось, ` +
-  `які команди вже 100% пройдуть на найбільший турнір сезону!</b>\n` +
+  `які команди вже 100% пройдуть на найбільший турнір сезону!</b>\n\n` +
   `${DUEL}— ще й з такого матчу усе почнеться...`;
 
 const BUTTON = {
@@ -111,14 +111,27 @@ if (testAt > -1) {
     people.push(...page);
     if (page.length < 1000) break;
   }
-  const rows = people.map((p) => ({ user_id: p.id, kind: "announce", payload }));
-  for (let i = 0; i < rows.length; i += 500) {
-    const r = await fetch(`${SB}/rest/v1/tg_outbox`, {
-      method: "POST", headers, body: JSON.stringify(rows.slice(i, i + 500)),
+  /* Через `tg_enqueue`, а не прямим insert: функція сама мовчки пропускає
+     тих, у кого вимкнена ця категорія сповіщень, і тих, кому цей самий факт
+     уже клали. Прямий insert обходив би і те, і те — і спіткнувся б об
+     `dedupe_key`, який у таблиці not null саме для цього. */
+  const DEDUPE = "announce:pgl26-start";
+  let queued = 0, skipped = 0;
+  for (const person of people) {
+    const r = await fetch(`${SB}/rest/v1/rpc/tg_enqueue`, {
+      method: "POST", headers,
+      body: JSON.stringify({
+        p_user: person.id,
+        p_kind: "announce",
+        p_payload: payload,
+        p_dedupe: `${DEDUPE}:${person.id}`,
+      }),
     });
-    if (!r.ok) throw new Error(`tg_outbox: ${r.status} ${await r.text()}`);
+    if (!r.ok) throw new Error(`tg_enqueue: ${r.status} ${await r.text()}`);
+    (await r.json()) ? queued++ : skipped++;
   }
-  console.log(`\nу черзі: ${rows.length} повідомлень`);
+  console.log(`
+у черзі: ${queued} повідомлень${skipped ? `, пропущено ${skipped} (вимкнені сповіщення або вже поставлено)` : ""}`);
   console.log("крон вибирає по 25 за прогін — розсилка розтягнеться приблизно на чверть години");
 } else {
   console.log("\nпробний прогін. --test <handle> щоб глянути в себе, --apply щоб поставити всім");
