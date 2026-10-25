@@ -189,7 +189,10 @@ export function regionTeams(data: NonNullable<MajorData>, region: MajorRegion) {
  * and it is stable — the site's own catalogue only covers teams we run matches
  * on, and half of these are not in it.
  */
-export const UA_TEAMS = ["B8", "Natus Vincere", "Inner Circle", "G2", "fnatic", "FUT"];
+export const UA_TEAMS = [
+  "B8", "Natus Vincere", "Inner Circle", "G2", "fnatic", "FUT",
+  "Astralis", "Eternal Fire",
+];
 
 /**
  * Which stage a projected place lands in.
