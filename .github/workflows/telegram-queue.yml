@@ -1,0 +1,58 @@
+# Черга бота, яку Vercel на Hobby смикати не вміє.
+#
+# `/api/cron/telegram` розрахований на часті короткі прогони: BATCH = 25, і
+# нічого страшного, якщо черга порожня — маршрут відповість `sent: 0`. Але
+# Vercel на тарифі Hobby приймає лише добовий розклад, а добовий тут гірший за
+# відсутній: двадцять пʼять найстаріших рядків на день означає, що до свіжих
+# сповіщень черга не дійде ніколи.
+#
+# Тому розклад живе тут. GitHub дозволяє мінімум пʼять хвилин і під
+# навантаженням нерідко зсуває запуск ще на кілька — для сповіщень це
+# прийнятно, для чогось, що має прийти точно вчасно, вже ні.
+#
+# Потрібні два секрети репозиторію:
+#   CRON_SECRET — той самий, що в змінних Vercel; маршрут звіряє його
+#                 constant-time порівнянням і без нього відповідає 401
+#   SITE_URL    — https://cs2ua.com, без слеша в кінці
+#
+# Запустити руками: вкладка Actions → Telegram queue → Run workflow.
+
+name: Telegram queue
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+# Якщо попередній прогін ще не завершився, новий його не чекає і не дублює:
+# черга бере рядки через `tg_claim` зі `skip locked`, але два паралельні
+# виклики — це зайві запити в Telegram без жодної користі.
+concurrency:
+  group: telegram-queue
+  cancel-in-progress: false
+
+jobs:
+  drain:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Вичерпати чергу
+        env:
+          SITE_URL: ${{ secrets.SITE_URL }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        run: |
+          if [ -z "$SITE_URL" ] || [ -z "$CRON_SECRET" ]; then
+            echo "немає SITE_URL або CRON_SECRET у секретах репозиторію"
+            exit 1
+          fi
+          # -s тихо, -S щоб помилка все-таки була видна, --fail-with-body щоб
+          # ненульовий код і тіло відповіді прийшли разом.
+          code=$(curl -sS -o body.txt -w '%{http_code}' \
+            -H "Authorization: Bearer $CRON_SECRET" \
+            "$SITE_URL/api/cron/telegram")
+          echo "HTTP $code"
+          cat body.txt
+          echo
+          # 401 означає розбіжність секретів, і це треба бачити як падіння,
+          # а не як тихий нуль доставлених.
+          [ "$code" = "200" ]
