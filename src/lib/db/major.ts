@@ -232,3 +232,105 @@ export function daysLeft(cutoff: string): number {
   const ms = new Date(cutoff + "T00:00:00Z").getTime() - Date.now();
   return Math.max(0, Math.ceil(ms / 86_400_000));
 }
+
+/* ---------------------------------------------------------------------------
+ * Розклад очок по команді — для /major/[team]
+ * ------------------------------------------------------------------------- */
+
+/** Один рядок компонента: дата, скільки дає, і скільки від нього лишилось. */
+export type DetailRow = {
+  date: string;
+  pts: number;
+  days: number;
+  /** Відсоток давнини. Є лише там, де HLTV його друкує. */
+  recency?: number;
+};
+
+/** Один можливий результат на турнірі й що він дасть, по компонентах. */
+export type LadderRow = {
+  place: string;
+  money: number;
+  wins: number;
+  lan: number;
+  collected: number;
+  network: number;
+  offered: number;
+  total: number;
+  after: number;
+};
+
+export type DetailEvent = {
+  name: string;
+  prize: number;
+  when: string;
+  rows: LadderRow[];
+};
+
+export type DetailMatch = {
+  a: string;
+  b: string;
+  when: string;
+  event: string;
+  /** Чи грає в ньому сама команда, чи це чужий матч, який на неї впливає. */
+  own: boolean;
+  /** Ймовірність перемоги першої команди з лінії букмекера; null без лінії. */
+  pA: number | null;
+  qualIfA: number;
+  qualIfB: number;
+  /** Різниця між гілками — ціна матчу в частках одиниці. */
+  weight: number;
+};
+
+export type DetailChaser = {
+  team: string;
+  pts: number;
+  need: number;
+  /** Скільки дасть команді-переслідувачу одна перемога на ЛАНі. */
+  lanGain: number | null;
+  pAbove: number;
+};
+
+export type MajorTeamDetail = {
+  team: string;
+  pts: number;
+  pQual: number;
+  place: number;
+  components: {
+    base: number; lan: number; network: number;
+    offered: number; collected: number; h2h: number;
+  };
+  rows: { lan: DetailRow[]; offered: DetailRow[]; collected: DetailRow[]; network: DetailRow[] };
+  /** Скільки дасть наступна перемога на ЛАНі, з урахуванням витіснення. */
+  lanGain: number;
+  lanFull: boolean;
+  events: DetailEvent[];
+  matches: DetailMatch[];
+  chasers: DetailChaser[];
+};
+
+/**
+ * Розклад однієї команди.
+ *
+ * Повертає null, коли міграцію ще не прогнали або цієї команди немає серед
+ * наших вісьмох — сторінка тоді віддає 404, і це правда.
+ */
+export const getTeamDetail = cache(async (
+  slug: string,
+): Promise<{ asOf: string; runs: number; detail: MajorTeamDetail } | null> => {
+  try {
+    const sb = await createClient();
+    const { data } = await sb
+      .from("major_team_detail")
+      .select("as_of, runs, payload")
+      .eq("slug", slug)
+      .maybeSingle();
+    if (!data?.payload) return null;
+    return {
+      asOf: data.as_of as string,
+      runs: Number(data.runs ?? 0),
+      detail: data.payload as MajorTeamDetail,
+    };
+  } catch {
+    return null;
+  }
+});
