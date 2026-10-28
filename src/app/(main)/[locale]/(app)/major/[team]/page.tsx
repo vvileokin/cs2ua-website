@@ -36,6 +36,14 @@ const pp = (v: number) =>
 const sign = (v: number) => (v >= 0 ? "+" : "−") + Math.abs(Math.round(v));
 const money = (v: number) => "$" + v.toLocaleString("uk-UA").replace(/ /g, " ");
 
+/** HLTV друкує дати як 24/10/26 — у тексті це читається гірше за «24 жовтня». */
+const MONTH = ["січня", "лютого", "березня", "квітня", "травня", "червня",
+               "липня", "серпня", "вересня", "жовтня", "листопада", "грудня"];
+const dateOf = (s: string) => {
+  const [d, m] = s.split("/").map(Number);
+  return MONTH[m - 1] ? `${d} ${MONTH[m - 1]}` : s;
+};
+
 const tone = (p: number) =>
   p >= 0.85 ? "var(--major-hot)"
   : p >= 0.5 ? "var(--major)"
@@ -230,16 +238,26 @@ function LanCap({ detail }: { detail: MajorTeamDetail }) {
             +{gain}
           </span>
           <p className="min-w-0 flex-1 text-sm leading-relaxed text-white/60">
-            {verdict}
-            {detail.lanFull && weakest ? (
+            {verdict}{" "}
+            {!detail.lanFull ? (
+              <>У списку {rows.length} із 10, тож нова перемога додає всі 48.</>
+            ) : gain <= 5 ? (
+              /* Коли список забитий свіжими, «вона важить уже стільки-то»
+                 звучить як докір згаслому рядку, а згаслого там немає: він
+                 такий самий новий. Тому інше речення, а не те саме з іншим
+                 числом. */
               <>
-                {" "}У списку лишилась перемога за{" "}
-                <span className="whitespace-nowrap text-white/85">{weakest.date}</span> — вона важить уже{" "}
+                Найслабший рядок — перемога за{" "}
+                <span className="whitespace-nowrap text-white/85">{dateOf(weakest.date)}</span>, і вона теж важить{" "}
+                <span className="tnum font-mono text-white/85">{weakest.pts}</span>. Нова просто стане на її місце.
+              </>
+            ) : (
+              <>
+                У списку лишилась перемога за{" "}
+                <span className="whitespace-nowrap text-white/85">{dateOf(weakest.date)}</span> — вона важить уже{" "}
                 <span className="tnum font-mono text-white/85">{weakest.pts}</span>. Наступна викине її й додасть{" "}
                 <span className="tnum font-mono text-white/85">48</span> замість неї.
               </>
-            ) : (
-              <> У списку {rows.length} із 10, тож нова перемога додає всі 48.</>
             )}
           </p>
         </div>
