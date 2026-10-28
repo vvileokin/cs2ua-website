@@ -257,6 +257,8 @@ export type LadderRow = {
   offered: number;
   total: number;
   after: number;
+  /** Шанс поїхати на мейджор, якщо команда закінчить турнір саме так. */
+  pQual?: number | null;
 };
 
 export type DetailEvent = {

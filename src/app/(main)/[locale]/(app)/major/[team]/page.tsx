@@ -321,7 +321,7 @@ function Events({ detail }: { detail: MajorTeamDetail }) {
             </div>
 
             <div className="-mx-4 mt-3 overflow-x-auto sm:mx-0">
-              <table className="w-full min-w-[34rem] text-sm">
+              <table className="w-full min-w-[40rem] text-sm">
                 <thead>
                   <tr className="text-left text-xs text-white/40">
                     <th className="px-4 pb-2 font-semibold sm:px-0">Місце</th>
@@ -331,7 +331,8 @@ function Events({ detail }: { detail: MajorTeamDetail }) {
                     <th className="px-2 pb-2 text-right font-semibold">Скальпи</th>
                     <th className="px-2 pb-2 text-right font-semibold">Мережа</th>
                     <th className="px-2 pb-2 text-right font-semibold">Усього</th>
-                    <th className="px-4 pb-2 text-right font-semibold sm:px-0">Стане</th>
+                    <th className="px-2 pb-2 text-right font-semibold">Стане</th>
+                    <th className="px-4 pb-2 text-right font-semibold sm:px-0">Прохід</th>
                   </tr>
                 </thead>
                 <tbody className="align-baseline">
@@ -360,7 +361,14 @@ function LadderLine({ r }: { r: LadderRow }) {
       <td className="tnum px-2 py-2 text-right font-mono font-bold text-[var(--major-hot)]">
         {sign(r.total)}
       </td>
-      <td className="tnum px-4 py-2 text-right font-mono font-bold text-white sm:px-0">{r.after}</td>
+      <td className="tnum px-2 py-2 text-right font-mono font-bold text-white">{r.after}</td>
+      {/* Половина питання — «скільки очок це дасть», друга половина — «чи
+          цього досить». Друга залежить від того, як складеться решта
+          таблиці, і без неї драбина лишається арифметикою без висновку. */}
+      <td className="tnum px-4 py-2 text-right font-mono font-bold sm:px-0"
+          style={{ color: r.pQual == null ? "var(--ink-faint)" : tone(r.pQual) }}>
+        {r.pQual == null ? "—" : pct(r.pQual)}
+      </td>
     </tr>
   );
 }
