@@ -146,17 +146,9 @@ export default async function MajorPage() {
  * The crest is 44px rather than 28: at the smaller size it sat inside its row
  * like a bullet point, and these three rows are the reason anybody opens this.
  */
-/** Слаги, для яких є розклад очок і окрема сторінка. Та сама вісімка, що в
- *  UA_TEAMS — але ключем тут слаг, бо з нього складається адреса. */
-const DETAILED = new Set(["natus", "b8", "innercircle", "g2", "fnatic", "fut", "astralis", "eternalfire"]);
-
 function OurRow({ t, slots, since }: { t: MajorTeam & { place: number }; slots: MajorSlots; since: string }) {
   const team = findTeam(t.slug);
   const stage = stageOf(t.place, slots);
-  /* Рядок веде на розклад очок цієї команди. Обгортка, а не кнопка збоку:
-     увесь рядок і так про одну команду, і клік по ньому означає рівно те, що
-     читач хоче — подивитись, звідки взялось це число. */
-  const href = t.slug && DETAILED.has(t.slug) ? `/major/${t.slug}` : null;
   /* The three stage chances sum to the qualification chance — they are the same
      number split by where a team enters. So they are one bar, not a bar and a
      caption: the length is the chance of going at all and the segments are what
@@ -189,11 +181,6 @@ function OurRow({ t, slots, since }: { t: MajorTeam & { place: number }; slots: 
           <span className="size-14 shrink-0 rounded-xl bg-white/10" />
         )}
         <p className="min-w-0 flex-1 truncate text-xl font-bold text-white">{t.team}</p>
-        {href && (
-          <span className="shrink-0 text-xs font-semibold text-white/35 max-sm:hidden">
-            розклад очок →
-          </span>
-        )}
         <StageChip stage={stage} place={t.place} />
         <span className="flex shrink-0 items-center gap-3">
           <Move move={t.move} since={since} />
@@ -239,15 +226,7 @@ function OurRow({ t, slots, since }: { t: MajorTeam & { place: number }; slots: 
     </>
   );
 
-  if (!href) return <div className="px-4 py-4 sm:px-5 sm:py-5">{body}</div>;
-  return (
-    <Link
-      href={href}
-      className="block px-4 py-4 transition-colors duration-150 hover:bg-[color-mix(in_oklch,var(--major)_10%,transparent)] focus-visible:bg-[color-mix(in_oklch,var(--major)_10%,transparent)] sm:px-5 sm:py-5"
-    >
-      {body}
-    </Link>
-  );
+  return <div className="px-4 py-4 sm:px-5 sm:py-5">{body}</div>;
 }
 
 
