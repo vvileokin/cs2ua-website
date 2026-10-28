@@ -71,6 +71,11 @@ export default async function MajorTeamPage(
     : null;
   const stage = place && slots ? stageOf(place, slots) : null;
   const site = findTeam(slug);
+  /* Відсоток — із того самого прогнозу, що й таблиця інвайтів. Payload несе
+     свій, порахований окремим прогоном, і він відрізняється на десяті частки
+     через Монте-Карло. Читач, який щойно бачив у таблиці 41,1%, не має
+     зустріти тут 41,6% і гадати, якому числу вірити. */
+  const pQual = row ? row.pQual : detail.pQual;
 
   return (
     <div className="space-y-5 sm:space-y-6">
@@ -99,9 +104,9 @@ export default async function MajorTeamPage(
           <span className="shrink-0 text-right">
             <span
               className="tnum block font-mono text-3xl font-bold leading-none"
-              style={{ color: tone(detail.pQual) }}
+              style={{ color: tone(pQual) }}
             >
-              {pct(detail.pQual)}
+              {pct(pQual)}
             </span>
             <span className="mt-1 block text-xs text-white/45">шанс на мейджор</span>
           </span>

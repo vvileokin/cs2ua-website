@@ -197,8 +197,10 @@ function OurRow({ t, slots, since }: { t: MajorTeam & { place: number }; slots: 
         <StageChip stage={stage} place={t.place} />
         <span className="flex shrink-0 items-center gap-3">
           <Move move={t.move} since={since} />
+          {/* Те саме, що в таблиці, тільки кегль удвічі більший — тож і
+              різниця ширин удвічі помітніша. */}
           <span
-            className="tnum font-mono text-2xl font-bold leading-none"
+            className="tnum w-[5.5rem] shrink-0 text-right font-mono text-2xl font-bold leading-none"
             style={{ color: tone(t.pQual) }}
           >
             {pct(t.pQual)}
@@ -343,10 +345,17 @@ function RegionTable({
                   <PlayingNow slug={t.slug} match={playing.get(t.slug)!} />
                 )}
                 <StageMark stage={stage} />
-                <span className="flex w-[5.75rem] shrink-0 items-center justify-end gap-2.5">
+                {/* Відсоток має власну колонку сталої ширини, і лише тому
+                    стрілки зліва стоять одна під одною. Поки він був як є,
+                    група тулилась праворуч, а «>99,9%» на вісім пікселів
+                    ширший за «92.1%» — і кожен такий рядок штовхав свою
+                    стрілку вліво. На тридцяти рядках стовпчик стрілок виходив
+                    рваний на всю ту різницю. 49px тримає найширше з можливих:
+                    «>99,9%» і «<0,1%». */}
+                <span className="flex w-[6.125rem] shrink-0 items-center justify-end gap-2.5">
                   <Move move={t.move} since={since} />
                   <span
-                    className="tnum font-mono font-bold"
+                    className="tnum w-[3.0625rem] shrink-0 text-right font-mono font-bold"
                     style={{ color: tone(t.pQual) }}
                   >
                     {pct(t.pQual)}
