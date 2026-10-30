@@ -1,0 +1,272 @@
+[
+ {
+  "row": 4,
+  "name": "Urban Riga Open 7",
+  "link": "https://docs.google.com/spreadsheets/d/13Qe9qxZHcyYQ5Ha4uEqHTa48E5PM7WpAC41td74lw3M/",
+  "kind": "sheet",
+  "id": "13Qe9qxZHcyYQ5Ha4uEqHTa48E5PM7WpAC41td74lw3M",
+  "dates": "September 29-30",
+  "prize": "5500",
+  "weight": "0.3067825972"
+ },
+ {
+  "row": 5,
+  "name": "FRAG Season 18",
+  "link": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSL1BeCe4USoqHcejCBMyYa5EJWwjX16bMvLZES2f7nDUkvPy4QDM6vmt_c_sUieFzX8WpJm6pC8k2Y/pubhtml?gid=1589945465&single=true",
+  "kind": "other",
+  "id": null,
+  "dates": "September 29-30",
+  "prize": "20000",
+  "weight": "0.3705117131"
+ },
+ {
+  "row": 6,
+  "name": "CIS LAN 8",
+  "link": "https://docs.google.com/spreadsheets/d/17HmXDNC55YM0HFmEoxA0cwsZt5k9tGvjRuviD6IWXmI/edit?gid=1762274129",
+  "kind": "sheet",
+  "id": "17HmXDNC55YM0HFmEoxA0cwsZt5k9tGvjRuviD6IWXmI",
+  "dates": "September 29 - October 2",
+  "prize": "40000",
+  "weight": "0.4170246113"
+ },
+ {
+  "row": 7,
+  "name": "FOX Legacy Cup 1",
+  "link": "https://docs.google.com/spreadsheets/d/1KI-vy2JFlD9a4doilqHf2T4N2zWjoVCcYQ4sxI3rifA/",
+  "kind": "sheet",
+  "id": "1KI-vy2JFlD9a4doilqHf2T4N2zWjoVCcYQ4sxI3rifA",
+  "dates": "October 1-4",
+  "prize": "up to €12 000,00",
+  "weight": ""
+ },
+ {
+  "row": 9,
+  "name": "SwitzerLAN 2026",
+  "link": "https://docs.google.com/spreadsheets/d/1tESdSQGWrTxBI4uXpoOa4bG648s_16NYF-QYdrr0qQ8/edit?gid=580693075",
+  "kind": "sheet",
+  "id": "1tESdSQGWrTxBI4uXpoOa4bG648s_16NYF-QYdrr0qQ8",
+  "dates": "October 2-4",
+  "prize": "6044.64",
+  "weight": "0.3106912372"
+ },
+ {
+  "row": 10,
+  "name": "ROG Journey Autumn 2026",
+  "link": "https://docs.google.com/spreadsheets/d/1rXW3Ge0G045NiXq5_szJykhOB7uwyCCM_MP0XGNwD2Q/edit?gid=0",
+  "kind": "sheet",
+  "id": "1rXW3Ge0G045NiXq5_szJykhOB7uwyCCM_MP0XGNwD2Q",
+  "dates": "October 2-4",
+  "prize": "20000",
+  "weight": "0.3705117131"
+ },
+ {
+  "row": 11,
+  "name": "ESN Fall Showdown 2026",
+  "link": "https://www.faceit.com/en/championship/c582a094-daba-450e-a172-521795df04ec",
+  "kind": "other",
+  "id": null,
+  "dates": "September 30 - October 5",
+  "prize": "15000",
+  "weight": "0.3541190923"
+ },
+ {
+  "row": 13,
+  "name": "Roman Imperium Cup IX",
+  "link": "https://docs.google.com/forms/d/e/1FAIpQLSdTIZKW3lelkWJkF8q3Dh6jguEvpXVVpYTYLp1cQobNWj978Q/viewform",
+  "kind": "form",
+  "id": null,
+  "dates": "October 7-10",
+  "prize": "up to €12 000,00",
+  "weight": ""
+ },
+ {
+  "row": 14,
+  "name": "MESA Pro Series Fall",
+  "link": "https://mesa.mn/tournaments/68632985-ad0d-4934-9971-ba46075a8780?tab=participants",
+  "kind": "other",
+  "id": null,
+  "dates": "October 6-11",
+  "prize": "3000",
+  "weight": "0.2838587622"
+ },
+ {
+  "row": 15,
+  "name": "FRAG University",
+  "link": "https://square.link/u/S1xpI6uj",
+  "kind": "other",
+  "id": null,
+  "dates": "October 9-11",
+  "prize": "25000",
+  "weight": "0.3843108934"
+ },
+ {
+  "row": 16,
+  "name": "ANZC Locals Spring 2026",
+  "link": "https://www.faceit.com/en/championship/b12e9b86-ec0b-49d6-995d-aca395e54bce/ANZC%20Locals%20Spring%202026%20-%20Open%20Qualifiers/standings/column",
+  "kind": "other",
+  "id": null,
+  "dates": "October 10-11",
+  "prize": "6971.40053",
+  "weight": "0.3167885282"
+ },
+ {
+  "row": 17,
+  "name": "Stake Pulse Beat 3",
+  "link": "https://docs.google.com/forms/d/e/1FAIpQLSftsW49zPf14XewNt22q_xKM47qRgsj6iTWL6nmrGSJ566gOg/viewform",
+  "kind": "form",
+  "id": null,
+  "dates": "October 12-17",
+  "prize": "80000",
+  "weight": "0.476892186"
+ },
+ {
+  "row": 18,
+  "name": "Elisa Breakout 2",
+  "link": "https://docs.google.com/forms/d/e/1FAIpQLSfr0dzp3JG6fuYU0IheYHoHzf70fmNTx9cjkD9GcWL-jCEhbg/viewform",
+  "kind": "form",
+  "id": null,
+  "dates": "October 15-17",
+  "prize": "16899.375",
+  "weight": "0.3607335269"
+ },
+ {
+  "row": 21,
+  "name": "DraculaN 7",
+  "link": "https://docs.google.com/forms/d/e/1FAIpQLSfZpqxnrtS3RwuU9Ji56ft3u9qxUNoTJViwypb3IigXzoANsg/viewform",
+  "kind": "form",
+  "id": null,
+  "dates": "October 19-23",
+  "prize": "35000",
+  "weight": "0.4071774048"
+ },
+ {
+  "row": 22,
+  "name": "CIS LAN 9",
+  "link": "https://docs.google.com/forms/d/e/1FAIpQLSekweu12A7F71YfMz0h1PjpN54RQOZdvLHIYMBxJB3GfCoUFA/viewform",
+  "kind": "form",
+  "id": null,
+  "dates": "October 20-23",
+  "prize": "50000",
+  "weight": "0.4345879897"
+ },
+ {
+  "row": 23,
+  "name": "VOID Autumn Cup",
+  "link": "https://docs.google.com/forms/d/e/1FAIpQLSeIE9g-x-qIQ_YzDUcYSWeRG7E7Otdm-Fup0bWD_YuqtoWsWA/viewform",
+  "kind": "form",
+  "id": null,
+  "dates": "October 20-24",
+  "prize": "12000",
+  "weight": "0.3423697546"
+ },
+ {
+  "row": 24,
+  "name": "eXTREMESLAND 2026 Mongolia CQ",
+  "link": "https://mesa.mn/tournaments/0492780f-563e-428e-b75d-1102c93ac5dd",
+  "kind": "other",
+  "id": null,
+  "dates": "October 18-25",
+  "prize": "1500",
+  "weight": "0.2615125171"
+ },
+ {
+  "row": 25,
+  "name": "Circuit X Curitiba 4",
+  "link": "https://docs.google.com/spreadsheets/d/124cAkoqQ5ssWKX_b04HB_yxKmm4LxSeHMPo0wWqEOOs/edit",
+  "kind": "sheet",
+  "id": "124cAkoqQ5ssWKX_b04HB_yxKmm4LxSeHMPo0wWqEOOs",
+  "dates": "October 21-25",
+  "prize": "up to $20 000,00",
+  "weight": ""
+ },
+ {
+  "row": 26,
+  "name": "Hotspawn Showdown",
+  "link": "https://www.faceit.com/en/championship/38c85606-3ac0-4a19-bd2c-87dab808e95d/denten",
+  "kind": "other",
+  "id": null,
+  "dates": "October 24-25",
+  "prize": "13227.15",
+  "weight": "0.3473990916"
+ },
+ {
+  "row": 27,
+  "name": "Tesla Cup 2026",
+  "link": "https://docs.google.com/spreadsheets/d/1QyCQPU4c-skw4mHSXA6cEjYHSfo4Li6KN9c3fDYhzrk/edit?gid=2048934903",
+  "kind": "sheet",
+  "id": "1QyCQPU4c-skw4mHSXA6cEjYHSfo4Li6KN9c3fDYhzrk",
+  "dates": "October 27-29",
+  "prize": "50000",
+  "weight": "0.4345879897"
+ },
+ {
+  "row": 32,
+  "name": "Station Strike 2026",
+  "link": "https://docs.google.com/spreadsheets/d/14mI-Zft47At8tk6bvrqQ2I6tLMRu2rN2M-_kBuYfsHU/edit?gid=789154766",
+  "kind": "sheet",
+  "id": "14mI-Zft47At8tk6bvrqQ2I6tLMRu2rN2M-_kBuYfsHU",
+  "dates": "October 29 - November 1",
+  "prize": "11266.25",
+  "weight": "0.3391876424"
+ },
+ {
+  "row": 33,
+  "name": "Retake Season 13",
+  "link": "https://docs.google.com/forms/d/e/1FAIpQLSc8ZZpzSoeDrtDgJ6yrNz5dB734VOerf9aPTj1VuE1qiTQfpg/viewform",
+  "kind": "form",
+  "id": null,
+  "dates": "October 29 - November 1",
+  "prize": "up to €15 000,00",
+  "weight": ""
+ },
+ {
+  "row": 34,
+  "name": "FiReLEAGUE Last Chance",
+  "link": "https://docs.google.com/forms/d/e/1FAIpQLSfL4vaYS-AuhUC8cceoqAvAVNzH_AzXy1qvaih9az4ovRM8fQ/viewform",
+  "kind": "form",
+  "id": null,
+  "dates": "October 29 - November 1",
+  "prize": "75000",
+  "weight": "0.4706018027"
+ },
+ {
+  "row": 35,
+  "name": "EPIC.LAN 49",
+  "link": "https://tournaments.epiclan.co.uk/tournaments/epic49-cs2/teams",
+  "kind": "other",
+  "id": null,
+  "dates": "October 29 - November 1",
+  "prize": "up to £6 500,00",
+  "weight": ""
+ },
+ {
+  "row": 36,
+  "name": "Gamers Club Masters",
+  "link": "https://gamersclub.com.br/tournaments/cs/10326",
+  "kind": "other",
+  "id": null,
+  "dates": "October 29 - November 1",
+  "prize": "30000",
+  "weight": "0.3963725969"
+ },
+ {
+  "row": 37,
+  "name": "NSTLGA Texas Open",
+  "link": "https://docs.google.com/spreadsheets/d/1nOZxdj2MSbOAyLVRCjK4-WSS-bBpDRavpparG_dYJiQ/edit?gid=1516916706",
+  "kind": "sheet",
+  "id": "1nOZxdj2MSbOAyLVRCjK4-WSS-bBpDRavpparG_dYJiQ",
+  "dates": "October 30 - November 1",
+  "prize": "up to $15 000,00",
+  "weight": ""
+ },
+ {
+  "row": 40,
+  "name": "Austin LAN",
+  "link": "https://raw.githubusercontent.com/FragHub/EventRegistrationTimelines/refs/heads/main/austin.json",
+  "kind": "other",
+  "id": null,
+  "dates": "November 13-15",
+  "prize": "30000",
+  "weight": "0.3963725969"
+ }
+]

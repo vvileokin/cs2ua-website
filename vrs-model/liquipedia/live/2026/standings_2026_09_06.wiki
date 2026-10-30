@@ -1,0 +1,403 @@
+{{#invoke:Lua|invoke|module=Widget/Factory|fn=fromTemplate|widget=VRSStandings|updated=2026-09-06
+|{{Opponent|team spirit 2022|p1=donk|p1flag=ru|p2=magixx|p2flag=ru|p3=sh1ro|p3flag=ru|p4=tN1R|p4flag=by|p5=zont1x|p5flag=ua|points=2031.1|region=EU|subregion=EU}}
+|{{Opponent|mouz 2021|p1=PR|p1flag=cz|p2=Spinx|p2flag=il|p3=torzsi|p3flag=hu|p4=xelex|p4flag=hu|p5=xertioN|p5flag=il|points=1902.2|region=EU|subregion=EU}}
+|{{Opponent|team falcons 2022|p1=karrigan|p1flag=dk|p2=kyousuke|p2flag=ru|p3=m0NESY|p3flag=ru|p4=NiKo|p4flag=ba|p5=TeSeS|p5flag=dk|points=1881.5|region=EU|subregion=EU}}
+|{{Opponent|fut esports|p1=cmtry|p1flag=ua|p2=dem0n|p2flag=ua|p3=dziugss|p3flag=lt|p4=Krabeni|p4flag=xk|p5=xfl0ud|p5flag=tr|points=1844.8|region=EU|subregion=EU}}
+|{{Opponent|team vitality 2023|p1=apEX|p1flag=fr|p2=flameZ|p2flag=il|p3=jL|p3flag=lt|p4=ropz|p4flag=ee|p5=ZywOo|p5flag=fr|points=1841.4|region=EU|subregion=EU}}
+|{{Opponent|legacy 2023|p1=arT|p1flag=br|p2=dumau|p2flag=br|p3=latto|p3flag=br|p4=n1ssim|p4flag=br|p5=try|p5flag=ar|points=1782.1|region=AM|subregion=SA}}
+|{{Opponent|furia 2025|p1=FalleN|p1flag=br|p2=KSCERATO|p2flag=br|p3=molodoy|p3flag=kz|p4=YEKINDAR|p4flag=lv|p5=yuurih|p5flag=br|points=1754.1|region=AM|subregion=SA}}
+|{{Opponent|g2 esports 2019|p1=HeavyGod|p1flag=il|p2=huNter-|p2flag=ba|p3=matys|p3flag=sk|p4=NertZ|p4flag=il|p5=r1nkle|p5flag=ua|points=1723.6|region=EU|subregion=EU}}
+|{{Opponent|9z team 2024|p1=dgt|p1flag=uy|p2=HUASOPEEK|p2flag=cl|p3=luchov|p3flag=ar|p4=max|p4flag=uy|p5=meyern|p5flag=ar|points=1608.0|region=AM|subregion=SA}}
+|{{Opponent|faze clan 2026|p1=frozen|p1flag=sk|p2=JBOEN|p2flag=dk|p3=jcobbb|p3flag=pl|p4=Neityu|p4flag=fr|p5=Twistzz|p5flag=ca|points=1599.8|region=EU|subregion=EU}}
+|{{Opponent|natus vincere 2021|p1=Aleksib|p1flag=fi|p2=b1t|p2flag=ua|p3=iM|p3flag=ro|p4=makazze|p4flag=xk|p5=w0nderful|p5flag=ua|points=1581.9|region=EU|subregion=EU}}
+|{{Opponent|aurora gaming 2025|p1=Jimpphat|p1flag=fi|p2=kyxsan|p2flag=mk|p3=Wicadia|p3flag=tr|p4=woxic|p4flag=tr|p5=XANTARES|p5flag=tr|points=1554.3|region=EU|subregion=EU}}
+|{{Opponent|b8|p1=alex666|p1flag=ua|p2=esenthial|p2flag=ua|p3=kensizor|p3flag=ua|p4=npl|p4flag=ua|p5=s1zzi|p5flag=ua|points=1516.6|region=EU|subregion=EU}}
+|{{Opponent|ic esports 2026|p1=cptkurtka023|p1flag=ua|p2=Dawy|p2flag=ua|p3=headtr1ck|p3flag=ua|p4=onic|p4flag=ua|p5=zeRRoFIX|p5flag=ua|points=1502.5|region=EU|subregion=EU}}
+|{{Opponent|betboom team 2024|p1=Boombl4|p1flag=ru|p2=d1Ledez|p2flag=ru|p3=Magnojez|p3flag=ru|p4=s1ren|p4flag=ru|p5=zorte|p5flag=ru|points=1501.8|region=EU|subregion=EU}}
+|{{Opponent|big 2020|p1=blameF|p1flag=dk|p2=faveN|p2flag=de|p3=gr1ks|p3flag=by|p4=JDC|p4flag=de|p5=tabseN|p5flag=de|points=1480.1|region=EU|subregion=EU}}
+|{{Opponent|team liquid 2024|p1=EliGE|p1flag=us|p2=Jorko|p2flag=bg|p3=JT|p3flag=za|p4=malbsMd|p4flag=gt|p5=NAF|p5flag=ca|points=1466.6|region=AM|subregion=NA}}
+|{{Opponent|parivision|p1=HObbit|p1flag=kz|p2=Jame|p2flag=ru|p3=slaxejezzz|p3flag=ru|p4=xiELO|p4flag=ru|p5=zweih|p5flag=ru|points=1463.7|region=EU|subregion=EU}}
+|{{Opponent|the mongolz 2024 03|p1=910|p1flag=mn|p2=bLitz|p2flag=mn|p3=DarkMeister|p3flag=mn|p4=Techno4K|p4flag=mn|p5=Tikuak|p5flag=mn|points=1462.9|region=AS|subregion=AS}}
+|{{Opponent|astralis 2020|p1=HooXi|p1flag=dk|p2=jabbi|p2flag=dk|p3=phzy|p3flag=se|p4=ryu|p4flag=lt|p5=Staehr|p5flag=dk|points=1448.5|region=EU|subregion=EU}}
+|{{Opponent|mibr|p1=brnz4n|p1flag=br|p2=insani|p2flag=br|p3=LNZ|p3flag=se|p4=nqz|p4flag=br|p5=venomzera|p5flag=br|points=1410.3|region=AM|subregion=SA}}
+|{{Opponent|alliance 2024|p1=avid|p1flag=se|p2=bobeksde|p2flag=se|p3=eraa|p3flag=se|p4=twist|p4flag=se|p5=upE|p5flag=se|points=1404.4|region=EU|subregion=EU}}
+|{{Opponent|magic|p1=AW|p1flag=ru|p2=MaSvAl|p2flag=by|p3=mo0N|p3flag=kz|p4=sFade8|p4flag=ua|p5=tenzy|p5flag=ru|points=1404.2|region=EU|subregion=EU}}
+|{{Opponent|heroic sep 2024|p1=Brollan|p1flag=se|p2=Chr1zN|p2flag=dk|p3=Martinez|p3flag=es|p4=nilo|p4flag=se|p5=susp|p5flag=se|points=1380.0|region=EU|subregion=EU}}
+|{{Opponent|hotu 2022|p1=dwushka|p1flag=ru|p2=frontales|p2flag=ru|p3=kade0|p3flag=kz|p4=mizu|p4flag=ru|p5=n0rb3r7|p5flag=ru|points=1371.8|region=EU|subregion=EU}}
+|{{Opponent|tyloo 2016|p1=JamYoung|p1flag=cn|p2=Jee|p2flag=cn|p3=Mercury|p3flag=cn|p4=Moseyuh|p4flag=cn|p5=Zero|p5flag=cn|points=1366.9|region=AS|subregion=AS}}
+|{{Opponent|100 thieves|p1=dev1ce|p1flag=dk|p2=Gizmy|p2flag=gb|p3=poiii|p3flag=se|p4=rain|p4flag=no|p5=sirah|p5flag=dk|points=1347.4|region=EU|subregion=EU}}
+|{{Opponent|gamerlegion 2026|p1=FL4MUS|p1flag=ru|p2=hypex|p2flag=pl|p3=REZ|p3flag=se|p4=Snax|p4flag=pl|p5=Tauson|p5flag=dk|points=1347.1|region=EU|subregion=EU}}
+|{{Opponent|ninjas in pyjamas 2021|p1=n0te|p1flag=be|p2=sjuush|p2flag=dk|p3=Snappi|p3flag=dk|p4=stavn|p4flag=dk|p5=xKacpersky|p5flag=pl|points=1339.4|region=EU|subregion=EU}}
+|{{Opponent|betclic apogee esports|p1=Demho|p1flag=pl|p2=Ex1st|p2flag=pl|p3=fr3nd|p3flag=pl|p4=Prism|p4flag=pl|p5=Qlocuu|p5flag=pl|points=1331.6|region=EU|subregion=EU}}
+|{{Opponent|1w team 2025|p1=ArtFr0st|p1flag=ru|p2=Ax1Le|p2flag=ru|p3=BELCHONOKK|p3flag=ru|p4=fame|p4flag=ru|p5=nafany|p5flag=ru|points=1315.0|region=EU|subregion=EU}}
+|{{Opponent|jijiehao 2025|p1=0SAMAS|p1flag=ps|p2=bibu|p2flag=iq|p3=CacaNito|p3flag=mk|p4=m1N1|p4flag=lb|p5=sinnopsyy|p5flag=xk|points=1312.8|region=EU|subregion=MENA}}
+|{{Opponent|fnatic 2020|p1=cairne|p1flag=ua|p2=fear|p2flag=ua|p3=jackasmo|p3flag=ua|p4=jambo|p4flag=ua|p5=mazay|p5flag=ua|points=1310.3|region=EU|subregion=EU}}
+|{{Opponent|dendele cs 2026|p1=doc|p1flag=br|p2=gafolo|p2flag=br|p3=koala|p3flag=br|p4=maxxkor|p4flag=ar|p5=rdnzao|p5flag=br|points=1302.7|region=AM|subregion=SA}}
+|{{Opponent|3dmax 2024|p1=Graviti|p1flag=fr|p2=Kursy|p2flag=fr|p3=Lucky|p3flag=fr|p4=Maka|p4flag=fr|p5=misutaaa|p5flag=fr|points=1300.0|region=EU|subregion=EU}}
+|{{Opponent|eyeballers 2023|p1=dex|p1flag=se|p2=JW|p2flag=se|p3=KRIMZ|p3flag=se|p4=maxster|p4flag=se|p5=Ro1f|p5flag=se|points=1292.4|region=EU|subregion=EU}}
+|{{Opponent|k27|p1=clax|p1flag=ru|p2=kashl1d|p2flag=ru|p3=qw1nk1|p3flag=ru|p4=X5G7V|p4flag=ru|p5=xeedo|p5flag=by|points=1284.1|region=EU|subregion=EU}}
+|{{Opponent|lynn vision gaming 2024|p1=C4LLM3SU3|p1flag=cn|p2=EmiliaQAQ|p2flag=cn|p3=Starry|p3flag=cn|p4=westmelon|p4flag=cn|p5=z4kr|p5flag=cn|points=1276.5|region=AS|subregion=AS}}
+|{{Opponent|bc.game esports nov 2025|p1=electroNic|p1flag=ru|p2=Magisk|p2flag=dk|p3=mzinho|p3flag=mn|p4=s1mple|p4flag=ua|p5=Senzu|p5flag=mn|points=1276.2|region=EU|subregion=EU}}
+|{{Opponent|m80 orig|p1=JBa|p1flag=us|p2=Lake|p2flag=us|p3=s1n|p3flag=de|p4=slaxz-|p4flag=de|p5=Swisher|p5flag=us|points=1272.0|region=AM|subregion=NA}}
+|{{Opponent|virtus.pro 2019|p1=AquaRS|p1flag=ru|p2=b1st|p2flag=ru|p3=F0R3VER|p3flag=kz|p4=mir|p4flag=ru|p5=tO0RO|p5flag=ru|points=1270.8|region=EU|subregion=EU}}
+|{{Opponent|pain gaming 2023|p1=biguzera|p1flag=br|p2=piriajr|p2flag=br|p3=saffee|p3flag=br|p4=snow|p4flag=br|p5=v$m|p5flag=br|points=1270.1|region=AM|subregion=SA}}
+|{{Opponent|nuclear tigeres|p1=ayuki|p1flag=ru|p2=flouzer|p2flag=ru|p3=m1QUSE|p3flag=by|p4=senka|p4flag=by|p5=z1k4|p5flag=ru|points=1242.5|region=EU|subregion=EU}}
+|{{Opponent|luminosity gaming 2018|p1=afro|p1flag=fr|p2=AZUWU|p2flag=gb|p3=Bymas|p3flag=lt|p4=lux|p4flag=br|p5=Rainwaker|p5flag=bg|points=1231.7|region=EU|subregion=EU}}
+|{{Opponent|team nemesis|p1=mag1k3Y|p1flag=kz|p2=r3salt|p2flag=ru|p3=Sdaim|p3flag=ru|p4=SELLTER|p4flag=ru|p5=tex1y|p5flag=ru|points=1230.4|region=EU|subregion=EU}}
+|{{Opponent|acend|p1=h4rn|p1flag=bg|p2=KalubeR|p2flag=bg|p3=REDSTAR|p3flag=bg|p4=Skrimo|p4flag=bg|p5=SPELLAN|p5flag=bg|points=1221.8|region=EU|subregion=EU}}
+|{{Opponent|infinite 2026|p1=Blytz|p1flag=ro|p2=Dytor|p2flag=cz|p3=kreaz|p3flag=se|p4=sl3nd|p4flag=hu|p5=volt|p5flag=ro|points=1208.0|region=EU|subregion=EU}}
+|{{Opponent|sashi esport 2023|p1=acoR|p1flag=dk|p2=Anlelele|p2flag=dk|p3=Cabbi|p3flag=dk|p4=MistR|p4flag=dk|p5=Zyphon|p5flag=dk|points=1202.4|region=EU|subregion=EU}}
+|{{Opponent|nemiga gaming 2021|p1=KaiR0N-|p1flag=ru|p2=khaN|p2flag=kz|p3=robo|p3flag=ru|p4=SYPH0|p4flag=kz|p5=Xant3r|p5flag=ru|points=1171.0|region=EU|subregion=EU}}
+|{{Opponent|nrg 2024|p1=Grim|p1flag=us|p2=hallzerk|p2flag=no|p3=Jeorge|p3flag=us|p4=nitr0|p4flag=us|p5=Sonic|p5flag=za|points=1168.7|region=AM|subregion=NA}}
+|{{Opponent|fokus|p1=Banjo|p1flag=fi|p2=jocab|p2flag=se|p3=Matheos|p3flag=hr|p4=podi|p4flag=fi|p5=ztr|p5flag=se|points=1164.3|region=EU|subregion=EU}}
+|{{Opponent|flyquest 2021|p1=aliStair|p1flag=au|p2=INS|p2flag=au|p3=jks|p3flag=au|p4=nettik|p4flag=nz|p5=Vexite|p5flag=au|points=1151.5|region=AS|subregion=OC}}
+|{{Opponent|bbl esports|p1=Boye|p1flag=dk|p2=IceBerg|p2flag=dk|p3=Leakz|p3flag=dk|p4=NickyB|p4flag=dk|p5=salazar|p5flag=dk|points=1138.6|region=EU|subregion=EU}}
+|{{Opponent|wildcard 2024|p1=Cxzi|p1flag=us|p2=HexT|p2flag=ca|p3=mhL|p3flag=pl|p4=nEMANHA|p4flag=rs|p5=reck|p5flag=us|points=1138.3|region=AM|subregion=NA}}
+|{{Opponent|omega|p1=adai|p1flag=kz|p2=Aldikon|p2flag=kz|p3=Botpa1|p3flag=kz|p4=dan4o|p4flag=kz|p5=def1zer|p5flag=kz|points=1126.8|region=EU|subregion=EU}}
+|{{Opponent|jam (ukrainian team)|p1=Polbandana|p1flag=ua|p2=Psycho|p2flag=ua|p3=s4ltovsk1yy|p3flag=ua|p4=Smash|p4flag=ua|p5=tyr1k|p5flag=ua|points=1125.2|region=EU|subregion=EU}}
+|{{Opponent|inox division|p1=FenomeN|p1flag=by|p2=finW|p2flag=ru|p3=gooddeph|p3flag=ru|p4=k0s|p4flag=ru|p5=k1slll|p5flag=by|points=1121.9|region=EU|subregion=EU}}
+|{{Opponent|sinners esports|p1=beastik|p1flag=cz|p2=kisserek|p2flag=pl|p3=MoDo|p3flag=ro|p4=SHOCK|p4flag=cz|p5=stressarN|p5flag=mk|points=1118.5|region=EU|subregion=EU}}
+|{{Opponent|depo 2025|p1=buster|p1flag=kz|p2=Krad|p2flag=ru|p3=sh1seido|p3flag=uz|p4=shoxs|p4flag=uz|p5=wetfy|p5flag=uz|points=1113.8|region=AS|subregion=AS}}
+|{{Opponent|color|p1=cronuss|p1flag=ru|p2=lattykk|p2flag=ru|p3=oz1k|p3flag=ru|p4=Qikert|p4flag=kz|p5=reyoz|p5flag=ru|points=1108.3|region=EU|subregion=EU}}
+|{{Opponent|iberian soul|p1=alex|p1flag=es|p2=CRUC1AL|p2flag=nl|p3=dav1g|p3flag=es|p4=mopoz|p4flag=es|p5=sausol|p5flag=es|points=1107.7|region=EU|subregion=EU}}
+|{{Opponent|metizport 2025|p1=F1KU|p1flag=pl|p2=forsyy|p2flag=cz|p3=MaiL09|p3flag=se|p4=Plopski|p4flag=se|p5=stanislaw|p5flag=ca|points=1102.8|region=EU|subregion=EU}}
+|{{Opponent|phantom esports|p1=cej0t|p1flag=pl|p2=KEi|p2flag=pl|p3=Kylar|p3flag=pl|p4=nicoodoz|p4flag=dk|p5=TMB|p5flag=dk|points=1092.6|region=EU|subregion=EU}}
+|{{Opponent|ww team 2024|p1=ct0m|p1flag=ru|p2=deko|p2flag=ru|p3=kelieN|p3flag=ru|p4=m3wsu|p4flag=ru|p5=StRoGo|p5flag=ru|points=1089.3|region=EU|subregion=EU}}
+|{{Opponent|imperial esports 2025|p1=chelo|p1flag=br|p2=decenty|p2flag=br|p3=noway|p3flag=br|p4=saadzin|p4flag=br|p5=VINI|p5flag=br|points=1086.8|region=AM|subregion=SA}}
+|{{Opponent|ex-ruby|p1=1eeR|p1flag=by|p2=H4SAN4TOR|p2flag=ru|p3=relaxxie|p3flag=ru|p4=sh1nejezzz|p4flag=ru|p5=Sowalio|p5flag=ru|points=1083.9|region=EU|subregion=EU}}
+|{{Opponent|eternal fire 2023|p1=jottAAA|p1flag=tr|p2=Kvem|p2flag=ua|p3=MisteM|p3flag=za|p4=regali|p4flag=ro|p5=soulfly|p5flag=tr|points=1083.1|region=EU|subregion=EU}}
+|{{Opponent|genone|p1=bL4SEZ|p1flag=fr|p2=Brooxsy|p2flag=fr|p3=Chuckyy|p3flag=be|p4=Djoko|p4flag=fr|p5=Keoz|p5flag=be|points=1075.8|region=EU|subregion=EU}}
+|{{Opponent|sportsbetexpert|p1=consti|p1flag=us|p2=Infinite|p2flag=us|p3=motm|p3flag=us|p4=Peeping|p4flag=us|p5=shane|p5flag=us|points=1074.4|region=AM|subregion=NA}}
+|{{Opponent|butterfly (russian team)|p1=ayano|p1flag=ru|p2=Forester|p2flag=ru|p3=k1ssly|p3flag=ru|p4=Kurama|p4flag=ru|p5=nitzie|p5flag=ru|points=1073.9|region=EU|subregion=EU}}
+|{{Opponent|9ine 2025|p1=b1elany|p1flag=pl|p2=Flayy|p2flag=pl|p3=kraghen|p3flag=dk|p4=raalz|p4flag=dk|p5=rim3|p5flag=tr|points=1071.4|region=EU|subregion=EU}}
+|{{Opponent|fluxo w7m|p1=dav1deuS|p1flag=cl|p2=exit|p2flag=br|p3=kye|p3flag=br|p4=ltz|p4flag=br|p5=zevy|p5flag=br|points=1065.5|region=AM|subregion=SA}}
+|{{Opponent|astral esports|p1=gxx-|p1flag=xk|p2=meowpop|p2flag=lv|p3=Neqy|p3flag=ee|p4=RaY5ive|p4flag=lt|p5=swiz|p5flag=pl|points=1054.3|region=EU|subregion=EU}}
+|{{Opponent|brute 2020|p1=aidKiT|p1flag=mk|p2=hfah|p2flag=pl|p3=nbqq|p3flag=cz|p4=tAk|p4flag=lt|p5=ZEDKO|p5flag=cz|points=1045.0|region=EU|subregion=EU}}
+|{{Opponent|rune eaters esports|p1=demente|p1flag=kz|p2=dukefissura|p2flag=kz|p3=forkyz|p3flag=kz|p4=her1tage|p4flag=kz|p5=noni|p5flag=kz|points=1044.6|region=EU|subregion=EU}}
+|{{Opponent|thunderdownunder 2026|p1=aliStair|p1flag=au|p2=asap|p2flag=au|p3=dexter|p3flag=au|p4=Liazz|p4flag=au|p5=TjP|p5flag=au|points=1042.9|region=AS|subregion=OC}}
+|{{Opponent|ex-zero tenacity|p1=brutmonster|p1flag=ba|p2=Cjoffo|p2flag=me|p3=Dragon|p3flag=rs|p4=Kind0|p4flag=rs|p5=VLDN|p5flag=rs|points=1042.3|region=EU|subregion=EU}}
+|{{Opponent|cybershoke esports 2024|p1=Alkaren|p1flag=kz|p2=alpha|p2flag=ru|p3=bl1x1|p3flag=ru|p4=glowiing|p4flag=ru|p5=Mokuj1n|p5flag=ru|points=1030.7|region=EU|subregion=EU}}
+|{{Opponent|novaq 2025|p1=AdreN|p1flag=kz|p2=neaLaN|p2flag=kz|p3=nyx|p3flag=kz|p4=Pump|p4flag=kz|p5=tasman|p5flag=kz|points=1019.9|region=EU|subregion=EU}}
+|{{Opponent|quazar 2024|p1=gehji|p1flag=ru|p2=kaiori|p2flag=ru|p3=Ne1XXX|p3flag=ru|p4=newt|p4flag=ru|p5=Porya|p5flag=ru|points=1019.0|region=EU|subregion=EU}}
+|{{Opponent|esport academy copenhagen 2026|p1=anber|p1flag=dk|p2=bekker|p2flag=dk|p3=Fessor|p3flag=dk|p4=n1Xen|p4flag=dk|p5=sSen|p5flag=dk|points=1017.2|region=EU|subregion=EU}}
+|{{Opponent|og 2026|p1=adamb|p1flag=se|p2=bodyy|p2flag=fr|p3=cadiaN|p3flag=dk|p4=pr1metapz|p4flag=de|p5=spooke|p5flag=se|points=1014.7|region=EU|subregion=EU}}
+|{{Opponent|upgrade team|p1=DAN9ARMATURA|p1flag=ru|p2=desl3bio|p2flag=ru|p3=pleynnn|p3flag=ru|p4=SquEzxc|p4flag=by|p5=tw1sterzaza|p5flag=by|points=1012.9|region=EU|subregion=EU}}
+|{{Opponent|galorys|p1=destiny|p1flag=br|p2=detr0ittJ|p2flag=br|p3=gbb|p3flag=br|p4=PKL|p4flag=br|p5=tomate|p5flag=br|points=1007.9|region=AM|subregion=SA}}
+|{{Opponent|bestia|p1=buda|p1flag=ar|p2=cass1n|p2flag=br|p3=nacho|p3flag=ar|p4=timo|p4flag=uy|p5=tomaszin|p5flag=ar|points=1003.9|region=AM|subregion=SA}}
+|{{Opponent|basement boys|p1=fakerealityy|p1flag=ua|p2=kr1vda|p2flag=ua|p3=maggent|p3flag=ua|p4=OWNER|p4flag=ua|p5=Tr0ublE|p5flag=ua|points=990.7|region=EU|subregion=EU}}
+|{{Opponent|life's a game|p1=Bwills|p1flag=us|p2=Cryptic|p2flag=us|p3=djay|p3flag=ca|p4=Sandman|p4flag=us|p5=SLIGHT|p5flag=us|points=982.8|region=AM|subregion=NA}}
+|{{Opponent|bushido wildcats 2026|p1=cacan|p1flag=tr|p2=cadnyx|p2flag=tr|p3=darendeli|p3flag=tr|p4=Muk0s|p4flag=ru|p5=Vej|p5flag=tr|points=980.0|region=EU|subregion=EU}}
+|{{Opponent|33 2025|p1=bluewh1te|p1flag=ru|p2=executor|p2flag=ru|p3=Raijin|p3flag=ru|p4=synyx|p4flag=ua|p5=z1Nny|p5flag=ru|points=978.5|region=EU|subregion=EU}}
+|{{Opponent|black phoenix|p1=4X1s|p1flag=lv|p2=karnez|p2flag=ru|p3=Salazar|p3flag=ru|p4=topo-|p4flag=ru|p5=yiksrezo|p5flag=ru|points=976.8|region=EU|subregion=EU}}
+|{{Opponent|kolesie|p1=b1elany|p1flag=pl|p2=Ex1st|p2flag=pl|p3=fr3nd|p3flag=pl|p4=innocent|p4flag=pl|p5=Qlocuu|p5flag=pl|points=974.8|region=EU|subregion=EU}}
+|{{Opponent|team voca|p1=dare|p1flag=us|p2=junior|p2flag=us|p3=MarKE|p3flag=mx|p4=nosraC|p4flag=us|p5=snav|p5flag=us|points=972.8|region=AM|subregion=NA}}
+|{{Opponent|unity esports|p1=2high|p1flag=mk|p2=fnl|p2flag=ro|p3=KWERTZZ|p3flag=cz|p4=M1key|p4flag=sk|p5=Sn0w|p5flag=se|points=968.4|region=EU|subregion=EU}}
+|{{Opponent|walczaki|p1=bajmi|p1flag=pl|p2=olimp|p2flag=pl|p3=reiko|p3flag=pl|p4=SaMey|p4flag=pl|p5=sNx|p5flag=pl|points=967.8|region=EU|subregion=EU}}
+|{{Opponent|nexus gaming 2020|p1=fNk|p1flag=ro|p2=Nexius|p2flag=be|p3=s0und|p3flag=ro|p4=SBT|p4flag=fr|p5=shield|p5flag=lv|points=963.4|region=EU|subregion=EU}}
+|{{Opponent|sparta esports 2025|p1=El1an|p1flag=ru|p2=glowiing|p2flag=ru|p3=NickelBack|p3flag=ru|p4=sugaR|p4flag=az|p5=TRAVIS|p5flag=ru|points=960.5|region=EU|subregion=EU}}
+|{{Opponent|shinden|p1=abizz|p1flag=ar|p2=guty|p2flag=ar|p3=ivz|p3flag=ar|p4=naz|p4flag=ar|p5=tom1jed|p5flag=ar|points=954.8|region=AM|subregion=SA}}
+|{{Opponent|ex-rustec|p1=Brilliance|p1flag=by|p2=jakekeS|p2flag=ru|p3=Patsi|p3flag=ru|p4=shalfey|p4flag=ru|p5=youka|p5flag=ru|points=950.4|region=EU|subregion=EU}}
+|{{Opponent|forze reload|p1=HeCkBNk|p1flag=ru|p2=Kaide|p2flag=ru|p3=KusMe|p3flag=ru|p4=Lack1|p4flag=kz|p5=YumsaN|p5flag=ru|points=943.6|region=EU|subregion=EU}}
+|{{Opponent|largadosypelados 2026|p1=Alisson|p1flag=br|p2=divine|p2flag=br|p3=happ|p3flag=br|p4=Leomonster|p4flag=br|p5=zmb|p5flag=br|points=940.9|region=AM|subregion=SA}}
+|{{Opponent|baks esports 2025|p1=danistzz|p1flag=ru|p2=Norwi|p2flag=ru|p3=turbo|p3flag=ru|p4=whisper|p4flag=ru|p5=xdENiSZERA|p5flag=ru|points=940.0|region=EU|subregion=EU}}
+|{{Opponent|arcred 2025|p1=Get_Jeka|p1flag=by|p2=Raijin|p2flag=ru|p3=Ryujin|p3flag=uz|p4=shg|p4flag=ru|p5=synyx|p5flag=ua|points=928.4|region=EU|subregion=EU}}
+|{{Opponent|wopa esport 2026|p1=kwezz|p1flag=dk|p2=Patti|p2flag=dk|p3=Queenix|p3flag=dk|p4=sL1m3|p4flag=dk|p5=Zanto|p5flag=dk|points=921.6|region=EU|subregion=EU}}
+|{{Opponent|ground zero gaming 2019|p1=apocdud|p1flag=au|p2=HaZR|p2flag=au|p3=Omichella|p3flag=au|p4=sliimey|p4flag=au|p5=vision|p5flag=au|points=920.6|region=AS|subregion=OC}}
+|{{Opponent|marsborne|p1=freshie|p1flag=ca|p2=Grizz|p2flag=us|p3=nicx|p3flag=us|p4=ogwizard|p4flag=us|p5=WUMBO|p5flag=us|points=912.7|region=AM|subregion=NA}}
+|{{Opponent|johnny speeds 2025|p1=bsover|p1flag=se|p2=draken|p2flag=se|p3=hampus|p3flag=se|p4=Rack|p4flag=se|p5=Svedjehed|p5flag=se|points=911.6|region=EU|subregion=EU}}
+|{{Opponent|g2 ares|p1=hitori|p1flag=uz|p2=Junyme|p2flag=dk|p3=SHiNE|p3flag=se|p4=TMKj|p4flag=pt|p5=yksjupe|p5flag=fi|points=904.7|region=EU|subregion=EU}}
+|{{Opponent|the last resort|p1=arTisT|p1flag=ie|p2=bevve|p2flag=gb|p3=Extinct|p3flag=ie|p4=Girafffe|p4flag=gb|p5=Vacancy|p5flag=gb|points=901.2|region=EU|subregion=EU}}
+|{{Opponent|just players|p1=h1te|p1flag=ru|p2=shg|p2flag=ru|p3=sm3t|p3flag=ru|p4=Something|p4flag=ru|p5=sstiNiX|p5flag=ru|points=897.0|region=EU|subregion=EU}}
+|{{Opponent|ic academy 2026|p1=3ippoch|p1flag=ua|p2=Flierax|p2flag=ua|p3=L1seYoung|p3flag=ua|p4=n0rths|p4flag=ua|p5=tamefear|p5flag=ua|points=896.3|region=EU|subregion=EU}}
+|{{Opponent|johnny speeds 2025|p1=HEAP|p1flag=se|p2=jocab|p2flag=se|p3=Lekr0|p3flag=se|p4=nawwk|p4flag=se|p5=titulus|p5flag=se|points=886.3|region=EU|subregion=EU}}
+|{{Opponent|cybershoke esports 2024|p1=alpha|p1flag=ru|p2=bl1x1|p2flag=ru|p3=fluffy|p3flag=ru|p4=glowiing|p4flag=ru|p5=Mokuj1n|p5flag=ru|points=884.0|region=EU|subregion=EU}}
+|{{Opponent|lavked|p1=1NVISIBLEE|p1flag=ru|p2=azukay|p2flag=ru|p3=k4nfuz|p3flag=ru|p4=sol|p4flag=ru|p5=xm1nd|p5flag=ru|points=882.5|region=EU|subregion=EU}}
+|{{Opponent|leo team 2024|p1=aimy|p1flag=pl|p2=drac|p2flag=fr|p3=leen|p3flag=ua|p4=next1me|p4flag=pl|p5=Tarkky|p5flag=fr|points=881.9|region=EU|subregion=EU}}
+|{{Opponent|argos|p1=abiraju|p1flag=ru|p2=anttzz|p2flag=ru|p3=eightz|p3flag=ru|p4=facecrack|p4flag=ru|p5=PsychoDoctor|p5flag=ru|points=879.6|region=EU|subregion=EU}}
+|{{Opponent|team spirit academy 2021|p1=k0gaSs|p1flag=ru|p2=Kiryasoo|p2flag=ru|p3=Netrix|p3flag=ru|p4=s1nside|p4flag=ru|p5=VILBy|p5flag=ru|points=875.0|region=EU|subregion=EU}}
+|{{Opponent|havu 2025|p1=8Juho8|p1flag=fi|p2=Alxc|p2flag=fi|p3=ottob|p3flag=fi|p4=p3kko|p4flag=fi|p5=uli|p5flag=fi|points=873.8|region=EU|subregion=EU}}
+|{{Opponent|bounty hunters esports|p1=KAISER|p1flag=ar|p2=pepe|p2flag=br|p3=ponter|p3flag=br|p4=urban0|p4flag=br|p5=zock|p5flag=uy|points=873.5|region=AM|subregion=SA}}
+|{{Opponent|chicken coop esports|p1=Crisp|p1flag=us|p2=Drop|p2flag=ca|p3=jared|p3flag=us|p4=mds|p4flag=us|p5=REKMEISTER|p5flag=us|points=871.9|region=AM|subregion=NA}}
+|{{Opponent|entropy gaming 2020|p1=dottie|p1flag=se|p2=flaw|p2flag=se|p3=L00m1|p3flag=se|p4=Sapec|p4flag=se|p5=toshas|p5flag=se|points=869.5|region=EU|subregion=EU}}
+|{{Opponent|5star esports orig|p1=ariucle|p1flag=mn|p2=clouden|p2flag=mn|p3=hoolig4n|p3flag=mn|p4=NEUZ|p4flag=mn|p5=rate|p5flag=mn|points=868.8|region=AS|subregion=AS}}
+|{{Opponent|ence 2020|p1=HENU|p1flag=fi|p2=joeski|p2flag=fi|p3=millert|p3flag=fi|p4=Schwarz|p4flag=ge|p5=teme|p5flag=fi|points=862.1|region=EU|subregion=EU}}
+|{{Opponent|azuolas|p1=MAGILA|p1flag=lt|p2=maty|p2flag=lt|p3=Sh1karee|p3flag=ua|p4=toshas|p4flag=se|p5=yakuza|p5flag=lt|points=860.3|region=EU|subregion=EU}}
+|{{Opponent|nordic partners gaming|p1=k1to|p1flag=de|p2=Marix|p2flag=lu|p3=Maze|p3flag=dk|p4=Muciek|p4flag=pl|p5=myltsi|p5flag=fi|points=852.1|region=EU|subregion=EU}}
+|{{Opponent|rebels gaming|p1=Icarus|p1flag=pt|p2=NOPEEj|p2flag=pt|p3=snapy|p3flag=pt|p4=stadodo|p4flag=pt|p5=TMKj|p5flag=pt|points=851.5|region=EU|subregion=EU}}
+|{{Opponent|enjoy (russian team)|p1=kurosa|p1flag=ru|p2=nbl|p2flag=ru|p3=roxesz|p3flag=ru|p4=sh1geo|p4flag=ru|p5=zazzer|p5flag=ru|points=851.2|region=EU|subregion=EU}}
+|{{Opponent|natus vincere junior 2021|p1=FAZERY|p1flag=cz|p2=kodak|p2flag=ua|p3=MahaR|p3flag=cz|p4=skizzyee|p4flag=mk|p5=Yoki|p5flag=ua|points=847.4|region=EU|subregion=EU}}
+|{{Opponent|masonic 2022|p1=b0RUP|p1flag=dk|p2=Botman|p2flag=dk|p3=Frøslev|p3flag=dk|p4=KralleJ|p4flag=dk|p5=Noruyp|p5flag=dk|points=840.2|region=EU|subregion=EU}}
+|{{Opponent|mellren|p1=lollipop21k|p1flag=by|p2=Maksilvl|p2flag=ru|p3=mdl|p3flag=by|p4=menddel|p4flag=by|p5=shootic|p5flag=ru|points=840.0|region=EU|subregion=EU}}
+|{{Opponent|phantom esports|p1=KEi|p1flag=pl|p2=Kunai|p2flag=pl|p3=Kylar|p3flag=pl|p4=mwlky|p4flag=pl|points=839.4|region=EU|subregion=EU}}
+|{{Opponent|rethink|p1=chucker|p1flag=se|p2=macke|p2flag=se|p3=p1ke|p3flag=se|p4=Rack|p4flag=se|p5=zeak|p5flag=se|points=839.0|region=EU|subregion=EU}}
+|{{Opponent|oddik|p1=Ceruttera|p1flag=br|p2=diozera|p2flag=br|p3=nardes|p3flag=br|p4=NEKIZ|p4flag=br|p5=righi|p5flag=ar|points=836.7|region=AM|subregion=SA}}
+|{{Opponent|whitebit academy|p1=fl1peR|p1flag=ua|p2=marat2k|p2flag=ua|p3=NxStep|p3flag=ua|p4=svemyy|p4flag=ua|p5=tired73|p5flag=ua|points=836.1|region=EU|subregion=EU}}
+|{{Opponent|nexvoid|p1=AccuracyTG|p1flag=mn|p2=erkaSt|p2flag=mn|p3=MiQ|p3flag=mn|p4=xerolte|p4flag=mn|p5=zesta|p5flag=mn|points=834.0|region=AS|subregion=AS}}
+|{{Opponent|lazer cats|p1=Kiy0o|p1flag=ua|p2=Magic|p2flag=ua|p3=nikitea|p3flag=ua|p4=Polbandana|p4flag=ua|p5=tripex17|p5flag=ua|points=833.9|region=EU|subregion=EU}}
+|{{Opponent|hyperspirit 2026|p1=Ciocardau|p1flag=ro|p2=d1maje|p2flag=ro|p3=Q-Q|p3flag=dk|p4=Scr0b|p4flag=dk|p5=starplajerz|p5flag=ro|points=833.8|region=EU|subregion=EU}}
+|{{Opponent|betclic apogee esports|p1=demho|p1flag=pl|p2=Dr3nquu|p2flag=pl|p3=eskyy|p3flag=pl|p4=hades|p4flag=pl|p5=Prism|p5flag=pl|points=829.8|region=EU|subregion=EU}}
+|{{Opponent|wraith pcific|p1=eNs|p1flag=tr|p2=jresy|p2flag=tr|p3=lugseN|p3flag=tr|p4=oyesil|p4flag=tr|p5=scolleN|p5flag=tr|points=827.0|region=EU|subregion=EU}}
+|{{Opponent|keyd stars 2022|p1=ckzao|p1flag=br|p2=lash|p2flag=br|p3=matios|p3flag=br|p4=xureba|p4flag=br|p5=zede|p5flag=br|points=824.9|region=AM|subregion=SA}}
+|{{Opponent|washed (danish team)|p1=ANSG1|p1flag=dk|p2=kiR|p2flag=dk|p3=kroK|p3flag=dk|p4=Lucky|p4flag=dk|p5=suma|p5flag=dk|points=822.6|region=EU|subregion=EU}}
+|{{Opponent|saint sinners|p1=Caleyy|p1flag=xk|p2=deb0|p2flag=xk|p3=pavlysha666|p3flag=by|p4=Sa1nTy|p4flag=ru|p5=swetsi|p5flag=ru|points=817.9|region=EU|subregion=EU}}
+|{{Opponent|rare atom 2024|p1=3gl|p1flag=cn|p2=ChildKing|p2flag=cn|p3=L1haNg|p3flag=cn|p4=Summer|p4flag=cn|p5=Trash|p5flag=cn|points=815.1|region=AS|subregion=AS}}
+|{{Opponent|isurus 2026|p1=atarax1a|p1flag=ar|p2=deco|p2flag=ar|p3=dott1|p3flag=ar|p4=Hezz|p4flag=ar|p5=rzk|p5flag=ar|points=811.7|region=AM|subregion=SA}}
+|{{Opponent|fisher college|p1=AlekS|p1flag=se|p2=corn|p2flag=us|p3=CrePoW|p3flag=be|p4=ReFuZR|p4flag=nl|p5=TH0R|p5flag=is|points=811.7|region=EU|subregion=EU}}
+|{{Opponent|honvéd esport|p1=1NSERT2|p1flag=hu|p2=esor|p2flag=hu|p3=iBALLY|p3flag=hu|p4=marTineZ|p4flag=hu|p5=noleN|p5flag=hu|points=811.0|region=EU|subregion=EU}}
+|{{Opponent|alter ego 2021|p1=adeX|p1flag=ro|p2=BnTeT|p2flag=id|p3=Gratisfaction|p3flag=nz|p4=PokemoN|p4flag=pk|p5=shadiy|p5flag=lv|points=810.3|region=AS}}
+|{{Opponent|passion ua 2025|p1=JT|p1flag=za|p2=Kvem|p2flag=ua|p3=nicx|p3flag=us|p4=sdy|p4flag=ua|p5=try|p5flag=ar|points=810.3|region=AM}}
+|{{Opponent|benched gods|p1=f1chper|p1flag=ru|p2=facer|p2flag=ru|p3=K014NZ|p3flag=by|p4=Wign|p4flag=ru|p5=yoyoS2|p5flag=ru|points=807.3|region=EU|subregion=EU}}
+|{{Opponent|for fun 2023|p1=jsfeltner|p1flag=us|p2=mason|p2flag=us|p3=Momo|p3flag=pk|p4=Shooter|p4flag=pk|p5=Wilky|p5flag=us|points=806.6|region=AM|subregion=NA}}
+|{{Opponent|without a roof|p1=autimatic|p1flag=us|p2=Brehze|p2flag=us|p3=CeRq|p3flag=bg|p4=FaNg|p4flag=ca|p5=Stewie2K|p5flag=us|points=792.5|region=AM|subregion=NA}}
+|{{Opponent|chinggis warriors|p1=efire|p1flag=mn|p2=hasteka|p2flag=mn|p3=ROUX|p3flag=mn|p4=Tikuak|p4flag=mn|p5=yAmi|p5flag=mn|points=789.3|region=AS|subregion=AS}}
+|{{Opponent|alka esports|p1=bnc|p1flag=br|p2=cerolzin|p2flag=br|p3=proSHOW|p3flag=br|p4=puni|p4flag=br|p5=vinaabEAST|p5flag=br|points=786.4|region=AM|subregion=SA}}
+|{{Opponent|noir verse|p1=kirxttu|p1flag=ua|p2=m1kagami|p2flag=ua|p3=Naginat|p3flag=ua|p4=Santuriano|p4flag=lt|p5=xeNji|p5flag=ua|points=785.3|region=EU|subregion=EU}}
+|{{Opponent|sinqu esports|p1=0njib|p1flag=fi|p2=doivo|p2flag=fi|p3=Eem3l1|p3flag=fi|p4=hekE|p4flag=fi|p5=imbaemba|p5flag=fi|points=784.7|region=EU|subregion=EU}}
+|{{Opponent|vexar|p1=ADntZ|p1flag=ru|p2=Bottega666|p2flag=ru|p3=datet|p3flag=ru|p4=KarmaN|p4flag=ru|p5=obsward|p5flag=ru|points=783.4|region=EU|subregion=EU}}
+|{{Opponent|drip too hard|p1=aNdu|p1flag=ee|p2=mASKED|p2flag=pl|p3=rud|p3flag=lv|p4=Sapec|p4flag=se|p5=tein|p5flag=pl|points=782.7|region=EU|subregion=EU}}
+|{{Opponent|turma do pagode|p1=felps|p1flag=br|p2=ksloks|p2flag=br|p3=naitte|p3flag=br|p4=pesadelo|p4flag=br|p5=WOOD7|p5flag=br|points=778.9|region=AM|subregion=SA}}
+|{{Opponent|fire flux esports|p1=Cizzx|p1flag=tr|p2=Quality|p2flag=tr|p3=xEternaLxx|p3flag=tr|p4=zemix|p4flag=tr|p5=zer0UKY|p5flag=tr|points=777.1|region=EU|subregion=EU}}
+|{{Opponent|yawara e-sports|p1=brn$|p1flag=br|p2=deemO|p2flag=br|p3=j0w|p3flag=br|p4=pancc|p4flag=br|p5=tele|p5flag=br|points=775.1|region=AM|subregion=SA}}
+|{{Opponent|dragonclaw 2026|p1=AntyVirus|p1flag=pl|p2=Brylu|p2flag=pl|p3=fanatyk|p3flag=pl|p4=PeTeRoOo|p4flag=pl|p5=suonko|p5flag=pl|points=772.6|region=EU|subregion=EU}}
+|{{Opponent|lph gaming 2025|p1=d0mZ1k|p1flag=cz|p2=fajrness|p2flag=cz|p3=KAD1M|p3flag=cz|p4=lojzo|p4flag=sk|p5=N1KOLAJ|p5flag=sk|points=772.5|region=EU|subregion=EU}}
+|{{Opponent|atreides|p1=Chill|p1flag=by|p2=DEPRESHN|p2flag=hr|p3=Goody|p3flag=ru|p4=Nivera|p4flag=be|p5=Python|p5flag=fr|points=771.4|region=EU|subregion=EU}}
+|{{Opponent|permitta esports|p1=AdrieN|p1flag=pl|p2=maaryy|p2flag=pl|p3=Markoś|p3flag=pl|p4=showk|p4flag=pl|p5=tomiko|p5flag=pl|points=769.3|region=EU|subregion=EU}}
+|{{Opponent|regain 2025|p1=dvrk|p1flag=us|p2=grape|p2flag=us|p3=H0NeST|p3flag=ua|p4=sasha|p4flag=us|p5=Zucar|p5flag=us|points=767.4|region=AM|subregion=NA}}
+|{{Opponent|the huns esports 2025|p1=ANNIHILATION|p1flag=mn|p2=Bart4k|p2flag=mn|p3=bexyz|p3flag=mn|p4=controlez|p4flag=mn|p5=nin9|p5flag=mn|points=763.9|region=AS|subregion=AS}}
+|{{Opponent|fake do biru|p1=b4rtiN|p1flag=br|p2=detr0ittJ|p2flag=br|p3=hardzao|p3flag=br|p4=pesadelo|p4flag=br|p5=PKL|p5flag=br|points=759.5|region=AM|subregion=SA}}
+|{{Opponent|mibr female|p1=dani|p1flag=br|p2=GaBi|p2flag=br|p3=olga|p3flag=br|p4=poppins|p4flag=br|p5=yungher|p5flag=br|points=756.4|region=AM|subregion=SA}}
+|{{Opponent|6666 esports|p1=amster|p1flag=ua|p2=dENZY|p2flag=md|p3=kL1o|p3flag=ua|p4=rendysky|p4flag=ua|p5=skcH|p5flag=ua|points=755.6|region=EU|subregion=EU}}
+|{{Opponent|roamsfiest|p1=realyummy|p1flag=se|p2=Sn0w|p2flag=se|p3=TiiREX|p3flag=se|points=754.6|region=EU|subregion=EU}}
+|{{Opponent|gaimin gladiators mar 2022|p1=fer|p1flag=br|p2=HEN1|p2flag=br|p3=JOTA|p3flag=br|p4=Luken|p4flag=ar|p5=NEKIZ|p5flag=br|points=745.7|region=AM|subregion=SA}}
+|{{Opponent|misa esports|p1=Ckanic|p1flag=tr|p2=EMSTAR|p2flag=tr|p3=h0kz|p3flag=tr|p4=souv|p4flag=tr|p5=Zuedsta|p5flag=tr|points=744.2|region=EU|subregion=EU}}
+|{{Opponent|ex-mibr academy|p1=fokiu|p1flag=br|p2=lkz|p2flag=br|p3=pesadelo|p3flag=br|p4=revoltz|p4flag=br|p5=stormzyn|p5flag=br|points=741.9|region=AM|subregion=SA}}
+|{{Opponent|illwill|p1=7kick|p1flag=ro|p2=hAdji|p2flag=fr|p3=maden|p3flag=me|p4=shalfey|p4flag=ru|p5=VLDN|p5flag=rs|points=741.0|region=EU|subregion=EU}}
+|{{Opponent|strael-bora|p1=5-Star|p1flag=pt|p2=AdaMmMm|p2flag=fr|p3=maddeN|p3flag=fr|p4=newhope|p4flag=nl|p5=svn|p5flag=hr|points=740.6|region=EU|subregion=EU}}
+|{{Opponent|brute 2020|p1=hfah|p1flag=pl|p2=KAD1M|p2flag=cz|p3=majky|p3flag=cz|p4=nbqq|p4flag=cz|p5=realzen|p5flag=sk|points=740.4|region=EU|subregion=EU}}
+|{{Opponent|uno mille 2025|p1=ALLE|p1flag=br|p2=cLd|p2flag=br|p3=drg|p3flag=br|p4=pancc|p4flag=br|p5=rem1x|p5flag=br|points=739.9|region=AM|subregion=SA}}
+|{{Opponent|esport berg 2020|p1=Askan|p1flag=de|p2=kdaN|p2flag=rs|p3=KiMaRR|p3flag=mk|p4=nopzy|p4flag=rs|p5=Rezst|p5flag=nl|points=735.6|region=EU|subregion=EU}}
+|{{Opponent|the unit|p1=ad0rfin|p1flag=kg|p2=kyrosawa|p2flag=kg|p3=nesh|p3flag=ru|points=735.6|region=AS}}
+|{{Opponent|red canids|p1=chayJESUS|p1flag=br|p2=dav1deuS|p2flag=cl|p3=drop|p3flag=br|p4=kauez|p4flag=br|p5=reNTU|p5flag=br|points=735.2|region=AM|subregion=SA}}
+|{{Opponent|am gaming|p1=Altekz|p1flag=dk|p2=k1to|p2flag=de|p3=kyuubii|p3flag=de|p4=L00m1|p4flag=se|p5=myltsi|p5flag=fi|points=734.6|region=EU|subregion=EU}}
+|{{Opponent|overtake sector|p1=corim|p1flag=us|p2=intra|p2flag=us|p3=jason|p3flag=us|p4=LEARSI|p4flag=br|p5=Umar|p5flag=us|points=734.6|region=AM|subregion=NA}}
+|{{Opponent|peladona|p1=history|p1flag=br|p2=mlhzin|p2flag=br|p3=nicks|p3flag=br|p4=Noktse|p4flag=ar|p5=t9rnay|p5flag=br|points=731.9|region=AM|subregion=SA}}
+|{{Opponent|falcons force|p1=clockzi|p1flag=dk|p2=grecu|p2flag=ro|p3=Nucleonz|p3flag=mk|p4=Tapewaare|p4flag=no|p5=VENO|p5flag=rs|points=731.8|region=EU|subregion=EU}}
+|{{Opponent|mai tai|p1=aimy|p1flag=pl|p2=chudy|p2flag=pl|p3=Nami|p3flag=pl|p4=next1me|p4flag=pl|p5=Pelle|p5flag=pl|points=730.6|region=EU|subregion=EU}}
+|{{Opponent|aimclub (romanian team)|p1=ERSIN|p1flag=ro|p2=waZz|p2flag=ro|p3=zewts|p3flag=ro|points=730.5|region=EU|subregion=EU}}
+|{{Opponent|saw youngsters|p1=Jayy2s|p1flag=pt|p2=jERK0z|p2flag=pt|p3=M1KA|p3flag=pt|p4=snowiee|p4flag=pt|p5=tuxa|p5flag=pt|points=728.9|region=EU|subregion=EU}}
+|{{Opponent|rooster|p1=ADK|p1flag=au|p2=chelleos|p2flag=nz|p3=ju1ces|p3flag=au|p4=rekonz|p4flag=au|p5=SkulL|p5flag=au|points=728.2|region=AS|subregion=OC}}
+|{{Opponent|kaleido gaming orig|p1=chuzhongT|p1flag=cn|p2=rage|p2flag=cn|p3=SasiKi|p3flag=cn|p4=SPine|p4flag=cn|p5=suki|p5flag=cn|points=727.9|region=AS|subregion=AS}}
+|{{Opponent|bebop|p1=faydett|p1flag=ru|p2=iDISBALANCE|p2flag=ru|p3=lov1kus|p3flag=ru|p4=redzed|p4flag=ru|p5=wh1teout|p5flag=ru|points=724.9|region=EU|subregion=EU}}
+|{{Opponent|new vision|p1=fen2k|p1flag=ru|p2=hahanz0|p2flag=md|p3=w0l33n|p3flag=ru|p4=wonimo|p4flag=ru|p5=x1nk1n|p5flag=ru|points=723.6|region=EU|subregion=EU}}
+|{{Opponent|mindfreak (australian team)|p1=kairo|p1flag=au|p2=lawlkay|p2flag=au|p3=phoebe|p3flag=au|p4=void|p4flag=au|p5=zune|p5flag=au|points=720.9|region=AS|subregion=OC}}
+|{{Opponent|illyrians (kosovar team)|p1=ammar|p1flag=xk|p2=BledarD|p2flag=xk|p3=cerber|p3flag=xk|p4=vAloN|p4flag=mk|p5=xonn1k|p5flag=xk|points=719.0|region=EU|subregion=EU}}
+|{{Opponent|fortress esport|p1=As_K|p1flag=dk|p2=BqreBedre|p2flag=dk|p3=Brand|p3flag=dk|p4=GrEnNiE|p4flag=dk|p5=K1ngShield|p5flag=dk|points=718.6|region=EU|subregion=EU}}
+|{{Opponent|algo esports|p1=adeX|p1flag=ro|p2=aNdu|p2flag=ee|p3=Bambosh|p3flag=pl|p4=nukkye|p4flag=lt|p5=szejn|p5flag=pl|points=718.4|region=EU|subregion=EU}}
+|{{Opponent|sangal esports 2020|p1=clax|p1flag=ru|p2=CYPHER|p2flag=gb|p3=Patsi|p3flag=ru|p4=pr1metapz|p4flag=de|p5=smooya|p5flag=gb|points=718.3|region=EU|subregion=EU}}
+|{{Opponent|mouz nxt 2021|p1=ay0k|p1flag=lv|p2=eSx-|p2flag=fr|p3=mixer|p3flag=cn|p4=Nikodeon|p4flag=dk|p5=opdust|p5flag=pt|points=715.5|region=EU|subregion=EU}}
+|{{Opponent|team abyssal|p1=blood|p1flag=au|p2=dangeR|p2flag=au|p3=foggers|p3flag=au|p4=gump|p4flag=au|p5=vinhy|p5flag=au|points=714.8|region=AS|subregion=OC}}
+|{{Opponent|megoshort cs2|p1=jayzaR|p1flag=se|p2=qvick|p2flag=se|p3=robiin|p3flag=se|p4=Twinkey|p4flag=se|p5=zen|p5flag=se|points=712.6|region=EU|subregion=EU}}
+|{{Opponent|just swing (chinese team) 2026|p1=gas|p1flag=cn|p2=Purely|p2flag=cn|p3=qqGOD|p3flag=ru|p4=sATOR1|p4flag=cn|p5=skrr|p5flag=cn|points=710.5|region=AS|subregion=AS}}
+|{{Opponent|entropy gaming 2020|p1=dottie|p1flag=se|p2=flaw|p2flag=se|p3=GeGo|p3flag=bg|p4=rafftu|p4flag=bg|p5=Tevsii|p5flag=se|points=710.0|region=EU|subregion=EU}}
+|{{Opponent|hashiras|p1=birdfromsky|p1flag=dk|p2=Burmylov|p2flag=ua|p3=c0llins|p3flag=rs|p4=JACKZ|p4flag=fr|p5=Queenix|p5flag=dk|points=709.8|region=EU|subregion=EU}}
+|{{Opponent|donstu esports|p1=Due1yant|p1flag=ru|p2=gleb86rus|p2flag=ru|p3=LAKSHERi|p3flag=ru|p4=NeoLife|p4flag=ru|p5=phorate|p5flag=ru|points=709.8|region=EU|subregion=EU}}
+|{{Opponent|borracheiros|p1=Lacerda|p1flag=br|p2=neozix|p2flag=br|p3=ryuzen|p3flag=br|p4=trindade|p4flag=br|p5=zock9|p5flag=br|points=706.1|region=AM|subregion=SA}}
+|{{Opponent|villainous|p1=bright|p1flag=us|p2=Burglar|p2flag=ca|p3=DYLAN|p3flag=ca|p4=Jolts|p4flag=us|p5=Sunk|p5flag=us|points=704.8|region=AM|subregion=NA}}
+|{{Opponent|mibr academy|p1=brn$|p1flag=br|p2=fl4sh|p2flag=br|p3=Jerr1|p3flag=br|p4=lkz|p4flag=br|p5=stormzyn|p5flag=br|points=703.6|region=AM|subregion=SA}}
+|{{Opponent|semperfi esports|p1=HaZR|p1flag=au|p2=keen|p2flag=lv|p3=SaVage|p3flag=au|p4=shadiy|p4flag=lv|p5=sliimey|p5flag=au|points=702.6|region=AS|subregion=OC}}
+|{{Opponent|nutorious|p1=bones|p1flag=us|p2=cmrn|p2flag=us|p3=Fruitcupx|p3flag=us|p4=Kermi|p4flag=us|p5=neight|p5flag=us|points=699.8|region=AM|subregion=NA}}
+|{{Opponent|iowa stormboar|p1=aelor|p1flag=us|p2=false|p2flag=ca|p3=Scorchyy|p3flag=ca|p4=TyRa|p4flag=us|points=699.1|region=AM|subregion=NA}}
+|{{Opponent|zomblers|p1=CAJUN|p1flag=us|p2=CoolComs|p2flag=gb|p3=FxRE|p3flag=us|p4=man327|p4flag=us|p5=Pose1doNN|p5flag=us|points=696.6|region=AM|subregion=NA}}
+|{{Opponent|vitalem aerem gaming|p1=B1NGO|p1flag=cn|p2=BZA|p2flag=cn|p3=lan|p3flag=cn|p4=Roninbaby|p4flag=cn|p5=wyL|p5flag=cn|points=696.0|region=AS|subregion=AS}}
+|{{Opponent|ninjas in pyjamas 2021|p1=cairne|p1flag=ua|p2=r1nkle|p2flag=ua|p3=sjuush|p3flag=dk|p4=Snappi|p4flag=dk|p5=xKacpersky|p5flag=pl|points=694.5|region=EU|subregion=EU}}
+|{{Opponent|ex-against all authority|p1=AsI0K|p1flag=fr|p2=Rain|p2flag=fr|p3=Saax|p3flag=fr|p4=SLIE9000|p4flag=fr|p5=Tarkky|p5flag=fr|points=693.4|region=EU|subregion=EU}}
+|{{Opponent|ex-sashi academy|p1=LethJ|p1flag=dk|p2=Mizi|p2flag=dk|p3=Mol011|p3flag=dk|p4=Thom|p4flag=dk|points=690.5|region=EU|subregion=EU}}
+|{{Opponent|bestia academy|p1=agt|p1flag=ar|p2=F4QQ|p2flag=ar|p3=Jotag3|p3flag=br|p4=Lekzi|p4flag=br|p5=lezy|p5flag=br|points=689.4|region=AM|subregion=SA}}
+|{{Opponent|brazylijski luz|p1=aimy|p1flag=pl|p2=chudy|p2flag=pl|p3=Melavi|p3flag=pl|p4=next1me|p4flag=pl|p5=tomiko|p5flag=pl|points=688.8|region=EU|subregion=EU}}
+|{{Opponent|maybe (ukrainian team)|p1=Awi4|p1flag=ua|p2=shallthing|p2flag=ua|p3=thirtythird|p3flag=ua|p4=zogeN|p4flag=ua|points=688.3|region=EU|subregion=EU}}
+|{{Opponent|uno mille 2025|p1=ALLE|p1flag=br|p2=cLd|p2flag=br|p3=CloN7|p3flag=br|p4=Ltz|p4flag=br|p5=rem1x|p5flag=br|points=687.2|region=AM|subregion=SA}}
+|{{Opponent|tdk|p1=Ax1Le|p1flag=ru|p2=h1te|p2flag=ru|p3=nafany|p3flag=ru|p4=sugaR|p4flag=az|p5=Xant3r|p5flag=ru|points=685.6|region=EU|subregion=EU}}
+|{{Opponent|chinggis warriors|p1=cool4st|p1flag=mn|p2=fury5k|p2flag=mn|p3=ROUX|p3flag=mn|p4=sk0R|p4flag=mn|p5=yAmi|p5flag=mn|points=682.9|region=AS|subregion=AS}}
+|{{Opponent|wazabi|p1=BacH|p1flag=dk|p2=BangBang|p2flag=dk|p3=Laykinn|p3flag=dk|p4=m0vski-|p4flag=dk|p5=mAnGo|p5flag=dk|points=680.7|region=EU|subregion=EU}}
+|{{Opponent|young ninjas 2021|p1=joeski|p1flag=fi|p2=n0te|p2flag=be|p3=rud|p3flag=lv|p4=tein|p4flag=pl|p5=Vster|p5flag=dk|points=678.6|region=EU|subregion=EU}}
+|{{Opponent|bc.game esports nov 2025|p1=aragornN|p1flag=pt|p2=electroNic|p2flag=ru|p3=krazy|p3flag=pt|p4=MUTiRiS|p4flag=pt|p5=s1mple|p5flag=ua|points=676.7|region=EU|subregion=EU}}
+|{{Opponent|tnc esport orig|p1=maaryy|p1flag=pl|p2=Nami|p2flag=pl|p3=yvro|p3flag=pl|points=676.4|region=EU|subregion=EU}}
+|{{Opponent|mouz nxt 2021|p1=AiyvaN|p1flag=ua|p2=ay0k|p2flag=lv|p3=Flierax|p3flag=ua|p4=Nikodeon|p4flag=dk|p5=opdust|p5flag=pt|points=676.1|region=EU|subregion=EU}}
+|{{Opponent|oldboys|p1=Goofy|p1flag=pl|p2=MICHU|p2flag=pl|p3=rallen|p3flag=pl|p4=ToM223|p4flag=pl|p5=tudsoN|p5flag=pl|points=675.9|region=EU|subregion=EU}}
+|{{Opponent|favbet team|p1=bondik|p1flag=ua|p2=j3kie|p2flag=ua|p3=Marix|p3flag=lu|p4=s4ltovsk1yy|p4flag=ua|p5=Smash|p5flag=ua|points=675.5|region=EU|subregion=EU}}
+|{{Opponent|ex-ruby|p1=danistzz|p1flag=ru|p2=H4SAN4TOR|p2flag=ru|p3=Kaide|p3flag=ru|p4=sh1nejezzz|p4flag=ru|p5=YumsaN|p5flag=ru|points=674.1|region=EU|subregion=EU}}
+|{{Opponent|rare atom 2024|p1=chengking|p1flag=cn|p2=L1haNg|p2flag=cn|p3=Summer|p3flag=cn|p4=TiGeR|p4flag=cn|p5=x9|p5flag=cn|points=672.0|region=AS|subregion=AS}}
+|{{Opponent|entropy gaming 2020|p1=dottie|p1flag=se|p2=flaw|p2flag=se|p3=GeGo|p3flag=bg|p4=mikanix|p4flag=de|p5=Tevsii|p5flag=se|points=668.9|region=EU|subregion=EU}}
+|{{Opponent|phantom esports academy|p1=Ayteel|p1flag=pl|p2=Brain|p2flag=pl|p3=kalyambys|p3flag=ua|p4=Kunai|p4flag=pl|points=668.6|region=EU|subregion=EU}}
+|{{Opponent|detonate 2024|p1=carN|p1flag=us|p2=chante|p2flag=us|p3=Feral|p3flag=nz|p4=Maxuel|p4flag=us|p5=tatm|p5flag=us|points=668.2|region=AM|subregion=NA}}
+|{{Opponent|heroic academy|p1=HOLY|p1flag=ro|p2=Hrdina|p2flag=sk|p3=Muciek|p3flag=pl|p4=St0m4k|p4flag=ua|p5=Yoghi|p5flag=ro|points=666.8|region=EU|subregion=EU}}
+|{{Opponent|haunted house cs2|p1=fr0k|p1flag=uz|p2=icyvlone|p2flag=uz|p3=malinov|p3flag=ru|p4=SasukeQO|p4flag=ru|p5=Schwarzkopf|p5flag=uz|points=664.9|region=AS|subregion=AS}}
+|{{Opponent|marsborne|p1=chop|p1flag=us|p2=Cxzi|p2flag=us|p3=Grizz|p3flag=us|p4=motm|p4flag=us|p5=WolfY|p5flag=us|points=664.6|region=AM|subregion=NA}}
+|{{Opponent|empire (american team)|p1=ayaneuu|p1flag=us|p2=BAGEL|p2flag=ca|p3=C0C0|p3flag=lb|p4=twigs|p4flag=us|p5=Walco|p5flag=ca|points=664.2|region=AM|subregion=NA}}
+|{{Opponent|club 333|p1=4TAYLOR|p1flag=ve|p2=kobruh|p2flag=us|p3=laxiee|p3flag=mn|p4=Marro|p4flag=mx|p5=SecretAgent|p5flag=mx|points=662.3|region=AM|subregion=NA}}
+|{{Opponent|ryvex|p1=jeyN|p1flag=fr|p2=N0R1|p2flag=ro|p3=oskvr|p3flag=gb|p4=Swaggy|p4flag=gb|p5=wfn|p5flag=gb|points=662.1|region=EU|subregion=EU}}
+|{{Opponent|lilmix|p1=b0denmaster|p1flag=se|p2=dezt|p2flag=se|p3=Jackinho|p3flag=se|p4=quix|p4flag=se|p5=Wonder|p5flag=se|points=660.5|region=EU|subregion=EU}}
+|{{Opponent|ex-team aether|p1=bezymecc|p1flag=ua|p2=brett|p2flag=us|p3=H0NeST|p3flag=ua|p4=s3rum|p4flag=us|p5=xaler|p5flag=us|points=658.1|region=AM|subregion=NA}}
+|{{Opponent|team liquid 2024|p1=EliGE|p1flag=us|p2=jL|p2flag=lt|p3=NAF|p3flag=ca|p4=siuhy|p4flag=pl|p5=ultimate|p5flag=pl|points=655.8|region=EU|subregion=EU}}
+|{{Opponent|meia noite|p1=abr|p1flag=br|p2=bsd|p2flag=br|p3=CutzMeretz|p3flag=br|p4=Jerr1|p4flag=br|p5=nyezin|p5flag=br|points=655.7|region=AM|subregion=SA}}
+|{{Opponent|ecstatic 2023|p1=Anlelele|p1flag=dk|p2=Buzz|p2flag=dk|p3=nicoodoz|p3flag=dk|p4=nut nut|p4flag=dk|p5=TMB|p5flag=dk|points=654.6|region=EU|subregion=EU}}
+|{{Opponent|big academy 2020|p1=aZe|p1flag=tm|p2=D0nii|p2flag=ua|p3=Hrdina|p3flag=sk|p4=prosus|p4flag=de|p5=w1dow|p5flag=de|points=654.1|region=EU|subregion=EU}}
+|{{Opponent|arcade esports (australian team)|p1=74LOR|p1flag=gb|p2=Kras|p2flag=au|p3=Mechanical|p3flag=au|p4=N1ghtraid|p4flag=vn|p5=Winnieeeee|p5flag=au|points=653.9|region=AS|subregion=OC}}
+|{{Opponent|fengda gaming|p1=3gl|p1flag=cn|p2=afufu|p2flag=cn|p3=p5p|p3flag=cn|p4=Trash|p4flag=cn|p5=ZJFkingofking|p5flag=cn|points=653.8|region=AS|subregion=AS}}
+|{{Opponent|revise cs2|p1=kanode|p1flag=ua|p2=nikson|p2flag=ua|p3=s1ssi|p3flag=ua|p4=SuNFiX|p4flag=md|p5=WaSdyy|p5flag=ua|points=652.9|region=EU|subregion=EU}}
+|{{Opponent|wanted goons|p1=febreeze|p1flag=us|p2=hibui|p2flag=us|p3=Johan|p3flag=us|p4=killerPandas|p4flag=us|p5=Magic|p5flag=us|points=652.2|region=AM|subregion=NA}}
+|{{Opponent|farmville|p1=BeaKie|p1flag=ca|p2=calamity|p2flag=ca|p3=cJ-dA-K1nG|p3flag=us|p4=sava9e|p4flag=us|p5=sleepz0rk|p5flag=kz|points=648.9|region=AM|subregion=NA}}
+|{{Opponent|turma do pagode|p1=ksloks|p1flag=br|p2=Lucaozy|p2flag=br|p3=naitte|p3flag=br|p4=Tuurtle|p4flag=br|p5=WOOD7|p5flag=br|points=648.9|region=AM|subregion=SA}}
+|{{Opponent|boss 2024|p1=ben1337|p1flag=us|p2=Bwills|p2flag=us|p3=marekiew|p3flag=us|p4=SLIGHT|p4flag=us|p5=WUMBO|p5flag=us|points=648.6|region=AM|subregion=NA}}
+|{{Opponent|altay esports|p1=ARSPOWER|p1flag=kz|p2=Blackout|p2flag=kz|p3=hase|p3flag=kz|p4=kiytsu|p4flag=kz|p5=Pla1n7|p5flag=kz|points=648.5|region=EU|subregion=EU}}
+|{{Opponent|train launcher|p1=bsover|p1flag=se|p2=Leon1das|p2flag=se|p3=majkn|p3flag=se|p4=siz|p4flag=se|p5=Timothybtw|p5flag=se|points=648.5|region=EU|subregion=EU}}
+|{{Opponent|privateer gaming|p1=Ariant0|p1flag=se|p2=dobbo|p2flag=gb|p3=frazehh|p3flag=gb|p4=M1n1maL|p4flag=gb|p5=Prime|p5flag=gb|points=647.2|region=EU|subregion=EU}}
+|{{Opponent|leo team 2024|p1=amster|p1flag=ua|p2=leen|p2flag=ua|p3=Malkiss|p3flag=ua|p4=marat2k|p4flag=ua|p5=OneUn1que|p5flag=ua|points=646.6|region=EU|subregion=EU}}
+|{{Opponent|struggletony|p1=birdfromsky|p1flag=dk|p2=Q-Q|p2flag=dk|p3=Queenix|p3flag=dk|points=645.2|region=EU|subregion=EU}}
+|{{Opponent|clutchain female|p1=Kat|p1flag=sk|p2=tory|p2flag=ru|p3=twenty3|p3flag=ru|p4=vicu|p4flag=pl|p5=zAAz|p5flag=lb|points=644.8|region=EU|subregion=EU}}
+|{{Opponent|eternal fire 2023|p1=DemQQ|p1flag=ua|p2=EMSTAR|p2flag=tr|p3=jottAAA|p3flag=tr|p4=rigoN|p4flag=ch|p5=Woro2k|p5flag=ua|points=644.1|region=EU|subregion=EU}}
+|{{Opponent|hotu 2022|p1=dukefissura|p1flag=kz|p2=gokushima|p2flag=ru|p3=kAlash|p3flag=kz|p4=mizu|p4flag=ru|p5=n0rb3r7|p5flag=ru|points=643.8|region=EU|subregion=EU}}
+|{{Opponent|pain gaming academy|p1=Misfit|p1flag=br|p2=Rkzinho|p2flag=br|p3=shazn|p3flag=br|p4=Tatu|p4flag=br|p5=tsug|p5flag=br|points=643.4|region=AM|subregion=SA}}
+|{{Opponent|b8 academy|p1=k1n|p1flag=ua|p2=La1roN|p2flag=ua|p3=r0se|p3flag=ua|p4=segukawa|p4flag=ua|p5=sherman|p5flag=ua|points=643.1|region=EU|subregion=EU}}
+|{{Opponent|quintessência|p1=cz1k4|p1flag=br|p2=edv|p2flag=br|p3=FasteR|p3flag=br|p4=n0page|p4flag=br|points=642.1|region=AM|subregion=SA}}
+|{{Opponent|insane players|p1=freshie|p1flag=ca|p2=Fruitcupx|p2flag=us|p3=ogwizard|p3flag=ua|p4=sml|p4flag=pt|p5=Wolffe|p5flag=us|points=641.1|region=AM|subregion=NA}}
+|{{Opponent|change the game|p1=957|p1flag=cn|p2=Hack1ng|p2flag=cn|p3=LaiKeXu|p3flag=cn|p4=ProKiller|p4flag=cn|p5=VanceKK|p5flag=cn|points=641.0|region=AS|subregion=AS}}
+|{{Opponent|sashi academy|p1=Bl4zE|p1flag=dk|p2=Damsi|p2flag=dk|p3=Mizi|p3flag=dk|p4=Mol011|p4flag=dk|p5=rosen|p5flag=dk|points=636.8|region=EU|subregion=EU}}
+|{{Opponent|boring player 2024|p1=D1zzyg|p1flag=cn|p2=Jun7|p2flag=cn|p3=Miszary|p3flag=cn|p4=tutu|p4flag=cn|p5=zdr|p5flag=cn|points=636.1|region=AS|subregion=AS}}
+|{{Opponent|unity esports|p1=K1-FiDa|p1flag=cz|p2=M1key|p2flag=sk|p3=MoriiSko|p3flag=cz|p4=NEOFRAG|p4flag=cz|p5=woozzzi|p5flag=cz|points=635.2|region=EU|subregion=EU}}
+|{{Opponent|shishka|p1=danistzz|p1flag=ru|p2=Krad|p2flag=ru|p3=Norwi|p3flag=ru|p4=shalfey|p4flag=ru|p5=yiksrezo|p5flag=ru|points=635.1|region=EU|subregion=EU}}
+|{{Opponent|nnp|p1=em0k1d|p1flag=ru|p2=rexxie|p2flag=ru|p3=Something|p3flag=ru|p4=spirit|p4flag=ru|p5=sstiNiX|p5flag=ru|points=634.5|region=EU|subregion=EU}}
+|{{Opponent|kuusamo.gg 2026|p1=epik|p1flag=fi|p2=Keksimage|p2flag=fi|p3=osku|p3flag=fi|p4=rbm|p4flag=fi|points=630.5|region=EU|subregion=EU}}
+|{{Opponent|team aether|p1=Andrew|p1flag=us|p2=brett|p2flag=us|p3=H0NeST|p3flag=ua|p4=Seb|p4flag=us|p5=xaler|p5flag=us|points=630.4|region=AM|subregion=NA}}
+|{{Opponent|farmville|p1=adam|p1flag=us|p2=BeaKie|p2flag=ca|p3=sleepz0rk|p3flag=kz|points=630.4|region=AM}}
+|{{Opponent|shimmer 2023|p1=alicerawr|p1flag=us|p2=AVA174|p2flag=us|p3=empathy|p3flag=us|p4=Serendipity|p4flag=us|p5=Stx|p5flag=us|points=627.1|region=AM|subregion=NA}}
+|{{Opponent|empire (american team)|p1=BAGEL|p1flag=ca|p2=C0C0|p2flag=lb|p3=KmZ|p3flag=us|p4=no1nx|p4flag=us|p5=twigs|p5flag=us|points=625.1|region=AM|subregion=NA}}
+|{{Opponent|mai tai|p1=chudy|p1flag=pl|p2=darchevile|p2flag=pl|p3=elem|p3flag=pl|p4=Nami|p4flag=pl|p5=yvro|p5flag=pl|points=625.1|region=EU|subregion=EU}}
+|{{Opponent|procyon team 2026|p1=laser|p1flag=kz|p2=lenci|p2flag=ar|p3=MaxOff|p3flag=ar|p4=nex7|p4flag=ar|p5=pavv+|p5flag=ar|points=621.4|region=AM|subregion=SA}}
+|{{Opponent|banzai|p1=fury5k|p1flag=mn|p2=MagnumZ|p2flag=mn|p3=QQLIGHTNING|p3flag=mn|p4=rhitta|p4flag=mn|p5=wonderzce|p5flag=mn|points=619.7|region=AS|subregion=AS}}
+|{{Opponent|club 333|p1=laxiee|p1flag=mn|p2=Marro|p2flag=mx|p3=mason|p3flag=us|p4=N2o|p4flag=mn|p5=obi|p5flag=mn|points=618.5|region=AS|subregion=AS}}
+|{{Opponent|invicta (danish team)|p1=artie|p1flag=dk|p2=Griller|p2flag=dk|p3=SinK|p3flag=dk|p4=vigg0|p4flag=dk|points=618.2|region=EU|subregion=EU}}
+|{{Opponent|esuba 2021|p1=Crazyy|p1flag=cz|p2=Frigo|p2flag=cz|p3=Rentlax|p3flag=cz|p4=Shark|p4flag=cz|p5=vANO|p5flag=cz|points=617.9|region=EU|subregion=EU}}
+|{{Opponent|dark moon|p1=d3j4vy|p1flag=kz|p2=keiyon|p2flag=kz|p3=Maison|p3flag=kz|p4=ri0dayungog|p4flag=kz|points=615.7|region=EU|subregion=EU}}
+|{{Opponent|eternal premium|p1=dazzy|p1flag=by|p2=famous|p2flag=ru|p3=Innerpeace|p3flag=ru|p4=P1kaN0|p4flag=ru|p5=skept1K|p5flag=ru|points=614.4|region=EU|subregion=EU}}
+|{{Opponent|clair obscur|p1=AZIDOT|p1flag=fr|p2=Gauthierlele|p2flag=fr|p3=Revol|p3flag=fr|p4=Supr3me|p4flag=fr|p5=XiMaa|p5flag=fr|points=614.2|region=EU|subregion=EU}}
+|{{Opponent|cirahvi|p1=8Juho8|p1flag=fi|p2=allu|p2flag=fi|p3=arvid|p3flag=fi|p4=Myggis|p4flag=fi|p5=oopee|p5flag=fi|points=612.8|region=EU|subregion=EU}}
+|{{Opponent|reign above|p1=AEROj|p1flag=ua|p2=cobalt|p2flag=us|p3=dAVE|p3flag=us|p4=louie|p4flag=us|p5=SeRCEra|p5flag=us|points=610.0|region=AM|subregion=NA}}
+|{{Opponent|rounds 2025|p1=Kollo|p1flag=fi|p2=Lapa|p2flag=fi|p3=m0n0xx|p3flag=fi|p4=p12|p4flag=fi|p5=ykis|p5flag=fi|points=608.1|region=EU|subregion=EU}}
+|{{Opponent|raccoons|p1=CYPHER|p1flag=gb|p2=Ex3rcice|p2flag=fr|p3=hades|p3flag=pl|p4=nexa|p4flag=rs|p5=yxngstxr|p5flag=se|points=606.7|region=EU|subregion=EU}}
+|{{Opponent|metanoia wolves|p1=ALENNNCAR|p1flag=br|p2=ntx|p2flag=br|p3=spinnie|p3flag=br|p4=vzn|p4flag=br|points=605.0|region=AM|subregion=SA}}
+|{{Opponent|back to back|p1=edv|p1flag=br|p2=fokiu|p2flag=br|p3=perez|p3flag=br|p4=protado|p4flag=br|p5=zede|p5flag=br|points=604.7|region=AM|subregion=SA}}
+|{{Opponent|bankapepsi 2021 new|p1=HUckLer|p1flag=ru|p2=lesswill|p2flag=ru|p3=lUMiER|p3flag=ru|p4=SEMSYS|p4flag=ru|p5=xsepower|p5flag=ru|points=603.8|region=EU|subregion=EU}}
+|{{Opponent|bmz|p1=fury5k|p1flag=mn|p2=MagnumZ|p2flag=mn|p3=me1o|p3flag=mn|p4=rhitta|p4flag=mn|p5=wonderzce|p5flag=mn|points=603.7|region=AS|subregion=AS}}
+|{{Opponent|xi esport|p1=Bakorino|p1flag=dk|p2=Egelund|p2flag=dk|p3=emili0|p3flag=dk|p4=ETYYY|p4flag=dk|p5=Jiace|p5flag=dk|points=603.6|region=EU|subregion=EU}}
+|{{Opponent|zotix cs2|p1=byr9|p1flag=ua|p2=EsD|p2flag=ua|points=602.6|region=EU}}
+|{{Opponent|dnk|p1=dethera|p1flag=kz|p2=indoubt|p2flag=kz|p3=Pla1n7|p3flag=kz|p4=RamBLBi|p4flag=kz|p5=t1er0|p5flag=kz|points=602.3|region=EU|subregion=EU}}
+|{{Opponent|marknlarry|p1=BRACE|p1flag=au|p2=micalis|p2flag=ie|p3=Roflko|p3flag=au|p4=yourwombat|p4flag=au|p5=zeph|p5flag=au|points=601.1|region=AS|subregion=OC}}
+|{{Opponent|ding cuts|p1=biebs|p1flag=nz|p2=blood|p2flag=au|p3=delkud|p3flag=au|p4=maxed|p4flag=au|p5=Val|p5flag=au|points=600.2|region=AS|subregion=OC}}
+|{{Opponent|keyd stars 2022|p1=CutzMeretz|p1flag=br|p2=lash|p2flag=br|p3=matios|p3flag=br|p4=t9rnay|p4flag=br|p5=xureba|p5flag=br|points=597.3|region=AM|subregion=SA}}
+|{{Opponent|festina lente|p1=FRIZZY|p1flag=us|p2=Fruitcupx|p2flag=us|p3=gamble|p3flag=us|p4=Maxuel|p4flag=us|points=596.4|region=AM|subregion=NA}}
+|{{Opponent|atrix esports|p1=bokor|p1flag=br|p2=eleveN|p2flag=br|p3=LyttleZ|p3flag=br|p4=REGIANE|p4flag=br|p5=sofiaxyz|p5flag=br|points=596.3|region=AM|subregion=SA}}
+|{{Opponent|jumprava|p1=cgk|p1flag=lv|p2=ChipaaN|p2flag=lv|p3=whitezins|p3flag=lv|points=594.4|region=EU|subregion=EU}}
+|{{Opponent|quantumx 2026|p1=Cozen|p1flag=mn|p2=grizzly|p2flag=mn|p3=Kamui|p3flag=mn|p4=Paranormal|p4flag=mn|p5=soloooS|p5flag=mn|points=592.2|region=AS|subregion=AS}}
+|{{Opponent|pain gaming academy|p1=Bruninho|p1flag=br|p2=k9izer|p2flag=br|p3=Markz|p3flag=br|p4=Tatu|p4flag=br|p5=tsug|p5flag=br|points=591.7|region=AM|subregion=SA}}
+|{{Opponent|drama esports|p1=andr1x|p1flag=rs|p2=Chill|p2flag=by|p3=choiv7|p3flag=rs|p4=DEPRESHN|p4flag=hr|p5=Goody|p5flag=ru|points=591.3|region=EU|subregion=EU}}
+|{{Opponent|a great chaos|p1=7EMPORARY|p1flag=se|p2=Pleb0rs|p2flag=lv|p3=seilysh|p3flag=by|p4=whitezins|p4flag=lv|p5=ynrii|p5flag=by|points=589.4|region=EU|subregion=EU}}
+|{{Opponent|arch esports|p1=Dis1|p1flag=ru|p2=f1R|p2flag=ru|p3=ka1do|p3flag=ru|p4=MaLLiC|p4flag=ru|p5=WebSun|p5flag=ru|points=588.2|region=EU|subregion=EU}}
+|{{Opponent|partizan esports 2024|p1=DotlA|p1flag=rs|p2=dyrod|p2flag=hr|p3=m1traa|p3flag=ba|p4=rajkeza|p4flag=ba|p5=zecco|p5flag=rs|points=586.2|region=EU|subregion=EU}}
+|{{Opponent|900fpsvseco|p1=Gabe|p1flag=us|p2=mds|p2flag=us|p3=Termina|p3flag=us|p4=Valter0k|p4flag=ua|p5=Zoker|p5flag=us|points=583.2|region=AM|subregion=NA}}
+|{{Opponent|julie&cie|p1=AMANEK|p1flag=fr|p2=Empera|p2flag=lb|p3=KIRADODO|p3flag=fr|p4=Monkey D. Julie|p4flag=fr|points=582.2|region=EU|subregion=EU}}
+|{{Opponent|hypewrld 2025|p1=cgk|p1flag=lv|p2=ChipaaN|p2flag=lv|p3=Frip|p3flag=lv|p4=HexoQ|p4flag=lv|p5=imposony|p5flag=lv|points=581.5|region=EU|subregion=EU}}
+|{{Opponent|team wingman|p1=la3euka|p1flag=ru|p2=Minor|p2flag=ru|p3=MoWeL|p3flag=ru|p4=xnkka|p4flag=ru|p5=z1w0w|p5flag=ru|points=573.9|region=EU|subregion=EU}}
+|{{Opponent|masonic 2022|p1=Avou|p1flag=dk|p2=Botman|p2flag=dk|p3=Bukhavez|p3flag=dk|p4=KralleJ|p4flag=dk|p5=Noruyp|p5flag=dk|points=573.4|region=EU|subregion=EU}}
+|{{Opponent|despedidos|p1=1962|p1flag=ar|p2=ABM|p2flag=ar|p3=guidimon|p3flag=ar|p4=laser|p4flag=ar|p5=reversive|p5flag=ar|points=572.1|region=AM|subregion=SA}}
+|{{Opponent|orgless (australian team) cs2|p1=c4put|p1flag=au|p2=JiNxZiE|p2flag=nz|p3=Myst|p3flag=au|p4=Supers|p4flag=au|p5=Zoot|p5flag=au|points=572.0|region=AS|subregion=OC}}
+|{{Opponent|crashers 2025|p1=Machado|p1flag=br|p2=mtsGOD|p2flag=br|p3=nikz|p3flag=br|p4=Reix|p4flag=br|p5=trindade|p5flag=br|points=570.5|region=AM|subregion=SA}}
+|{{Opponent|sensation|p1=ncl|p1flag=mn|p2=sKINEE|p2flag=mn|p3=Tsogoo|p3flag=mn|points=567.8|region=AS|subregion=AS}}
+|{{Opponent|legam|p1=Bexyz|p1flag=mn|p2=Dobo|p2flag=se|p3=FELSADIA|p3flag=mn|p4=GEZUU|p4flag=mn|p5=versa|p5flag=mn|points=567.5|region=AS|subregion=AS}}
+|{{Opponent|r2 esports club|p1=ABM|p1flag=ar|p2=fakzwall|p2flag=ar|p3=maaxg|p3flag=ar|p4=Rivo|p4flag=ar|p5=tutehen|p5flag=ar|points=566.0|region=AM|subregion=SA}}
+|{{Opponent|mindfreak (australian team)|p1=BRACE|p1flag=au|p2=Crunchy|p2flag=au|p3=dpr|p3flag=au|p4=kairo|p4flag=au|p5=zune|p5flag=au|points=563.1|region=AS|subregion=OC}}
+|{{Opponent|grêmio esports|p1=balencyy|p1flag=br|p2=MITHPUTTINI|p2flag=br|p3=s1lent|p3flag=br|p4=souz4h|p4flag=br|p5=yeda|p5flag=br|points=561.3|region=AM|subregion=SA}}
+|{{Opponent|atpūties|p1=Brens|p1flag=lv|p2=FABEN|p2flag=lv|p3=m1kketye|p3flag=lv|p4=Pleb0rs|p4flag=lv|p5=whitezins|p5flag=lv|points=556.6|region=EU|subregion=EU}}
+|{{Opponent|players (brazilian team)|p1=Lich|p1flag=br|p2=MITHPUTTINI|p2flag=br|p3=souz4h|p3flag=br|p4=space|p4flag=br|p5=xns|p5flag=br|points=556.4|region=AM|subregion=SA}}
+|{{Opponent|vasco esports|p1=Lacerda|p1flag=br|p2=n1cks|p2flag=br|p3=prt|p3flag=br|p4=tatazin|p4flag=br|p5=trindade|p5flag=br|points=555.6|region=AM|subregion=SA}}
+|{{Opponent|aimclub (romanian team)|p1=Ed1m|p1flag=ro|p2=ERSIN|p2flag=ro|p3=RoberttMP|p3flag=ro|p4=XELLOW|p4flag=ro|p5=zewts|p5flag=ro|points=555.5|region=EU|subregion=EU}}
+|{{Opponent|elusive (american team)|p1=Austin|p1flag=us|p2=Msaia|p2flag=us|p3=sayN|p3flag=us|p4=Toasty|p4flag=us|points=554.8|region=AM|subregion=NA}}
+|{{Opponent|trainwrecks esports|p1=AhMa|p1flag=fi|p2=hattivati|p2flag=fi|p3=LapaSSS|p3flag=fi|p4=melty|p4flag=fi|points=544.0|region=EU|subregion=EU}}
+|{{Opponent|team romania|p1=Blytz|p1flag=ro|p2=fNk|p2flag=ro|p3=fnl|p3flag=ro|p4=s0und|p4flag=ro|p5=XELLOW|p5flag=ro|points=542.0|region=EU|subregion=EU}}
+|{{Opponent|phantom esports academy|p1=Ayteel|p1flag=pl|p2=parad17se|p2flag=pl|points=539.7|region=EU}}
+|{{Opponent|gamerslab esports|p1=LEFI|p1flag=sk|p2=MAXX|p2flag=sk|p3=rayqu4za|p3flag=sk|p4=Tusi|p4flag=cz|p5=wap0|p5flag=sk|points=538.9|region=EU|subregion=EU}}
+|{{Opponent|pugdesonesto cs2|p1=Lcs|p1flag=br|p2=Sakamoto|p2flag=br|p3=spinnie|p3flag=br|p4=Thuister|p4flag=br|p5=vzn|p5flag=br|points=538.5|region=AM|subregion=SA}}
+|{{Opponent|x-city 2026|p1=ATLAS|p1flag=ru|p2=Gagloy|p2flag=ru|p3=mda|p3flag=ru|p4=qu1ckk|p4flag=ru|p5=tuzon|p5flag=ru|points=538.1|region=EU|subregion=EU}}
+|{{Opponent|your end|p1=Cr1a|p1flag=br|p2=Lcs|p2flag=br|p3=rx|p3flag=br|p4=snwzao|p4flag=br|p5=zuzu|p5flag=br|points=536.7|region=AM|subregion=SA}}
+|{{Opponent|wampirki|p1=adex|p1flag=pl|p2=Arielek|p2flag=pl|p3=Kamo|p3flag=pl|p4=Kizzzi|p4flag=pl|p5=patrikinho|p5flag=pl|points=535.9|region=EU|subregion=EU}}
+|{{Opponent|younglings|p1=arun|p1flag=kg|p2=eLa1z|p2flag=ru|p3=Shed0Z|p3flag=ru|points=531.9|region=EU}}
+|{{Opponent|aurora young blud 2025|p1=k1nco|p1flag=ru|p2=kurosse|p2flag=ru|p3=meetyoxanaji|p3flag=ru|p4=r1pa4|p4flag=ru|p5=redzed|p5flag=ru|points=531.9|region=EU|subregion=EU}}
+|{{Opponent|olympus|p1=Bizarre666|p1flag=ru|p2=k6rdon|p2flag=ca|p3=relan|p3flag=ua|p4=tarturb0b|p4flag=ua|points=529.3|region=EU|subregion=EU}}
+|{{Opponent|not a squad esports|p1=Biuckmt|p1flag=cn|p2=Corazz|p2flag=cn|p3=Mirror|p3flag=cn|p4=Mort1s|p4flag=cn|p5=p5p|p5flag=cn|points=525.8|region=AS|subregion=AS}}
+|{{Opponent|m1x (kosovar team)|p1=Dementor|p1flag=xk|p2=gejmzilla|p2flag=xk|p3=Lewis|p3flag=xk|p4=tripey|p4flag=xk|p5=v1w|p5flag=xk|points=525.8|region=EU|subregion=EU}}
+|{{Opponent|akpo6atbi|p1=dwushka|p1flag=ru|p2=fame|p2flag=ru|p3=FL1T|p3flag=ru|p4=Krad|p4flag=ru|p5=tried|p5flag=ru|points=524.9|region=EU|subregion=EU}}
+|{{Opponent|new legends|p1=Electrician|p1flag=us|p2=FROGTRAPPA|p2flag=us|p3=molly|p3flag=us|p4=TheJelly|p4flag=us|points=523.2|region=AM|subregion=NA}}
+|{{Opponent|team tricksters cs2|p1=Halfjix|p1flag=ru|p2=iRV1NG|p2flag=ru|p3=Rodos1k|p3flag=ru|points=521.2|region=EU|subregion=EU}}
+|{{Opponent|matrix (ukrainian team)|p1=EgorMercedes|p1flag=ua|p2=frakenzor|p2flag=ua|p3=joly|p3flag=ua|p4=kyoto666|p4flag=ua|p5=md262|p5flag=lt|points=519.1|region=EU|subregion=EU}}
+|{{Opponent|yngods|p1=7tetsu|p1flag=ru|p2=Muk0s|p2flag=ru|p3=Remill|p3flag=ru|p4=tommy|p4flag=ru|p5=whisper|p5flag=ru|points=518.5|region=EU|subregion=EU}}
+|{{Opponent|basement bobs|p1=DALIEN|p1flag=sk|p2=levantino|p2flag=de|p3=MadeInRed|p3flag=no|p4=Pedrinho2011|p4flag=pt|p5=Uzman|p5flag=lt|points=517.8|region=EU|subregion=EU}}
+|{{Opponent|sementes do mal|p1=Aker|p1flag=br|p2=coxinha|p2flag=br|p3=Kaiserzy|p3flag=br|p4=palensckiii|p4flag=br|p5=terran|p5flag=br|points=516.6|region=AM|subregion=SA}}
+|{{Opponent|fc famalicão esports|p1=h0t|p1flag=pt|p2=M1KA|p2flag=pt|p3=P3R3IIRA|p3flag=pt|p4=seabraez|p4flag=pt|p5=Sprayy|p5flag=pt|points=516.3|region=EU|subregion=EU}}
+|{{Opponent|playersclub|p1=heis999|p1flag=ru|p2=riskyb0b|p2flag=ru|p3=sad|p3flag=by|p4=Yakuza|p4flag=ru|p5=z3ndeR|p5flag=ru|points=516.0|region=EU|subregion=EU}}
+|{{Opponent|young tigeres|p1=Gashhhhi4|p1flag=ru|p2=tronic|p2flag=ru|p3=z3ndy|p3flag=ru|points=514.7|region=EU|subregion=EU}}
+|{{Opponent|incognito (american team) 2026|p1=Axed|p1flag=us|p2=micro|p2flag=us|p3=viz|p3flag=us|points=514.7|region=AM|subregion=NA}}
+|{{Opponent|team xdm|p1=darkk|p1flag=cn|p2=Kungao|p2flag=cn|p3=r1verLaKe|p3flag=cn|p4=Shad0w|p4flag=cn|points=511.3|region=AS|subregion=AS}}
+|{{Opponent|the knockoutx 2026|p1=Niko|p1flag=cn|p2=reason|p2flag=cn|p3=Yuxz|p3flag=cn|p4=z1ayr|p4flag=cn|p5=zzi|p5flag=cn|points=510.0|region=AS|subregion=AS}}
+|{{Opponent|persona grata|p1=MAGILA|p1flag=lt|p2=nestee|p2flag=pl|p3=POLO|p3flag=pl|p4=SBT|p4flag=fr|p5=sk1tt|p5flag=pl|points=509.8|region=EU|subregion=EU}}
+|{{Opponent|clutchain|p1=Kyojin|p1flag=fr|p2=Nivera|p2flag=be|p3=Python|p3flag=fr|p4=ScreaM|p4flag=be|p5=SHOGU|p5flag=fr|points=508.1|region=EU|subregion=EU}}
+|{{Opponent|megoshort cs2|p1=aidKiT|p1flag=mk|p2=mogv|p2flag=se|p3=robiin|p3flag=se|p4=titulus|p4flag=se|p5=Twinkey|p5flag=se|points=507.9|region=EU|subregion=EU}}
+|{{Opponent|rottweilers|p1=bavar1n|p1flag=bg|p2=rafftu|p2flag=bg|p3=REDSTAR|p3flag=bg|p4=shin|p4flag=ro|p5=SHiPZ|p5flag=bg|points=506.7|region=EU|subregion=EU}}
+|{{Opponent|ex-fury cs2|p1=cheeseball|p1flag=au|p2=cookie|p2flag=nz|p3=rahley|p3flag=au|p4=versa|p4flag=au|p5=Winnieeeee|p5flag=au|points=506.5|region=AS|subregion=OC}}
+|{{Opponent|chicanery|p1=AbbyDog|p1flag=us|p2=juna|p2flag=us|p3=micro|p3flag=us|p4=Sathsea|p4flag=us|p5=Tender|p5flag=us|points=498.3|region=AM|subregion=NA}}
+|{{Opponent|bebop|p1=dwushka|p1flag=ru|p2=faydett|p2flag=ru|p3=h1kaN|p3flag=ru|p4=iDISBALANCE|p4flag=ru|points=496.8|region=EU|subregion=EU}}
+|{{Opponent|drama esports|p1=andr1x|p1flag=rs|p2=choiv7|p2flag=rs|p3=d0jca|p3flag=rs|p4=miwo|p4flag=me|p5=nopzy|p5flag=rs|points=495.4|region=EU|subregion=EU}}
+|{{Opponent|subtop de france|p1=Razzmo|p1flag=fr|p2=Revol|p2flag=fr|p3=sanjoCRAKITO|p3flag=fr|p4=Supr3me|p4flag=fr|p5=XiMaa|p5flag=fr|points=495.3|region=EU|subregion=EU}}
+|{{Opponent|sinqu esports|p1=Geni|p1flag=fi|p2=J0nneW|p2flag=fi|p3=KapiV|p3flag=fi|p4=Lene|p4flag=fi|p5=Samppa|p5flag=fi|points=494.7|region=EU|subregion=EU}}
+|{{Opponent|girl kissers|p1=gadfly|p1flag=us|p2=kevin|p2flag=us|p3=lunari|p3flag=us|p4=TeXaSs|p4flag=us|p5=violet|p5flag=us|points=485.7|region=AM|subregion=NA}}
+|{{Opponent|legion (pakistani team)|p1=Bloody|p1flag=pk|p2=BulleT|p2flag=pk|p3=hf|p3flag=pk|p4=HZI|p4flag=pk|p5=pavast4r|p5flag=pk|points=484.3|region=AS|subregion=AS}}
+|{{Opponent|metanoia wolves|p1=ALENNNCAR|p1flag=br|p2=khowy|p2flag=br|p3=spinnie|p3flag=br|p4=Tineu|p4flag=br|p5=vzn|p5flag=br|points=483.9|region=AM|subregion=SA}}
+|{{Opponent|magicos|p1=Cr1a|p1flag=br|p2=extazzy|p2flag=br|p3=kai|p3flag=ar|p4=rx|p4flag=br|p5=snwzao|p5flag=br|points=483.7|region=AM|subregion=SA}}
+|{{Opponent|idopieca|p1=FOKUSSS|p1flag=pl|p2=keis|p2flag=pl|p3=Mazda|p3flag=pl|p4=virtuoso|p4flag=pl|p5=Xydoo|p5flag=pl|points=483.1|region=EU|subregion=EU}}
+|{{Opponent|ec banga 2024|p1=blazekinho|p1flag=lv|p2=keni|p2flag=lv|p3=Labreenc|p3flag=lv|p4=makaroff|p4flag=lv|points=482.4|region=EU|subregion=EU}}
+|{{Opponent|coalesce|p1=Flicky|p1flag=gb|p2=onder|p2flag=gb|p3=sen1ar|p3flag=ua|points=482.2|region=EU|subregion=EU}}
+|{{Opponent|blitzkrieg (mexican team)|p1=otEB|p1flag=mx|p2=points|p2flag=co|p3=spamzzy|p3flag=co|p4=TORITO|p4flag=pe|p5=vanilla|p5flag=mx|points=479.1|region=AM|subregion=SA}}
+|{{Opponent|damajuana|p1=boke|p1flag=ar|p2=Dunn|p2flag=ar|p3=leo268|p3flag=ar|p4=maik|p4flag=ar|p5=R4N|p5flag=ar|points=478.2|region=AM|subregion=SA}}
+|{{Opponent|sangal esports 2020|p1=adamS|p1flag=ro|p2=bnox|p2flag=pl|p3=Joey|p3flag=es|p4=puuha|p4flag=fi|p5=R4DYX|p5flag=tr|points=477.7|region=EU|subregion=EU}}
+|{{Opponent|vp.prodigy|p1=lasfas|p1flag=ru|p2=rokilan|p2flag=ru|p3=Stoynes|p3flag=ru|p4=sun|p4flag=ru|p5=TriBorgg1|p5flag=ru|points=475.7|region=EU|subregion=EU}}
+|{{Opponent|guará esports|p1=fnb|p1flag=br|p2=neskk|p2flag=br|p3=paqueta|p3flag=br|p4=Reix|p4flag=br|p5=Thuister|p5flag=br|points=474.5|region=AM|subregion=SA}}
+|{{Opponent|rune eaters esports|p1=dako|p1flag=kz|p2=fitch|p2flag=kz|p3=forkyz|p3flag=kz|p4=her1tage|p4flag=kz|p5=mo0N|p5flag=kz|points=473.5|region=EU|subregion=EU}}
+|{{Opponent|lilmix|p1=bsover|p1flag=se|p2=doobs|p2flag=se|p3=quix|p3flag=se|p4=Sn0w|p4flag=se|p5=walleN|p5flag=se|points=471.9|region=EU|subregion=EU}}
+|{{Opponent|raisedbypixels|p1=atyla|p1flag=us|p2=bright|p2flag=us|p3=flacko|p3flag=us|points=471.5|region=AM|subregion=NA}}
+|{{Opponent|mansão maromba|p1=extazzy|p1flag=br|p2=fraga|p2flag=br|p3=guizo|p3flag=br|p4=neskk|p4flag=br|p5=shrr|p5flag=br|points=467.0|region=AM|subregion=SA}}
+|{{Opponent|bbbmbcbs|p1=ApeX|p1flag=au|p2=Dirty|p2flag=us|p3=Fitzy|p3flag=nz|p4=HaZ|p4flag=au|p5=muffin|p5flag=au|points=465.8|region=AS|subregion=OC}}
+|{{Opponent|charrados fc|p1=bpg|p1flag=br|p2=ght|p2flag=br|p3=protado|p3flag=br|p4=s1lent|p4flag=br|p5=space|p5flag=br|points=464.4|region=AM|subregion=SA}}
+|{{Opponent|zetta games|p1=Antuanette|p1flag=pe|p2=BabyRage|p2flag=pe|p3=NotJuanjo|p3flag=pe|p4=Slayerhz|p4flag=co|p5=zockie|p5flag=pe|points=464.0|region=AM|subregion=SA}}
+|{{Opponent|supernova (danish team)|p1=BehinDx|p1flag=dk|p2=keb1k|p2flag=cz|p3=sacred|p3flag=be|p4=stesso|p4flag=dk|p5=Viggo|p5flag=dk|points=451.3|region=EU|subregion=EU}}
+|{{Opponent|spirit esports|p1=flasi|p1flag=hu|p2=makszi|p2flag=hu|p3=NONS3NS|p3flag=hu|p4=strong3r|p4flag=hu|p5=texmy|p5flag=hu|points=445.8|region=EU|subregion=EU}}
+|{{Opponent|6666|p1=auth0ri|p1flag=ua|p2=m4d4ra|p2flag=ua|p3=rickangel|p3flag=ua|p4=skcH|p4flag=ua|points=432.7|region=EU|subregion=EU}}
+|{{Opponent|aimhaus|p1=erners|p1flag=lv|p2=flairr|p2flag=lv|p3=mairel|p3flag=lv|p4=silrak|p4flag=lv|p5=Yamero|p5flag=lv|points=431.4|region=EU|subregion=EU}}
+|{{Opponent|pure|p1=emzijs|p1flag=lv|p2=maty|p2flag=lt|p3=OXFROG|p3flag=lv|p4=Sh1karee|p4flag=ua|p5=yakuza|p5flag=lt|points=429.2|region=EU|subregion=EU}}
+|{{Opponent|unreal nightmare|p1=brawckzz|p1flag=us|p2=j3nni|p2flag=us|p3=Jachro|p3flag=us|p4=Sharpie|p4flag=us|p5=toasty|p5flag=us|points=424.3|region=AM|subregion=NA}}
+|{{Opponent|team unitronic|p1=clyd1e|p1flag=ph|p2=ImpressioN|p2flag=sg|p3=Kuma|p3flag=sg|p4=mentalplay|p4flag=mn|p5=w1nt3r|p5flag=kz|points=418.8|region=AS|subregion=AS}}
+|{{Opponent|wachoskys|p1=Kiritox|p1flag=ar|p2=leo268|p2flag=ar|p3=maik|p3flag=ar|p4=R4N|p4flag=ar|points=418.5|region=AM|subregion=SA}}
+|{{Opponent|sashi academy|p1=Bl4zE|p1flag=dk|p2=Damsi|p2flag=dk|p3=Half|p3flag=dk|p4=rosen|p4flag=dk|p5=Thom|p5flag=dk|points=408.8|region=EU|subregion=EU}}
+|{{Opponent|z7 esports|p1=BestR1flerEu|p1flag=se|p2=Dobo|p2flag=se|p3=Gibsand|p3flag=se|p4=Valtr1x|p4flag=se|points=407.5|region=EU|subregion=EU}}
+|{{Opponent|grindas 2025|p1=BaGyZ|p1flag=lt|p2=fello|p2flag=lt|p3=OniX|p3flag=lt|p4=REL|p4flag=lt|p5=Sidivo|p5flag=lt|points=405.9|region=EU|subregion=EU}}
+|{{Opponent|brazylijski luz|p1=aimy|p1flag=pl|p2=Brain|p2flag=pl|p3=next1me|p3flag=pl|p4=Pelle|p4flag=pl|points=403.0|region=EU|subregion=EU}}
+|{{Opponent|unsettled resentment 2026|p1=0z|p1flag=cn|p2=4ever|p2flag=cn|p3=drace|p3flag=cn|p4=gLong|p4flag=cn|p5=yoi|p5flag=cn|points=400.8|region=AS|subregion=AS}}
+|{{Opponent|fuzos 2026|p1=imTOXIC|p1flag=pt|p2=Mané|p2flag=pt|p3=rafaxF|p3flag=pt|p4=Slaxx|p4flag=pt|p5=StepA|p5flag=pt|points=400.0|region=EU|subregion=EU}}
+|{{Opponent|furia female 2025|p1=bizinha|p1flag=br|p2=gabs|p2flag=br|p3=izaa|p3flag=br|p4=kaahSENSEI|p4flag=br|p5=lulitenz|p5flag=ar|points=399.7|region=AM|subregion=SA}}
+|{{Opponent|team arise|p1=Anasasis|p1flag=my|p2=Bhavi|p2flag=in|p3=borosto|p3flag=ru|p4=Ph1NNN|p4flag=in|points=399.4|region=AS|subregion=AS}}
+|{{Opponent|big equipa|p1=aiM|p1flag=gb|p2=ASTRA|p2flag=fr|p3=Emmsan|p3flag=se|p4=Hanka|p4flag=pl|p5=sosya|p5flag=ru|points=398.7|region=EU|subregion=EU}}
+|{{Opponent|kajo|p1=amyb|p1flag=fi|p2=ItzMqss|p2flag=fi|p3=miLo|p3flag=fi|p4=Siljeeeh|p4flag=fi|p5=Waldee|p5flag=fi|points=398.5|region=EU|subregion=EU}}
+|{{Opponent|skele|p1=Arctic|p1flag=au|p2=lucas222|p2flag=au|p3=neo|p3flag=au|p4=tidy|p4flag=au|points=398.3|region=AS|subregion=OC}}
+|{{Opponent|herewegoagain|p1=flush|p1flag=br|p2=fraga|p2flag=br|p3=guizo|p3flag=br|p4=Ltm|p4flag=br|points=396.0|region=AM|subregion=SA}}
+|{{Opponent|time waves|p1=camille|p1flag=au|p2=ElephanT|p2flag=au|p3=harbor|p3flag=au|p4=Kezza|p4flag=au|p5=lawlkay|p5flag=au|points=395.0|region=AS|subregion=OC}}
+|{{Opponent|overknight|p1=4TAYLOR|p1flag=ve|p2=AMC|p2flag=mx|p3=cruzN|p3flag=gt|p4=Majesticzz|p4flag=mx|points=394.6|region=AM|subregion=NA}}
+|{{Opponent|gameharmony|p1=Natre|p1flag=lv|p2=P4nc4ke|p2flag=ee|p3=ucr0|p3flag=ee|points=385.4|region=EU|subregion=EU}}
+}}

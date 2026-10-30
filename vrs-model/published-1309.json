@@ -1,0 +1,9070 @@
+{
+ "meta": [
+  {
+   "id": true,
+   "as_of": "2026-09-13",
+   "cutoff": "2026-11-02",
+   "event": "PGL Major Singapore",
+   "runs": 8000000,
+   "slots": {
+    "asia": {
+     "total": 5,
+     "stage1": 4,
+     "stage2": 1,
+     "stage3": 0
+    },
+    "europe": {
+     "total": 18,
+     "stage1": 6,
+     "stage2": 6,
+     "stage3": 6
+    },
+    "americas": {
+     "total": 9,
+     "stage1": 6,
+     "stage2": 1,
+     "stage3": 2
+    }
+   },
+   "events": [
+    {
+     "end": "2026-09-13",
+     "name": "FISSURE Playground 3",
+     "tier": 1,
+     "begin": "2026-09-08",
+     "prize": 1000000,
+     "slots": 16,
+     "weight": 0.72,
+     "hasQualifier": false
+    },
+    {
+     "end": "2026-09-20",
+     "name": "StarLadder StarSeries Fall",
+     "tier": 1,
+     "begin": "2026-09-17",
+     "prize": 500000,
+     "slots": 8,
+     "weight": 0.65,
+     "hasQualifier": false
+    },
+    {
+     "end": null,
+     "name": "Logitech G Connect",
+     "tier": 2,
+     "begin": "2026-09-17",
+     "prize": 100000,
+     "slots": 12,
+     "weight": 0.5,
+     "hasQualifier": false
+    },
+    {
+     "end": null,
+     "name": "Stake Pulse Beat 2",
+     "tier": 2,
+     "begin": "2026-09-21",
+     "prize": 60000,
+     "slots": 16,
+     "weight": 0.45,
+     "hasQualifier": false
+    },
+    {
+     "end": null,
+     "name": "Private Club 1",
+     "tier": 2,
+     "begin": "2026-09-25",
+     "prize": 100000,
+     "slots": 16,
+     "weight": 0.5,
+     "hasQualifier": false
+    },
+    {
+     "end": null,
+     "name": "Stake Ranked Episode 4",
+     "tier": 2,
+     "begin": "2026-10-01",
+     "prize": 100000,
+     "slots": 8,
+     "weight": 0.5,
+     "hasQualifier": false
+    },
+    {
+     "end": "2026-10-11",
+     "name": "ESL Pro League Season 24",
+     "tier": 1,
+     "begin": "2026-10-03",
+     "prize": 1000000,
+     "slots": 16,
+     "weight": 0.72,
+     "hasQualifier": false
+    },
+    {
+     "end": null,
+     "name": "Stake Pulse Beat 3",
+     "tier": 2,
+     "begin": "2026-10-12",
+     "prize": 80000,
+     "slots": 16,
+     "weight": 0.477,
+     "hasQualifier": false
+    },
+    {
+     "end": "2026-10-18",
+     "name": "Thunderpick World Championship",
+     "tier": 1,
+     "begin": "2026-10-14",
+     "prize": 1000000,
+     "slots": 8,
+     "weight": 0.72,
+     "hasQualifier": true
+    },
+    {
+     "end": null,
+     "name": "Private Club 2",
+     "tier": 2,
+     "begin": "2026-10-19",
+     "prize": 100000,
+     "slots": 16,
+     "weight": 0.5,
+     "hasQualifier": false
+    },
+    {
+     "end": "2026-10-31",
+     "name": "PGL Masters Bucharest",
+     "tier": 1,
+     "begin": "2026-10-24",
+     "prize": 1250000,
+     "slots": 16,
+     "weight": 0.72,
+     "hasQualifier": false
+    },
+    {
+     "end": null,
+     "name": "Stake Ranked Episode 5",
+     "tier": 2,
+     "begin": "2026-10-27",
+     "prize": 100000,
+     "slots": 16,
+     "weight": 0.5,
+     "hasQualifier": false
+    },
+    {
+     "end": null,
+     "name": "FiReLEAGUE Last Chance",
+     "tier": 2,
+     "begin": "2026-10-29",
+     "prize": 75000,
+     "slots": 16,
+     "weight": 0.471,
+     "hasQualifier": false
+    },
+    {
+     "end": null,
+     "name": "Moscow Cyber Games",
+     "tier": 2,
+     "begin": "2026-10-31",
+     "prize": 173352,
+     "slots": 16,
+     "weight": 0.568,
+     "hasQualifier": false
+    }
+   ],
+   "source": "hltv.org/valve-ranking/teams",
+   "computed_at": "2026-09-07T23:15:20.560607+00:00",
+   "prev": [
+    {
+     "team": "Spirit",
+     "p_qual": 0.99619,
+     "region": "europe"
+    },
+    {
+     "team": "MOUZ",
+     "p_qual": 0.992758,
+     "region": "europe"
+    },
+    {
+     "team": "Vitality",
+     "p_qual": 0.982874,
+     "region": "europe"
+    },
+    {
+     "team": "Falcons",
+     "p_qual": 0.989212,
+     "region": "europe"
+    },
+    {
+     "team": "FUT",
+     "p_qual": 0.982101,
+     "region": "europe"
+    },
+    {
+     "team": "G2",
+     "p_qual": 0.968411,
+     "region": "europe"
+    },
+    {
+     "team": "Alliance",
+     "p_qual": 0.914913,
+     "region": "europe"
+    },
+    {
+     "team": "Natus Vincere",
+     "p_qual": 0.913692,
+     "region": "europe"
+    },
+    {
+     "team": "BETBOOM",
+     "p_qual": 0.908746,
+     "region": "europe"
+    },
+    {
+     "team": "Aurora",
+     "p_qual": 0.817196,
+     "region": "europe"
+    },
+    {
+     "team": "B8",
+     "p_qual": 0.738249,
+     "region": "europe"
+    },
+    {
+     "team": "Astralis",
+     "p_qual": 0.669198,
+     "region": "europe"
+    },
+    {
+     "team": "FaZe",
+     "p_qual": 0.661451,
+     "region": "europe"
+    },
+    {
+     "team": "magic",
+     "p_qual": 0.598772,
+     "region": "europe"
+    },
+    {
+     "team": "PARIVISION",
+     "p_qual": 0.580691,
+     "region": "europe"
+    },
+    {
+     "team": "Inner Circle",
+     "p_qual": 0.564358,
+     "region": "europe"
+    },
+    {
+     "team": "HEROIC",
+     "p_qual": 0.545947,
+     "region": "europe"
+    },
+    {
+     "team": "1win",
+     "p_qual": 0.511097,
+     "region": "europe"
+    },
+    {
+     "team": "BIG",
+     "p_qual": 0.362736,
+     "region": "europe"
+    },
+    {
+     "team": "HOTU",
+     "p_qual": 0.353984,
+     "region": "europe"
+    },
+    {
+     "team": "3DMAX",
+     "p_qual": 0.336286,
+     "region": "europe"
+    },
+    {
+     "team": "Ninjas in Pyjamas",
+     "p_qual": 0.276581,
+     "region": "europe"
+    },
+    {
+     "team": "fnatic",
+     "p_qual": 0.255561,
+     "region": "europe"
+    },
+    {
+     "team": "GamerLegion",
+     "p_qual": 0.226382,
+     "region": "europe"
+    },
+    {
+     "team": "100 Thieves",
+     "p_qual": 0.215938,
+     "region": "europe"
+    },
+    {
+     "team": "Luminosity",
+     "p_qual": 0.165959,
+     "region": "europe"
+    },
+    {
+     "team": "INFINITE",
+     "p_qual": 0.146347,
+     "region": "europe"
+    },
+    {
+     "team": "JiJieHao",
+     "p_qual": 0.164833,
+     "region": "europe"
+    },
+    {
+     "team": "K27",
+     "p_qual": 0.165006,
+     "region": "europe"
+    },
+    {
+     "team": "Betclic",
+     "p_qual": 0.145006,
+     "region": "europe"
+    },
+    {
+     "team": "Nemiga",
+     "p_qual": 0.124868,
+     "region": "europe"
+    },
+    {
+     "team": "Virtus.pro",
+     "p_qual": 0.0933329,
+     "region": "europe"
+    },
+    {
+     "team": "EYEBALLERS",
+     "p_qual": 0.0890505,
+     "region": "europe"
+    },
+    {
+     "team": "Nuclear TigeRES",
+     "p_qual": 0.0717879,
+     "region": "europe"
+    },
+    {
+     "team": "FOKUS",
+     "p_qual": 0.0637674,
+     "region": "europe"
+    },
+    {
+     "team": "WBT (ex-Jam)",
+     "p_qual": 0.0577308,
+     "region": "europe"
+    },
+    {
+     "team": "BC.Game",
+     "p_qual": 0.0553716,
+     "region": "europe"
+    },
+    {
+     "team": "BBL",
+     "p_qual": 0.0472275,
+     "region": "europe"
+    },
+    {
+     "team": "Nemesis",
+     "p_qual": 0.0349928,
+     "region": "europe"
+    },
+    {
+     "team": "SINNERS",
+     "p_qual": 0.0284417,
+     "region": "europe"
+    },
+    {
+     "team": "Sashi",
+     "p_qual": 0.0231705,
+     "region": "europe"
+    },
+    {
+     "team": "Eternal Fire",
+     "p_qual": 0.0193995,
+     "region": "europe"
+    },
+    {
+     "team": "Iberian Soul",
+     "p_qual": 0.0150817,
+     "region": "europe"
+    },
+    {
+     "team": "BASEMENT BOYS",
+     "p_qual": 0.0110368,
+     "region": "europe"
+    },
+    {
+     "team": "GenOne",
+     "p_qual": 0.0114327,
+     "region": "europe"
+    },
+    {
+     "team": "Acend",
+     "p_qual": 0.011421,
+     "region": "europe"
+    },
+    {
+     "team": "INOX Division",
+     "p_qual": 0.00850236,
+     "region": "europe"
+    },
+    {
+     "team": "Metizport",
+     "p_qual": 0.0076369,
+     "region": "europe"
+    },
+    {
+     "team": "ex-RUBY",
+     "p_qual": 0.00629098,
+     "region": "europe"
+    },
+    {
+     "team": "WW",
+     "p_qual": 0.00610003,
+     "region": "europe"
+    },
+    {
+     "team": "Omega",
+     "p_qual": 0.00660375,
+     "region": "europe"
+    },
+    {
+     "team": "Butterfly",
+     "p_qual": 0.00481846,
+     "region": "europe"
+    },
+    {
+     "team": "Phantom",
+     "p_qual": 0.0049685,
+     "region": "europe"
+    },
+    {
+     "team": "9INE",
+     "p_qual": 0.00446944,
+     "region": "europe"
+    },
+    {
+     "team": "CYBERSHOKE",
+     "p_qual": 0.00372125,
+     "region": "europe"
+    },
+    {
+     "team": "ASTRAL",
+     "p_qual": 0.00351811,
+     "region": "europe"
+    },
+    {
+     "team": "Color",
+     "p_qual": 0.00393614,
+     "region": "europe"
+    },
+    {
+     "team": "UNiTY",
+     "p_qual": 0.000334274,
+     "region": "europe"
+    },
+    {
+     "team": "OG",
+     "p_qual": 0.000615218,
+     "region": "europe"
+    },
+    {
+     "team": "UPGRADE",
+     "p_qual": 0.000466996,
+     "region": "europe"
+    },
+    {
+     "team": "BRUTE",
+     "p_qual": 0.000436412,
+     "region": "europe"
+    },
+    {
+     "team": "ex-Zero Tenacity",
+     "p_qual": 0.000484744,
+     "region": "europe"
+    },
+    {
+     "team": "Rune Eaters",
+     "p_qual": 0.00035534,
+     "region": "europe"
+    },
+    {
+     "team": "EAC",
+     "p_qual": 0.000161399,
+     "region": "europe"
+    },
+    {
+     "team": "FORZE Reload",
+     "p_qual": 0.0000310222,
+     "region": "europe"
+    },
+    {
+     "team": "Nexus",
+     "p_qual": 0.0000220696,
+     "region": "europe"
+    },
+    {
+     "team": "BET-M",
+     "p_qual": 0.0000159372,
+     "region": "europe"
+    },
+    {
+     "team": "QUAZAR",
+     "p_qual": 0.0000366494,
+     "region": "europe"
+    },
+    {
+     "team": "ex-RUSTEC",
+     "p_qual": 0.00000903227,
+     "region": "europe"
+    },
+    {
+     "team": "NOVAQ",
+     "p_qual": 0.0000101914,
+     "region": "europe"
+    },
+    {
+     "team": "Black Phoenix",
+     "p_qual": 0.00000162671,
+     "region": "europe"
+    },
+    {
+     "team": "SPARTA",
+     "p_qual": 0.00000222404,
+     "region": "europe"
+    },
+    {
+     "team": "BAKS",
+     "p_qual": 5.07267e-7,
+     "region": "europe"
+    },
+    {
+     "team": "RBLS",
+     "p_qual": 5.47553e-7,
+     "region": "europe"
+    },
+    {
+     "team": "KOLESIE",
+     "p_qual": 3.28476e-7,
+     "region": "europe"
+    },
+    {
+     "team": "INFINITE",
+     "p_qual": 9.72822e-8,
+     "region": "europe"
+    },
+    {
+     "team": "Walczaki",
+     "p_qual": 5.899e-8,
+     "region": "europe"
+    },
+    {
+     "team": "STATE",
+     "p_qual": 1.98519e-8,
+     "region": "europe"
+    },
+    {
+     "team": "Leo",
+     "p_qual": 1.55831e-8,
+     "region": "europe"
+    },
+    {
+     "team": "Johnny Speeds",
+     "p_qual": 8.6015e-9,
+     "region": "europe"
+    },
+    {
+     "team": "G2 Ares",
+     "p_qual": 4.66275e-9,
+     "region": "europe"
+    },
+    {
+     "team": "The Last Resort",
+     "p_qual": 7.8336e-9,
+     "region": "europe"
+    },
+    {
+     "team": "Bushido Wildcats",
+     "p_qual": 1.05088e-9,
+     "region": "europe"
+    },
+    {
+     "team": "Just Players",
+     "p_qual": 7.75302e-10,
+     "region": "europe"
+    },
+    {
+     "team": "Lavked",
+     "p_qual": 3.87899e-10,
+     "region": "europe"
+    },
+    {
+     "team": "ENCE",
+     "p_qual": 2.74431e-10,
+     "region": "europe"
+    },
+    {
+     "team": "HYPERSPIRIT",
+     "p_qual": 3.99774e-10,
+     "region": "europe"
+    },
+    {
+     "team": "PCIFIC",
+     "p_qual": 6.02227e-11,
+     "region": "europe"
+    },
+    {
+     "team": "CYBERSHOKE",
+     "p_qual": 4.17391e-11,
+     "region": "europe"
+    },
+    {
+     "team": "Inner Circle Academy",
+     "p_qual": 9.9855e-12,
+     "region": "europe"
+    },
+    {
+     "team": "MOUZ NXT",
+     "p_qual": 1.79962e-11,
+     "region": "europe"
+    },
+    {
+     "team": "Azuolas",
+     "p_qual": 7.53301e-12,
+     "region": "europe"
+    },
+    {
+     "team": "Spirit Academy",
+     "p_qual": 1.5852e-12,
+     "region": "europe"
+    },
+    {
+     "team": "Nordic Partners",
+     "p_qual": 1.73738e-12,
+     "region": "europe"
+    },
+    {
+     "team": "Johnny Speeds",
+     "p_qual": 2.68013e-13,
+     "region": "europe"
+    },
+    {
+     "team": "ARCRED",
+     "p_qual": 1.09288e-13,
+     "region": "europe"
+    },
+    {
+     "team": "Falcons Force",
+     "p_qual": 2.23843e-13,
+     "region": "europe"
+    },
+    {
+     "team": "PsychoFace",
+     "p_qual": 2.39573e-14,
+     "region": "europe"
+    },
+    {
+     "team": "SINQU",
+     "p_qual": 3.99548e-14,
+     "region": "europe"
+    },
+    {
+     "team": "ReThink",
+     "p_qual": 6.97707e-15,
+     "region": "europe"
+    },
+    {
+     "team": "Enjoy",
+     "p_qual": 3.19999e-15,
+     "region": "europe"
+    },
+    {
+     "team": "NAVI Junior",
+     "p_qual": 2.30446e-15,
+     "region": "europe"
+    },
+    {
+     "team": "mellren",
+     "p_qual": 1.99853e-15,
+     "region": "europe"
+    },
+    {
+     "team": "HAVU",
+     "p_qual": 9.07415e-16,
+     "region": "europe"
+    },
+    {
+     "team": "Lazer Cats",
+     "p_qual": 7.74288e-16,
+     "region": "europe"
+    },
+    {
+     "team": "Honvéd",
+     "p_qual": 3.48969e-16,
+     "region": "europe"
+    },
+    {
+     "team": "Drama",
+     "p_qual": 4.00632e-16,
+     "region": "europe"
+    },
+    {
+     "team": "WBT Academy",
+     "p_qual": 1.8365e-16,
+     "region": "europe"
+    },
+    {
+     "team": "MASONIC",
+     "p_qual": 1.8365e-16,
+     "region": "europe"
+    },
+    {
+     "team": "Phantom",
+     "p_qual": 1.33034e-16,
+     "region": "europe"
+    },
+    {
+     "team": "Betclic",
+     "p_qual": 6.9606e-17,
+     "region": "europe"
+    },
+    {
+     "team": "Entropy",
+     "p_qual": 5.91638e-17,
+     "region": "europe"
+    },
+    {
+     "team": "Sangal",
+     "p_qual": 1.86007e-16,
+     "region": "europe"
+    },
+    {
+     "team": "Washed",
+     "p_qual": 5.0276e-17,
+     "region": "europe"
+    },
+    {
+     "team": "aimclub",
+     "p_qual": 4.01958e-17,
+     "region": "europe"
+    },
+    {
+     "team": "Fire Flux",
+     "p_qual": 9.74197e-18,
+     "region": "europe"
+    },
+    {
+     "team": "LPH",
+     "p_qual": 2.57555e-18,
+     "region": "europe"
+    },
+    {
+     "team": "Saint Sinners",
+     "p_qual": 1.31646e-18,
+     "region": "europe"
+    },
+    {
+     "team": "Permitta",
+     "p_qual": 1.11242e-18,
+     "region": "europe"
+    },
+    {
+     "team": "benched gods",
+     "p_qual": 6.70188e-19,
+     "region": "europe"
+    },
+    {
+     "team": "Legacy",
+     "p_qual": 0.99619,
+     "region": "americas"
+    },
+    {
+     "team": "FURIA",
+     "p_qual": 0.992759,
+     "region": "americas"
+    },
+    {
+     "team": "9z",
+     "p_qual": 0.989396,
+     "region": "americas"
+    },
+    {
+     "team": "Liquid",
+     "p_qual": 0.973151,
+     "region": "americas"
+    },
+    {
+     "team": "MIBR",
+     "p_qual": 0.978432,
+     "region": "americas"
+    },
+    {
+     "team": "M80",
+     "p_qual": 0.803168,
+     "region": "americas"
+    },
+    {
+     "team": "paiN",
+     "p_qual": 0.70564,
+     "region": "americas"
+    },
+    {
+     "team": "DENDELE",
+     "p_qual": 0.700129,
+     "region": "americas"
+    },
+    {
+     "team": "NRG",
+     "p_qual": 0.442678,
+     "region": "americas"
+    },
+    {
+     "team": "Wildcard",
+     "p_qual": 0.23895,
+     "region": "americas"
+    },
+    {
+     "team": "Fluxo",
+     "p_qual": 0.213198,
+     "region": "americas"
+    },
+    {
+     "team": "Imperial",
+     "p_qual": 0.179734,
+     "region": "americas"
+    },
+    {
+     "team": "ShindeN",
+     "p_qual": 0.119138,
+     "region": "americas"
+    },
+    {
+     "team": "SportsBetExpert",
+     "p_qual": 0.0929873,
+     "region": "americas"
+    },
+    {
+     "team": "BESTIA",
+     "p_qual": 0.0927056,
+     "region": "americas"
+    },
+    {
+     "team": "Galorys",
+     "p_qual": 0.0895072,
+     "region": "americas"
+    },
+    {
+     "team": "Voca",
+     "p_qual": 0.0620322,
+     "region": "americas"
+    },
+    {
+     "team": "LP",
+     "p_qual": 0.0556665,
+     "region": "americas"
+    },
+    {
+     "team": "Bounty Hunters",
+     "p_qual": 0.0355199,
+     "region": "americas"
+    },
+    {
+     "team": "LAG",
+     "p_qual": 0.0303308,
+     "region": "americas"
+    },
+    {
+     "team": "Marsborne",
+     "p_qual": 0.0304597,
+     "region": "americas"
+    },
+    {
+     "team": "ODDIK",
+     "p_qual": 0.0138706,
+     "region": "americas"
+    },
+    {
+     "team": "Yawara",
+     "p_qual": 0.0123892,
+     "region": "americas"
+    },
+    {
+     "team": "Keyd Stars",
+     "p_qual": 0.0118756,
+     "region": "americas"
+    },
+    {
+     "team": "Turma do Pagode",
+     "p_qual": 0.0116377,
+     "region": "americas"
+    },
+    {
+     "team": "Chicken Coop",
+     "p_qual": 0.0091922,
+     "region": "americas"
+    },
+    {
+     "team": "ALKA",
+     "p_qual": 0.00896757,
+     "region": "americas"
+    },
+    {
+     "team": "Peladona",
+     "p_qual": 0.00720863,
+     "region": "americas"
+    },
+    {
+     "team": "For Fun",
+     "p_qual": 0.00710549,
+     "region": "americas"
+    },
+    {
+     "team": "Without a Roof",
+     "p_qual": 0.00697725,
+     "region": "americas"
+    },
+    {
+     "team": "Isurus",
+     "p_qual": 0.00705449,
+     "region": "americas"
+    },
+    {
+     "team": "Passion UA",
+     "p_qual": 0.00681459,
+     "region": "americas"
+    },
+    {
+     "team": "Iowa Stormboar",
+     "p_qual": 0.00602431,
+     "region": "americas"
+    },
+    {
+     "team": "regain",
+     "p_qual": 0.00574678,
+     "region": "americas"
+    },
+    {
+     "team": "MIBR fe",
+     "p_qual": 0.00456739,
+     "region": "americas"
+    },
+    {
+     "team": "Fake do Biru",
+     "p_qual": 0.00399302,
+     "region": "americas"
+    },
+    {
+     "team": "BORRACHEIROS",
+     "p_qual": 0.00247609,
+     "region": "americas"
+    },
+    {
+     "team": "Overtake Sector",
+     "p_qual": 0.00353139,
+     "region": "americas"
+    },
+    {
+     "team": "ex-MIBR Academy",
+     "p_qual": 0.0030871,
+     "region": "americas"
+    },
+    {
+     "team": "LAG",
+     "p_qual": 0.00280596,
+     "region": "americas"
+    },
+    {
+     "team": "UNO MILLE",
+     "p_qual": 0.00249483,
+     "region": "americas"
+    },
+    {
+     "team": "Gaimin Gladiators",
+     "p_qual": 0.00211928,
+     "region": "americas"
+    },
+    {
+     "team": "RED Canids",
+     "p_qual": 0.00172433,
+     "region": "americas"
+    },
+    {
+     "team": "Zomblers",
+     "p_qual": 0.000705255,
+     "region": "americas"
+    },
+    {
+     "team": "MIBR Academy",
+     "p_qual": 0.000622395,
+     "region": "americas"
+    },
+    {
+     "team": "MEIA NOITE",
+     "p_qual": 0.000218951,
+     "region": "americas"
+    },
+    {
+     "team": "BESTIA Academy",
+     "p_qual": 0.000404185,
+     "region": "americas"
+    },
+    {
+     "team": "UNO MILLE",
+     "p_qual": 0.000283554,
+     "region": "americas"
+    },
+    {
+     "team": "Villainous",
+     "p_qual": 0.000217492,
+     "region": "americas"
+    },
+    {
+     "team": "DETONATE",
+     "p_qual": 0.000179953,
+     "region": "americas"
+    },
+    {
+     "team": "Marsborne",
+     "p_qual": 0.000116565,
+     "region": "americas"
+    },
+    {
+     "team": "EMPIRE",
+     "p_qual": 0.000130532,
+     "region": "americas"
+    },
+    {
+     "team": "FarmVille",
+     "p_qual": 0.000111719,
+     "region": "americas"
+    },
+    {
+     "team": "Club 333",
+     "p_qual": 0.0000912991,
+     "region": "americas"
+    },
+    {
+     "team": "ex-Aether",
+     "p_qual": 0.000049672,
+     "region": "americas"
+    },
+    {
+     "team": "FarmVille",
+     "p_qual": 0.0000246441,
+     "region": "americas"
+    },
+    {
+     "team": "QUINTESSÊNCIA",
+     "p_qual": 0.0000148123,
+     "region": "americas"
+    },
+    {
+     "team": "Turma do Pagode",
+     "p_qual": 0.0000131052,
+     "region": "americas"
+    },
+    {
+     "team": "paiN Academy",
+     "p_qual": 0.0000103263,
+     "region": "americas"
+    },
+    {
+     "team": "NuTorious",
+     "p_qual": 0.00000861716,
+     "region": "americas"
+    },
+    {
+     "team": "insane players",
+     "p_qual": 0.00000676251,
+     "region": "americas"
+    },
+    {
+     "team": "Shimmer",
+     "p_qual": 0.00000438058,
+     "region": "americas"
+    },
+    {
+     "team": "BOSS",
+     "p_qual": 0.00000363395,
+     "region": "americas"
+    },
+    {
+     "team": "Procyon",
+     "p_qual": 0.00000153787,
+     "region": "americas"
+    },
+    {
+     "team": "Aether",
+     "p_qual": 0.00000117712,
+     "region": "americas"
+    },
+    {
+     "team": "EMPIRE",
+     "p_qual": 3.99609e-7,
+     "region": "americas"
+    },
+    {
+     "team": "METANOIA Wolves",
+     "p_qual": 3.00543e-7,
+     "region": "americas"
+    },
+    {
+     "team": "Reign Above",
+     "p_qual": 2.43998e-7,
+     "region": "americas"
+    },
+    {
+     "team": "Festina Lente",
+     "p_qual": 1.98064e-7,
+     "region": "americas"
+    },
+    {
+     "team": "Back to Back",
+     "p_qual": 1.48372e-7,
+     "region": "americas"
+    },
+    {
+     "team": "Wanted Goons",
+     "p_qual": 1.30447e-7,
+     "region": "americas"
+    },
+    {
+     "team": "Atrix",
+     "p_qual": 1.05837e-7,
+     "region": "americas"
+    },
+    {
+     "team": "Back to Back",
+     "p_qual": 7.26939e-8,
+     "region": "americas"
+    },
+    {
+     "team": "paiN Academy",
+     "p_qual": 4.55858e-8,
+     "region": "americas"
+    },
+    {
+     "team": "Keyd Stars",
+     "p_qual": 4.01112e-8,
+     "region": "americas"
+    },
+    {
+     "team": "900FPSvsECO",
+     "p_qual": 1.90641e-8,
+     "region": "americas"
+    },
+    {
+     "team": "Wanted Goons",
+     "p_qual": 9.68674e-9,
+     "region": "americas"
+    },
+    {
+     "team": "ex-KRÜ",
+     "p_qual": 4.82495e-9,
+     "region": "americas"
+    },
+    {
+     "team": "Crashers",
+     "p_qual": 3.48179e-9,
+     "region": "americas"
+    },
+    {
+     "team": "Grêmio",
+     "p_qual": 9.18271e-10,
+     "region": "americas"
+    },
+    {
+     "team": "Players",
+     "p_qual": 8.28608e-10,
+     "region": "americas"
+    },
+    {
+     "team": "Vasco",
+     "p_qual": 7.47377e-10,
+     "region": "americas"
+    },
+    {
+     "team": "Elusive",
+     "p_qual": 6.07234e-10,
+     "region": "americas"
+    },
+    {
+     "team": "Pugdesonesto",
+     "p_qual": 8.6505e-11,
+     "region": "americas"
+    },
+    {
+     "team": "your end",
+     "p_qual": 8.6505e-11,
+     "region": "americas"
+    },
+    {
+     "team": "Axial",
+     "p_qual": 6.90335e-11,
+     "region": "americas"
+    },
+    {
+     "team": "Beyond Limits",
+     "p_qual": 5.49882e-11,
+     "region": "americas"
+    },
+    {
+     "team": "New Legends",
+     "p_qual": 2.44367e-11,
+     "region": "americas"
+    },
+    {
+     "team": "Sementes do Mal",
+     "p_qual": 8.31922e-12,
+     "region": "americas"
+    },
+    {
+     "team": "Incognito",
+     "p_qual": 8.31922e-12,
+     "region": "americas"
+    },
+    {
+     "team": "Chicanery",
+     "p_qual": 1.10772e-12,
+     "region": "americas"
+    },
+    {
+     "team": "R2",
+     "p_qual": 9.72247e-13,
+     "region": "americas"
+    },
+    {
+     "team": "girl kissers",
+     "p_qual": 2.23386e-13,
+     "region": "americas"
+    },
+    {
+     "team": "MAGICOS",
+     "p_qual": 1.47845e-13,
+     "region": "americas"
+    },
+    {
+     "team": "METANOIA Wolves",
+     "p_qual": 1.47845e-13,
+     "region": "americas"
+    },
+    {
+     "team": "DAMAJUANA",
+     "p_qual": 7.34699e-14,
+     "region": "americas"
+    },
+    {
+     "team": "Blitzkrieg",
+     "p_qual": 4.79595e-14,
+     "region": "americas"
+    },
+    {
+     "team": "raisedbypixels",
+     "p_qual": 3.5984e-14,
+     "region": "americas"
+    },
+    {
+     "team": "Mansão Maromba",
+     "p_qual": 1.49826e-14,
+     "region": "americas"
+    },
+    {
+     "team": "Charrados",
+     "p_qual": 1.11337e-14,
+     "region": "americas"
+    },
+    {
+     "team": "GUARA",
+     "p_qual": 9.5888e-15,
+     "region": "americas"
+    },
+    {
+     "team": "Zetta",
+     "p_qual": 9.5888e-15,
+     "region": "americas"
+    },
+    {
+     "team": "Unreal Nightmare",
+     "p_qual": 9.974e-18,
+     "region": "americas"
+    },
+    {
+     "team": "wachoskys",
+     "p_qual": 5.82298e-18,
+     "region": "americas"
+    },
+    {
+     "team": "FURIA fe",
+     "p_qual": 2.42065e-19,
+     "region": "americas"
+    },
+    {
+     "team": "OverKnight",
+     "p_qual": 1.34852e-19,
+     "region": "americas"
+    },
+    {
+     "team": "HereWeGoAgain",
+     "p_qual": 1.1078e-19,
+     "region": "americas"
+    },
+    {
+     "team": "The MongolZ",
+     "p_qual": 0.993036,
+     "region": "asia"
+    },
+    {
+     "team": "TYLOO",
+     "p_qual": 0.987675,
+     "region": "asia"
+    },
+    {
+     "team": "Lynn Vision",
+     "p_qual": 0.90444,
+     "region": "asia"
+    },
+    {
+     "team": "FlyQuest",
+     "p_qual": 0.556357,
+     "region": "asia"
+    },
+    {
+     "team": "DEPO",
+     "p_qual": 0.424407,
+     "region": "asia"
+    },
+    {
+     "team": "5star",
+     "p_qual": 0.422946,
+     "region": "asia"
+    },
+    {
+     "team": "THUNDER dOWNUNDER",
+     "p_qual": 0.23171,
+     "region": "asia"
+    },
+    {
+     "team": "Ground Zero",
+     "p_qual": 0.0663437,
+     "region": "asia"
+    },
+    {
+     "team": "NEXVOID",
+     "p_qual": 0.0524407,
+     "region": "asia"
+    },
+    {
+     "team": "Alter Ego",
+     "p_qual": 0.0516921,
+     "region": "asia"
+    },
+    {
+     "team": "Rare Atom",
+     "p_qual": 0.0268195,
+     "region": "asia"
+    },
+    {
+     "team": "Chinggis Warriors",
+     "p_qual": 0.0207936,
+     "region": "asia"
+    },
+    {
+     "team": "The Huns",
+     "p_qual": 0.0164577,
+     "region": "asia"
+    },
+    {
+     "team": "Kaleido",
+     "p_qual": 0.0153722,
+     "region": "asia"
+    },
+    {
+     "team": "THE UNIT",
+     "p_qual": 0.0152678,
+     "region": "asia"
+    },
+    {
+     "team": "Rooster",
+     "p_qual": 0.0140481,
+     "region": "asia"
+    },
+    {
+     "team": "The Huns",
+     "p_qual": 0.0133596,
+     "region": "asia"
+    },
+    {
+     "team": "Abyssal",
+     "p_qual": 0.0133833,
+     "region": "asia"
+    },
+    {
+     "team": "Just Swing",
+     "p_qual": 0.0127504,
+     "region": "asia"
+    },
+    {
+     "team": "Vitalem Aerem",
+     "p_qual": 0.0126504,
+     "region": "asia"
+    },
+    {
+     "team": "Mindfreak",
+     "p_qual": 0.0115169,
+     "region": "asia"
+    },
+    {
+     "team": "Chinggis Warriors",
+     "p_qual": 0.0106258,
+     "region": "asia"
+    },
+    {
+     "team": "SemperFi",
+     "p_qual": 0.0100223,
+     "region": "asia"
+    },
+    {
+     "team": "Haunted House",
+     "p_qual": 0.00899565,
+     "region": "asia"
+    },
+    {
+     "team": "Revenge",
+     "p_qual": 0.00870186,
+     "region": "asia"
+    },
+    {
+     "team": "Rare Atom",
+     "p_qual": 0.00871878,
+     "region": "asia"
+    },
+    {
+     "team": "FengDa",
+     "p_qual": 0.00820172,
+     "region": "asia"
+    },
+    {
+     "team": "Change The Game",
+     "p_qual": 0.00758168,
+     "region": "asia"
+    },
+    {
+     "team": "BORING PLAYERS",
+     "p_qual": 0.00763878,
+     "region": "asia"
+    },
+    {
+     "team": "Arcade",
+     "p_qual": 0.00768852,
+     "region": "asia"
+    },
+    {
+     "team": "Club 333",
+     "p_qual": 0.00688133,
+     "region": "asia"
+    },
+    {
+     "team": "Banzai",
+     "p_qual": 0.00638218,
+     "region": "asia"
+    },
+    {
+     "team": "MARKandLARRY",
+     "p_qual": 0.00568923,
+     "region": "asia"
+    },
+    {
+     "team": "Ding Cuts",
+     "p_qual": 0.00542954,
+     "region": "asia"
+    },
+    {
+     "team": "BMZ",
+     "p_qual": 0.00512332,
+     "region": "asia"
+    },
+    {
+     "team": "QuantumX",
+     "p_qual": 0.00452298,
+     "region": "asia"
+    },
+    {
+     "team": "Sensation",
+     "p_qual": 0.00373246,
+     "region": "asia"
+    },
+    {
+     "team": "LEGAM",
+     "p_qual": 0.00297092,
+     "region": "asia"
+    },
+    {
+     "team": "LFO 8",
+     "p_qual": 0.00226788,
+     "region": "asia"
+    },
+    {
+     "team": "XDM",
+     "p_qual": 0.00165201,
+     "region": "asia"
+    },
+    {
+     "team": "5dads",
+     "p_qual": 0.0013586,
+     "region": "asia"
+    },
+    {
+     "team": "Nas",
+     "p_qual": 0.000864973,
+     "region": "asia"
+    },
+    {
+     "team": "NSN",
+     "p_qual": 0.000495333,
+     "region": "asia"
+    },
+    {
+     "team": "FURY",
+     "p_qual": 0.000416075,
+     "region": "asia"
+    },
+    {
+     "team": "Legion",
+     "p_qual": 0.000135693,
+     "region": "asia"
+    },
+    {
+     "team": "Mindfreak",
+     "p_qual": 0.0000871976,
+     "region": "asia"
+    },
+    {
+     "team": "BBBMBCBS",
+     "p_qual": 0.0000573203,
+     "region": "asia"
+    },
+    {
+     "team": "Unitronics",
+     "p_qual": 0.00000336777,
+     "region": "asia"
+    },
+    {
+     "team": "UR",
+     "p_qual": 8.69711e-7,
+     "region": "asia"
+    },
+    {
+     "team": "Arise",
+     "p_qual": 6.22291e-7,
+     "region": "asia"
+    },
+    {
+     "team": "Skele",
+     "p_qual": 5.16421e-7,
+     "region": "asia"
+    },
+    {
+     "team": "Time Waves",
+     "p_qual": 3.16525e-7,
+     "region": "asia"
+    }
+   ],
+   "prev_at": "2026-09-12T19:31:45.895+00:00"
+  }
+ ],
+ "rows": [
+  {
+   "region": "europe",
+   "team": "Spirit",
+   "slug": "spirit",
+   "vrs": 2036,
+   "mu": 2130,
+   "sd": 117,
+   "p_qual": 0.996406,
+   "p_stage3": 0.98921,
+   "p_stage2": 0.00719393,
+   "p_stage1": 0.00000141609,
+   "projected": 1,
+   "place_lo": 1,
+   "place_hi": 4,
+   "tier1": [
+    "ESL Pro League Season 24",
+    "Thunderpick World Championship",
+    "PGL Masters Bucharest"
+   ],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 1
+  },
+  {
+   "region": "europe",
+   "team": "MOUZ",
+   "slug": "mouz",
+   "vrs": 1892,
+   "mu": 2023,
+   "sd": 122,
+   "p_qual": 0.993167,
+   "p_stage3": 0.943496,
+   "p_stage2": 0.048529,
+   "p_stage1": 0.00114209,
+   "projected": 2,
+   "place_lo": 1,
+   "place_hi": 7,
+   "tier1": [
+    "StarLadder StarSeries Fall",
+    "ESL Pro League Season 24",
+    "Thunderpick World Championship",
+    "PGL Masters Bucharest"
+   ],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 2
+  },
+  {
+   "region": "europe",
+   "team": "Vitality",
+   "slug": "vitality",
+   "vrs": 1811,
+   "mu": 1943,
+   "sd": 123,
+   "p_qual": 0.983887,
+   "p_stage3": 0.834081,
+   "p_stage2": 0.140876,
+   "p_stage1": 0.0089309,
+   "projected": 3,
+   "place_lo": 1,
+   "place_hi": 9,
+   "tier1": [
+    "StarLadder StarSeries Fall",
+    "ESL Pro League Season 24",
+    "Thunderpick World Championship",
+    "PGL Masters Bucharest"
+   ],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 6
+  },
+  {
+   "region": "europe",
+   "team": "Falcons",
+   "slug": "falcons",
+   "vrs": 1876,
+   "mu": 1939,
+   "sd": 118,
+   "p_qual": 0.989979,
+   "p_stage3": 0.84085,
+   "p_stage2": 0.141516,
+   "p_stage1": 0.00761329,
+   "projected": 4,
+   "place_lo": 1,
+   "place_hi": 9,
+   "tier1": [
+    "ESL Pro League Season 24",
+    "Thunderpick World Championship"
+   ],
+   "tier2": [
+    {
+     "p": 0.22,
+     "name": "Stake Pulse Beat 3",
+     "confirmed": false
+    },
+    {
+     "p": 0.21,
+     "name": "FOX Legacy Cup 1",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 4
+  },
+  {
+   "region": "europe",
+   "team": "FUT",
+   "slug": "fut",
+   "vrs": 1835,
+   "mu": 1866,
+   "sd": 119,
+   "p_qual": 0.984348,
+   "p_stage3": 0.645323,
+   "p_stage2": 0.314014,
+   "p_stage1": 0.0250116,
+   "projected": 5,
+   "place_lo": 2,
+   "place_hi": 11,
+   "tier1": [
+    "PGL Masters Bucharest"
+   ],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Retake Season 13",
+     "confirmed": false
+    },
+    {
+     "p": 0.46,
+     "name": "FOX Legacy Cup 1",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 5
+  },
+  {
+   "region": "europe",
+   "team": "G2",
+   "slug": "g2",
+   "vrs": 1796,
+   "mu": 1851,
+   "sd": 127,
+   "p_qual": 0.974568,
+   "p_stage3": 0.584257,
+   "p_stage2": 0.354224,
+   "p_stage1": 0.0360869,
+   "projected": 6,
+   "place_lo": 2,
+   "place_hi": 12,
+   "tier1": [
+    "ESL Pro League Season 24",
+    "PGL Masters Bucharest"
+   ],
+   "tier2": [
+    {
+     "p": 0.3,
+     "name": "Retake Season 13",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 7
+  },
+  {
+   "region": "europe",
+   "team": "Natus Vincere",
+   "slug": "natus",
+   "vrs": 1536,
+   "mu": 1737,
+   "sd": 147,
+   "p_qual": 0.915035,
+   "p_stage3": 0.24911,
+   "p_stage2": 0.507099,
+   "p_stage1": 0.158825,
+   "projected": 7,
+   "place_lo": 3,
+   "place_hi": 19,
+   "tier1": [
+    "StarLadder StarSeries Fall",
+    "ESL Pro League Season 24",
+    "Thunderpick World Championship",
+    "PGL Masters Bucharest"
+   ],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 12
+  },
+  {
+   "region": "europe",
+   "team": "BETBOOM",
+   "slug": "betboom",
+   "vrs": 1596,
+   "mu": 1686,
+   "sd": 133,
+   "p_qual": 0.891576,
+   "p_stage3": 0.134842,
+   "p_stage2": 0.520305,
+   "p_stage1": 0.236429,
+   "projected": 8,
+   "place_lo": 5,
+   "place_hi": 21,
+   "tier1": [
+    "ESL Pro League Season 24",
+    "PGL Masters Bucharest"
+   ],
+   "tier2": [
+    {
+     "p": 0.36,
+     "name": "CIS LAN 9",
+     "confirmed": false
+    },
+    {
+     "p": 0.21,
+     "name": "CIS LAN 8",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 9
+  },
+  {
+   "region": "europe",
+   "team": "Alliance",
+   "slug": "alliance",
+   "vrs": 1506,
+   "mu": 1672,
+   "sd": 151,
+   "p_qual": 0.840761,
+   "p_stage3": 0.135101,
+   "p_stage2": 0.459012,
+   "p_stage1": 0.246648,
+   "projected": 9,
+   "place_lo": 5,
+   "place_hi": 24,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Private Club 1",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Stake Ranked Episode 4",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 3",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "DraculaN 7",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 15
+  },
+  {
+   "region": "europe",
+   "team": "Aurora",
+   "slug": "aurora",
+   "vrs": 1535,
+   "mu": 1670,
+   "sd": 147,
+   "p_qual": 0.844474,
+   "p_stage3": 0.127599,
+   "p_stage2": 0.463755,
+   "p_stage1": 0.25312,
+   "projected": 10,
+   "place_lo": 5,
+   "place_hi": 23,
+   "tier1": [
+    "StarLadder StarSeries Fall",
+    "ESL Pro League Season 24",
+    "PGL Masters Bucharest"
+   ],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 13
+  },
+  {
+   "region": "europe",
+   "team": "B8",
+   "slug": "b8",
+   "vrs": 1475,
+   "mu": 1607,
+   "sd": 153,
+   "p_qual": 0.725301,
+   "p_stage3": 0.0674679,
+   "p_stage2": 0.346443,
+   "p_stage1": 0.31139,
+   "projected": 11,
+   "place_lo": 6,
+   "place_hi": 28,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Logitech G Connect",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Stake Ranked Episode 4",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 3",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 16
+  },
+  {
+   "region": "europe",
+   "team": "Astralis",
+   "slug": "astralis",
+   "vrs": 1463,
+   "mu": 1599,
+   "sd": 161,
+   "p_qual": 0.692488,
+   "p_stage3": 0.0685022,
+   "p_stage2": 0.32313,
+   "p_stage1": 0.300856,
+   "projected": 12,
+   "place_lo": 6,
+   "place_hi": 30,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Stake Ranked Episode 4",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 3",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 2",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 19
+  },
+  {
+   "region": "europe",
+   "team": "FaZe",
+   "slug": "faze",
+   "vrs": 1553,
+   "mu": 1579,
+   "sd": 132,
+   "p_qual": 0.693195,
+   "p_stage3": 0.0322798,
+   "p_stage2": 0.293381,
+   "p_stage1": 0.367534,
+   "projected": 13,
+   "place_lo": 7,
+   "place_hi": 28,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Stake Ranked Episode 4",
+     "confirmed": true
+    },
+    {
+     "p": 0.21,
+     "name": "Retake Season 13",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 11
+  },
+  {
+   "region": "europe",
+   "team": "magic",
+   "slug": "magic",
+   "vrs": 1464,
+   "mu": 1564,
+   "sd": 156,
+   "p_qual": 0.61848,
+   "p_stage3": 0.0431626,
+   "p_stage2": 0.260201,
+   "p_stage1": 0.315117,
+   "projected": 14,
+   "place_lo": 7,
+   "place_hi": 32,
+   "tier1": [
+    "StarLadder StarSeries Fall"
+   ],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Private Club 1",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 18
+  },
+  {
+   "region": "europe",
+   "team": "HEROIC",
+   "slug": "heroic",
+   "vrs": 1373,
+   "mu": 1556,
+   "sd": 164,
+   "p_qual": 0.588122,
+   "p_stage3": 0.0444291,
+   "p_stage2": 0.242528,
+   "p_stage1": 0.301165,
+   "projected": 15,
+   "place_lo": 7,
+   "place_hi": 33,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 3",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 2",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "DraculaN 7",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [
+    {
+     "p": 0.319,
+     "name": "Thunderpick World Championship"
+    }
+   ],
+   "vrs_rank": 24
+  },
+  {
+   "region": "europe",
+   "team": "PARIVISION",
+   "slug": "parivision",
+   "vrs": 1472,
+   "mu": 1551,
+   "sd": 154,
+   "p_qual": 0.590068,
+   "p_stage3": 0.0360438,
+   "p_stage2": 0.237685,
+   "p_stage1": 0.316339,
+   "projected": 16,
+   "place_lo": 7,
+   "place_hi": 32,
+   "tier1": [
+    "ESL Pro League Season 24"
+   ],
+   "tier2": [
+    {
+     "p": 0.42,
+     "name": "CIS LAN 9",
+     "confirmed": false
+    },
+    {
+     "p": 0.42,
+     "name": "CIS LAN 8",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 17
+  },
+  {
+   "region": "europe",
+   "team": "Inner Circle",
+   "slug": "innercircle",
+   "vrs": 1430,
+   "mu": 1524,
+   "sd": 159,
+   "p_qual": 0.510142,
+   "p_stage3": 0.0286583,
+   "p_stage2": 0.188831,
+   "p_stage1": 0.292653,
+   "projected": 17,
+   "place_lo": 8,
+   "place_hi": 35,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Logitech G Connect",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 3",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 21
+  },
+  {
+   "region": "europe",
+   "team": "HOTU",
+   "slug": "hotu",
+   "vrs": 1360,
+   "mu": 1516,
+   "sd": 163,
+   "p_qual": 0.485102,
+   "p_stage3": 0.0279422,
+   "p_stage2": 0.175498,
+   "p_stage1": 0.281662,
+   "projected": 18,
+   "place_lo": 8,
+   "place_hi": 36,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Moscow Cyber Games",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 3",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [
+    {
+     "p": 0.532,
+     "name": "Thunderpick World Championship"
+    }
+   ],
+   "vrs_rank": 26
+  },
+  {
+   "region": "europe",
+   "team": "BIG",
+   "slug": "big",
+   "vrs": 1448,
+   "mu": 1478,
+   "sd": 156,
+   "p_qual": 0.388684,
+   "p_stage3": 0.0157145,
+   "p_stage2": 0.123198,
+   "p_stage1": 0.249772,
+   "projected": 19,
+   "place_lo": 9,
+   "place_hi": 38,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Stake Ranked Episode 4",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 20
+  },
+  {
+   "region": "europe",
+   "team": "Luminosity",
+   "slug": "luminosity",
+   "vrs": 1256,
+   "mu": 1451,
+   "sd": 164,
+   "p_qual": 0.303275,
+   "p_stage3": 0.0145233,
+   "p_stage2": 0.0844526,
+   "p_stage1": 0.2043,
+   "projected": 20,
+   "place_lo": 10,
+   "place_hi": 41,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Logitech G Connect",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Stake Ranked Episode 4",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "DraculaN 7",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Roman Imperium Cup VIII",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 38
+  },
+  {
+   "region": "europe",
+   "team": "Nemiga",
+   "slug": "nemiga",
+   "vrs": 1254,
+   "mu": 1443,
+   "sd": 165,
+   "p_qual": 0.282399,
+   "p_stage3": 0.0135882,
+   "p_stage2": 0.0763352,
+   "p_stage1": 0.192476,
+   "projected": 21,
+   "place_lo": 10,
+   "place_hi": 41,
+   "tier1": [
+    "PGL Masters Bucharest"
+   ],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Stake Ranked Episode 4",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "CIS LAN 7",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 39
+  },
+  {
+   "region": "europe",
+   "team": "1win",
+   "slug": "onewin",
+   "vrs": 1272,
+   "mu": 1440,
+   "sd": 163,
+   "p_qual": 0.2855,
+   "p_stage3": 0.0125007,
+   "p_stage2": 0.0800427,
+   "p_stage1": 0.192957,
+   "projected": 22,
+   "place_lo": 10,
+   "place_hi": 42,
+   "tier1": [
+    "ESL Pro League Season 24"
+   ],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Moscow Cyber Games",
+     "confirmed": true
+    },
+    {
+     "p": 0.42,
+     "name": "CIS LAN 9",
+     "confirmed": false
+    },
+    {
+     "p": 0.4,
+     "name": "CIS LAN 8",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 33
+  },
+  {
+   "region": "europe",
+   "team": "3DMAX",
+   "slug": "threedmax",
+   "vrs": 1241,
+   "mu": 1437,
+   "sd": 164,
+   "p_qual": 0.264691,
+   "p_stage3": 0.012651,
+   "p_stage2": 0.0696361,
+   "p_stage1": 0.182404,
+   "projected": 23,
+   "place_lo": 10,
+   "place_hi": 41,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Logitech G Connect",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Private Club 1",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 3",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "DraculaN 7",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 41
+  },
+  {
+   "region": "europe",
+   "team": "fnatic",
+   "slug": "fnatic",
+   "vrs": 1280,
+   "mu": 1432,
+   "sd": 162,
+   "p_qual": 0.271258,
+   "p_stage3": 0.0113264,
+   "p_stage2": 0.0757018,
+   "p_stage1": 0.184229,
+   "projected": 24,
+   "place_lo": 10,
+   "place_hi": 42,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Stake Ranked Episode 4",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 3",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 2",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 31
+  },
+  {
+   "region": "europe",
+   "team": "Ninjas in Pyjamas",
+   "slug": "nip",
+   "vrs": 1258,
+   "mu": 1416,
+   "sd": 163,
+   "p_qual": 0.227875,
+   "p_stage3": 0.0103855,
+   "p_stage2": 0.0593376,
+   "p_stage1": 0.158152,
+   "projected": 25,
+   "place_lo": 11,
+   "place_hi": 44,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Logitech G Connect",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Private Club 1",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 3",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 36
+  },
+  {
+   "region": "europe",
+   "team": "GamerLegion",
+   "slug": "gamerlegion",
+   "vrs": 1303,
+   "mu": 1408,
+   "sd": 159,
+   "p_qual": 0.221857,
+   "p_stage3": 0.00803899,
+   "p_stage2": 0.0583459,
+   "p_stage1": 0.155472,
+   "projected": 26,
+   "place_lo": 11,
+   "place_hi": 44,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Logitech G Connect",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Private Club 1",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 28
+  },
+  {
+   "region": "europe",
+   "team": "100 Thieves",
+   "slug": "hundredthieves",
+   "vrs": 1285,
+   "mu": 1384,
+   "sd": 159,
+   "p_qual": 0.177955,
+   "p_stage3": 0.0063726,
+   "p_stage2": 0.0447661,
+   "p_stage1": 0.126816,
+   "projected": 27,
+   "place_lo": 12,
+   "place_hi": 46,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 3",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 2",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 30
+  },
+  {
+   "region": "europe",
+   "team": "JiJieHao",
+   "slug": "jijiehao",
+   "vrs": 1278,
+   "mu": 1377,
+   "sd": 160,
+   "p_qual": 0.163328,
+   "p_stage3": 0.00631192,
+   "p_stage2": 0.0403823,
+   "p_stage1": 0.116634,
+   "projected": 28,
+   "place_lo": 13,
+   "place_hi": 47,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 3",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 2",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 32
+  },
+  {
+   "region": "europe",
+   "team": "Betclic",
+   "slug": "betclic",
+   "vrs": 1268,
+   "mu": 1367,
+   "sd": 160,
+   "p_qual": 0.145216,
+   "p_stage3": 0.00612905,
+   "p_stage2": 0.0352302,
+   "p_stage1": 0.103856,
+   "projected": 29,
+   "place_lo": 13,
+   "place_hi": 48,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 3",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 2",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 34
+  },
+  {
+   "region": "europe",
+   "team": "Virtus.pro",
+   "slug": "virtuspro",
+   "vrs": 1253,
+   "mu": 1365,
+   "sd": 163,
+   "p_qual": 0.132868,
+   "p_stage3": 0.00732509,
+   "p_stage2": 0.0316002,
+   "p_stage1": 0.0939424,
+   "projected": 30,
+   "place_lo": 13,
+   "place_hi": 48,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 2",
+     "confirmed": true
+    },
+    {
+     "p": 0.42,
+     "name": "CIS LAN 9",
+     "confirmed": false
+    },
+    {
+     "p": 0.42,
+     "name": "CIS LAN 8",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [
+    {
+     "p": 0.149,
+     "name": "Thunderpick World Championship"
+    }
+   ],
+   "vrs_rank": 40
+  },
+  {
+   "region": "europe",
+   "team": "INFINITE",
+   "slug": "infinite",
+   "vrs": 1099,
+   "mu": 1359,
+   "sd": 156,
+   "p_qual": 0.120014,
+   "p_stage3": 0.0050756,
+   "p_stage2": 0.0280494,
+   "p_stage1": 0.0868894,
+   "projected": 31,
+   "place_lo": 14,
+   "place_hi": 48,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Logitech G Connect",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Leon Masters Season 1",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "DraculaN 7",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "FOX Legacy Cup 1",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Roman Imperium Cup IX",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 59
+  },
+  {
+   "region": "europe",
+   "team": "K27",
+   "slug": "k27",
+   "vrs": 1260,
+   "mu": 1343,
+   "sd": 160,
+   "p_qual": 0.112219,
+   "p_stage3": 0.00483984,
+   "p_stage2": 0.0267727,
+   "p_stage1": 0.0806066,
+   "projected": 32,
+   "place_lo": 14,
+   "place_hi": 50,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Private Club 1",
+     "confirmed": true
+    },
+    {
+     "p": 0.42,
+     "name": "CIS LAN 9",
+     "confirmed": false
+    },
+    {
+     "p": 0.42,
+     "name": "CIS LAN 8",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 35
+  },
+  {
+   "region": "europe",
+   "team": "EYEBALLERS",
+   "slug": "eyeballers",
+   "vrs": 1220,
+   "mu": 1324,
+   "sd": 158,
+   "p_qual": 0.084066,
+   "p_stage3": 0.00428849,
+   "p_stage2": 0.019838,
+   "p_stage1": 0.0599395,
+   "projected": 33,
+   "place_lo": 15,
+   "place_hi": 52,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Logitech G Connect",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Private Club 1",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 43
+  },
+  {
+   "region": "europe",
+   "team": "BBL",
+   "slug": null,
+   "vrs": 1150,
+   "mu": 1311,
+   "sd": 156,
+   "p_qual": 0.0726601,
+   "p_stage3": 0.00290121,
+   "p_stage2": 0.0175726,
+   "p_stage1": 0.0521862,
+   "projected": 34,
+   "place_lo": 16,
+   "place_hi": 53,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Logitech G Connect",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 2",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "DraculaN 7",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 50
+  },
+  {
+   "region": "europe",
+   "team": "Nuclear TigeRES",
+   "slug": "nucleartigers",
+   "vrs": 1206,
+   "mu": 1294,
+   "sd": 157,
+   "p_qual": 0.060138,
+   "p_stage3": 0.00239432,
+   "p_stage2": 0.0150435,
+   "p_stage1": 0.0427002,
+   "projected": 35,
+   "place_lo": 17,
+   "place_hi": 55,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "CIS LAN 7",
+     "confirmed": true
+    },
+    {
+     "p": 0.42,
+     "name": "CIS LAN 9",
+     "confirmed": false
+    },
+    {
+     "p": 0.42,
+     "name": "CIS LAN 8",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 44
+  },
+  {
+   "region": "europe",
+   "team": "BC.Game",
+   "slug": "bcgame",
+   "vrs": 1240,
+   "mu": 1281,
+   "sd": 157,
+   "p_qual": 0.0525192,
+   "p_stage3": 0.00198549,
+   "p_stage2": 0.0135505,
+   "p_stage1": 0.0369833,
+   "projected": 36,
+   "place_lo": 18,
+   "place_hi": 56,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "DraculaN 7",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 42
+  },
+  {
+   "region": "europe",
+   "team": "Iberian Soul",
+   "slug": null,
+   "vrs": 1161,
+   "mu": 1263,
+   "sd": 155,
+   "p_qual": 0.0424456,
+   "p_stage3": 0.000866889,
+   "p_stage2": 0.0115098,
+   "p_stage1": 0.030069,
+   "projected": 37,
+   "place_lo": 19,
+   "place_hi": 59,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "DraculaN 7",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Roman Imperium Cup VIII",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 49
+  },
+  {
+   "region": "europe",
+   "team": "FOKUS",
+   "slug": "fokus",
+   "vrs": 1149,
+   "mu": 1252,
+   "sd": 153,
+   "p_qual": 0.0369939,
+   "p_stage3": 0.000482227,
+   "p_stage2": 0.0102851,
+   "p_stage1": 0.0262266,
+   "projected": 38,
+   "place_lo": 20,
+   "place_hi": 60,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 2",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "DraculaN 7",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 51
+  },
+  {
+   "region": "europe",
+   "team": "Sashi",
+   "slug": null,
+   "vrs": 1188,
+   "mu": 1230,
+   "sd": 154,
+   "p_qual": 0.029438,
+   "p_stage3": 0.000278155,
+   "p_stage2": 0.00887391,
+   "p_stage1": 0.020286,
+   "projected": 39,
+   "place_lo": 21,
+   "place_hi": 63,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 2",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 46
+  },
+  {
+   "region": "europe",
+   "team": "WBT",
+   "slug": null,
+   "vrs": 1053,
+   "mu": 1208,
+   "sd": 150,
+   "p_qual": 0.0211721,
+   "p_stage3": 0.000027521,
+   "p_stage2": 0.00652867,
+   "p_stage1": 0.0146159,
+   "projected": 40,
+   "place_lo": 22,
+   "place_hi": 66,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "DraculaN 7",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Retake Season 12",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Roman Imperium Cup IX",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 65
+  },
+  {
+   "region": "europe",
+   "team": "Nemesis",
+   "slug": "nemesis",
+   "vrs": 1164,
+   "mu": 1206,
+   "sd": 153,
+   "p_qual": 0.0227657,
+   "p_stage3": 0.000084207,
+   "p_stage2": 0.00745582,
+   "p_stage1": 0.0152257,
+   "projected": 41,
+   "place_lo": 22,
+   "place_hi": 66,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "CIS LAN 7",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 48
+  },
+  {
+   "region": "europe",
+   "team": "Eternal Fire",
+   "slug": null,
+   "vrs": 1050,
+   "mu": 1203,
+   "sd": 149,
+   "p_qual": 0.0197432,
+   "p_stage3": 0.0000177968,
+   "p_stage2": 0.00611072,
+   "p_stage1": 0.0136146,
+   "projected": 42,
+   "place_lo": 23,
+   "place_hi": 66,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 2",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "DraculaN 7",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Retake Season 12",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 66
+  },
+  {
+   "region": "europe",
+   "team": "SINNERS",
+   "slug": "sinners",
+   "vrs": 1146,
+   "mu": 1183,
+   "sd": 150,
+   "p_qual": 0.0166821,
+   "p_stage3": 0.0000107728,
+   "p_stage2": 0.00565157,
+   "p_stage1": 0.0110198,
+   "projected": 43,
+   "place_lo": 24,
+   "place_hi": 69,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Private Club 1",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 52
+  },
+  {
+   "region": "europe",
+   "team": "BASEMENT BOYS",
+   "slug": null,
+   "vrs": 1020,
+   "mu": 1166,
+   "sd": 144,
+   "p_qual": 0.0113675,
+   "p_stage3": 3.18002e-7,
+   "p_stage2": 0.00254692,
+   "p_stage1": 0.00882022,
+   "projected": 44,
+   "place_lo": 26,
+   "place_hi": 71,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Leon Masters Season 1",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "DraculaN 7",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Station Strike 2026",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 77
+  },
+  {
+   "region": "europe",
+   "team": "GenOne",
+   "slug": null,
+   "vrs": 1045,
+   "mu": 1150,
+   "sd": 145,
+   "p_qual": 0.0102133,
+   "p_stage3": 1.85871e-7,
+   "p_stage2": 0.00219584,
+   "p_stage1": 0.00801732,
+   "projected": 45,
+   "place_lo": 27,
+   "place_hi": 73,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Leon Masters Season 1",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Retake Season 12",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 70
+  },
+  {
+   "region": "europe",
+   "team": "Omega",
+   "slug": null,
+   "vrs": 1144,
+   "mu": 1131,
+   "sd": 148,
+   "p_qual": 0.00948957,
+   "p_stage3": 1.75321e-7,
+   "p_stage2": 0.00219307,
+   "p_stage1": 0.00729632,
+   "projected": 46,
+   "place_lo": 28,
+   "place_hi": 77,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 53
+  },
+  {
+   "region": "europe",
+   "team": "Acend",
+   "slug": null,
+   "vrs": 1142,
+   "mu": 1129,
+   "sd": 148,
+   "p_qual": 0.00914855,
+   "p_stage3": 1.14595e-7,
+   "p_stage2": 0.00191282,
+   "p_stage1": 0.00723562,
+   "projected": 47,
+   "place_lo": 28,
+   "place_hi": 77,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 54
+  },
+  {
+   "region": "europe",
+   "team": "Metizport",
+   "slug": null,
+   "vrs": 1092,
+   "mu": 1129,
+   "sd": 147,
+   "p_qual": 0.00901011,
+   "p_stage3": 9.02828e-8,
+   "p_stage2": 0.00176194,
+   "p_stage1": 0.00724808,
+   "projected": 48,
+   "place_lo": 28,
+   "place_hi": 77,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Logitech G Connect",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 60
+  },
+  {
+   "region": "europe",
+   "team": "INOX Division",
+   "slug": null,
+   "vrs": 1078,
+   "mu": 1116,
+   "sd": 146,
+   "p_qual": 0.00779536,
+   "p_stage3": 1.71331e-8,
+   "p_stage2": 0.000958295,
+   "p_stage1": 0.00683705,
+   "projected": 49,
+   "place_lo": 29,
+   "place_hi": 79,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "CIS LAN 7",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 62
+  },
+  {
+   "region": "europe",
+   "team": "WW",
+   "slug": null,
+   "vrs": 1050,
+   "mu": 1087,
+   "sd": 144,
+   "p_qual": 0.00578474,
+   "p_stage3": 4.29678e-10,
+   "p_stage2": 0.000181866,
+   "p_stage1": 0.00560288,
+   "projected": 50,
+   "place_lo": 31,
+   "place_hi": 83,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "CIS LAN 7",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 67
+  },
+  {
+   "region": "europe",
+   "team": "9INE",
+   "slug": null,
+   "vrs": 1048,
+   "mu": 1084,
+   "sd": 144,
+   "p_qual": 0.00546058,
+   "p_stage3": 2.36539e-10,
+   "p_stage2": 0.000134078,
+   "p_stage1": 0.0053265,
+   "projected": 51,
+   "place_lo": 32,
+   "place_hi": 83,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "DraculaN 7",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 68
+  },
+  {
+   "region": "europe",
+   "team": "Phantom",
+   "slug": null,
+   "vrs": 1042,
+   "mu": 1077,
+   "sd": 143,
+   "p_qual": 0.00470537,
+   "p_stage3": 6.252e-11,
+   "p_stage2": 0.000065954,
+   "p_stage1": 0.00463941,
+   "projected": 52,
+   "place_lo": 32,
+   "place_hi": 84,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 2",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 71
+  },
+  {
+   "region": "europe",
+   "team": "Butterfly",
+   "slug": null,
+   "vrs": 1037,
+   "mu": 1073,
+   "sd": 142,
+   "p_qual": 0.00427085,
+   "p_stage3": 2.97379e-11,
+   "p_stage2": 0.0000436384,
+   "p_stage1": 0.00422721,
+   "projected": 53,
+   "place_lo": 32,
+   "place_hi": 84,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "CIS LAN 7",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 72
+  },
+  {
+   "region": "europe",
+   "team": "Color",
+   "slug": null,
+   "vrs": 1083,
+   "mu": 1069,
+   "sd": 146,
+   "p_qual": 0.00523905,
+   "p_stage3": 1.49026e-10,
+   "p_stage2": 0.000106066,
+   "p_stage1": 0.00513298,
+   "projected": 54,
+   "place_lo": 32,
+   "place_hi": 86,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 61
+  },
+  {
+   "region": "europe",
+   "team": "CYBERSHOKE",
+   "slug": null,
+   "vrs": 991,
+   "mu": 1069,
+   "sd": 139,
+   "p_qual": 0.00295749,
+   "p_stage3": 3.24127e-12,
+   "p_stage2": 0.0000118508,
+   "p_stage1": 0.00294564,
+   "projected": 55,
+   "place_lo": 33,
+   "place_hi": 85,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "CIS LAN 7",
+     "confirmed": true
+    },
+    {
+     "p": 0.42,
+     "name": "CIS LAN 9",
+     "confirmed": false
+    },
+    {
+     "p": 0.42,
+     "name": "CIS LAN 8",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 83
+  },
+  {
+   "region": "europe",
+   "team": "ASTRAL",
+   "slug": null,
+   "vrs": 1031,
+   "mu": 1065,
+   "sd": 142,
+   "p_qual": 0.00355166,
+   "p_stage3": 8.6404e-12,
+   "p_stage2": 0.0000214319,
+   "p_stage1": 0.00353022,
+   "projected": 56,
+   "place_lo": 33,
+   "place_hi": 86,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 2",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 73
+  },
+  {
+   "region": "europe",
+   "team": "BAKS",
+   "slug": null,
+   "vrs": 1025,
+   "mu": 1060,
+   "sd": 141,
+   "p_qual": 0.00310672,
+   "p_stage3": 3.95206e-12,
+   "p_stage2": 0.0000134565,
+   "p_stage1": 0.00309326,
+   "projected": 57,
+   "place_lo": 33,
+   "place_hi": 86,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "CIS LAN 7",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 74
+  },
+  {
+   "region": "europe",
+   "team": "FORZE Reload",
+   "slug": null,
+   "vrs": 974,
+   "mu": 1051,
+   "sd": 137,
+   "p_qual": 0.00136376,
+   "p_stage3": 9.86574e-14,
+   "p_stage2": 0.00000129758,
+   "p_stage1": 0.00136246,
+   "projected": 58,
+   "place_lo": 35,
+   "place_hi": 87,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "CIS LAN 7",
+     "confirmed": true
+    },
+    {
+     "p": 0.42,
+     "name": "CIS LAN 9",
+     "confirmed": false
+    },
+    {
+     "p": 0.42,
+     "name": "CIS LAN 8",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 88
+  },
+  {
+   "region": "europe",
+   "team": "UNiTY",
+   "slug": null,
+   "vrs": 948,
+   "mu": 1037,
+   "sd": 135,
+   "p_qual": 0.000547079,
+   "p_stage3": 4.20504e-15,
+   "p_stage2": 1.52342e-7,
+   "p_stage1": 0.000546927,
+   "projected": 59,
+   "place_lo": 36,
+   "place_hi": 88,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "FOX Legacy Cup 1",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Urban Riga Open 7",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 96
+  },
+  {
+   "region": "europe",
+   "team": "ex-RUBY",
+   "slug": null,
+   "vrs": 992,
+   "mu": 1025,
+   "sd": 138,
+   "p_qual": 0.000619023,
+   "p_stage3": 6.01933e-15,
+   "p_stage2": 1.96415e-7,
+   "p_stage1": 0.000618826,
+   "projected": 60,
+   "place_lo": 36,
+   "place_hi": 90,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "CIS LAN 7",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 82
+  },
+  {
+   "region": "europe",
+   "team": "OG",
+   "slug": "og",
+   "vrs": 990,
+   "mu": 1023,
+   "sd": 137,
+   "p_qual": 0.000468738,
+   "p_stage3": 2.57279e-15,
+   "p_stage2": 1.0825e-7,
+   "p_stage1": 0.00046863,
+   "projected": 61,
+   "place_lo": 37,
+   "place_hi": 91,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Roman Imperium Cup IX",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 84
+  },
+  {
+   "region": "europe",
+   "team": "UPGRADE",
+   "slug": null,
+   "vrs": 982,
+   "mu": 1015,
+   "sd": 136,
+   "p_qual": 0.000251427,
+   "p_stage3": 4.33826e-16,
+   "p_stage2": 3.03635e-8,
+   "p_stage1": 0.000251397,
+   "projected": 62,
+   "place_lo": 37,
+   "place_hi": 91,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "CIS LAN 7",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 86
+  },
+  {
+   "region": "europe",
+   "team": "BRUTE",
+   "slug": null,
+   "vrs": 1024,
+   "mu": 1010,
+   "sd": 139,
+   "p_qual": 0.000433103,
+   "p_stage3": 1.95465e-15,
+   "p_stage2": 8.96857e-8,
+   "p_stage1": 0.000433014,
+   "projected": 63,
+   "place_lo": 37,
+   "place_hi": 92,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 75
+  },
+  {
+   "region": "europe",
+   "team": "ex-Zero Tenacity",
+   "slug": null,
+   "vrs": 1022,
+   "mu": 1008,
+   "sd": 139,
+   "p_qual": 0.000349681,
+   "p_stage3": 1.05219e-15,
+   "p_stage2": 5.77204e-8,
+   "p_stage1": 0.000349623,
+   "projected": 64,
+   "place_lo": 38,
+   "place_hi": 93,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 76
+  },
+  {
+   "region": "europe",
+   "team": "EAC",
+   "slug": null,
+   "vrs": 975,
+   "mu": 1005,
+   "sd": 136,
+   "p_qual": 0.000131717,
+   "p_stage3": 7.93499e-17,
+   "p_stage2": 8.77024e-9,
+   "p_stage1": 0.000131709,
+   "projected": 65,
+   "place_lo": 38,
+   "place_hi": 92,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 2",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 87
+  },
+  {
+   "region": "europe",
+   "team": "Rune Eaters",
+   "slug": null,
+   "vrs": 1017,
+   "mu": 1003,
+   "sd": 138,
+   "p_qual": 0.000210513,
+   "p_stage3": 2.60724e-16,
+   "p_stage2": 2.10866e-8,
+   "p_stage1": 0.000210491,
+   "projected": 66,
+   "place_lo": 38,
+   "place_hi": 93,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 79
+  },
+  {
+   "region": "europe",
+   "team": "SAW",
+   "slug": null,
+   "vrs": 804,
+   "mu": 987,
+   "sd": 135,
+   "p_qual": 0.0000238342,
+   "p_stage3": 1.45199e-18,
+   "p_stage2": 4.26828e-10,
+   "p_stage1": 0.0000238338,
+   "projected": 67,
+   "place_lo": 40,
+   "place_hi": 95,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Leon Masters Season 1",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "DraculaN 7",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "FOX Legacy Cup 1",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Roman Imperium Cup IX",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Retake Season 13",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 147
+  },
+  {
+   "region": "europe",
+   "team": "QUAZAR",
+   "slug": null,
+   "vrs": 995,
+   "mu": 981,
+   "sd": 137,
+   "p_qual": 0.000043447,
+   "p_stage3": 5.42066e-18,
+   "p_stage2": 1.17604e-9,
+   "p_stage1": 0.0000434458,
+   "projected": 68,
+   "place_lo": 40,
+   "place_hi": 95,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 81
+  },
+  {
+   "region": "europe",
+   "team": "Nexus",
+   "slug": null,
+   "vrs": 948,
+   "mu": 978,
+   "sd": 133,
+   "p_qual": 0.00000839523,
+   "p_stage3": 1.60969e-19,
+   "p_stage2": 7.69343e-11,
+   "p_stage1": 0.00000839515,
+   "projected": 69,
+   "place_lo": 41,
+   "place_hi": 95,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "DraculaN 7",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 95
+  },
+  {
+   "region": "europe",
+   "team": "ex-RUSTEC",
+   "slug": null,
+   "vrs": 950,
+   "mu": 971,
+   "sd": 134,
+   "p_qual": 0.00000523263,
+   "p_stage3": 6.2113e-20,
+   "p_stage2": 3.62717e-11,
+   "p_stage1": 0.0000052326,
+   "projected": 70,
+   "place_lo": 41,
+   "place_hi": 96,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.42,
+     "name": "CIS LAN 9",
+     "confirmed": false
+    },
+    {
+     "p": 0.42,
+     "name": "CIS LAN 8",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 93
+  },
+  {
+   "region": "europe",
+   "team": "BET-M",
+   "slug": null,
+   "vrs": 941,
+   "mu": 970,
+   "sd": 132,
+   "p_qual": 0.00000300725,
+   "p_stage3": 2.0966e-20,
+   "p_stage2": 1.52798e-11,
+   "p_stage1": 0.00000300724,
+   "projected": 71,
+   "place_lo": 41,
+   "place_hi": 96,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "CIS LAN 7",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 99
+  },
+  {
+   "region": "europe",
+   "team": "NOVAQ",
+   "slug": null,
+   "vrs": 985,
+   "mu": 970,
+   "sd": 136,
+   "p_qual": 0.0000110468,
+   "p_stage3": 2.81261e-19,
+   "p_stage2": 1.19367e-10,
+   "p_stage1": 0.0000110467,
+   "projected": 72,
+   "place_lo": 41,
+   "place_hi": 96,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 85
+  },
+  {
+   "region": "europe",
+   "team": "Black Phoenix",
+   "slug": null,
+   "vrs": 924,
+   "mu": 952,
+   "sd": 131,
+   "p_qual": 3.74451e-7,
+   "p_stage3": 4.44905e-22,
+   "p_stage2": 6.73735e-13,
+   "p_stage1": 3.74451e-7,
+   "projected": 73,
+   "place_lo": 43,
+   "place_hi": 97,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "CIS LAN 7",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 103
+  },
+  {
+   "region": "europe",
+   "team": "The Last Resort",
+   "slug": null,
+   "vrs": 923,
+   "mu": 951,
+   "sd": 131,
+   "p_qual": 2.9113e-7,
+   "p_stage3": 2.85168e-22,
+   "p_stage2": 4.67514e-13,
+   "p_stage1": 2.9113e-7,
+   "projected": 74,
+   "place_lo": 43,
+   "place_hi": 97,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "UKIC Masters Fall 2026 Finals",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 104
+  },
+  {
+   "region": "europe",
+   "team": "ex-RUBY",
+   "slug": null,
+   "vrs": 965,
+   "mu": 950,
+   "sd": 134,
+   "p_qual": 9.42636e-7,
+   "p_stage3": 2.35632e-21,
+   "p_stage2": 2.62633e-12,
+   "p_stage1": 9.42633e-7,
+   "projected": 75,
+   "place_lo": 43,
+   "place_hi": 98,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 89
+  },
+  {
+   "region": "europe",
+   "team": "SPARTA",
+   "slug": null,
+   "vrs": 956,
+   "mu": 941,
+   "sd": 134,
+   "p_qual": 3.16885e-7,
+   "p_stage3": 3.3111e-22,
+   "p_stage2": 5.28611e-13,
+   "p_stage1": 3.16884e-7,
+   "projected": 76,
+   "place_lo": 44,
+   "place_hi": 99,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 91
+  },
+  {
+   "region": "europe",
+   "team": "RBLS",
+   "slug": null,
+   "vrs": 819,
+   "mu": 938,
+   "sd": 133,
+   "p_qual": 1.48842e-7,
+   "p_stage3": 8.87496e-23,
+   "p_stage2": 1.78371e-13,
+   "p_stage1": 1.48842e-7,
+   "projected": 77,
+   "place_lo": 44,
+   "place_hi": 99,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Leon Masters Season 1",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Retake Season 12",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Roman Imperium Cup IX",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 137
+  },
+  {
+   "region": "europe",
+   "team": "KOLESIE",
+   "slug": null,
+   "vrs": 948,
+   "mu": 933,
+   "sd": 133,
+   "p_qual": 9.43984e-8,
+   "p_stage3": 4.07589e-23,
+   "p_stage2": 9.34979e-14,
+   "p_stage1": 9.43983e-8,
+   "projected": 78,
+   "place_lo": 45,
+   "place_hi": 99,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 94
+  },
+  {
+   "region": "europe",
+   "team": "INFINITE",
+   "slug": "infinite",
+   "vrs": 943,
+   "mu": 928,
+   "sd": 132,
+   "p_qual": 3.19094e-8,
+   "p_stage3": 6.65593e-24,
+   "p_stage2": 2.05556e-14,
+   "p_stage1": 3.19094e-8,
+   "projected": 79,
+   "place_lo": 45,
+   "place_hi": 99,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 98
+  },
+  {
+   "region": "europe",
+   "team": "STATE",
+   "slug": null,
+   "vrs": 894,
+   "mu": 919,
+   "sd": 130,
+   "p_qual": 5.71854e-9,
+   "p_stage3": 4.174e-25,
+   "p_stage2": 1.97733e-15,
+   "p_stage1": 5.71854e-9,
+   "projected": 80,
+   "place_lo": 46,
+   "place_hi": 100,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Roman Imperium Cup VIII",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 111
+  },
+  {
+   "region": "europe",
+   "team": "Johnny Speeds",
+   "slug": null,
+   "vrs": 893,
+   "mu": 917,
+   "sd": 130,
+   "p_qual": 4.46265e-9,
+   "p_stage3": 2.82534e-25,
+   "p_stage2": 1.41817e-15,
+   "p_stage1": 4.46265e-9,
+   "projected": 81,
+   "place_lo": 47,
+   "place_hi": 100,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 2",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 112
+  },
+  {
+   "region": "europe",
+   "team": "Leo",
+   "slug": null,
+   "vrs": 892,
+   "mu": 917,
+   "sd": 130,
+   "p_qual": 4.43535e-9,
+   "p_stage3": 2.79826e-25,
+   "p_stage2": 1.40657e-15,
+   "p_stage1": 4.43535e-9,
+   "projected": 82,
+   "place_lo": 47,
+   "place_hi": 100,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "DraculaN 7",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 113
+  },
+  {
+   "region": "europe",
+   "team": "Walczaki",
+   "slug": null,
+   "vrs": 924,
+   "mu": 908,
+   "sd": 131,
+   "p_qual": 2.18818e-9,
+   "p_stage3": 9.31122e-26,
+   "p_stage2": 5.49282e-16,
+   "p_stage1": 2.18818e-9,
+   "projected": 83,
+   "place_lo": 47,
+   "place_hi": 101,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 102
+  },
+  {
+   "region": "europe",
+   "team": "Bushido Wildcats",
+   "slug": null,
+   "vrs": 921,
+   "mu": 905,
+   "sd": 130,
+   "p_qual": 8.70761e-10,
+   "p_stage3": 2.27015e-26,
+   "p_stage2": 1.63393e-16,
+   "p_stage1": 8.70761e-10,
+   "projected": 84,
+   "place_lo": 48,
+   "place_hi": 101,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 105
+  },
+  {
+   "region": "europe",
+   "team": "Lazer Cats",
+   "slug": null,
+   "vrs": 820,
+   "mu": 891,
+   "sd": 132,
+   "p_qual": 2.80705e-10,
+   "p_stage3": 4.14483e-27,
+   "p_stage2": 3.75692e-17,
+   "p_stage1": 2.80705e-10,
+   "projected": 85,
+   "place_lo": 49,
+   "place_hi": 102,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "FOX Legacy Cup 1",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Roman Imperium Cup IX",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 134
+  },
+  {
+   "region": "europe",
+   "team": "G2 Ares",
+   "slug": null,
+   "vrs": 865,
+   "mu": 890,
+   "sd": 130,
+   "p_qual": 1.35604e-10,
+   "p_stage3": 1.41431e-27,
+   "p_stage2": 1.47595e-17,
+   "p_stage1": 1.35604e-10,
+   "projected": 86,
+   "place_lo": 49,
+   "place_hi": 102,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Roman Imperium Cup IX",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 119
+  },
+  {
+   "region": "europe",
+   "team": "Just Players",
+   "slug": null,
+   "vrs": 906,
+   "mu": 890,
+   "sd": 129,
+   "p_qual": 9.60926e-11,
+   "p_stage3": 8.53977e-28,
+   "p_stage2": 9.50915e-18,
+   "p_stage1": 9.60926e-11,
+   "projected": 87,
+   "place_lo": 50,
+   "place_hi": 102,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 107
+  },
+  {
+   "region": "europe",
+   "team": "6666",
+   "slug": null,
+   "vrs": 904,
+   "mu": 888,
+   "sd": 129,
+   "p_qual": 7.27707e-11,
+   "p_stage3": 5.69488e-28,
+   "p_stage2": 6.67661e-18,
+   "p_stage1": 7.27707e-11,
+   "projected": 88,
+   "place_lo": 50,
+   "place_hi": 102,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 108
+  },
+  {
+   "region": "europe",
+   "team": "PCIFIC",
+   "slug": null,
+   "vrs": 902,
+   "mu": 886,
+   "sd": 129,
+   "p_qual": 5.50165e-11,
+   "p_stage3": 3.79517e-28,
+   "p_stage2": 4.68273e-18,
+   "p_stage1": 5.50165e-11,
+   "projected": 89,
+   "place_lo": 50,
+   "place_hi": 102,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 109
+  },
+  {
+   "region": "europe",
+   "team": "HYPERSPIRIT",
+   "slug": null,
+   "vrs": 808,
+   "mu": 876,
+   "sd": 131,
+   "p_qual": 3.75328e-11,
+   "p_stage3": 2.18502e-28,
+   "p_stage2": 2.88785e-18,
+   "p_stage1": 3.75328e-11,
+   "projected": 90,
+   "place_lo": 51,
+   "place_hi": 103,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "DraculaN 7",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Urban Riga Open 7",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 142
+  },
+  {
+   "region": "europe",
+   "team": "MOUZ NXT",
+   "slug": null,
+   "vrs": 800,
+   "mu": 869,
+   "sd": 131,
+   "p_qual": 1.29727e-11,
+   "p_stage3": 4.7907e-29,
+   "p_stage2": 7.61331e-19,
+   "p_stage1": 1.29727e-11,
+   "projected": 91,
+   "place_lo": 51,
+   "place_hi": 103,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Leon Masters Season 1",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "DraculaN 7",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 152
+  },
+  {
+   "region": "europe",
+   "team": "CYBERSHOKE",
+   "slug": null,
+   "vrs": 848,
+   "mu": 866,
+   "sd": 130,
+   "p_qual": 3.76478e-12,
+   "p_stage3": 8.41502e-30,
+   "p_stage2": 1.6388e-19,
+   "p_stage1": 3.76478e-12,
+   "projected": 92,
+   "place_lo": 52,
+   "place_hi": 103,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.42,
+     "name": "CIS LAN 9",
+     "confirmed": false
+    },
+    {
+     "p": 0.42,
+     "name": "CIS LAN 8",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 124
+  },
+  {
+   "region": "europe",
+   "team": "Azuolas",
+   "slug": null,
+   "vrs": 882,
+   "mu": 865,
+   "sd": 129,
+   "p_qual": 3.07149e-12,
+   "p_stage3": 6.33815e-30,
+   "p_stage2": 1.27492e-19,
+   "p_stage1": 3.07149e-12,
+   "projected": 93,
+   "place_lo": 52,
+   "place_hi": 103,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 115
+  },
+  {
+   "region": "europe",
+   "team": "Lavked",
+   "slug": null,
+   "vrs": 879,
+   "mu": 862,
+   "sd": 129,
+   "p_qual": 1.96604e-12,
+   "p_stage3": 3.41385e-30,
+   "p_stage2": 7.36414e-20,
+   "p_stage1": 1.96604e-12,
+   "projected": 94,
+   "place_lo": 53,
+   "place_hi": 103,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 116
+  },
+  {
+   "region": "europe",
+   "team": "ENCE",
+   "slug": null,
+   "vrs": 832,
+   "mu": 858,
+   "sd": 130,
+   "p_qual": 1.40587e-12,
+   "p_stage3": 2.14893e-30,
+   "p_stage2": 4.88117e-20,
+   "p_stage1": 1.40587e-12,
+   "projected": 95,
+   "place_lo": 53,
+   "place_hi": 103,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Urban Riga Open 7",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 130
+  },
+  {
+   "region": "europe",
+   "team": "Drama",
+   "slug": null,
+   "vrs": 832,
+   "mu": 853,
+   "sd": 130,
+   "p_qual": 6.87616e-13,
+   "p_stage3": 8.05787e-31,
+   "p_stage2": 2.03826e-20,
+   "p_stage1": 6.87616e-13,
+   "projected": 96,
+   "place_lo": 54,
+   "place_hi": 104,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "DraculaN 7",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 129
+  },
+  {
+   "region": "europe",
+   "team": "Spirit Academy",
+   "slug": null,
+   "vrs": 834,
+   "mu": 851,
+   "sd": 129,
+   "p_qual": 4.51109e-13,
+   "p_stage3": 4.5373e-31,
+   "p_stage2": 1.221e-20,
+   "p_stage1": 4.51109e-13,
+   "projected": 97,
+   "place_lo": 54,
+   "place_hi": 104,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.42,
+     "name": "CIS LAN 9",
+     "confirmed": false
+    },
+    {
+     "p": 0.42,
+     "name": "CIS LAN 8",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 128
+  },
+  {
+   "region": "europe",
+   "team": "benched gods",
+   "slug": null,
+   "vrs": 867,
+   "mu": 850,
+   "sd": 129,
+   "p_qual": 3.19403e-13,
+   "p_stage3": 2.84045e-31,
+   "p_stage2": 8.03461e-21,
+   "p_stage1": 3.19403e-13,
+   "projected": 98,
+   "place_lo": 54,
+   "place_hi": 104,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 118
+  },
+  {
+   "region": "europe",
+   "team": "Inner Circle Academy",
+   "slug": null,
+   "vrs": 864,
+   "mu": 847,
+   "sd": 129,
+   "p_qual": 2.01171e-13,
+   "p_stage3": 1.52136e-31,
+   "p_stage2": 4.59542e-21,
+   "p_stage1": 2.01171e-13,
+   "projected": 99,
+   "place_lo": 54,
+   "place_hi": 104,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 120
+  },
+  {
+   "region": "europe",
+   "team": "Nordic Partners",
+   "slug": null,
+   "vrs": 824,
+   "mu": 845,
+   "sd": 130,
+   "p_qual": 1.97667e-13,
+   "p_stage3": 1.48577e-31,
+   "p_stage2": 4.49901e-21,
+   "p_stage1": 1.97667e-13,
+   "projected": 100,
+   "place_lo": 55,
+   "place_hi": 104,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "DraculaN 7",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 133
+  },
+  {
+   "region": "europe",
+   "team": "ARCRED",
+   "slug": null,
+   "vrs": 849,
+   "mu": 832,
+   "sd": 129,
+   "p_qual": 1.90454e-14,
+   "p_stage3": 6.60295e-33,
+   "p_stage2": 2.73617e-22,
+   "p_stage1": 1.90454e-14,
+   "projected": 101,
+   "place_lo": 56,
+   "place_hi": 104,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 122
+  },
+  {
+   "region": "europe",
+   "team": "Johnny Speeds",
+   "slug": null,
+   "vrs": 849,
+   "mu": 832,
+   "sd": 129,
+   "p_qual": 1.90454e-14,
+   "p_stage3": 6.60295e-33,
+   "p_stage2": 2.73617e-22,
+   "p_stage1": 1.90454e-14,
+   "projected": 102,
+   "place_lo": 56,
+   "place_hi": 104,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 123
+  },
+  {
+   "region": "europe",
+   "team": "Enjoy",
+   "slug": null,
+   "vrs": 847,
+   "mu": 829,
+   "sd": 129,
+   "p_qual": 1.38306e-14,
+   "p_stage3": 4.33758e-33,
+   "p_stage2": 1.87204e-22,
+   "p_stage1": 1.38306e-14,
+   "projected": 103,
+   "place_lo": 57,
+   "place_hi": 105,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 125
+  },
+  {
+   "region": "europe",
+   "team": "Honvéd",
+   "slug": null,
+   "vrs": 847,
+   "mu": 829,
+   "sd": 129,
+   "p_qual": 1.38306e-14,
+   "p_stage3": 4.33758e-33,
+   "p_stage2": 1.87204e-22,
+   "p_stage1": 1.38306e-14,
+   "projected": 104,
+   "place_lo": 57,
+   "place_hi": 105,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 126
+  },
+  {
+   "region": "europe",
+   "team": "PsychoFace",
+   "slug": null,
+   "vrs": 835,
+   "mu": 817,
+   "sd": 129,
+   "p_qual": 1.97423e-15,
+   "p_stage3": 3.45372e-34,
+   "p_stage2": 1.88916e-23,
+   "p_stage1": 1.97423e-15,
+   "projected": 105,
+   "place_lo": 58,
+   "place_hi": 105,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 127
+  },
+  {
+   "region": "europe",
+   "team": "mellren",
+   "slug": null,
+   "vrs": 830,
+   "mu": 812,
+   "sd": 129,
+   "p_qual": 8.65507e-16,
+   "p_stage3": 1.19768e-34,
+   "p_stage2": 7.206e-24,
+   "p_stage1": 8.65507e-16,
+   "projected": 106,
+   "place_lo": 59,
+   "place_hi": 105,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 131
+  },
+  {
+   "region": "europe",
+   "team": "SINQU",
+   "slug": null,
+   "vrs": 744,
+   "mu": 805,
+   "sd": 131,
+   "p_qual": 7.67177e-16,
+   "p_stage3": 1.02645e-34,
+   "p_stage2": 6.26091e-24,
+   "p_stage1": 7.67177e-16,
+   "projected": 107,
+   "place_lo": 59,
+   "place_hi": 105,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "FOX Legacy Cup 1",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Roman Imperium Cup IX",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 174
+  },
+  {
+   "region": "europe",
+   "team": "NAVI Junior",
+   "slug": null,
+   "vrs": 830,
+   "mu": 805,
+   "sd": 129,
+   "p_qual": 2.84636e-16,
+   "p_stage3": 2.90356e-35,
+   "p_stage2": 1.97757e-24,
+   "p_stage1": 2.84636e-16,
+   "projected": 108,
+   "place_lo": 60,
+   "place_hi": 105,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 132
+  },
+  {
+   "region": "europe",
+   "team": "Falcons Force",
+   "slug": null,
+   "vrs": 740,
+   "mu": 800,
+   "sd": 131,
+   "p_qual": 3.30219e-16,
+   "p_stage3": 3.50603e-35,
+   "p_stage2": 2.34937e-24,
+   "p_stage1": 3.30219e-16,
+   "projected": 109,
+   "place_lo": 60,
+   "place_hi": 106,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "FOX Legacy Cup 1",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Roman Imperium Cup IX",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 178
+  },
+  {
+   "region": "europe",
+   "team": "WBT Academy",
+   "slug": null,
+   "vrs": 816,
+   "mu": 798,
+   "sd": 129,
+   "p_qual": 8.2492e-17,
+   "p_stage3": 6.07881e-36,
+   "p_stage2": 4.72608e-25,
+   "p_stage1": 8.2492e-17,
+   "projected": 110,
+   "place_lo": 61,
+   "place_hi": 106,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 138
+  },
+  {
+   "region": "europe",
+   "team": "HAVU",
+   "slug": null,
+   "vrs": 814,
+   "mu": 796,
+   "sd": 129,
+   "p_qual": 5.86681e-17,
+   "p_stage3": 3.96322e-36,
+   "p_stage2": 3.19234e-25,
+   "p_stage1": 5.86681e-17,
+   "projected": 111,
+   "place_lo": 61,
+   "place_hi": 106,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 139
+  },
+  {
+   "region": "europe",
+   "team": "Entropy",
+   "slug": null,
+   "vrs": 810,
+   "mu": 792,
+   "sd": 129,
+   "p_qual": 2.9563e-17,
+   "p_stage3": 1.68207e-36,
+   "p_stage2": 1.45304e-25,
+   "p_stage1": 2.9563e-17,
+   "projected": 112,
+   "place_lo": 62,
+   "place_hi": 106,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 140
+  },
+  {
+   "region": "europe",
+   "team": "MASONIC",
+   "slug": null,
+   "vrs": 807,
+   "mu": 789,
+   "sd": 129,
+   "p_qual": 1.76228e-17,
+   "p_stage3": 8.83275e-37,
+   "p_stage2": 8.03488e-26,
+   "p_stage1": 1.76228e-17,
+   "projected": 113,
+   "place_lo": 62,
+   "place_hi": 106,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 143
+  },
+  {
+   "region": "europe",
+   "team": "ReThink",
+   "slug": null,
+   "vrs": 807,
+   "mu": 789,
+   "sd": 129,
+   "p_qual": 1.76228e-17,
+   "p_stage3": 8.83275e-37,
+   "p_stage2": 8.03488e-26,
+   "p_stage1": 1.76228e-17,
+   "projected": 114,
+   "place_lo": 62,
+   "place_hi": 106,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 144
+  },
+  {
+   "region": "europe",
+   "team": "Fire Flux",
+   "slug": null,
+   "vrs": 806,
+   "mu": 788,
+   "sd": 129,
+   "p_qual": 1.48221e-17,
+   "p_stage3": 7.12409e-37,
+   "p_stage2": 6.59226e-26,
+   "p_stage1": 1.48221e-17,
+   "projected": 115,
+   "place_lo": 62,
+   "place_hi": 106,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 145
+  },
+  {
+   "region": "europe",
+   "team": "Washed",
+   "slug": null,
+   "vrs": 804,
+   "mu": 785,
+   "sd": 129,
+   "p_qual": 1.04753e-17,
+   "p_stage3": 4.63253e-37,
+   "p_stage2": 4.43479e-26,
+   "p_stage1": 1.04753e-17,
+   "projected": 116,
+   "place_lo": 62,
+   "place_hi": 106,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 146
+  },
+  {
+   "region": "europe",
+   "team": "Betclic",
+   "slug": "betclic",
+   "vrs": 802,
+   "mu": 783,
+   "sd": 129,
+   "p_qual": 7.39384e-18,
+   "p_stage3": 3.01068e-37,
+   "p_stage2": 2.98091e-26,
+   "p_stage1": 7.39384e-18,
+   "projected": 117,
+   "place_lo": 63,
+   "place_hi": 106,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 150
+  },
+  {
+   "region": "europe",
+   "team": "Phantom",
+   "slug": null,
+   "vrs": 801,
+   "mu": 782,
+   "sd": 129,
+   "p_qual": 6.2089e-18,
+   "p_stage3": 2.42659e-37,
+   "p_stage2": 2.44314e-26,
+   "p_stage1": 6.2089e-18,
+   "projected": 118,
+   "place_lo": 63,
+   "place_hi": 106,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 151
+  },
+  {
+   "region": "europe",
+   "team": "aimclub",
+   "slug": null,
+   "vrs": 722,
+   "mu": 778,
+   "sd": 131,
+   "p_qual": 8.05737e-18,
+   "p_stage3": 3.34806e-37,
+   "p_stage2": 3.28764e-26,
+   "p_stage1": 8.05737e-18,
+   "projected": 119,
+   "place_lo": 63,
+   "place_hi": 106,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "DraculaN 7",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "FOX Legacy Cup 1",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 186
+  },
+  {
+   "region": "europe",
+   "team": "LPH",
+   "slug": null,
+   "vrs": 795,
+   "mu": 776,
+   "sd": 129,
+   "p_qual": 2.16248e-18,
+   "p_stage3": 6.63196e-38,
+   "p_stage2": 7.37192e-27,
+   "p_stage1": 2.16248e-18,
+   "projected": 120,
+   "place_lo": 64,
+   "place_hi": 106,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 153
+  },
+  {
+   "region": "americas",
+   "team": "Legacy",
+   "slug": "legacy",
+   "vrs": 1885,
+   "mu": 2045,
+   "sd": 114,
+   "p_qual": 0.996406,
+   "p_stage3": 0.983218,
+   "p_stage2": 0.0122379,
+   "p_stage1": 0.000950034,
+   "projected": 1,
+   "place_lo": 1,
+   "place_hi": 2,
+   "tier1": [
+    "ESL Pro League Season 24",
+    "Thunderpick World Championship",
+    "PGL Masters Bucharest"
+   ],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Gamers Club Masters",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 3
+  },
+  {
+   "region": "americas",
+   "team": "FURIA",
+   "slug": "furia",
+   "vrs": 1760,
+   "mu": 1891,
+   "sd": 116,
+   "p_qual": 0.993167,
+   "p_stage3": 0.86133,
+   "p_stage2": 0.109397,
+   "p_stage1": 0.0224403,
+   "projected": 2,
+   "place_lo": 1,
+   "place_hi": 3,
+   "tier1": [
+    "StarLadder StarSeries Fall",
+    "ESL Pro League Season 24",
+    "PGL Masters Bucharest"
+   ],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Gamers Club Masters",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 8
+  },
+  {
+   "region": "americas",
+   "team": "9z",
+   "slug": "ninez",
+   "vrs": 1580,
+   "mu": 1690,
+   "sd": 120,
+   "p_qual": 0.989912,
+   "p_stage3": 0.111881,
+   "p_stage2": 0.538786,
+   "p_stage1": 0.339245,
+   "projected": 3,
+   "place_lo": 2,
+   "place_hi": 5,
+   "tier1": [
+    "ESL Pro League Season 24",
+    "Thunderpick World Championship",
+    "PGL Masters Bucharest"
+   ],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Gamers Club Masters",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 10
+  },
+  {
+   "region": "americas",
+   "team": "MIBR",
+   "slug": "mibr",
+   "vrs": 1523,
+   "mu": 1573,
+   "sd": 116,
+   "p_qual": 0.983174,
+   "p_stage3": 0.0198759,
+   "p_stage2": 0.171875,
+   "p_stage1": 0.791423,
+   "projected": 4,
+   "place_lo": 3,
+   "place_hi": 7,
+   "tier1": [
+    "StarLadder StarSeries Fall"
+   ],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 3",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Gamers Club Masters",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 14
+  },
+  {
+   "region": "americas",
+   "team": "Liquid",
+   "slug": "liquid",
+   "vrs": 1417,
+   "mu": 1534,
+   "sd": 124,
+   "p_qual": 0.97232,
+   "p_stage3": 0.0134972,
+   "p_stage2": 0.114843,
+   "p_stage1": 0.84398,
+   "projected": 5,
+   "place_lo": 3,
+   "place_hi": 8,
+   "tier1": [
+    "PGL Masters Bucharest"
+   ],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Logitech G Connect",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Stake Pulse Beat 3",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "DraculaN 7",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "iBUYPOWER Masters FML",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 22
+  },
+  {
+   "region": "americas",
+   "team": "M80",
+   "slug": "m80",
+   "vrs": 1319,
+   "mu": 1421,
+   "sd": 132,
+   "p_qual": 0.906677,
+   "p_stage3": 0.00261997,
+   "p_stage2": 0.0297421,
+   "p_stage1": 0.874315,
+   "projected": 6,
+   "place_lo": 4,
+   "place_hi": 10,
+   "tier1": [
+    "ESL Pro League Season 24"
+   ],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Logitech G Connect",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "DraculaN 7",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "iBUYPOWER Masters FML",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Roman Imperium Cup VIII",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 27
+  },
+  {
+   "region": "americas",
+   "team": "DENDELE",
+   "slug": "sharks",
+   "vrs": 1287,
+   "mu": 1341,
+   "sd": 132,
+   "p_qual": 0.786251,
+   "p_stage3": 0.000484032,
+   "p_stage2": 0.00935144,
+   "p_stage1": 0.776415,
+   "projected": 7,
+   "place_lo": 5,
+   "place_hi": 13,
+   "tier1": [
+    "PGL Masters Bucharest"
+   ],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "iBUYPOWER Masters FML",
+     "confirmed": true
+    },
+    {
+     "p": 0.49,
+     "name": "Gamers Club Masters",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 29
+  },
+  {
+   "region": "americas",
+   "team": "paiN",
+   "slug": "pain",
+   "vrs": 1192,
+   "mu": 1249,
+   "sd": 135,
+   "p_qual": 0.535544,
+   "p_stage3": 0.0000574067,
+   "p_stage2": 0.00224329,
+   "p_stage1": 0.533243,
+   "projected": 8,
+   "place_lo": 6,
+   "place_hi": 16,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "FERJEE in HOUSE 2",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Circuit x Curitiba 3",
+     "confirmed": true
+    },
+    {
+     "p": 0.26,
+     "name": "Gamers Club Masters",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 45
+  },
+  {
+   "region": "americas",
+   "team": "NRG",
+   "slug": "nrg",
+   "vrs": 1167,
+   "mu": 1233,
+   "sd": 140,
+   "p_qual": 0.480544,
+   "p_stage3": 0.0000521658,
+   "p_stage2": 0.00205494,
+   "p_stage1": 0.478437,
+   "projected": 9,
+   "place_lo": 6,
+   "place_hi": 17,
+   "tier1": [
+    "StarLadder StarSeries Fall"
+   ],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "iBUYPOWER Masters FML",
+     "confirmed": true
+    },
+    {
+     "p": 0.22,
+     "name": "Gamers Club Masters",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 47
+  },
+  {
+   "region": "americas",
+   "team": "Wildcard",
+   "slug": "wildcard",
+   "vrs": 1126,
+   "mu": 1138,
+   "sd": 140,
+   "p_qual": 0.221175,
+   "p_stage3": 0.00000285844,
+   "p_stage2": 0.000220887,
+   "p_stage1": 0.220952,
+   "projected": 10,
+   "place_lo": 7,
+   "place_hi": 23,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "iBUYPOWER Masters FML",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 55
+  },
+  {
+   "region": "americas",
+   "team": "Fluxo",
+   "slug": "fluxo",
+   "vrs": 1064,
+   "mu": 1129,
+   "sd": 154,
+   "p_qual": 0.215335,
+   "p_stage3": 0.00000834569,
+   "p_stage2": 0.000520452,
+   "p_stage1": 0.214806,
+   "projected": 11,
+   "place_lo": 7,
+   "place_hi": 24,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Leon Masters Season 1",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Circuit x Curitiba 3",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 64
+  },
+  {
+   "region": "americas",
+   "team": "Imperial",
+   "slug": "imperial",
+   "vrs": 1071,
+   "mu": 1097,
+   "sd": 147,
+   "p_qual": 0.152769,
+   "p_stage3": 0.00000147131,
+   "p_stage2": 0.000123948,
+   "p_stage1": 0.152644,
+   "projected": 12,
+   "place_lo": 8,
+   "place_hi": 26,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "FERJEE in HOUSE 2",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 63
+  },
+  {
+   "region": "americas",
+   "team": "SportsBetExpert",
+   "slug": "sportsbetexpert",
+   "vrs": 1104,
+   "mu": 1082,
+   "sd": 142,
+   "p_qual": 0.123208,
+   "p_stage3": 4.1094e-7,
+   "p_stage2": 0.0000400644,
+   "p_stage1": 0.123167,
+   "projected": 13,
+   "place_lo": 8,
+   "place_hi": 27,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 58
+  },
+  {
+   "region": "americas",
+   "team": "ShindeN",
+   "slug": "shinden",
+   "vrs": 940,
+   "mu": 1060,
+   "sd": 161,
+   "p_qual": 0.114661,
+   "p_stage3": 0.0000025338,
+   "p_stage2": 0.00019463,
+   "p_stage1": 0.114464,
+   "projected": 14,
+   "place_lo": 8,
+   "place_hi": 31,
+   "tier1": [
+    "ESL Pro League Season 24"
+   ],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Circuit x Curitiba 3",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 100
+  },
+  {
+   "region": "americas",
+   "team": "Galorys",
+   "slug": "galorys",
+   "vrs": 944,
+   "mu": 1030,
+   "sd": 159,
+   "p_qual": 0.0828261,
+   "p_stage3": 6.01993e-7,
+   "p_stage2": 0.0000558152,
+   "p_stage1": 0.0827697,
+   "projected": 15,
+   "place_lo": 8,
+   "place_hi": 34,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "FERJEE in HOUSE 2",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Circuit x Curitiba 3",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 97
+  },
+  {
+   "region": "americas",
+   "team": "BESTIA",
+   "slug": "bestia",
+   "vrs": 954,
+   "mu": 1028,
+   "sd": 159,
+   "p_qual": 0.0817664,
+   "p_stage3": 4.84923e-7,
+   "p_stage2": 0.0000460498,
+   "p_stage1": 0.0817199,
+   "projected": 16,
+   "place_lo": 8,
+   "place_hi": 34,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "iBUYPOWER Masters FML",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Circuit x Curitiba 3",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 92
+  },
+  {
+   "region": "americas",
+   "team": "LP",
+   "slug": null,
+   "vrs": 938,
+   "mu": 1003,
+   "sd": 160,
+   "p_qual": 0.0616545,
+   "p_stage3": 2.87265e-7,
+   "p_stage2": 0.0000286378,
+   "p_stage1": 0.0616256,
+   "projected": 17,
+   "place_lo": 9,
+   "place_hi": 37,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "DraculaN 7",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Retake Season 12",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 101
+  },
+  {
+   "region": "americas",
+   "team": "Voca",
+   "slug": "voca",
+   "vrs": 962,
+   "mu": 987,
+   "sd": 156,
+   "p_qual": 0.0500288,
+   "p_stage3": 5.09717e-8,
+   "p_stage2": 0.00000592011,
+   "p_stage1": 0.0500228,
+   "projected": 18,
+   "place_lo": 9,
+   "place_hi": 38,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "iBUYPOWER Masters FML",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 90
+  },
+  {
+   "region": "americas",
+   "team": "LAG",
+   "slug": null,
+   "vrs": 1000,
+   "mu": 984,
+   "sd": 151,
+   "p_qual": 0.0444951,
+   "p_stage3": 2.19009e-8,
+   "p_stage2": 0.00000272093,
+   "p_stage1": 0.0444924,
+   "projected": 19,
+   "place_lo": 10,
+   "place_hi": 38,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 80
+  },
+  {
+   "region": "americas",
+   "team": "Bounty Hunters",
+   "slug": null,
+   "vrs": 852,
+   "mu": 943,
+   "sd": 160,
+   "p_qual": 0.0315187,
+   "p_stage3": 3.62166e-8,
+   "p_stage2": 0.00000429967,
+   "p_stage1": 0.0315144,
+   "projected": 20,
+   "place_lo": 10,
+   "place_hi": 45,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "FERJEE in HOUSE 2",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Circuit x Curitiba 3",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 121
+  },
+  {
+   "region": "americas",
+   "team": "Marsborne",
+   "slug": null,
+   "vrs": 914,
+   "mu": 902,
+   "sd": 155,
+   "p_qual": 0.0182204,
+   "p_stage3": 1.67094e-9,
+   "p_stage2": 2.49247e-7,
+   "p_stage1": 0.0182202,
+   "projected": 21,
+   "place_lo": 12,
+   "place_hi": 50,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 106
+  },
+  {
+   "region": "americas",
+   "team": "Without a Roof",
+   "slug": null,
+   "vrs": 878,
+   "mu": 868,
+   "sd": 155,
+   "p_qual": 0.0126174,
+   "p_stage3": 3.68775e-10,
+   "p_stage2": 6.06965e-8,
+   "p_stage1": 0.0126173,
+   "projected": 22,
+   "place_lo": 13,
+   "place_hi": 55,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 117
+  },
+  {
+   "region": "americas",
+   "team": "ODDIK",
+   "slug": null,
+   "vrs": 820,
+   "mu": 861,
+   "sd": 158,
+   "p_qual": 0.0125577,
+   "p_stage3": 5.69926e-10,
+   "p_stage2": 9.11748e-8,
+   "p_stage1": 0.0125577,
+   "projected": 23,
+   "place_lo": 13,
+   "place_hi": 57,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "FERJEE in HOUSE 2",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 135
+  },
+  {
+   "region": "americas",
+   "team": "Keyd Stars",
+   "slug": null,
+   "vrs": 803,
+   "mu": 844,
+   "sd": 158,
+   "p_qual": 0.0108338,
+   "p_stage3": 3.98846e-10,
+   "p_stage2": 6.52278e-8,
+   "p_stage1": 0.0108337,
+   "projected": 24,
+   "place_lo": 14,
+   "place_hi": 59,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "FERJEE in HOUSE 2",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 149
+  },
+  {
+   "region": "americas",
+   "team": "Yawara",
+   "slug": null,
+   "vrs": 755,
+   "mu": 841,
+   "sd": 159,
+   "p_qual": 0.0111577,
+   "p_stage3": 1.66364e-9,
+   "p_stage2": 2.47236e-7,
+   "p_stage1": 0.0111574,
+   "projected": 25,
+   "place_lo": 14,
+   "place_hi": 59,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "FERJEE in HOUSE 2",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Circuit x Curitiba 3",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 167
+  },
+  {
+   "region": "americas",
+   "team": "Turma do Pagode",
+   "slug": null,
+   "vrs": 743,
+   "mu": 829,
+   "sd": 156,
+   "p_qual": 0.00921148,
+   "p_stage3": 3.50389e-10,
+   "p_stage2": 5.76505e-8,
+   "p_stage1": 0.00921142,
+   "projected": 26,
+   "place_lo": 15,
+   "place_hi": 61,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "FERJEE in HOUSE 2",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Circuit x Curitiba 3",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 175
+  },
+  {
+   "region": "americas",
+   "team": "ALKA",
+   "slug": null,
+   "vrs": 772,
+   "mu": 811,
+   "sd": 158,
+   "p_qual": 0.00838927,
+   "p_stage3": 1.7003e-10,
+   "p_stage2": 2.92745e-8,
+   "p_stage1": 0.00838924,
+   "projected": 27,
+   "place_lo": 15,
+   "place_hi": 64,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Circuit x Curitiba 3",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 159
+  },
+  {
+   "region": "americas",
+   "team": "Peladona",
+   "slug": null,
+   "vrs": 716,
+   "mu": 800,
+   "sd": 153,
+   "p_qual": 0.00652792,
+   "p_stage3": 3.4375e-11,
+   "p_stage2": 6.46468e-9,
+   "p_stage1": 0.00652792,
+   "projected": 28,
+   "place_lo": 16,
+   "place_hi": 65,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "FERJEE in HOUSE 2",
+     "confirmed": true
+    },
+    {
+     "p": 1,
+     "name": "Circuit x Curitiba 3",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 188
+  },
+  {
+   "region": "americas",
+   "team": "For Fun",
+   "slug": null,
+   "vrs": 809,
+   "mu": 802,
+   "sd": 156,
+   "p_qual": 0.00668262,
+   "p_stage3": 2.34002e-11,
+   "p_stage2": 4.49987e-9,
+   "p_stage1": 0.00668262,
+   "projected": 29,
+   "place_lo": 15,
+   "place_hi": 66,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 141
+  },
+  {
+   "region": "americas",
+   "team": "Chicken Coop",
+   "slug": null,
+   "vrs": 759,
+   "mu": 786,
+   "sd": 158,
+   "p_qual": 0.00710226,
+   "p_stage3": 8.15423e-11,
+   "p_stage2": 1.46451e-8,
+   "p_stage1": 0.00710225,
+   "projected": 30,
+   "place_lo": 16,
+   "place_hi": 68,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "iBUYPOWER Masters FML",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 162
+  },
+  {
+   "region": "americas",
+   "team": "Isurus",
+   "slug": null,
+   "vrs": 792,
+   "mu": 784,
+   "sd": 156,
+   "p_qual": 0.00597529,
+   "p_stage3": 1.61055e-11,
+   "p_stage2": 3.15413e-9,
+   "p_stage1": 0.00597528,
+   "projected": 31,
+   "place_lo": 16,
+   "place_hi": 69,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 155
+  },
+  {
+   "region": "americas",
+   "team": "Passion UA",
+   "slug": null,
+   "vrs": 772,
+   "mu": 765,
+   "sd": 156,
+   "p_qual": 0.00507191,
+   "p_stage3": 7.51152e-12,
+   "p_stage2": 1.52489e-9,
+   "p_stage1": 0.00507191,
+   "projected": 32,
+   "place_lo": 17,
+   "place_hi": 71,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 158
+  },
+  {
+   "region": "americas",
+   "team": "Iowa Stormboar",
+   "slug": null,
+   "vrs": 769,
+   "mu": 762,
+   "sd": 157,
+   "p_qual": 0.00543931,
+   "p_stage3": 1.26923e-11,
+   "p_stage2": 2.51328e-9,
+   "p_stage1": 0.00543931,
+   "projected": 33,
+   "place_lo": 17,
+   "place_hi": 71,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 160
+  },
+  {
+   "region": "americas",
+   "team": "MIBR fe",
+   "slug": null,
+   "vrs": 750,
+   "mu": 743,
+   "sd": 155,
+   "p_qual": 0.00426648,
+   "p_stage3": 3.76987e-12,
+   "p_stage2": 7.88329e-10,
+   "p_stage1": 0.00426647,
+   "projected": 34,
+   "place_lo": 18,
+   "place_hi": 74,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 171
+  },
+  {
+   "region": "americas",
+   "team": "regain",
+   "slug": null,
+   "vrs": 746,
+   "mu": 739,
+   "sd": 154,
+   "p_qual": 0.00383236,
+   "p_stage3": 2.32441e-12,
+   "p_stage2": 4.958e-10,
+   "p_stage1": 0.00383236,
+   "projected": 35,
+   "place_lo": 19,
+   "place_hi": 74,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 172
+  },
+  {
+   "region": "americas",
+   "team": "Overtake Sector",
+   "slug": null,
+   "vrs": 744,
+   "mu": 737,
+   "sd": 153,
+   "p_qual": 0.00351079,
+   "p_stage3": 1.6146e-12,
+   "p_stage2": 3.49325e-10,
+   "p_stage1": 0.00351079,
+   "projected": 36,
+   "place_lo": 19,
+   "place_hi": 74,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 173
+  },
+  {
+   "region": "americas",
+   "team": "Fake do Biru",
+   "slug": null,
+   "vrs": 737,
+   "mu": 730,
+   "sd": 152,
+   "p_qual": 0.00276522,
+   "p_stage3": 6.65529e-13,
+   "p_stage2": 1.48698e-10,
+   "p_stage1": 0.00276522,
+   "projected": 37,
+   "place_lo": 19,
+   "place_hi": 75,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 179
+  },
+  {
+   "region": "americas",
+   "team": "BORRACHEIROS",
+   "slug": null,
+   "vrs": 690,
+   "mu": 724,
+   "sd": 149,
+   "p_qual": 0.00173293,
+   "p_stage3": 1.58547e-13,
+   "p_stage2": 3.70636e-11,
+   "p_stage1": 0.00173293,
+   "projected": 38,
+   "place_lo": 20,
+   "place_hi": 75,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "FERJEE in HOUSE 2",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 207
+  },
+  {
+   "region": "americas",
+   "team": "ex-MIBR Academy",
+   "slug": null,
+   "vrs": 730,
+   "mu": 723,
+   "sd": 151,
+   "p_qual": 0.0022692,
+   "p_stage3": 3.47809e-13,
+   "p_stage2": 7.94028e-11,
+   "p_stage1": 0.0022692,
+   "projected": 39,
+   "place_lo": 20,
+   "place_hi": 76,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 180
+  },
+  {
+   "region": "americas",
+   "team": "UNO MILLE",
+   "slug": null,
+   "vrs": 724,
+   "mu": 717,
+   "sd": 150,
+   "p_qual": 0.00186142,
+   "p_stage3": 1.92076e-13,
+   "p_stage2": 4.46611e-11,
+   "p_stage1": 0.00186142,
+   "projected": 40,
+   "place_lo": 20,
+   "place_hi": 76,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 184
+  },
+  {
+   "region": "americas",
+   "team": "RED Canids",
+   "slug": null,
+   "vrs": 714,
+   "mu": 707,
+   "sd": 149,
+   "p_qual": 0.00124793,
+   "p_stage3": 6.55858e-14,
+   "p_stage2": 1.57176e-11,
+   "p_stage1": 0.00124793,
+   "projected": 41,
+   "place_lo": 21,
+   "place_hi": 78,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 193
+  },
+  {
+   "region": "americas",
+   "team": "Gaimin Gladiators",
+   "slug": "gaimin",
+   "vrs": 711,
+   "mu": 704,
+   "sd": 148,
+   "p_qual": 0.00105589,
+   "p_stage3": 4.34591e-14,
+   "p_stage2": 1.05268e-11,
+   "p_stage1": 0.00105589,
+   "projected": 42,
+   "place_lo": 21,
+   "place_hi": 78,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 195
+  },
+  {
+   "region": "americas",
+   "team": "MIBR Academy",
+   "slug": null,
+   "vrs": 687,
+   "mu": 680,
+   "sd": 147,
+   "p_qual": 0.000410451,
+   "p_stage3": 5.47427e-15,
+   "p_stage2": 1.39146e-12,
+   "p_stage1": 0.000410451,
+   "projected": 43,
+   "place_lo": 22,
+   "place_hi": 80,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 209
+  },
+  {
+   "region": "americas",
+   "team": "Zomblers",
+   "slug": null,
+   "vrs": 682,
+   "mu": 675,
+   "sd": 146,
+   "p_qual": 0.000305981,
+   "p_stage3": 3.07122e-15,
+   "p_stage2": 7.90107e-13,
+   "p_stage1": 0.000305981,
+   "projected": 44,
+   "place_lo": 23,
+   "place_hi": 81,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 214
+  },
+  {
+   "region": "americas",
+   "team": "MEIA NOITE",
+   "slug": null,
+   "vrs": 641,
+   "mu": 673,
+   "sd": 141,
+   "p_qual": 0.0000974248,
+   "p_stage3": 3.92923e-16,
+   "p_stage2": 1.05102e-13,
+   "p_stage1": 0.0000974248,
+   "projected": 45,
+   "place_lo": 23,
+   "place_hi": 81,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "FERJEE in HOUSE 2",
+     "confirmed": true
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 251
+  },
+  {
+   "region": "americas",
+   "team": "BESTIA Academy",
+   "slug": null,
+   "vrs": 679,
+   "mu": 672,
+   "sd": 146,
+   "p_qual": 0.00024323,
+   "p_stage3": 1.98658e-15,
+   "p_stage2": 5.15561e-13,
+   "p_stage1": 0.00024323,
+   "projected": 46,
+   "place_lo": 23,
+   "place_hi": 81,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 216
+  },
+  {
+   "region": "americas",
+   "team": "UNO MILLE",
+   "slug": null,
+   "vrs": 668,
+   "mu": 661,
+   "sd": 144,
+   "p_qual": 0.000120886,
+   "p_stage3": 5.62443e-16,
+   "p_stage2": 1.49522e-13,
+   "p_stage1": 0.000120886,
+   "projected": 47,
+   "place_lo": 24,
+   "place_hi": 82,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 224
+  },
+  {
+   "region": "americas",
+   "team": "Villainous",
+   "slug": null,
+   "vrs": 668,
+   "mu": 661,
+   "sd": 145,
+   "p_qual": 0.000136615,
+   "p_stage3": 6.96004e-16,
+   "p_stage2": 1.84308e-13,
+   "p_stage1": 0.000136615,
+   "projected": 48,
+   "place_lo": 24,
+   "place_hi": 82,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 223
+  },
+  {
+   "region": "americas",
+   "team": "DETONATE",
+   "slug": null,
+   "vrs": 667,
+   "mu": 660,
+   "sd": 144,
+   "p_qual": 0.000102315,
+   "p_stage3": 4.2192e-16,
+   "p_stage2": 1.12751e-13,
+   "p_stage1": 0.000102315,
+   "projected": 49,
+   "place_lo": 24,
+   "place_hi": 82,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 225
+  },
+  {
+   "region": "americas",
+   "team": "EMPIRE",
+   "slug": null,
+   "vrs": 666,
+   "mu": 659,
+   "sd": 143,
+   "p_qual": 0.0000865307,
+   "p_stage3": 3.17385e-16,
+   "p_stage2": 8.52481e-14,
+   "p_stage1": 0.0000865307,
+   "projected": 50,
+   "place_lo": 24,
+   "place_hi": 82,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 227
+  },
+  {
+   "region": "americas",
+   "team": "Club 333",
+   "slug": null,
+   "vrs": 661,
+   "mu": 654,
+   "sd": 143,
+   "p_qual": 0.0000601677,
+   "p_stage3": 1.73054e-16,
+   "p_stage2": 4.69784e-14,
+   "p_stage1": 0.0000601677,
+   "projected": 51,
+   "place_lo": 24,
+   "place_hi": 83,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 231
+  },
+  {
+   "region": "americas",
+   "team": "ex-Aether",
+   "slug": null,
+   "vrs": 652,
+   "mu": 645,
+   "sd": 142,
+   "p_qual": 0.0000333944,
+   "p_stage3": 6.68719e-17,
+   "p_stage2": 1.84475e-14,
+   "p_stage1": 0.0000333944,
+   "projected": 52,
+   "place_lo": 25,
+   "place_hi": 83,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 240
+  },
+  {
+   "region": "americas",
+   "team": "Marsborne",
+   "slug": null,
+   "vrs": 650,
+   "mu": 643,
+   "sd": 142,
+   "p_qual": 0.0000263323,
+   "p_stage3": 4.60606e-17,
+   "p_stage2": 1.2784e-14,
+   "p_stage1": 0.0000263323,
+   "projected": 53,
+   "place_lo": 25,
+   "place_hi": 84,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 241
+  },
+  {
+   "region": "americas",
+   "team": "FarmVille",
+   "slug": null,
+   "vrs": 649,
+   "mu": 642,
+   "sd": 141,
+   "p_qual": 0.0000218936,
+   "p_stage3": 3.46087e-17,
+   "p_stage2": 9.64966e-15,
+   "p_stage1": 0.0000218936,
+   "projected": 54,
+   "place_lo": 25,
+   "place_hi": 84,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 242
+  },
+  {
+   "region": "americas",
+   "team": "FarmVille",
+   "slug": null,
+   "vrs": 642,
+   "mu": 635,
+   "sd": 140,
+   "p_qual": 0.0000128475,
+   "p_stage3": 1.53558e-17,
+   "p_stage2": 4.33673e-15,
+   "p_stage1": 0.0000128475,
+   "projected": 55,
+   "place_lo": 26,
+   "place_hi": 84,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 250
+  },
+  {
+   "region": "americas",
+   "team": "QUINTESSÊNCIA",
+   "slug": null,
+   "vrs": 637,
+   "mu": 630,
+   "sd": 139,
+   "p_qual": 0.00000726839,
+   "p_stage3": 6.5989e-18,
+   "p_stage2": 1.88771e-15,
+   "p_stage1": 0.00000726839,
+   "projected": 56,
+   "place_lo": 26,
+   "place_hi": 85,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 255
+  },
+  {
+   "region": "americas",
+   "team": "Turma do Pagode",
+   "slug": null,
+   "vrs": 635,
+   "mu": 628,
+   "sd": 139,
+   "p_qual": 0.00000560772,
+   "p_stage3": 4.5228e-18,
+   "p_stage2": 1.30107e-15,
+   "p_stage1": 0.00000560772,
+   "projected": 57,
+   "place_lo": 27,
+   "place_hi": 85,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 256
+  },
+  {
+   "region": "americas",
+   "team": "paiN Academy",
+   "slug": null,
+   "vrs": 632,
+   "mu": 625,
+   "sd": 139,
+   "p_qual": 0.00000404175,
+   "p_stage3": 2.8216e-18,
+   "p_stage2": 8.17303e-16,
+   "p_stage1": 0.00000404175,
+   "projected": 58,
+   "place_lo": 27,
+   "place_hi": 85,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 258
+  },
+  {
+   "region": "americas",
+   "team": "insane players",
+   "slug": null,
+   "vrs": 631,
+   "mu": 624,
+   "sd": 138,
+   "p_qual": 0.00000331078,
+   "p_stage3": 2.12356e-18,
+   "p_stage2": 6.17623e-16,
+   "p_stage1": 0.00000331078,
+   "projected": 59,
+   "place_lo": 27,
+   "place_hi": 85,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 260
+  },
+  {
+   "region": "americas",
+   "team": "NuTorious",
+   "slug": null,
+   "vrs": 630,
+   "mu": 623,
+   "sd": 138,
+   "p_qual": 0.00000271146,
+   "p_stage3": 1.60088e-18,
+   "p_stage2": 4.67477e-16,
+   "p_stage1": 0.00000271146,
+   "projected": 60,
+   "place_lo": 27,
+   "place_hi": 85,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 261
+  },
+  {
+   "region": "americas",
+   "team": "Shimmer",
+   "slug": null,
+   "vrs": 629,
+   "mu": 622,
+   "sd": 137,
+   "p_qual": 0.00000222019,
+   "p_stage3": 1.20876e-18,
+   "p_stage2": 3.54372e-16,
+   "p_stage1": 0.00000222019,
+   "projected": 61,
+   "place_lo": 27,
+   "place_hi": 85,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 264
+  },
+  {
+   "region": "americas",
+   "team": "BOSS",
+   "slug": null,
+   "vrs": 629,
+   "mu": 622,
+   "sd": 137,
+   "p_qual": 0.00000194837,
+   "p_stage3": 1.00741e-18,
+   "p_stage2": 2.96091e-16,
+   "p_stage1": 0.00000194837,
+   "projected": 62,
+   "place_lo": 27,
+   "place_hi": 85,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 265
+  },
+  {
+   "region": "americas",
+   "team": "Aether",
+   "slug": null,
+   "vrs": 618,
+   "mu": 611,
+   "sd": 136,
+   "p_qual": 7.75824e-7,
+   "p_stage3": 2.82568e-19,
+   "p_stage2": 8.45119e-17,
+   "p_stage1": 7.75824e-7,
+   "projected": 63,
+   "place_lo": 28,
+   "place_hi": 86,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 274
+  },
+  {
+   "region": "americas",
+   "team": "Procyon",
+   "slug": null,
+   "vrs": 614,
+   "mu": 607,
+   "sd": 136,
+   "p_qual": 5.0154e-7,
+   "p_stage3": 1.56532e-19,
+   "p_stage2": 4.71852e-17,
+   "p_stage1": 5.0154e-7,
+   "projected": 64,
+   "place_lo": 29,
+   "place_hi": 86,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 277
+  },
+  {
+   "region": "americas",
+   "team": "EMPIRE",
+   "slug": null,
+   "vrs": 609,
+   "mu": 602,
+   "sd": 135,
+   "p_qual": 2.96934e-7,
+   "p_stage3": 7.76001e-20,
+   "p_stage2": 2.36069e-17,
+   "p_stage1": 2.96934e-7,
+   "projected": 65,
+   "place_lo": 29,
+   "place_hi": 86,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 280
+  },
+  {
+   "region": "americas",
+   "team": "Festina Lente",
+   "slug": null,
+   "vrs": 597,
+   "mu": 590,
+   "sd": 135,
+   "p_qual": 9.73184e-8,
+   "p_stage3": 1.78773e-20,
+   "p_stage2": 5.54053e-18,
+   "p_stage1": 9.73184e-8,
+   "projected": 66,
+   "place_lo": 31,
+   "place_hi": 87,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 293
+  },
+  {
+   "region": "americas",
+   "team": "METANOIA Wolves",
+   "slug": null,
+   "vrs": 596,
+   "mu": 589,
+   "sd": 134,
+   "p_qual": 7.76541e-8,
+   "p_stage3": 1.33352e-20,
+   "p_stage2": 4.14783e-18,
+   "p_stage1": 7.76541e-8,
+   "projected": 67,
+   "place_lo": 31,
+   "place_hi": 87,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 294
+  },
+  {
+   "region": "americas",
+   "team": "Reign Above",
+   "slug": null,
+   "vrs": 594,
+   "mu": 587,
+   "sd": 134,
+   "p_qual": 5.68993e-8,
+   "p_stage3": 8.91941e-21,
+   "p_stage2": 2.78806e-18,
+   "p_stage1": 5.68993e-8,
+   "projected": 68,
+   "place_lo": 31,
+   "place_hi": 87,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 295
+  },
+  {
+   "region": "americas",
+   "team": "Wanted Goons",
+   "slug": null,
+   "vrs": 592,
+   "mu": 585,
+   "sd": 134,
+   "p_qual": 4.15939e-8,
+   "p_stage3": 5.96083e-21,
+   "p_stage2": 1.87239e-18,
+   "p_stage1": 4.15939e-8,
+   "projected": 69,
+   "place_lo": 31,
+   "place_hi": 87,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 297
+  },
+  {
+   "region": "americas",
+   "team": "Atrix",
+   "slug": null,
+   "vrs": 591,
+   "mu": 584,
+   "sd": 133,
+   "p_qual": 3.31495e-8,
+   "p_stage3": 4.4577e-21,
+   "p_stage2": 1.40514e-18,
+   "p_stage1": 3.31495e-8,
+   "projected": 70,
+   "place_lo": 31,
+   "place_hi": 87,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 298
+  },
+  {
+   "region": "americas",
+   "team": "Back to Back",
+   "slug": null,
+   "vrs": 589,
+   "mu": 581,
+   "sd": 133,
+   "p_qual": 2.41525e-8,
+   "p_stage3": 2.97708e-21,
+   "p_stage2": 9.42956e-19,
+   "p_stage1": 2.41525e-8,
+   "projected": 71,
+   "place_lo": 32,
+   "place_hi": 88,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 300
+  },
+  {
+   "region": "americas",
+   "team": "Back to Back",
+   "slug": null,
+   "vrs": 588,
+   "mu": 580,
+   "sd": 132,
+   "p_qual": 1.92305e-8,
+   "p_stage3": 2.22914e-21,
+   "p_stage2": 7.08476e-19,
+   "p_stage1": 1.92305e-8,
+   "projected": 72,
+   "place_lo": 32,
+   "place_hi": 88,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 301
+  },
+  {
+   "region": "americas",
+   "team": "paiN Academy",
+   "slug": null,
+   "vrs": 585,
+   "mu": 577,
+   "sd": 132,
+   "p_qual": 1.27318e-8,
+   "p_stage3": 1.32381e-21,
+   "p_stage2": 4.23314e-19,
+   "p_stage1": 1.27318e-8,
+   "projected": 73,
+   "place_lo": 32,
+   "place_hi": 88,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 304
+  },
+  {
+   "region": "americas",
+   "team": "Keyd Stars",
+   "slug": null,
+   "vrs": 581,
+   "mu": 573,
+   "sd": 132,
+   "p_qual": 7.62659e-9,
+   "p_stage3": 6.95704e-22,
+   "p_stage2": 2.24125e-19,
+   "p_stage1": 7.62659e-9,
+   "projected": 74,
+   "place_lo": 33,
+   "place_hi": 88,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 307
+  },
+  {
+   "region": "americas",
+   "team": "900FPSvsECO",
+   "slug": null,
+   "vrs": 578,
+   "mu": 570,
+   "sd": 131,
+   "p_qual": 4.98563e-9,
+   "p_stage3": 4.09354e-22,
+   "p_stage2": 1.32675e-19,
+   "p_stage1": 4.98563e-9,
+   "projected": 75,
+   "place_lo": 33,
+   "place_hi": 88,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 309
+  },
+  {
+   "region": "americas",
+   "team": "Wanted Goons",
+   "slug": null,
+   "vrs": 577,
+   "mu": 569,
+   "sd": 131,
+   "p_qual": 3.94268e-9,
+   "p_stage3": 3.05815e-22,
+   "p_stage2": 9.94444e-20,
+   "p_stage1": 3.94268e-9,
+   "projected": 76,
+   "place_lo": 33,
+   "place_hi": 88,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 311
+  },
+  {
+   "region": "americas",
+   "team": "ex-KRÜ",
+   "slug": null,
+   "vrs": 565,
+   "mu": 557,
+   "sd": 131,
+   "p_qual": 1.02957e-9,
+   "p_stage3": 5.85576e-23,
+   "p_stage2": 1.93927e-20,
+   "p_stage1": 1.02957e-9,
+   "projected": 77,
+   "place_lo": 35,
+   "place_hi": 89,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 318
+  },
+  {
+   "region": "americas",
+   "team": "Crashers",
+   "slug": null,
+   "vrs": 564,
+   "mu": 556,
+   "sd": 130,
+   "p_qual": 8.05545e-10,
+   "p_stage3": 4.34036e-23,
+   "p_stage2": 1.44208e-20,
+   "p_stage1": 8.05545e-10,
+   "projected": 78,
+   "place_lo": 35,
+   "place_hi": 89,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 319
+  },
+  {
+   "region": "americas",
+   "team": "Players",
+   "slug": null,
+   "vrs": 552,
+   "mu": 544,
+   "sd": 130,
+   "p_qual": 1.93698e-10,
+   "p_stage3": 7.731e-24,
+   "p_stage2": 2.61601e-21,
+   "p_stage1": 1.93698e-10,
+   "projected": 79,
+   "place_lo": 36,
+   "place_hi": 90,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 322
+  },
+  {
+   "region": "americas",
+   "team": "Vasco",
+   "slug": null,
+   "vrs": 551,
+   "mu": 543,
+   "sd": 130,
+   "p_qual": 1.49915e-10,
+   "p_stage3": 5.68274e-24,
+   "p_stage2": 1.92907e-21,
+   "p_stage1": 1.49915e-10,
+   "projected": 80,
+   "place_lo": 36,
+   "place_hi": 90,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 323
+  },
+  {
+   "region": "asia",
+   "team": "Vitalem Aerem",
+   "slug": null,
+   "vrs": 704,
+   "mu": 710,
+   "sd": 156,
+   "p_qual": 0.0118103,
+   "p_stage3": 0,
+   "p_stage2": 0.00000162996,
+   "p_stage1": 0.0118086,
+   "projected": 21,
+   "place_lo": 8,
+   "place_hi": 41,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 200
+  },
+  {
+   "region": "asia",
+   "team": "Mindfreak",
+   "slug": null,
+   "vrs": 666,
+   "mu": 675,
+   "sd": 156,
+   "p_qual": 0.00831748,
+   "p_stage3": 0,
+   "p_stage2": 3.72857e-7,
+   "p_stage1": 0.00831711,
+   "projected": 22,
+   "place_lo": 9,
+   "place_hi": 42,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 228
+  },
+  {
+   "region": "asia",
+   "team": "Haunted House",
+   "slug": null,
+   "vrs": 661,
+   "mu": 671,
+   "sd": 157,
+   "p_qual": 0.00829466,
+   "p_stage3": 0,
+   "p_stage2": 4.8215e-7,
+   "p_stage1": 0.00829418,
+   "projected": 23,
+   "place_lo": 10,
+   "place_hi": 43,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 232
+  },
+  {
+   "region": "asia",
+   "team": "SemperFi",
+   "slug": null,
+   "vrs": 661,
+   "mu": 671,
+   "sd": 156,
+   "p_qual": 0.00811127,
+   "p_stage3": 0,
+   "p_stage2": 3.75495e-7,
+   "p_stage1": 0.0081109,
+   "projected": 24,
+   "place_lo": 10,
+   "place_hi": 43,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 230
+  },
+  {
+   "region": "asia",
+   "team": "Revenge",
+   "slug": null,
+   "vrs": 656,
+   "mu": 666,
+   "sd": 157,
+   "p_qual": 0.00811015,
+   "p_stage3": 0,
+   "p_stage2": 4.96756e-7,
+   "p_stage1": 0.00810965,
+   "projected": 25,
+   "place_lo": 10,
+   "place_hi": 43,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 237
+  },
+  {
+   "region": "asia",
+   "team": "Rare Atom",
+   "slug": "rareatom",
+   "vrs": 641,
+   "mu": 652,
+   "sd": 157,
+   "p_qual": 0.00730043,
+   "p_stage3": 0,
+   "p_stage2": 3.24764e-7,
+   "p_stage1": 0.0073001,
+   "projected": 26,
+   "place_lo": 10,
+   "place_hi": 43,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 252
+  },
+  {
+   "region": "asia",
+   "team": "FengDa",
+   "slug": null,
+   "vrs": 637,
+   "mu": 648,
+   "sd": 157,
+   "p_qual": 0.00725176,
+   "p_stage3": 0,
+   "p_stage2": 3.60179e-7,
+   "p_stage1": 0.0072514,
+   "projected": 27,
+   "place_lo": 10,
+   "place_hi": 43,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 254
+  },
+  {
+   "region": "asia",
+   "team": "BORING PLAYERS",
+   "slug": null,
+   "vrs": 626,
+   "mu": 638,
+   "sd": 157,
+   "p_qual": 0.00682649,
+   "p_stage3": 0,
+   "p_stage2": 2.90695e-7,
+   "p_stage1": 0.0068262,
+   "projected": 28,
+   "place_lo": 11,
+   "place_hi": 44,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 266
+  },
+  {
+   "region": "asia",
+   "team": "Change The Game",
+   "slug": null,
+   "vrs": 624,
+   "mu": 636,
+   "sd": 158,
+   "p_qual": 0.00692136,
+   "p_stage3": 0,
+   "p_stage2": 3.65387e-7,
+   "p_stage1": 0.006921,
+   "projected": 29,
+   "place_lo": 11,
+   "place_hi": 44,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 268
+  },
+  {
+   "region": "asia",
+   "team": "Club 333",
+   "slug": null,
+   "vrs": 613,
+   "mu": 626,
+   "sd": 158,
+   "p_qual": 0.00657728,
+   "p_stage3": 0,
+   "p_stage2": 3.0345e-7,
+   "p_stage1": 0.00657697,
+   "projected": 30,
+   "place_lo": 11,
+   "place_hi": 44,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 278
+  },
+  {
+   "region": "americas",
+   "team": "Grêmio",
+   "slug": null,
+   "vrs": 550,
+   "mu": 542,
+   "sd": 130,
+   "p_qual": 1.3419e-10,
+   "p_stage3": 4.9755e-24,
+   "p_stage2": 1.69131e-21,
+   "p_stage1": 1.3419e-10,
+   "projected": 81,
+   "place_lo": 37,
+   "place_hi": 90,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 324
+  },
+  {
+   "region": "americas",
+   "team": "Elusive",
+   "slug": null,
+   "vrs": 549,
+   "mu": 541,
+   "sd": 129,
+   "p_qual": 1.20062e-10,
+   "p_stage3": 4.35455e-24,
+   "p_stage2": 1.48227e-21,
+   "p_stage1": 1.20062e-10,
+   "projected": 82,
+   "place_lo": 37,
+   "place_hi": 90,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 326
+  },
+  {
+   "region": "americas",
+   "team": "Beyond Limits",
+   "slug": null,
+   "vrs": 532,
+   "mu": 523,
+   "sd": 129,
+   "p_qual": 1.69314e-11,
+   "p_stage3": 4.24507e-25,
+   "p_stage2": 1.47927e-22,
+   "p_stage1": 1.69314e-11,
+   "projected": 83,
+   "place_lo": 39,
+   "place_hi": 91,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 335
+  },
+  {
+   "region": "americas",
+   "team": "Axial",
+   "slug": null,
+   "vrs": 530,
+   "mu": 521,
+   "sd": 129,
+   "p_qual": 1.33318e-11,
+   "p_stage3": 3.20269e-25,
+   "p_stage2": 1.11912e-22,
+   "p_stage1": 1.33318e-11,
+   "projected": 84,
+   "place_lo": 39,
+   "place_hi": 91,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 336
+  },
+  {
+   "region": "americas",
+   "team": "your end",
+   "slug": null,
+   "vrs": 529,
+   "mu": 520,
+   "sd": 129,
+   "p_qual": 1.18219e-11,
+   "p_stage3": 2.78005e-25,
+   "p_stage2": 9.72786e-23,
+   "p_stage1": 1.18219e-11,
+   "projected": 85,
+   "place_lo": 39,
+   "place_hi": 91,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 337
+  },
+  {
+   "region": "americas",
+   "team": "Pugdesonesto",
+   "slug": null,
+   "vrs": 528,
+   "mu": 519,
+   "sd": 129,
+   "p_qual": 1.04781e-11,
+   "p_stage3": 2.41215e-25,
+   "p_stage2": 8.45222e-23,
+   "p_stage1": 1.04781e-11,
+   "projected": 86,
+   "place_lo": 39,
+   "place_hi": 91,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 338
+  },
+  {
+   "region": "americas",
+   "team": "New Legends",
+   "slug": null,
+   "vrs": 521,
+   "mu": 512,
+   "sd": 129,
+   "p_qual": 4.44406e-12,
+   "p_stage3": 8.82271e-26,
+   "p_stage2": 3.12165e-23,
+   "p_stage1": 4.44406e-12,
+   "projected": 87,
+   "place_lo": 40,
+   "place_hi": 91,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 344
+  },
+  {
+   "region": "americas",
+   "team": "Incognito",
+   "slug": null,
+   "vrs": 511,
+   "mu": 502,
+   "sd": 129,
+   "p_qual": 1.25318e-12,
+   "p_stage3": 2.01933e-26,
+   "p_stage2": 7.24492e-24,
+   "p_stage1": 1.25318e-12,
+   "projected": 88,
+   "place_lo": 42,
+   "place_hi": 91,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 353
+  },
+  {
+   "region": "americas",
+   "team": "Sementes do Mal",
+   "slug": null,
+   "vrs": 509,
+   "mu": 500,
+   "sd": 129,
+   "p_qual": 9.67198e-13,
+   "p_stage3": 1.49538e-26,
+   "p_stage2": 5.38009e-24,
+   "p_stage1": 9.67198e-13,
+   "projected": 89,
+   "place_lo": 42,
+   "place_hi": 91,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 355
+  },
+  {
+   "region": "americas",
+   "team": "Chicanery",
+   "slug": null,
+   "vrs": 495,
+   "mu": 486,
+   "sd": 129,
+   "p_qual": 1.4909e-13,
+   "p_stage3": 1.73185e-27,
+   "p_stage2": 6.35418e-25,
+   "p_stage1": 1.4909e-13,
+   "projected": 90,
+   "place_lo": 44,
+   "place_hi": 92,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 363
+  },
+  {
+   "region": "americas",
+   "team": "R2",
+   "slug": null,
+   "vrs": 492,
+   "mu": 483,
+   "sd": 129,
+   "p_qual": 9.85584e-14,
+   "p_stage3": 1.07767e-27,
+   "p_stage2": 3.97069e-25,
+   "p_stage1": 9.85584e-14,
+   "projected": 91,
+   "place_lo": 44,
+   "place_hi": 92,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 365
+  },
+  {
+   "region": "americas",
+   "team": "girl kissers",
+   "slug": null,
+   "vrs": 484,
+   "mu": 474,
+   "sd": 129,
+   "p_qual": 3.19215e-14,
+   "p_stage3": 2.97441e-28,
+   "p_stage2": 1.10834e-25,
+   "p_stage1": 3.19215e-14,
+   "projected": 92,
+   "place_lo": 46,
+   "place_hi": 92,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 370
+  },
+  {
+   "region": "americas",
+   "team": "MAGICOS",
+   "slug": null,
+   "vrs": 479,
+   "mu": 469,
+   "sd": 129,
+   "p_qual": 1.54995e-14,
+   "p_stage3": 1.30808e-28,
+   "p_stage2": 4.90878e-26,
+   "p_stage1": 1.54995e-14,
+   "projected": 93,
+   "place_lo": 46,
+   "place_hi": 93,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 373
+  },
+  {
+   "region": "americas",
+   "team": "METANOIA Wolves",
+   "slug": null,
+   "vrs": 478,
+   "mu": 468,
+   "sd": 129,
+   "p_qual": 1.33916e-14,
+   "p_stage3": 1.10813e-28,
+   "p_stage2": 4.1643e-26,
+   "p_stage1": 1.33916e-14,
+   "projected": 94,
+   "place_lo": 47,
+   "place_hi": 93,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 374
+  },
+  {
+   "region": "americas",
+   "team": "DAMAJUANA",
+   "slug": null,
+   "vrs": 474,
+   "mu": 464,
+   "sd": 129,
+   "p_qual": 7.42025e-15,
+   "p_stage3": 5.67622e-29,
+   "p_stage2": 2.14521e-26,
+   "p_stage1": 7.42025e-15,
+   "projected": 95,
+   "place_lo": 47,
+   "place_hi": 93,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 376
+  },
+  {
+   "region": "americas",
+   "team": "Blitzkrieg",
+   "slug": null,
+   "vrs": 472,
+   "mu": 462,
+   "sd": 129,
+   "p_qual": 5.50441e-15,
+   "p_stage3": 4.04921e-29,
+   "p_stage2": 1.53466e-26,
+   "p_stage1": 5.50441e-15,
+   "projected": 96,
+   "place_lo": 47,
+   "place_hi": 93,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 379
+  },
+  {
+   "region": "americas",
+   "team": "raisedbypixels",
+   "slug": null,
+   "vrs": 471,
+   "mu": 461,
+   "sd": 129,
+   "p_qual": 4.73672e-15,
+   "p_stage3": 3.41717e-29,
+   "p_stage2": 1.29695e-26,
+   "p_stage1": 4.73672e-15,
+   "projected": 97,
+   "place_lo": 48,
+   "place_hi": 93,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 380
+  },
+  {
+   "region": "americas",
+   "team": "Mansão Maromba",
+   "slug": null,
+   "vrs": 464,
+   "mu": 454,
+   "sd": 129,
+   "p_qual": 1.62801e-15,
+   "p_stage3": 1.02542e-29,
+   "p_stage2": 3.93074e-27,
+   "p_stage1": 1.62801e-15,
+   "projected": 98,
+   "place_lo": 49,
+   "place_hi": 93,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 384
+  },
+  {
+   "region": "americas",
+   "team": "Charrados",
+   "slug": null,
+   "vrs": 462,
+   "mu": 452,
+   "sd": 129,
+   "p_qual": 1.19341e-15,
+   "p_stage3": 7.23285e-30,
+   "p_stage2": 2.78045e-27,
+   "p_stage1": 1.19341e-15,
+   "projected": 99,
+   "place_lo": 49,
+   "place_hi": 93,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 385
+  },
+  {
+   "region": "americas",
+   "team": "Zetta",
+   "slug": null,
+   "vrs": 460,
+   "mu": 450,
+   "sd": 129,
+   "p_qual": 8.72687e-16,
+   "p_stage3": 5.08985e-30,
+   "p_stage2": 1.96222e-27,
+   "p_stage1": 8.72687e-16,
+   "projected": 100,
+   "place_lo": 49,
+   "place_hi": 93,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 386
+  },
+  {
+   "region": "americas",
+   "team": "GUARA",
+   "slug": null,
+   "vrs": 459,
+   "mu": 449,
+   "sd": 129,
+   "p_qual": 7.45577e-16,
+   "p_stage3": 4.266e-30,
+   "p_stage2": 1.64695e-27,
+   "p_stage1": 7.45577e-16,
+   "projected": 101,
+   "place_lo": 49,
+   "place_hi": 93,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 388
+  },
+  {
+   "region": "americas",
+   "team": "Unreal Nightmare",
+   "slug": null,
+   "vrs": 418,
+   "mu": 407,
+   "sd": 129,
+   "p_qual": 6.64219e-19,
+   "p_stage3": 1.77744e-33,
+   "p_stage2": 7.27583e-31,
+   "p_stage1": 6.64219e-19,
+   "projected": 102,
+   "place_lo": 56,
+   "place_hi": 94,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 393
+  },
+  {
+   "region": "americas",
+   "team": "wachoskys",
+   "slug": null,
+   "vrs": 417,
+   "mu": 406,
+   "sd": 129,
+   "p_qual": 5.514e-19,
+   "p_stage3": 1.44933e-33,
+   "p_stage2": 5.94123e-31,
+   "p_stage1": 5.514e-19,
+   "projected": 103,
+   "place_lo": 56,
+   "place_hi": 94,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 395
+  },
+  {
+   "region": "americas",
+   "team": "FURIA fe",
+   "slug": null,
+   "vrs": 400,
+   "mu": 388,
+   "sd": 129,
+   "p_qual": 2.069e-20,
+   "p_stage3": 4.02777e-35,
+   "p_stage2": 1.69168e-32,
+   "p_stage1": 2.069e-20,
+   "projected": 104,
+   "place_lo": 59,
+   "place_hi": 95,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 401
+  },
+  {
+   "region": "americas",
+   "team": "OverKnight",
+   "slug": null,
+   "vrs": 397,
+   "mu": 385,
+   "sd": 129,
+   "p_qual": 1.13184e-20,
+   "p_stage3": 2.09146e-35,
+   "p_stage2": 8.82188e-33,
+   "p_stage1": 1.13184e-20,
+   "projected": 105,
+   "place_lo": 60,
+   "place_hi": 95,
+   "tier1": [],
+   "tier2": [],
+   "qual_by": [],
+   "vrs_rank": 409
+  },
+  {
+   "region": "asia",
+   "team": "TYLOO",
+   "slug": "tyloo",
+   "vrs": 1371,
+   "mu": 1427,
+   "sd": 116,
+   "p_qual": 0.990294,
+   "p_stage3": 0,
+   "p_stage2": 0.499153,
+   "p_stage1": 0.491141,
+   "projected": 1,
+   "place_lo": 1,
+   "place_hi": 3,
+   "tier1": [
+    "ESL Pro League Season 24",
+    "PGL Masters Bucharest"
+   ],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.22,
+     "name": "CyberClash S2",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 25
+  },
+  {
+   "region": "asia",
+   "team": "The MongolZ",
+   "slug": "mongolz",
+   "vrs": 1394,
+   "mu": 1414,
+   "sd": 113,
+   "p_qual": 0.99313,
+   "p_stage3": 0,
+   "p_stage2": 0.441681,
+   "p_stage1": 0.551448,
+   "projected": 2,
+   "place_lo": 1,
+   "place_hi": 3,
+   "tier1": [
+    "PGL Masters Bucharest"
+   ],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 23
+  },
+  {
+   "region": "asia",
+   "team": "Lynn Vision",
+   "slug": "lynn",
+   "vrs": 1256,
+   "mu": 1227,
+   "sd": 111,
+   "p_qual": 0.902858,
+   "p_stage3": 0,
+   "p_stage2": 0.0344379,
+   "p_stage1": 0.86842,
+   "projected": 3,
+   "place_lo": 2,
+   "place_hi": 6,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 37
+  },
+  {
+   "region": "asia",
+   "team": "DEPO",
+   "slug": "depo",
+   "vrs": 1110,
+   "mu": 1082,
+   "sd": 111,
+   "p_qual": 0.500586,
+   "p_stage3": 0,
+   "p_stage2": 0.00233271,
+   "p_stage1": 0.498254,
+   "projected": 4,
+   "place_lo": 3,
+   "place_hi": 10,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 56
+  },
+  {
+   "region": "asia",
+   "team": "FlyQuest",
+   "slug": "flyquest",
+   "vrs": 1108,
+   "mu": 1080,
+   "sd": 111,
+   "p_qual": 0.491125,
+   "p_stage3": 0,
+   "p_stage2": 0.00222623,
+   "p_stage1": 0.488899,
+   "projected": 5,
+   "place_lo": 3,
+   "place_hi": 10,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 57
+  },
+  {
+   "region": "asia",
+   "team": "5star",
+   "slug": "fivestar",
+   "vrs": 1046,
+   "mu": 1075,
+   "sd": 122,
+   "p_qual": 0.471154,
+   "p_stage3": 0,
+   "p_stage2": 0.00351948,
+   "p_stage1": 0.467635,
+   "projected": 6,
+   "place_lo": 3,
+   "place_hi": 11,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Moscow Cyber Games",
+     "confirmed": true
+    },
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 69
+  },
+  {
+   "region": "asia",
+   "team": "THUNDER dOWNUNDER",
+   "slug": "thunder",
+   "vrs": 1017,
+   "mu": 993,
+   "sd": 125,
+   "p_qual": 0.216437,
+   "p_stage3": 0,
+   "p_stage2": 0.000646343,
+   "p_stage1": 0.215791,
+   "projected": 7,
+   "place_lo": 4,
+   "place_hi": 15,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 78
+  },
+  {
+   "region": "asia",
+   "team": "Ground Zero",
+   "slug": "groundzero",
+   "vrs": 898,
+   "mu": 884,
+   "sd": 130,
+   "p_qual": 0.058758,
+   "p_stage3": 0,
+   "p_stage2": 0.0000332587,
+   "p_stage1": 0.0587247,
+   "projected": 8,
+   "place_lo": 5,
+   "place_hi": 24,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 110
+  },
+  {
+   "region": "asia",
+   "team": "NEXVOID",
+   "slug": "nexvoid",
+   "vrs": 883,
+   "mu": 871,
+   "sd": 135,
+   "p_qual": 0.0531931,
+   "p_stage3": 0,
+   "p_stage2": 0.000034254,
+   "p_stage1": 0.0531589,
+   "projected": 9,
+   "place_lo": 5,
+   "place_hi": 26,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 114
+  },
+  {
+   "region": "asia",
+   "team": "Alter Ego",
+   "slug": "alterego",
+   "vrs": 804,
+   "mu": 845,
+   "sd": 146,
+   "p_qual": 0.0467445,
+   "p_stage3": 0,
+   "p_stage2": 0.0000468379,
+   "p_stage1": 0.0466977,
+   "projected": 10,
+   "place_lo": 6,
+   "place_hi": 29,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 1,
+     "name": "Moscow Cyber Games",
+     "confirmed": true
+    },
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 148
+  },
+  {
+   "region": "asia",
+   "team": "Rare Atom",
+   "slug": "rareatom",
+   "vrs": 820,
+   "mu": 814,
+   "sd": 139,
+   "p_qual": 0.0272765,
+   "p_stage3": 0,
+   "p_stage2": 0.00000593066,
+   "p_stage1": 0.0272706,
+   "projected": 11,
+   "place_lo": 6,
+   "place_hi": 31,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 136
+  },
+  {
+   "region": "asia",
+   "team": "Chinggis Warriors",
+   "slug": "chinggis",
+   "vrs": 764,
+   "mu": 764,
+   "sd": 146,
+   "p_qual": 0.0167817,
+   "p_stage3": 0,
+   "p_stage2": 0.00000173894,
+   "p_stage1": 0.01678,
+   "projected": 12,
+   "place_lo": 7,
+   "place_hi": 36,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 161
+  },
+  {
+   "region": "asia",
+   "team": "The Huns",
+   "slug": "thehuns",
+   "vrs": 740,
+   "mu": 743,
+   "sd": 149,
+   "p_qual": 0.0138326,
+   "p_stage3": 0,
+   "p_stage2": 0.00000101217,
+   "p_stage1": 0.0138315,
+   "projected": 13,
+   "place_lo": 8,
+   "place_hi": 38,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 177
+  },
+  {
+   "region": "asia",
+   "team": "Kaleido",
+   "slug": "kaleido",
+   "vrs": 729,
+   "mu": 733,
+   "sd": 152,
+   "p_qual": 0.0132123,
+   "p_stage3": 0,
+   "p_stage2": 9.91987e-7,
+   "p_stage1": 0.0132113,
+   "projected": 14,
+   "place_lo": 8,
+   "place_hi": 39,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 181
+  },
+  {
+   "region": "asia",
+   "team": "THE UNIT",
+   "slug": "theunit",
+   "vrs": 728,
+   "mu": 732,
+   "sd": 155,
+   "p_qual": 0.0140332,
+   "p_stage3": 0,
+   "p_stage2": 0.0000014554,
+   "p_stage1": 0.0140317,
+   "projected": 15,
+   "place_lo": 8,
+   "place_hi": 39,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 182
+  },
+  {
+   "region": "asia",
+   "team": "Abyssal",
+   "slug": null,
+   "vrs": 719,
+   "mu": 724,
+   "sd": 155,
+   "p_qual": 0.0128993,
+   "p_stage3": 0,
+   "p_stage2": 0.00000118119,
+   "p_stage1": 0.0128981,
+   "projected": 16,
+   "place_lo": 8,
+   "place_hi": 40,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 187
+  },
+  {
+   "region": "asia",
+   "team": "The Huns",
+   "slug": "thehuns",
+   "vrs": 716,
+   "mu": 721,
+   "sd": 155,
+   "p_qual": 0.0126642,
+   "p_stage3": 0,
+   "p_stage2": 0.00000124591,
+   "p_stage1": 0.012663,
+   "projected": 17,
+   "place_lo": 8,
+   "place_hi": 40,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 189
+  },
+  {
+   "region": "asia",
+   "team": "Rooster",
+   "slug": null,
+   "vrs": 715,
+   "mu": 720,
+   "sd": 156,
+   "p_qual": 0.0128579,
+   "p_stage3": 0,
+   "p_stage2": 0.00000174187,
+   "p_stage1": 0.0128562,
+   "projected": 18,
+   "place_lo": 8,
+   "place_hi": 40,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 192
+  },
+  {
+   "region": "asia",
+   "team": "Chinggis Warriors",
+   "slug": "chinggis",
+   "vrs": 715,
+   "mu": 720,
+   "sd": 155,
+   "p_qual": 0.0126985,
+   "p_stage3": 0,
+   "p_stage2": 0.00000143888,
+   "p_stage1": 0.0126971,
+   "projected": 19,
+   "place_lo": 8,
+   "place_hi": 40,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 190
+  },
+  {
+   "region": "asia",
+   "team": "Just Swing",
+   "slug": null,
+   "vrs": 708,
+   "mu": 714,
+   "sd": 156,
+   "p_qual": 0.0121307,
+   "p_stage3": 0,
+   "p_stage2": 0.00000157489,
+   "p_stage1": 0.0121291,
+   "projected": 20,
+   "place_lo": 8,
+   "place_hi": 40,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 197
+  },
+  {
+   "region": "asia",
+   "team": "Banzai",
+   "slug": null,
+   "vrs": 601,
+   "mu": 614,
+   "sd": 157,
+   "p_qual": 0.00578414,
+   "p_stage3": 0,
+   "p_stage2": 1.30421e-7,
+   "p_stage1": 0.00578401,
+   "projected": 31,
+   "place_lo": 12,
+   "place_hi": 45,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 287
+  },
+  {
+   "region": "asia",
+   "team": "MARKandLARRY",
+   "slug": null,
+   "vrs": 600,
+   "mu": 614,
+   "sd": 156,
+   "p_qual": 0.00551143,
+   "p_stage3": 0,
+   "p_stage2": 9.65368e-8,
+   "p_stage1": 0.00551133,
+   "projected": 32,
+   "place_lo": 12,
+   "place_hi": 45,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 290
+  },
+  {
+   "region": "asia",
+   "team": "Ding Cuts",
+   "slug": null,
+   "vrs": 598,
+   "mu": 612,
+   "sd": 155,
+   "p_qual": 0.00519056,
+   "p_stage3": 0,
+   "p_stage2": 6.84298e-8,
+   "p_stage1": 0.00519049,
+   "projected": 33,
+   "place_lo": 12,
+   "place_hi": 45,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 292
+  },
+  {
+   "region": "asia",
+   "team": "BMZ",
+   "slug": null,
+   "vrs": 589,
+   "mu": 603,
+   "sd": 154,
+   "p_qual": 0.00451807,
+   "p_stage3": 0,
+   "p_stage2": 3.38776e-8,
+   "p_stage1": 0.00451803,
+   "projected": 34,
+   "place_lo": 13,
+   "place_hi": 45,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 299
+  },
+  {
+   "region": "asia",
+   "team": "ZEVS",
+   "slug": null,
+   "vrs": 578,
+   "mu": 593,
+   "sd": 153,
+   "p_qual": 0.00374608,
+   "p_stage3": 0,
+   "p_stage2": 1.49232e-8,
+   "p_stage1": 0.00374606,
+   "projected": 35,
+   "place_lo": 13,
+   "place_hi": 45,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 308
+  },
+  {
+   "region": "asia",
+   "team": "QuantumX",
+   "slug": null,
+   "vrs": 578,
+   "mu": 593,
+   "sd": 153,
+   "p_qual": 0.00353767,
+   "p_stage3": 0,
+   "p_stage2": 1.18902e-8,
+   "p_stage1": 0.00353765,
+   "projected": 36,
+   "place_lo": 13,
+   "place_hi": 45,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 310
+  },
+  {
+   "region": "asia",
+   "team": "LFO 8",
+   "slug": null,
+   "vrs": 575,
+   "mu": 590,
+   "sd": 152,
+   "p_qual": 0.00319119,
+   "p_stage3": 0,
+   "p_stage2": 8.08535e-9,
+   "p_stage1": 0.00319118,
+   "projected": 37,
+   "place_lo": 13,
+   "place_hi": 45,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 312
+  },
+  {
+   "region": "asia",
+   "team": "Arcade",
+   "slug": null,
+   "vrs": 549,
+   "mu": 565,
+   "sd": 151,
+   "p_qual": 0.00185299,
+   "p_stage3": 0,
+   "p_stage2": 1.46386e-9,
+   "p_stage1": 0.00185299,
+   "projected": 38,
+   "place_lo": 15,
+   "place_hi": 46,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 325
+  },
+  {
+   "region": "asia",
+   "team": "Nas",
+   "slug": null,
+   "vrs": 544,
+   "mu": 560,
+   "sd": 150,
+   "p_qual": 0.00152485,
+   "p_stage3": 0,
+   "p_stage2": 8.70679e-10,
+   "p_stage1": 0.00152485,
+   "projected": 39,
+   "place_lo": 15,
+   "place_hi": 46,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 328
+  },
+  {
+   "region": "asia",
+   "team": "5dads",
+   "slug": null,
+   "vrs": 524,
+   "mu": 540,
+   "sd": 150,
+   "p_qual": 0.000820729,
+   "p_stage3": 0,
+   "p_stage2": 2.0077e-10,
+   "p_stage1": 0.000820729,
+   "projected": 40,
+   "place_lo": 16,
+   "place_hi": 46,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 341
+  },
+  {
+   "region": "asia",
+   "team": "XDM",
+   "slug": null,
+   "vrs": 521,
+   "mu": 537,
+   "sd": 149,
+   "p_qual": 0.000675954,
+   "p_stage3": 0,
+   "p_stage2": 1.32633e-10,
+   "p_stage1": 0.000675954,
+   "projected": 41,
+   "place_lo": 17,
+   "place_hi": 46,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 345
+  },
+  {
+   "region": "asia",
+   "team": "NSN",
+   "slug": null,
+   "vrs": 503,
+   "mu": 520,
+   "sd": 148,
+   "p_qual": 0.000327661,
+   "p_stage3": 0,
+   "p_stage2": 3.16682e-11,
+   "p_stage1": 0.000327661,
+   "projected": 42,
+   "place_lo": 18,
+   "place_hi": 47,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 358
+  },
+  {
+   "region": "asia",
+   "team": "FURY",
+   "slug": null,
+   "vrs": 502,
+   "mu": 519,
+   "sd": 148,
+   "p_qual": 0.000279943,
+   "p_stage3": 0,
+   "p_stage2": 2.37032e-11,
+   "p_stage1": 0.000279943,
+   "projected": 43,
+   "place_lo": 18,
+   "place_hi": 47,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 359
+  },
+  {
+   "region": "asia",
+   "team": "Mindfreak",
+   "slug": null,
+   "vrs": 466,
+   "mu": 483,
+   "sd": 147,
+   "p_qual": 0.0000498803,
+   "p_stage3": 0,
+   "p_stage2": 1.30573e-12,
+   "p_stage1": 0.0000498803,
+   "projected": 44,
+   "place_lo": 21,
+   "place_hi": 47,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 381
+  },
+  {
+   "region": "asia",
+   "team": "BBBMBCBS",
+   "slug": null,
+   "vrs": 465,
+   "mu": 482,
+   "sd": 146,
+   "p_qual": 0.0000408165,
+   "p_stage3": 0,
+   "p_stage2": 9.57793e-13,
+   "p_stage1": 0.0000408165,
+   "projected": 45,
+   "place_lo": 21,
+   "place_hi": 48,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 382
+  },
+  {
+   "region": "asia",
+   "team": "Legion",
+   "slug": null,
+   "vrs": 464,
+   "mu": 481,
+   "sd": 146,
+   "p_qual": 0.0000333965,
+   "p_stage3": 0,
+   "p_stage2": 7.05224e-13,
+   "p_stage1": 0.0000333965,
+   "projected": 46,
+   "place_lo": 21,
+   "place_hi": 48,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 383
+  },
+  {
+   "region": "asia",
+   "team": "Unitronics",
+   "slug": null,
+   "vrs": 417,
+   "mu": 434,
+   "sd": 145,
+   "p_qual": 0.00000162411,
+   "p_stage3": 0,
+   "p_stage2": 9.68952e-15,
+   "p_stage1": 0.00000162411,
+   "projected": 47,
+   "place_lo": 25,
+   "place_hi": 48,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 394
+  },
+  {
+   "region": "asia",
+   "team": "UR",
+   "slug": null,
+   "vrs": 400,
+   "mu": 417,
+   "sd": 144,
+   "p_qual": 3.92143e-7,
+   "p_stage3": 0,
+   "p_stage2": 1.50042e-15,
+   "p_stage1": 3.92143e-7,
+   "projected": 48,
+   "place_lo": 26,
+   "place_hi": 48,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 399
+  },
+  {
+   "region": "asia",
+   "team": "Skele",
+   "slug": null,
+   "vrs": 399,
+   "mu": 416,
+   "sd": 144,
+   "p_qual": 2.98748e-7,
+   "p_stage3": 0,
+   "p_stage2": 1.05853e-15,
+   "p_stage1": 2.98748e-7,
+   "projected": 49,
+   "place_lo": 26,
+   "place_hi": 48,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 404
+  },
+  {
+   "region": "asia",
+   "team": "Arise",
+   "slug": null,
+   "vrs": 399,
+   "mu": 416,
+   "sd": 143,
+   "p_qual": 2.46322e-7,
+   "p_stage3": 0,
+   "p_stage2": 8.27738e-16,
+   "p_stage1": 2.46322e-7,
+   "projected": 50,
+   "place_lo": 26,
+   "place_hi": 48,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 406
+  },
+  {
+   "region": "asia",
+   "team": "Time Waves",
+   "slug": null,
+   "vrs": 395,
+   "mu": 412,
+   "sd": 143,
+   "p_qual": 1.48403e-7,
+   "p_stage3": 0,
+   "p_stage2": 4.35525e-16,
+   "p_stage1": 1.48403e-7,
+   "projected": 51,
+   "place_lo": 27,
+   "place_hi": 48,
+   "tier1": [],
+   "tier2": [
+    {
+     "p": 0.31,
+     "name": "XSE Pro League Luoyang",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "CyberClash S2",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "DFRAG Invitational",
+     "confirmed": false
+    },
+    {
+     "p": 0.31,
+     "name": "Logitech G PRO Series",
+     "confirmed": false
+    }
+   ],
+   "qual_by": [],
+   "vrs_rank": 410
+  }
+ ]
+}

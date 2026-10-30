@@ -1,0 +1,1921 @@
+{
+ "asOf": "2026-10-02",
+ "runs": 3000,
+ "slots": {
+  "europe": 18,
+  "americas": 9,
+  "asia": 5
+ },
+ "regions": {
+  "europe": [
+   {
+    "team": "Spirit",
+    "vrs": 2044,
+    "globalRank": 1,
+    "gain": -216,
+    "p": 0.9346666666666666
+   },
+   {
+    "team": "Alliance",
+    "vrs": 1505,
+    "globalRank": 19,
+    "gain": 399,
+    "p": 0.9216666666666666
+   },
+   {
+    "team": "1win",
+    "vrs": 1370,
+    "globalRank": 36,
+    "gain": 662,
+    "p": 0.9143333333333333
+   },
+   {
+    "team": "Falcons",
+    "vrs": 1837,
+    "globalRank": 5,
+    "gain": -1,
+    "p": 0.9033333333333333
+   },
+   {
+    "team": "BIG",
+    "vrs": 1482,
+    "globalRank": 21,
+    "gain": 394,
+    "p": 0.8806666666666667
+   },
+   {
+    "team": "Astralis",
+    "vrs": 1564,
+    "globalRank": 16,
+    "gain": 292,
+    "p": 0.8353333333333334
+   },
+   {
+    "team": "Luminosity",
+    "vrs": 1560,
+    "globalRank": 14,
+    "gain": 267,
+    "p": 0.8316666666666667
+   },
+   {
+    "team": "HOTU",
+    "vrs": 1418,
+    "globalRank": 32,
+    "gain": 423,
+    "p": 0.7576666666666667
+   },
+   {
+    "team": "FUT",
+    "vrs": 1801,
+    "globalRank": 8,
+    "gain": -25,
+    "p": 0.7216666666666667
+   },
+   {
+    "team": "Vitality",
+    "vrs": 1904,
+    "globalRank": 3,
+    "gain": -135,
+    "p": 0.6996666666666667
+   },
+   {
+    "team": "Nemiga",
+    "vrs": 1487,
+    "globalRank": 24,
+    "gain": 321,
+    "p": 0.6686666666666666
+   },
+   {
+    "team": "Inner Circle",
+    "vrs": 1506,
+    "globalRank": 18,
+    "gain": 290,
+    "p": 0.6566666666666666
+   },
+   {
+    "team": "G2",
+    "vrs": 1831,
+    "globalRank": 6,
+    "gain": -70,
+    "p": 0.6396666666666667
+   },
+   {
+    "team": "PARIVISION",
+    "vrs": 1413,
+    "globalRank": 31,
+    "gain": 383,
+    "p": 0.638
+   },
+   {
+    "team": "HEROIC",
+    "vrs": 1534,
+    "globalRank": 15,
+    "gain": 254,
+    "p": 0.637
+   },
+   {
+    "team": "BETBOOM",
+    "vrs": 1588,
+    "globalRank": 10,
+    "gain": 178,
+    "p": 0.6166666666666667
+   },
+   {
+    "team": "magic",
+    "vrs": 1484,
+    "globalRank": 22,
+    "gain": 283,
+    "p": 0.611
+   },
+   {
+    "team": "Aurora",
+    "vrs": 1709,
+    "globalRank": 9,
+    "gain": 50,
+    "p": 0.5866666666666667
+   },
+   {
+    "team": "Nemesis",
+    "vrs": 1456,
+    "globalRank": 30,
+    "gain": 307,
+    "p": 0.5823333333333334
+   },
+   {
+    "team": "3DMAX",
+    "vrs": 1486,
+    "globalRank": 23,
+    "gain": 267,
+    "p": 0.5393333333333333
+   },
+   {
+    "team": "MOUZ",
+    "vrs": 1858,
+    "globalRank": 4,
+    "gain": -125,
+    "p": 0.5243333333333333
+   },
+   {
+    "team": "100 Thieves",
+    "vrs": 1467,
+    "globalRank": 27,
+    "gain": 260,
+    "p": 0.471
+   },
+   {
+    "team": "Ninjas in Pyjamas",
+    "vrs": 1477,
+    "globalRank": 28,
+    "gain": 232,
+    "p": 0.423
+   },
+   {
+    "team": "B8",
+    "vrs": 1546,
+    "globalRank": 13,
+    "gain": 131,
+    "p": 0.28733333333333333
+   },
+   {
+    "team": "Natus Vincere",
+    "vrs": 1437,
+    "globalRank": 29,
+    "gain": 186,
+    "p": 0.2833333333333333
+   },
+   {
+    "team": "JiJieHao",
+    "vrs": 1433,
+    "globalRank": 35,
+    "gain": 200,
+    "p": 0.22266666666666668
+   },
+   {
+    "team": "fnatic",
+    "vrs": 1375,
+    "globalRank": 34,
+    "gain": 237,
+    "p": 0.18466666666666667
+   },
+   {
+    "team": "FaZe",
+    "vrs": 1481,
+    "globalRank": 20,
+    "gain": 128,
+    "p": 0.183
+   },
+   {
+    "team": "SAW",
+    "vrs": 1329,
+    "globalRank": 42,
+    "gain": 224,
+    "p": 0.11733333333333333
+   },
+   {
+    "team": "GamerLegion",
+    "vrs": 1466,
+    "globalRank": 26,
+    "gain": 105,
+    "p": 0.112
+   },
+   {
+    "team": "K27",
+    "vrs": 1395,
+    "globalRank": 33,
+    "gain": 152,
+    "p": 0.11
+   },
+   {
+    "team": "Eternal Fire",
+    "vrs": 1377,
+    "globalRank": 38,
+    "gain": 168,
+    "p": 0.104
+   },
+   {
+    "team": "SINNERS",
+    "vrs": 1351,
+    "globalRank": 50,
+    "gain": 188,
+    "p": 0.08533333333333333
+   },
+   {
+    "team": "Virtus.pro",
+    "vrs": 1302,
+    "globalRank": 48,
+    "gain": 148,
+    "p": 0.06266666666666666
+   },
+   {
+    "team": "EYEBALLERS",
+    "vrs": 1336,
+    "globalRank": 40,
+    "gain": 123,
+    "p": 0.049666666666666665
+   },
+   {
+    "team": "Nuclear TigeRES",
+    "vrs": 1312,
+    "globalRank": 47,
+    "gain": 154,
+    "p": 0.048
+   },
+   {
+    "team": "Betclic",
+    "vrs": 1320,
+    "globalRank": 45,
+    "gain": 151,
+    "p": 0.04
+   },
+   {
+    "team": "Sangal",
+    "vrs": 1359,
+    "globalRank": 43,
+    "gain": 100,
+    "p": 0.028333333333333332
+   },
+   {
+    "team": "INFINITE",
+    "vrs": 1216,
+    "globalRank": 59,
+    "gain": 187,
+    "p": 0.01633333333333333
+   },
+   {
+    "team": "BBL",
+    "vrs": 1349,
+    "globalRank": 44,
+    "gain": 34,
+    "p": 0.011333333333333334
+   },
+   {
+    "team": "FOKUS",
+    "vrs": 1312,
+    "globalRank": 54,
+    "gain": 45,
+    "p": 0.008666666666666666
+   },
+   {
+    "team": "CYBERSHOKE",
+    "vrs": 1193,
+    "globalRank": 62,
+    "gain": 304,
+    "p": 0.006666666666666667
+   },
+   {
+    "team": "EAC",
+    "vrs": 1062,
+    "globalRank": 84,
+    "gain": 400,
+    "p": 0.006666666666666667
+   },
+   {
+    "team": "CYBERSHOKE",
+    "vrs": 791,
+    "globalRank": 169,
+    "gain": 304,
+    "p": 0.006666666666666667
+   },
+   {
+    "team": "UPGRADE",
+    "vrs": 1175,
+    "globalRank": 66,
+    "gain": 176,
+    "p": 0.004333333333333333
+   },
+   {
+    "team": "Phantom",
+    "vrs": 1139,
+    "globalRank": 69,
+    "gain": 175,
+    "p": 0.004
+   },
+   {
+    "team": "Black Phoenix",
+    "vrs": 1098,
+    "globalRank": 81,
+    "gain": 165,
+    "p": 0.0036666666666666666
+   },
+   {
+    "team": "FORZE Reload",
+    "vrs": 1100,
+    "globalRank": 77,
+    "gain": 154,
+    "p": 0.0033333333333333335
+   },
+   {
+    "team": "Metizport",
+    "vrs": 1285,
+    "globalRank": 51,
+    "gain": 32,
+    "p": 0.003
+   },
+   {
+    "team": "aimclub",
+    "vrs": 1108,
+    "globalRank": 70,
+    "gain": 153,
+    "p": 0.003
+   },
+   {
+    "team": "Iberian Soul",
+    "vrs": 1212,
+    "globalRank": 60,
+    "gain": 93,
+    "p": 0.0026666666666666666
+   },
+   {
+    "team": "9INE",
+    "vrs": 1110,
+    "globalRank": 88,
+    "gain": 151,
+    "p": 0.0026666666666666666
+   },
+   {
+    "team": "Sashi",
+    "vrs": 1128,
+    "globalRank": 68,
+    "gain": 159,
+    "p": 0.0023333333333333335
+   },
+   {
+    "team": "Lazer Cats",
+    "vrs": 1117,
+    "globalRank": 87,
+    "gain": 154,
+    "p": 0.0023333333333333335
+   },
+   {
+    "team": "Color",
+    "vrs": 1242,
+    "globalRank": 56,
+    "gain": 27,
+    "p": 0.0013333333333333333
+   },
+   {
+    "team": "WW",
+    "vrs": 1015,
+    "globalRank": 104,
+    "gain": 414,
+    "p": 0.0013333333333333333
+   },
+   {
+    "team": "Acend",
+    "vrs": 1185,
+    "globalRank": 64,
+    "gain": 30,
+    "p": 0.001
+   },
+   {
+    "team": "WBT",
+    "vrs": 1172,
+    "globalRank": 65,
+    "gain": 34,
+    "p": 0.0006666666666666666
+   },
+   {
+    "team": "Rune Eaters",
+    "vrs": 1099,
+    "globalRank": 80,
+    "gain": 159,
+    "p": 0.0006666666666666666
+   },
+   {
+    "team": "GenOne",
+    "vrs": 1170,
+    "globalRank": 67,
+    "gain": 35,
+    "p": 0.0003333333333333333
+   },
+   {
+    "team": "Omega",
+    "vrs": 1096,
+    "globalRank": 76,
+    "gain": 43,
+    "p": 0.0003333333333333333
+   },
+   {
+    "team": "BET-M",
+    "vrs": 1135,
+    "globalRank": 71,
+    "gain": 42,
+    "p": 0
+   },
+   {
+    "team": "BRUTE",
+    "vrs": 1112,
+    "globalRank": 75,
+    "gain": 38,
+    "p": 0
+   },
+   {
+    "team": "INOX Division",
+    "vrs": 1079,
+    "globalRank": 82,
+    "gain": -12,
+    "p": 0
+   },
+   {
+    "team": "ex-Zero Tenacity",
+    "vrs": 1079,
+    "globalRank": 91,
+    "gain": 84,
+    "p": 0
+   },
+   {
+    "team": "QUAZAR",
+    "vrs": 1078,
+    "globalRank": 83,
+    "gain": -12,
+    "p": 0
+   },
+   {
+    "team": "Inner Circle Academy",
+    "vrs": 1066,
+    "globalRank": 86,
+    "gain": -12,
+    "p": 0
+   },
+   {
+    "team": "ASTRAL",
+    "vrs": 1065,
+    "globalRank": 89,
+    "gain": -9,
+    "p": 0
+   },
+   {
+    "team": "PRIVATE",
+    "vrs": 1060,
+    "globalRank": 92,
+    "gain": 139,
+    "p": 0
+   },
+   {
+    "team": "UNiTY",
+    "vrs": 1058,
+    "globalRank": 102,
+    "gain": -4,
+    "p": 0
+   },
+   {
+    "team": "Nexus",
+    "vrs": 1054,
+    "globalRank": 94,
+    "gain": 119,
+    "p": 0
+   },
+   {
+    "team": "SPARTA",
+    "vrs": 1052,
+    "globalRank": 96,
+    "gain": -7,
+    "p": 0
+   },
+   {
+    "team": "Johnny Speeds",
+    "vrs": 1048,
+    "globalRank": 95,
+    "gain": -16,
+    "p": 0
+   },
+   {
+    "team": "Butterfly",
+    "vrs": 1047,
+    "globalRank": 90,
+    "gain": 119,
+    "p": 0
+   },
+   {
+    "team": "ex-RUSTEC",
+    "vrs": 1044,
+    "globalRank": 97,
+    "gain": 11,
+    "p": 0
+   },
+   {
+    "team": "BAKS",
+    "vrs": 1040,
+    "globalRank": 100,
+    "gain": 113,
+    "p": 0
+   },
+   {
+    "team": "BASEMENT BOYS",
+    "vrs": 1036,
+    "globalRank": 107,
+    "gain": 283,
+    "p": 0
+   },
+   {
+    "team": "OG",
+    "vrs": 1023,
+    "globalRank": 103,
+    "gain": 283,
+    "p": 0
+   },
+   {
+    "team": "ENCE",
+    "vrs": 1018,
+    "globalRank": 105,
+    "gain": 189,
+    "p": 0
+   },
+   {
+    "team": "RBLS",
+    "vrs": 1014,
+    "globalRank": 106,
+    "gain": 240,
+    "p": 0
+   },
+   {
+    "team": "Bushido Wildcats",
+    "vrs": 978,
+    "globalRank": 112,
+    "gain": 114,
+    "p": 0
+   },
+   {
+    "team": "Leo",
+    "vrs": 978,
+    "globalRank": 113,
+    "gain": 204,
+    "p": 0
+   },
+   {
+    "team": "Just Players",
+    "vrs": 968,
+    "globalRank": 115,
+    "gain": 3,
+    "p": 0
+   },
+   {
+    "team": "ex-RUBY",
+    "vrs": 965,
+    "globalRank": 116,
+    "gain": 117,
+    "p": 0
+   },
+   {
+    "team": "NOVAQ",
+    "vrs": 965,
+    "globalRank": 114,
+    "gain": 3,
+    "p": 0
+   },
+   {
+    "team": "Walczaki",
+    "vrs": 960,
+    "globalRank": 117,
+    "gain": 39,
+    "p": 0
+   },
+   {
+    "team": "Nordic Partners",
+    "vrs": 959,
+    "globalRank": 129,
+    "gain": 181,
+    "p": 0
+   },
+   {
+    "team": "mellren",
+    "vrs": 953,
+    "globalRank": 118,
+    "gain": 5,
+    "p": 0
+   },
+   {
+    "team": "STATE",
+    "vrs": 940,
+    "globalRank": 119,
+    "gain": 155,
+    "p": 0
+   },
+   {
+    "team": "HAVU",
+    "vrs": 935,
+    "globalRank": 131,
+    "gain": 158,
+    "p": 0
+   },
+   {
+    "team": "The Last Resort",
+    "vrs": 921,
+    "globalRank": 120,
+    "gain": 9,
+    "p": 0
+   },
+   {
+    "team": "6666",
+    "vrs": 921,
+    "globalRank": 121,
+    "gain": 10,
+    "p": 0
+   },
+   {
+    "team": "KOLESIE",
+    "vrs": 920,
+    "globalRank": 122,
+    "gain": 12,
+    "p": 0
+   },
+   {
+    "team": "Fire Flux",
+    "vrs": 920,
+    "globalRank": 128,
+    "gain": 13,
+    "p": 0
+   },
+   {
+    "team": "Spirit Academy",
+    "vrs": 917,
+    "globalRank": 123,
+    "gain": 12,
+    "p": 0
+   },
+   {
+    "team": "NAVI Junior",
+    "vrs": 914,
+    "globalRank": 124,
+    "gain": 130,
+    "p": 0
+   },
+   {
+    "team": "Lavked",
+    "vrs": 910,
+    "globalRank": 127,
+    "gain": 34,
+    "p": 0
+   },
+   {
+    "team": "G2 Ares",
+    "vrs": 910,
+    "globalRank": 126,
+    "gain": 292,
+    "p": 0
+   },
+   {
+    "team": "WBT Academy",
+    "vrs": 910,
+    "globalRank": 125,
+    "gain": 200,
+    "p": 0
+   },
+   {
+    "team": "Vexar",
+    "vrs": 881,
+    "globalRank": 134,
+    "gain": -2,
+    "p": 0
+   },
+   {
+    "team": "Misa",
+    "vrs": 878,
+    "globalRank": 135,
+    "gain": -2,
+    "p": 0
+   },
+   {
+    "team": "Noir Verse",
+    "vrs": 875,
+    "globalRank": 136,
+    "gain": 35,
+    "p": 0
+   },
+   {
+    "team": "MOUZ NXT",
+    "vrs": 871,
+    "globalRank": 137,
+    "gain": 165,
+    "p": 0
+   },
+   {
+    "team": "PCIFIC",
+    "vrs": 870,
+    "globalRank": 138,
+    "gain": 54,
+    "p": 0
+   },
+   {
+    "team": "Enjoy",
+    "vrs": 865,
+    "globalRank": 140,
+    "gain": 53,
+    "p": 0
+   },
+   {
+    "team": "Illyrians",
+    "vrs": 860,
+    "globalRank": 143,
+    "gain": -2,
+    "p": 0
+   },
+   {
+    "team": "NT",
+    "vrs": 860,
+    "globalRank": 141,
+    "gain": -2,
+    "p": 0
+   },
+   {
+    "team": "PAQT",
+    "vrs": 857,
+    "globalRank": 142,
+    "gain": -2,
+    "p": 0
+   },
+   {
+    "team": "LPH",
+    "vrs": 849,
+    "globalRank": 146,
+    "gain": -2,
+    "p": 0
+   },
+   {
+    "team": "Drama",
+    "vrs": 844,
+    "globalRank": 147,
+    "gain": 163,
+    "p": 0
+   },
+   {
+    "team": "SAW Youngsters",
+    "vrs": 834,
+    "globalRank": 148,
+    "gain": 192,
+    "p": 0
+   },
+   {
+    "team": "PsychoFace",
+    "vrs": 820,
+    "globalRank": 151,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Prestige",
+    "vrs": 820,
+    "globalRank": 178,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Entropy",
+    "vrs": 814,
+    "globalRank": 154,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Azuolas",
+    "vrs": 812,
+    "globalRank": 153,
+    "gain": 57,
+    "p": 0
+   },
+   {
+    "team": "benched gods",
+    "vrs": 811,
+    "globalRank": 150,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Saint Sinners",
+    "vrs": 807,
+    "globalRank": 160,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "megoshort",
+    "vrs": 807,
+    "globalRank": 157,
+    "gain": 57,
+    "p": 0
+   },
+   {
+    "team": "Johnny Speeds",
+    "vrs": 806,
+    "globalRank": 159,
+    "gain": -16,
+    "p": 0
+   },
+   {
+    "team": "HYPERSPIRIT",
+    "vrs": 804,
+    "globalRank": 161,
+    "gain": 244,
+    "p": 0
+   },
+   {
+    "team": "ARCRED",
+    "vrs": 804,
+    "globalRank": 158,
+    "gain": 70,
+    "p": 0
+   },
+   {
+    "team": "Falcons Force",
+    "vrs": 801,
+    "globalRank": 162,
+    "gain": 159,
+    "p": 0
+   },
+   {
+    "team": "Lilmix",
+    "vrs": 792,
+    "globalRank": 180,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "MASONIC",
+    "vrs": 791,
+    "globalRank": 165,
+    "gain": 75,
+    "p": 0
+   },
+   {
+    "team": "Phantom Academy",
+    "vrs": 789,
+    "globalRank": 170,
+    "gain": 86,
+    "p": 0
+   },
+   {
+    "team": "Honvéd",
+    "vrs": 789,
+    "globalRank": 171,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "RBLS",
+    "vrs": 778,
+    "globalRank": 172,
+    "gain": 240,
+    "p": 0
+   },
+   {
+    "team": "INFURITY",
+    "vrs": 773,
+    "globalRank": 173,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "PURE",
+    "vrs": 770,
+    "globalRank": 174,
+    "gain": 190,
+    "p": 0
+   },
+   {
+    "team": "MAYBE",
+    "vrs": 769,
+    "globalRank": 177,
+    "gain": 0,
+    "p": 0
+   }
+  ],
+  "americas": [
+   {
+    "team": "Legacy",
+    "vrs": 1920,
+    "globalRank": 2,
+    "gain": -149,
+    "p": 0.9973333333333333
+   },
+   {
+    "team": "FURIA",
+    "vrs": 1821,
+    "globalRank": 7,
+    "gain": -16,
+    "p": 0.996
+   },
+   {
+    "team": "Liquid",
+    "vrs": 1517,
+    "globalRank": 17,
+    "gain": 304,
+    "p": 0.993
+   },
+   {
+    "team": "MIBR",
+    "vrs": 1575,
+    "globalRank": 11,
+    "gain": 171,
+    "p": 0.9923333333333333
+   },
+   {
+    "team": "9z",
+    "vrs": 1543,
+    "globalRank": 12,
+    "gain": 130,
+    "p": 0.7676666666666667
+   },
+   {
+    "team": "DENDELE",
+    "vrs": 1360,
+    "globalRank": 37,
+    "gain": 279,
+    "p": 0.7083333333333334
+   },
+   {
+    "team": "M80",
+    "vrs": 1482,
+    "globalRank": 25,
+    "gain": 76,
+    "p": 0.554
+   },
+   {
+    "team": "Imperial",
+    "vrs": 1285,
+    "globalRank": 49,
+    "gain": 255,
+    "p": 0.478
+   },
+   {
+    "team": "Voca",
+    "vrs": 1189,
+    "globalRank": 73,
+    "gain": 300,
+    "p": 0.357
+   },
+   {
+    "team": "BESTIA",
+    "vrs": 1181,
+    "globalRank": 63,
+    "gain": 304,
+    "p": 0.3263333333333333
+   },
+   {
+    "team": "NRG",
+    "vrs": 1321,
+    "globalRank": 46,
+    "gain": 146,
+    "p": 0.27366666666666667
+   },
+   {
+    "team": "SportsBetExpert",
+    "vrs": 1205,
+    "globalRank": 58,
+    "gain": 248,
+    "p": 0.2643333333333333
+   },
+   {
+    "team": "paiN",
+    "vrs": 1275,
+    "globalRank": 52,
+    "gain": 199,
+    "p": 0.25233333333333335
+   },
+   {
+    "team": "Wildcard",
+    "vrs": 1235,
+    "globalRank": 57,
+    "gain": 214,
+    "p": 0.24033333333333334
+   },
+   {
+    "team": "Fluxo",
+    "vrs": 1261,
+    "globalRank": 53,
+    "gain": 158,
+    "p": 0.18533333333333332
+   },
+   {
+    "team": "Galorys",
+    "vrs": 1093,
+    "globalRank": 78,
+    "gain": 329,
+    "p": 0.18233333333333332
+   },
+   {
+    "team": "Bounty Hunters",
+    "vrs": 1054,
+    "globalRank": 93,
+    "gain": 373,
+    "p": 0.167
+   },
+   {
+    "team": "LP",
+    "vrs": 1064,
+    "globalRank": 85,
+    "gain": 338,
+    "p": 0.13033333333333333
+   },
+   {
+    "team": "ShindeN",
+    "vrs": 1112,
+    "globalRank": 74,
+    "gain": 205,
+    "p": 0.08833333333333333
+   },
+   {
+    "team": "Without a Roof",
+    "vrs": 1034,
+    "globalRank": 101,
+    "gain": 163,
+    "p": 0.019
+   },
+   {
+    "team": "Marsborne",
+    "vrs": 1012,
+    "globalRank": 108,
+    "gain": 355,
+    "p": 0.015666666666666666
+   },
+   {
+    "team": "Marsborne",
+    "vrs": 613,
+    "globalRank": 270,
+    "gain": 355,
+    "p": 0.015666666666666666
+   },
+   {
+    "team": "Turma do Pagode",
+    "vrs": 984,
+    "globalRank": 109,
+    "gain": 87,
+    "p": 0.0026666666666666666
+   },
+   {
+    "team": "Isurus",
+    "vrs": 794,
+    "globalRank": 164,
+    "gain": 259,
+    "p": 0.0023333333333333335
+   },
+   {
+    "team": "Procyon",
+    "vrs": 803,
+    "globalRank": 156,
+    "gain": 241,
+    "p": 0.002
+   },
+   {
+    "team": "LAG",
+    "vrs": 1041,
+    "globalRank": 98,
+    "gain": 74,
+    "p": 0.0013333333333333333
+   },
+   {
+    "team": "Yawara",
+    "vrs": 849,
+    "globalRank": 144,
+    "gain": 81,
+    "p": 0.0006666666666666666
+   },
+   {
+    "team": "Iowa Stormboar",
+    "vrs": 793,
+    "globalRank": 166,
+    "gain": 96,
+    "p": 0.0006666666666666666
+   },
+   {
+    "team": "ex-Keyd Stars",
+    "vrs": 865,
+    "globalRank": 139,
+    "gain": 79,
+    "p": 0.0003333333333333333
+   },
+   {
+    "team": "regain",
+    "vrs": 834,
+    "globalRank": 149,
+    "gain": 83,
+    "p": 0.0003333333333333333
+   },
+   {
+    "team": "Low Cortisol BR",
+    "vrs": 770,
+    "globalRank": 175,
+    "gain": 87,
+    "p": 0.0003333333333333333
+   },
+   {
+    "team": "UNO MILLE",
+    "vrs": 744,
+    "globalRank": 187,
+    "gain": 174,
+    "p": 0.0003333333333333333
+   },
+   {
+    "team": "FarmVille",
+    "vrs": 730,
+    "globalRank": 197,
+    "gain": 312,
+    "p": 0.0003333333333333333
+   },
+   {
+    "team": "UNO MILLE",
+    "vrs": 627,
+    "globalRank": 262,
+    "gain": 174,
+    "p": 0.0003333333333333333
+   },
+   {
+    "team": "FarmVille",
+    "vrs": 595,
+    "globalRank": 285,
+    "gain": 312,
+    "p": 0.0003333333333333333
+   },
+   {
+    "team": "FarmVille",
+    "vrs": 590,
+    "globalRank": 294,
+    "gain": 312,
+    "p": 0.0003333333333333333
+   },
+   {
+    "team": "Desi Boyz",
+    "vrs": 849,
+    "globalRank": 145,
+    "gain": 84,
+    "p": 0
+   },
+   {
+    "team": "ALKA",
+    "vrs": 796,
+    "globalRank": 163,
+    "gain": 83,
+    "p": 0
+   },
+   {
+    "team": "Overtake Sector",
+    "vrs": 792,
+    "globalRank": 167,
+    "gain": 87,
+    "p": 0
+   },
+   {
+    "team": "ex-ODDIK",
+    "vrs": 790,
+    "globalRank": 168,
+    "gain": 89,
+    "p": 0
+   },
+   {
+    "team": "Chicken Coop",
+    "vrs": 748,
+    "globalRank": 185,
+    "gain": 89,
+    "p": 0
+   },
+   {
+    "team": "MIBR fe",
+    "vrs": 728,
+    "globalRank": 196,
+    "gain": 86,
+    "p": 0
+   },
+   {
+    "team": "QUINTESSÊNCIA",
+    "vrs": 720,
+    "globalRank": 201,
+    "gain": 79,
+    "p": 0
+   },
+   {
+    "team": "Mira",
+    "vrs": 717,
+    "globalRank": 203,
+    "gain": 83,
+    "p": 0
+   },
+   {
+    "team": "DETONATE",
+    "vrs": 715,
+    "globalRank": 205,
+    "gain": 7,
+    "p": 0
+   },
+   {
+    "team": "Fake do Biru",
+    "vrs": 708,
+    "globalRank": 211,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "BORRACHEIROS",
+    "vrs": 706,
+    "globalRank": 210,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "BESTIA Academy",
+    "vrs": 702,
+    "globalRank": 188,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Villainous",
+    "vrs": 698,
+    "globalRank": 215,
+    "gain": 37,
+    "p": 0
+   },
+   {
+    "team": "Passion UA",
+    "vrs": 683,
+    "globalRank": 219,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "EHISTO BASE",
+    "vrs": 676,
+    "globalRank": 221,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "MEIA NOITE",
+    "vrs": 672,
+    "globalRank": 222,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "EMPIRE",
+    "vrs": 672,
+    "globalRank": 225,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Club 333",
+    "vrs": 660,
+    "globalRank": 233,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "RED Canids",
+    "vrs": 659,
+    "globalRank": 234,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "METANOIA Wolves",
+    "vrs": 657,
+    "globalRank": 238,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Grêmio",
+    "vrs": 655,
+    "globalRank": 241,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Zomblers",
+    "vrs": 648,
+    "globalRank": 245,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "ex-Aether",
+    "vrs": 642,
+    "globalRank": 253,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Zomblers",
+    "vrs": 638,
+    "globalRank": 255,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Shimmer",
+    "vrs": 634,
+    "globalRank": 256,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "MIBR Academy",
+    "vrs": 633,
+    "globalRank": 258,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Festina Lente",
+    "vrs": 607,
+    "globalRank": 275,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "insane players",
+    "vrs": 604,
+    "globalRank": 277,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "NuTorious",
+    "vrs": 599,
+    "globalRank": 282,
+    "gain": 43,
+    "p": 0
+   },
+   {
+    "team": "paiN Academy",
+    "vrs": 598,
+    "globalRank": 283,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Aether",
+    "vrs": 590,
+    "globalRank": 293,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Wanted Goons",
+    "vrs": 589,
+    "globalRank": 292,
+    "gain": 44,
+    "p": 0
+   },
+   {
+    "team": "Olympus",
+    "vrs": 586,
+    "globalRank": 295,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "your end",
+    "vrs": 577,
+    "globalRank": 296,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Reign Above",
+    "vrs": 561,
+    "globalRank": 305,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "VEXA",
+    "vrs": 560,
+    "globalRank": 306,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "paiN Academy",
+    "vrs": 553,
+    "globalRank": 310,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Vasco",
+    "vrs": 553,
+    "globalRank": 309,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Beyond Limits",
+    "vrs": 546,
+    "globalRank": 313,
+    "gain": 43,
+    "p": 0
+   },
+   {
+    "team": "ex-KRÜ",
+    "vrs": 534,
+    "globalRank": 320,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "F5",
+    "vrs": 513,
+    "globalRank": 336,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Incognito",
+    "vrs": 508,
+    "globalRank": 339,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "METANOIA Wolves",
+    "vrs": 505,
+    "globalRank": 341,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Omen",
+    "vrs": 505,
+    "globalRank": 344,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Sementes do Mal",
+    "vrs": 493,
+    "globalRank": 350,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "New Legends",
+    "vrs": 493,
+    "globalRank": 352,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Crashers",
+    "vrs": 485,
+    "globalRank": 355,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "GameHunters",
+    "vrs": 483,
+    "globalRank": 358,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "BOSS",
+    "vrs": 481,
+    "globalRank": 360,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "DAMAJUANA",
+    "vrs": 478,
+    "globalRank": 363,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Players",
+    "vrs": 477,
+    "globalRank": 364,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "900FPSvsECO",
+    "vrs": 476,
+    "globalRank": 365,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "R2",
+    "vrs": 472,
+    "globalRank": 368,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "EMPIRE",
+    "vrs": 471,
+    "globalRank": 369,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Zetta",
+    "vrs": 471,
+    "globalRank": 367,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Mansão Maromba",
+    "vrs": 469,
+    "globalRank": 370,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "EXODIA",
+    "vrs": 468,
+    "globalRank": 371,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "GUARA",
+    "vrs": 458,
+    "globalRank": 374,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "KODEX",
+    "vrs": 409,
+    "globalRank": 382,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Unreal Nightmare",
+    "vrs": 388,
+    "globalRank": 385,
+    "gain": 215,
+    "p": 0
+   }
+  ],
+  "asia": [
+   {
+    "team": "BC.Game",
+    "vrs": 1327,
+    "globalRank": 55,
+    "gain": 331,
+    "p": 0.986
+   },
+   {
+    "team": "The MongolZ",
+    "vrs": 1325,
+    "globalRank": 41,
+    "gain": 212,
+    "p": 0.7946666666666666
+   },
+   {
+    "team": "Lynn Vision",
+    "vrs": 1189,
+    "globalRank": 61,
+    "gain": 299,
+    "p": 0.723
+   },
+   {
+    "team": "TYLOO",
+    "vrs": 1337,
+    "globalRank": 39,
+    "gain": 165,
+    "p": 0.6816666666666666
+   },
+   {
+    "team": "5star",
+    "vrs": 1118,
+    "globalRank": 72,
+    "gain": 338,
+    "p": 0.681
+   },
+   {
+    "team": "DEPO",
+    "vrs": 1035,
+    "globalRank": 99,
+    "gain": 842,
+    "p": 0.6483333333333333
+   },
+   {
+    "team": "DEPO",
+    "vrs": 646,
+    "globalRank": 246,
+    "gain": 842,
+    "p": 0.6483333333333333
+   },
+   {
+    "team": "Alter Ego",
+    "vrs": 807,
+    "globalRank": 155,
+    "gain": 558,
+    "p": 0.32033333333333336
+   },
+   {
+    "team": "NEXVOID",
+    "vrs": 983,
+    "globalRank": 110,
+    "gain": 273,
+    "p": 0.10766666666666666
+   },
+   {
+    "team": "FlyQuest",
+    "vrs": 1094,
+    "globalRank": 79,
+    "gain": 190,
+    "p": 0.04733333333333333
+   },
+   {
+    "team": "THUNDER dOWNUNDER",
+    "vrs": 974,
+    "globalRank": 111,
+    "gain": 192,
+    "p": 0.003
+   },
+   {
+    "team": "Rare Atom",
+    "vrs": 880,
+    "globalRank": 133,
+    "gain": 141,
+    "p": 0.003
+   },
+   {
+    "team": "Ground Zero",
+    "vrs": 878,
+    "globalRank": 132,
+    "gain": 147,
+    "p": 0.0013333333333333333
+   },
+   {
+    "team": "THE UNIT",
+    "vrs": 673,
+    "globalRank": 224,
+    "gain": 79,
+    "p": 0.0003333333333333333
+   },
+   {
+    "team": "Nas",
+    "vrs": 670,
+    "globalRank": 227,
+    "gain": 79,
+    "p": 0.0003333333333333333
+   },
+   {
+    "team": "5dads",
+    "vrs": 646,
+    "globalRank": 248,
+    "gain": 85,
+    "p": 0.0003333333333333333
+   },
+   {
+    "team": "Haunted House",
+    "vrs": 642,
+    "globalRank": 250,
+    "gain": 94,
+    "p": 0.0003333333333333333
+   },
+   {
+    "team": "LFO 8",
+    "vrs": 600,
+    "globalRank": 281,
+    "gain": 124,
+    "p": 0.0003333333333333333
+   },
+   {
+    "team": "Ding Cuts",
+    "vrs": 590,
+    "globalRank": 291,
+    "gain": 0,
+    "p": 0.0003333333333333333
+   },
+   {
+    "team": "BMZ",
+    "vrs": 579,
+    "globalRank": 297,
+    "gain": 0,
+    "p": 0.0003333333333333333
+   },
+   {
+    "team": "madlikewizards",
+    "vrs": 534,
+    "globalRank": 325,
+    "gain": 0,
+    "p": 0.0003333333333333333
+   },
+   {
+    "team": "Chinggis Warriors",
+    "vrs": 885,
+    "globalRank": 130,
+    "gain": 146,
+    "p": 0
+   },
+   {
+    "team": "The Huns",
+    "vrs": 812,
+    "globalRank": 152,
+    "gain": 192,
+    "p": 0
+   },
+   {
+    "team": "Kaleido",
+    "vrs": 755,
+    "globalRank": 182,
+    "gain": 209,
+    "p": 0
+   },
+   {
+    "team": "Abyssal",
+    "vrs": 733,
+    "globalRank": 193,
+    "gain": 250,
+    "p": 0
+   },
+   {
+    "team": "Rooster",
+    "vrs": 717,
+    "globalRank": 202,
+    "gain": 191,
+    "p": 0
+   },
+   {
+    "team": "Just Swing",
+    "vrs": 714,
+    "globalRank": 206,
+    "gain": 72,
+    "p": 0
+   },
+   {
+    "team": "Vitalem Aerem",
+    "vrs": 712,
+    "globalRank": 207,
+    "gain": 235,
+    "p": 0
+   },
+   {
+    "team": "The Huns",
+    "vrs": 701,
+    "globalRank": 213,
+    "gain": 192,
+    "p": 0
+   },
+   {
+    "team": "Chinggis Warriors",
+    "vrs": 678,
+    "globalRank": 220,
+    "gain": 146,
+    "p": 0
+   },
+   {
+    "team": "Revenge",
+    "vrs": 656,
+    "globalRank": 239,
+    "gain": 81,
+    "p": 0
+   },
+   {
+    "team": "Mindfreak",
+    "vrs": 630,
+    "globalRank": 260,
+    "gain": 102,
+    "p": 0
+   },
+   {
+    "team": "XDM",
+    "vrs": 617,
+    "globalRank": 267,
+    "gain": 119,
+    "p": 0
+   },
+   {
+    "team": "Club 333",
+    "vrs": 598,
+    "globalRank": 284,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "LFO 9",
+    "vrs": 572,
+    "globalRank": 300,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "MARKandLARRY",
+    "vrs": 572,
+    "globalRank": 301,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "ex-Arcade",
+    "vrs": 565,
+    "globalRank": 303,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Legion",
+    "vrs": 532,
+    "globalRank": 326,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "SemperFi",
+    "vrs": 518,
+    "globalRank": 331,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "BORING PLAYERS",
+    "vrs": 513,
+    "globalRank": 334,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "The KnockoutX",
+    "vrs": 509,
+    "globalRank": 338,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "FURY",
+    "vrs": 493,
+    "globalRank": 351,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "QuantumX",
+    "vrs": 449,
+    "globalRank": 376,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "1337",
+    "vrs": 436,
+    "globalRank": 378,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "bLight blue",
+    "vrs": 409,
+    "globalRank": 381,
+    "gain": 0,
+    "p": 0
+   },
+   {
+    "team": "Fruju",
+    "vrs": 381,
+    "globalRank": 386,
+    "gain": 0,
+    "p": 0
+   }
+  ]
+ }
+}

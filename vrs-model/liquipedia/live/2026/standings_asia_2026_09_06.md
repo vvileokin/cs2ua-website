@@ -1,0 +1,57 @@
+### Regional Standings for Asia as of 2026-09-06<br />
+<br />
+
+| Standing | Points | Team Name                        | Roster                                          |                                                                                                                     |
+| :- | -: | :- | :- | :- |
+| 1        |   1463 | The MongolZ                      | 910, bLitz, DarkMeister, Techno4K, Tikuak       | [details](details/2026_09_06/0019--the_mongolz--910-blitz-darkmeister-techno4k-tikuak.md)                           |
+| 2        |   1367 | TYLOO                            | JamYoung, Jee, Mercury, Moseyuh, Zero           | [details](details/2026_09_06/0026--tyloo--jamyoung-jee-mercury-moseyuh-zero.md)                                     |
+| 3        |   1277 | Lynn Vision Gaming               | C4LLM3SU3, EmiliaQAQ, Starry, westmelon, z4kr   | [details](details/2026_09_06/0038--lynn_vision_gaming--c4llm3su3-emiliaqaq-starry-westmelon-z4kr.md)                |
+| 4        |   1151 | FlyQuest                         | aliStair, INS, jks, nettik, Vexite              | [details](details/2026_09_06/0052--flyquest--alistair-ins-jks-nettik-vexite.md)                                     |
+| 5        |   1114 | DEPO                             | buster, Krad, sh1seido, shoxs, wetfy            | [details](details/2026_09_06/0059--depo--buster-krad-sh1seido-shoxs-wetfy.md)                                       |
+| 6        |   1043 | THUNDERdOWNUNDER                 | aliStair, asap, dexter, Liazz, TjP              | [details](details/2026_09_06/0076--thunderdownunder--alistair-asap-dexter-liazz-tjp.md)                             |
+| 7        |    921 | Ground Zero Gaming               | apocdud, HaZR, Omichella, sliimey, vision       | [details](details/2026_09_06/0104--ground_zero_gaming--apocdud-hazr-omichella-sliimey-vision.md)                    |
+| 8        |    869 | 5star eSports                    | ariucle, clouden, hoolig4n, NEUZ, rate          | [details](details/2026_09_06/0121--5star_esports--ariucle-clouden-hoolig4n-neuz-rate.md)                            |
+| 9        |    834 | NEXVOID                          | AccuracyTG, erkaSt, MiQ, xerolte, zesta         | [details](details/2026_09_06/0134--nexvoid--accuracytg-erkast-miq-xerolte-zesta.md)                                 |
+| 10       |    815 | Rare Atom                        | 3gl, ChildKing, L1haNg, Summer, Trash           | [details](details/2026_09_06/0142--rare_atom--3gl-childking-l1hang-summer-trash.md)                                 |
+| 11       |    810 | Alter Ego                        | adeX, BnTeT, Gratisfaction, PokemoN, shadiy     | [details](details/2026_09_06/0146--alter_ego--adex-bntet-gratisfaction-pokemon-shadiy.md)                           |
+| 12       |    789 | Chinggis Warriors                | efire, hasteka, ROUX, Tikuak, yAmi              | [details](details/2026_09_06/0151--chinggis_warriors--efire-hasteka-roux-tikuak-yami.md)                            |
+| 13       |    764 | The Huns Esports                 | ANNIHILATION, Bart4k, bexyz, controlez, nin9    | [details](details/2026_09_06/0165--the_huns_esports--annihilation-bart4k-bexyz-controlez-nin9.md)                   |
+| 14       |    736 | THE UNIT                         | ad0rfin, kyrosawa, nesh                         | [details](details/2026_09_06/0178--the_unit--ad0rfin-kyrosawa-nesh.md)                                              |
+| 15       |    728 | Rooster                          | ADK, chelleos, ju1ces, rekonz, SkulL            | [details](details/2026_09_06/0187--rooster--adk-chelleos-ju1ces-rekonz-skull.md)                                    |
+| 16       |    728 | Kaleido Gaming                   | chuzhongT, rage, SasiKi, SPine, suki            | [details](details/2026_09_06/0188--kaleido_gaming--chuzhongt-rage-sasiki-spine-suki.md)                             |
+| 17       |    721 | Mindfreak (Australian team)      | kairo, lawlkay, phoebe, void, zune              | [details](details/2026_09_06/0191--mindfreak__australian_team_--kairo-lawlkay-phoebe-void-zune.md)                  |
+| 18       |    715 | Team Abyssal                     | blood, dangeR, foggers, gump, vinhy             | [details](details/2026_09_06/0197--team_abyssal--blood-danger-foggers-gump-vinhy.md)                                |
+| 19       |    711 | Just Swing (Chinese team)        | gas, Purely, qqGOD, sATOR1, skrr                | [details](details/2026_09_06/0199--just_swing__chinese_team_--gas-purely-qqgod-sator1-skrr.md)                      |
+| 20       |    703 | SemperFi Esports                 | HaZR, keen, SaVage, shadiy, sliimey             | [details](details/2026_09_06/0206--semperfi_esports--hazr-keen-savage-shadiy-sliimey.md)                            |
+| 21       |    696 | Vitalem Aerem Gaming             | B1NGO, BZA, lan, Roninbaby, wyL                 | [details](details/2026_09_06/0210--vitalem_aerem_gaming--b1ngo-bza-lan-roninbaby-wyl.md)                            |
+| 22       |    683 | Chinggis Warriors                | cool4st, fury5k, ROUX, sk0R, yAmi               | [details](details/2026_09_06/0219--chinggis_warriors--cool4st-fury5k-roux-sk0r-yami.md)                             |
+| 23       |    672 | Rare Atom                        | chengking, L1haNg, Summer, TiGeR, x9            | [details](details/2026_09_06/0228--rare_atom--chengking-l1hang-summer-tiger-x9.md)                                  |
+| 24       |    665 | Haunted House                    | fr0k, icyvlone, malinov, SasukeQO, Schwarzkopf  | [details](details/2026_09_06/0233--haunted_house--fr0k-icyvlone-malinov-sasukeqo-schwarzkopf.md)                    |
+| 25       |    654 | Arcade Esports (Australian team) | 74LOR, Kras, Mechanical, N1ghtraid, Winnieeeee  | [details](details/2026_09_06/0244--arcade_esports__australian_team_--74lor-kras-mechanical-n1ghtraid-winnieeeee.md) |
+| 26       |    654 | FengDa Gaming                    | 3gl, afufu, p5p, Trash, ZJFkingofking           | [details](details/2026_09_06/0245--fengda_gaming--3gl-afufu-p5p-trash-zjfkingofking.md)                             |
+| 27       |    641 | Change The Game                  | 957, Hack1ng, LaiKeXu, ProKiller, VanceKK       | [details](details/2026_09_06/0263--change_the_game--957-hack1ng-laikexu-prokiller-vancekk.md)                       |
+| 28       |    636 | BORING PLAYER                    | D1zzyg, Jun7, Miszary, tutu, zdr                | [details](details/2026_09_06/0265--boring_player--d1zzyg-jun7-miszary-tutu-zdr.md)                                  |
+| 29       |    620 | Banzai                           | fury5k, MagnumZ, QQLIGHTNING, rhitta, wonderzce | [details](details/2026_09_06/0276--banzai--fury5k-magnumz-qqlightning-rhitta-wonderzce.md)                          |
+| 30       |    618 | Club 333                         | laxiee, Marro, mason, N2o, obi                  | [details](details/2026_09_06/0277--club_333--laxiee-marro-mason-n2o-obi.md)                                         |
+| 31       |    604 | BMZ                              | fury5k, MagnumZ, me1o, rhitta, wonderzce        | [details](details/2026_09_06/0290--bmz--fury5k-magnumz-me1o-rhitta-wonderzce.md)                                    |
+| 32       |    601 | MARKnLARRY                       | BRACE, micalis, Roflko, yourwombat, zeph        | [details](details/2026_09_06/0294--marknlarry--brace-micalis-roflko-yourwombat-zeph.md)                             |
+| 33       |    600 | Ding Cuts                        | biebs, blood, delkud, maxed, Val                | [details](details/2026_09_06/0295--ding_cuts--biebs-blood-delkud-maxed-val.md)                                      |
+| 34       |    592 | QuantumX                         | Cozen, grizzly, Kamui, Paranormal, soloooS      | [details](details/2026_09_06/0300--quantumx--cozen-grizzly-kamui-paranormal-solooos.md)                             |
+| 35       |    572 | Orgless (Australian team)        | c4put, JiNxZiE, Myst, Supers, Zoot              | [details](details/2026_09_06/0312--orgless__australian_team_--c4put-jinxzie-myst-supers-zoot.md)                    |
+| 36       |    568 | Sensation                        | ncl, sKINEE, Tsogoo                             | [details](details/2026_09_06/0314--sensation--ncl-skinee-tsogoo.md)                                                 |
+| 37       |    567 | LEGAM                            | Bexyz, Dobo, FELSADIA, GEZUU, versa             | [details](details/2026_09_06/0315--legam--bexyz-dobo-felsadia-gezuu-versa.md)                                       |
+| 38       |    563 | Mindfreak (Australian team)      | BRACE, Crunchy, dpr, kairo, zune                | [details](details/2026_09_06/0317--mindfreak__australian_team_--brace-crunchy-dpr-kairo-zune.md)                    |
+| 39       |    526 | Not A Squad Esports              | Biuckmt, Corazz, Mirror, Mort1s, p5p            | [details](details/2026_09_06/0335--not_a_squad_esports--biuckmt-corazz-mirror-mort1s-p5p.md)                        |
+| 40       |    511 | TEAM XDM                         | darkk, Kungao, r1verLaKe, Shad0w                | [details](details/2026_09_06/0348--team_xdm--darkk-kungao-r1verlake-shad0w.md)                                      |
+| 41       |    510 | The KnockoutX                    | Niko, reason, Yuxz, z1ayr, zzi                  | [details](details/2026_09_06/0349--the_knockoutx--niko-reason-yuxz-z1ayr-zzi.md)                                    |
+| 42       |    507 | Ex-FURY                          | cheeseball, cookie, rahley, versa, Winnieeeee   | [details](details/2026_09_06/0354--ex-fury--cheeseball-cookie-rahley-versa-winnieeeee.md)                           |
+| 43       |    484 | Legion (Pakistani team)          | Bloody, BulleT, hf, HZI, pavast4r               | [details](details/2026_09_06/0361--legion__pakistani_team_--bloody-bullet-hf-hzi-pavast4r.md)                       |
+| 44       |    466 | BBBMBCBS                         | ApeX, Dirty, Fitzy, HaZ, muffin                 | [details](details/2026_09_06/0376--bbbmbcbs--apex-dirty-fitzy-haz-muffin.md)                                        |
+| 45       |    419 | Team Unitronic                   | clyd1e, ImpressioN, Kuma, mentalplay, w1nt3r    | [details](details/2026_09_06/0385--team_unitronic--clyd1e-impression-kuma-mentalplay-w1nt3r.md)                     |
+| 46       |    401 | Unsettled Resentment             | 0z, 4ever, drace, gLong, yoi                    | [details](details/2026_09_06/0391--unsettled_resentment--0z-4ever-drace-glong-yoi.md)                               |
+| 47       |    399 | Team Arise                       | Anasasis, Bhavi, borosto, Ph1NNN                | [details](details/2026_09_06/0394--team_arise--anasasis-bhavi-borosto-ph1nnn.md)                                    |
+| 48       |    398 | Skele                            | Arctic, lucas222, neo, tidy                     | [details](details/2026_09_06/0397--skele--arctic-lucas222-neo-tidy.md)                                              |
+| 49       |    395 | Time Waves                       | camille, ElephanT, harbor, Kezza, lawlkay       | [details](details/2026_09_06/0399--time_waves--camille-elephant-harbor-kezza-lawlkay.md)                            |
+
+
+_Event data for Regional Standings provided by HLTV.org_<br />

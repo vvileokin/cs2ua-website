@@ -1,0 +1,994 @@
+{
+ "asOf": "2026-10-02",
+ "runs": 10,
+ "slots": {
+  "europe": 18,
+  "americas": 9,
+  "asia": 5
+ },
+ "events": 28,
+ "regions": {
+  "europe": [
+   {
+    "team": "Spirit",
+    "p": 1
+   },
+   {
+    "team": "Vitality",
+    "p": 1
+   },
+   {
+    "team": "Falcons",
+    "p": 1
+   },
+   {
+    "team": "G2",
+    "p": 1
+   },
+   {
+    "team": "Aurora",
+    "p": 1
+   },
+   {
+    "team": "BETBOOM",
+    "p": 1
+   },
+   {
+    "team": "Luminosity",
+    "p": 1
+   },
+   {
+    "team": "SAW",
+    "p": 1
+   },
+   {
+    "team": "MOUZ",
+    "p": 0.9
+   },
+   {
+    "team": "Nemiga",
+    "p": 0.9
+   },
+   {
+    "team": "Sangal",
+    "p": 0.9
+   },
+   {
+    "team": "FUT",
+    "p": 0.8
+   },
+   {
+    "team": "Astralis",
+    "p": 0.8
+   },
+   {
+    "team": "3DMAX",
+    "p": 0.6
+   },
+   {
+    "team": "magic",
+    "p": 0.5
+   },
+   {
+    "team": "Ninjas in Pyjamas",
+    "p": 0.5
+   },
+   {
+    "team": "Nemesis",
+    "p": 0.5
+   },
+   {
+    "team": "B8",
+    "p": 0.4
+   },
+   {
+    "team": "HEROIC",
+    "p": 0.4
+   },
+   {
+    "team": "Alliance",
+    "p": 0.4
+   },
+   {
+    "team": "100 Thieves",
+    "p": 0.4
+   },
+   {
+    "team": "Natus Vincere",
+    "p": 0.4
+   },
+   {
+    "team": "Inner Circle",
+    "p": 0.3
+   },
+   {
+    "team": "Eternal Fire",
+    "p": 0.3
+   },
+   {
+    "team": "GamerLegion",
+    "p": 0.2
+   },
+   {
+    "team": "PARIVISION",
+    "p": 0.2
+   },
+   {
+    "team": "SINNERS",
+    "p": 0.2
+   },
+   {
+    "team": "Nuclear TigeRES",
+    "p": 0.2
+   },
+   {
+    "team": "BIG",
+    "p": 0.1
+   },
+   {
+    "team": "HOTU",
+    "p": 0.1
+   },
+   {
+    "team": "FaZe",
+    "p": 0
+   },
+   {
+    "team": "JiJieHao",
+    "p": 0
+   },
+   {
+    "team": "K27",
+    "p": 0
+   },
+   {
+    "team": "fnatic",
+    "p": 0
+   },
+   {
+    "team": "BBL",
+    "p": 0
+   },
+   {
+    "team": "EYEBALLERS",
+    "p": 0
+   },
+   {
+    "team": "Betclic",
+    "p": 0
+   },
+   {
+    "team": "FOKUS",
+    "p": 0
+   },
+   {
+    "team": "Virtus.pro",
+    "p": 0
+   },
+   {
+    "team": "Metizport",
+    "p": 0
+   },
+   {
+    "team": "Color",
+    "p": 0
+   },
+   {
+    "team": "INFINITE",
+    "p": 0
+   },
+   {
+    "team": "Iberian Soul",
+    "p": 0
+   },
+   {
+    "team": "CYBERSHOKE",
+    "p": 0
+   },
+   {
+    "team": "Acend",
+    "p": 0
+   },
+   {
+    "team": "UPGRADE",
+    "p": 0
+   },
+   {
+    "team": "GenOne",
+    "p": 0
+   },
+   {
+    "team": "Phantom",
+    "p": 0
+   },
+   {
+    "team": "Sashi",
+    "p": 0
+   },
+   {
+    "team": "Lazer Cats",
+    "p": 0
+   },
+   {
+    "team": "BRUTE",
+    "p": 0
+   },
+   {
+    "team": "9INE",
+    "p": 0
+   },
+   {
+    "team": "FORZE Reload",
+    "p": 0
+   },
+   {
+    "team": "Rune Eaters",
+    "p": 0
+   },
+   {
+    "team": "Black Phoenix",
+    "p": 0
+   },
+   {
+    "team": "Omega",
+    "p": 0
+   },
+   {
+    "team": "INOX Division",
+    "p": 0
+   },
+   {
+    "team": "ex-Zero Tenacity",
+    "p": 0
+   },
+   {
+    "team": "QUAZAR",
+    "p": 0
+   },
+   {
+    "team": "ASTRAL",
+    "p": 0
+   },
+   {
+    "team": "UNiTY",
+    "p": 0
+   },
+   {
+    "team": "Nexus",
+    "p": 0
+   },
+   {
+    "team": "SPARTA",
+    "p": 0
+   },
+   {
+    "team": "Johnny Speeds",
+    "p": 0
+   },
+   {
+    "team": "ex-RUSTEC",
+    "p": 0
+   },
+   {
+    "team": "BAKS",
+    "p": 0
+   },
+   {
+    "team": "BASEMENT BOYS",
+    "p": 0
+   },
+   {
+    "team": "OG",
+    "p": 0
+   },
+   {
+    "team": "ENCE",
+    "p": 0
+   },
+   {
+    "team": "WW",
+    "p": 0
+   },
+   {
+    "team": "Bushido Wildcats",
+    "p": 0
+   },
+   {
+    "team": "Just Players",
+    "p": 0
+   },
+   {
+    "team": "ex-RUBY",
+    "p": 0
+   },
+   {
+    "team": "NOVAQ",
+    "p": 0
+   },
+   {
+    "team": "Walczaki",
+    "p": 0
+   },
+   {
+    "team": "Nordic Partners",
+    "p": 0
+   },
+   {
+    "team": "mellren",
+    "p": 0
+   },
+   {
+    "team": "HAVU",
+    "p": 0
+   },
+   {
+    "team": "The Last Resort",
+    "p": 0
+   },
+   {
+    "team": "6666",
+    "p": 0
+   },
+   {
+    "team": "KOLESIE",
+    "p": 0
+   },
+   {
+    "team": "Fire Flux",
+    "p": 0
+   },
+   {
+    "team": "Spirit Academy",
+    "p": 0
+   },
+   {
+    "team": "Lavked",
+    "p": 0
+   },
+   {
+    "team": "G2 Ares",
+    "p": 0
+   },
+   {
+    "team": "Vexar",
+    "p": 0
+   },
+   {
+    "team": "Misa",
+    "p": 0
+   },
+   {
+    "team": "Noir Verse",
+    "p": 0
+   },
+   {
+    "team": "MOUZ NXT",
+    "p": 0
+   },
+   {
+    "team": "LPH",
+    "p": 0
+   },
+   {
+    "team": "Drama",
+    "p": 0
+   },
+   {
+    "team": "SAW Youngsters",
+    "p": 0
+   },
+   {
+    "team": "Prestige",
+    "p": 0
+   },
+   {
+    "team": "Entropy",
+    "p": 0
+   },
+   {
+    "team": "Azuolas",
+    "p": 0
+   },
+   {
+    "team": "benched gods",
+    "p": 0
+   },
+   {
+    "team": "Saint Sinners",
+    "p": 0
+   },
+   {
+    "team": "megoshort",
+    "p": 0
+   },
+   {
+    "team": "HYPERSPIRIT",
+    "p": 0
+   },
+   {
+    "team": "ARCRED",
+    "p": 0
+   },
+   {
+    "team": "Falcons Force",
+    "p": 0
+   },
+   {
+    "team": "Lilmix",
+    "p": 0
+   },
+   {
+    "team": "MASONIC",
+    "p": 0
+   },
+   {
+    "team": "Phantom Academy",
+    "p": 0
+   },
+   {
+    "team": "Honvéd",
+    "p": 0
+   },
+   {
+    "team": "PURE",
+    "p": 0
+   },
+   {
+    "team": "Drip Too Hard",
+    "p": 0
+   },
+   {
+    "team": "SINQU",
+    "p": 0
+   },
+   {
+    "team": "brazylijski luz",
+    "p": 0
+   },
+   {
+    "team": "DragonClaw",
+    "p": 0
+   },
+   {
+    "team": "DONSTU",
+    "p": 0
+   },
+   {
+    "team": "BERG",
+    "p": 0
+   },
+   {
+    "team": "roamsfiest",
+    "p": 0
+   },
+   {
+    "team": "Young TigeRES",
+    "p": 0
+   },
+   {
+    "team": "Bebop",
+    "p": 0
+   },
+   {
+    "team": "Ryvex",
+    "p": 0
+   },
+   {
+    "team": "ex-Sashi Academy",
+    "p": 0
+   },
+   {
+    "team": "Strael Bora",
+    "p": 0
+   },
+   {
+    "team": "ALGO",
+    "p": 0
+   },
+   {
+    "team": "Dark Moon",
+    "p": 0
+   },
+   {
+    "team": "Hashiras",
+    "p": 0
+   },
+   {
+    "team": "AM",
+    "p": 0
+   },
+   {
+    "team": "ABT",
+    "p": 0
+   },
+   {
+    "team": "TNC",
+    "p": 0
+   },
+   {
+    "team": "Fortress",
+    "p": 0
+   },
+   {
+    "team": "Mai Tai",
+    "p": 0
+   },
+   {
+    "team": "NEW VISION",
+    "p": 0
+   },
+   {
+    "team": "Famalicão",
+    "p": 0
+   },
+   {
+    "team": "Revise",
+    "p": 0
+   },
+   {
+    "team": "illwill",
+    "p": 0
+   },
+   {
+    "team": "ALTAY",
+    "p": 0
+   },
+   {
+    "team": "BC.Game",
+    "p": 0
+   },
+   {
+    "team": "eternal premium",
+    "p": 0
+   },
+   {
+    "team": "train launcher",
+    "p": 0
+   },
+   {
+    "team": "Raccoons",
+    "p": 0
+   },
+   {
+    "team": "B8 Academy",
+    "p": 0
+   },
+   {
+    "team": "SHISHKA",
+    "p": 0
+   },
+   {
+    "team": "cirahvi",
+    "p": 0
+   },
+   {
+    "team": "Privateer",
+    "p": 0
+   },
+   {
+    "team": "Banger Gang",
+    "p": 0
+   },
+   {
+    "team": "BIG Academy",
+    "p": 0
+   },
+   {
+    "team": "ZOTIX",
+    "p": 0
+   },
+   {
+    "team": "eSuba",
+    "p": 0
+   },
+   {
+    "team": "WAZABI",
+    "p": 0
+   },
+   {
+    "team": "A Great Chaos",
+    "p": 0
+   },
+   {
+    "team": "XI",
+    "p": 0
+   },
+   {
+    "team": "ROUNDS",
+    "p": 0
+   },
+   {
+    "team": "Xcity",
+    "p": 0
+   },
+   {
+    "team": "Wingman",
+    "p": 0
+   },
+   {
+    "team": "GamersLab",
+    "p": 0
+   },
+   {
+    "team": "FAVBET",
+    "p": 0
+   },
+   {
+    "team": "HEROIC Academy",
+    "p": 0
+   },
+   {
+    "team": "Tricksters",
+    "p": 0
+   },
+   {
+    "team": "Younglings",
+    "p": 0
+   },
+   {
+    "team": "Aurora Young Blud",
+    "p": 0
+   },
+   {
+    "team": "Arch",
+    "p": 0
+   },
+   {
+    "team": "Subtop De France",
+    "p": 0
+   },
+   {
+    "team": "Clutchain",
+    "p": 0
+   },
+   {
+    "team": "EC BANGA",
+    "p": 0
+   },
+   {
+    "team": "Julie&Cie",
+    "p": 0
+   },
+   {
+    "team": "Coalesce",
+    "p": 0
+   },
+   {
+    "team": "Trainwrecks",
+    "p": 0
+   },
+   {
+    "team": "Aimhaus",
+    "p": 0
+   }
+  ],
+  "americas": [
+   {
+    "team": "Legacy",
+    "p": 1
+   },
+   {
+    "team": "FURIA",
+    "p": 1
+   },
+   {
+    "team": "MIBR",
+    "p": 1
+   },
+   {
+    "team": "Liquid",
+    "p": 1
+   },
+   {
+    "team": "9z",
+    "p": 0.9
+   },
+   {
+    "team": "M80",
+    "p": 0.9
+   },
+   {
+    "team": "DENDELE",
+    "p": 0.7
+   },
+   {
+    "team": "NRG",
+    "p": 0.6
+   },
+   {
+    "team": "Imperial",
+    "p": 0.5
+   },
+   {
+    "team": "BESTIA",
+    "p": 0.5
+   },
+   {
+    "team": "Wildcard",
+    "p": 0.4
+   },
+   {
+    "team": "Voca",
+    "p": 0.3
+   },
+   {
+    "team": "paiN",
+    "p": 0.2
+   },
+   {
+    "team": "SportsBetExpert",
+    "p": 0
+   },
+   {
+    "team": "ShindeN",
+    "p": 0
+   },
+   {
+    "team": "Galorys",
+    "p": 0
+   },
+   {
+    "team": "Bounty Hunters",
+    "p": 0
+   },
+   {
+    "team": "Without a Roof",
+    "p": 0
+   },
+   {
+    "team": "Marsborne",
+    "p": 0
+   },
+   {
+    "team": "Turma do Pagode",
+    "p": 0
+   },
+   {
+    "team": "regain",
+    "p": 0
+   },
+   {
+    "team": "Procyon",
+    "p": 0
+   },
+   {
+    "team": "ALKA",
+    "p": 0
+   },
+   {
+    "team": "Isurus",
+    "p": 0
+   },
+   {
+    "team": "Iowa Stormboar",
+    "p": 0
+   },
+   {
+    "team": "Overtake Sector",
+    "p": 0
+   },
+   {
+    "team": "Chicken Coop",
+    "p": 0
+   },
+   {
+    "team": "UNO MILLE",
+    "p": 0
+   },
+   {
+    "team": "FarmVille",
+    "p": 0
+   },
+   {
+    "team": "QUINTESSÊNCIA",
+    "p": 0
+   },
+   {
+    "team": "DETONATE",
+    "p": 0
+   },
+   {
+    "team": "Fake do Biru",
+    "p": 0
+   },
+   {
+    "team": "BORRACHEIROS",
+    "p": 0
+   },
+   {
+    "team": "BESTIA Academy",
+    "p": 0
+   },
+   {
+    "team": "Villainous",
+    "p": 0
+   },
+   {
+    "team": "MEIA NOITE",
+    "p": 0
+   },
+   {
+    "team": "Club 333",
+    "p": 0
+   },
+   {
+    "team": "METANOIA Wolves",
+    "p": 0
+   },
+   {
+    "team": "Grêmio",
+    "p": 0
+   },
+   {
+    "team": "Zomblers",
+    "p": 0
+   },
+   {
+    "team": "ex-Aether",
+    "p": 0
+   },
+   {
+    "team": "Shimmer",
+    "p": 0
+   },
+   {
+    "team": "MIBR Academy",
+    "p": 0
+   },
+   {
+    "team": "Festina Lente",
+    "p": 0
+   },
+   {
+    "team": "NuTorious",
+    "p": 0
+   },
+   {
+    "team": "paiN Academy",
+    "p": 0
+   },
+   {
+    "team": "Wanted Goons",
+    "p": 0
+   },
+   {
+    "team": "Olympus",
+    "p": 0
+   },
+   {
+    "team": "your end",
+    "p": 0
+   },
+   {
+    "team": "Reign Above",
+    "p": 0
+   },
+   {
+    "team": "Vasco",
+    "p": 0
+   },
+   {
+    "team": "Omen",
+    "p": 0
+   },
+   {
+    "team": "Sementes do Mal",
+    "p": 0
+   },
+   {
+    "team": "New Legends",
+    "p": 0
+   },
+   {
+    "team": "Mansão Maromba",
+    "p": 0
+   },
+   {
+    "team": "Unreal Nightmare",
+    "p": 0
+   }
+  ],
+  "asia": [
+   {
+    "team": "TYLOO",
+    "p": 1
+   },
+   {
+    "team": "The MongolZ",
+    "p": 0.9
+   },
+   {
+    "team": "5star",
+    "p": 0.9
+   },
+   {
+    "team": "Lynn Vision",
+    "p": 0.8
+   },
+   {
+    "team": "BC.Game",
+    "p": 0.5
+   },
+   {
+    "team": "NEXVOID",
+    "p": 0.4
+   },
+   {
+    "team": "THUNDER dOWNUNDER",
+    "p": 0.2
+   },
+   {
+    "team": "FlyQuest",
+    "p": 0.1
+   },
+   {
+    "team": "Alter Ego",
+    "p": 0.1
+   },
+   {
+    "team": "Kaleido",
+    "p": 0.1
+   },
+   {
+    "team": "DEPO",
+    "p": 0
+   },
+   {
+    "team": "Chinggis Warriors",
+    "p": 0
+   },
+   {
+    "team": "Rare Atom",
+    "p": 0
+   },
+   {
+    "team": "Ground Zero",
+    "p": 0
+   },
+   {
+    "team": "The Huns",
+    "p": 0
+   },
+   {
+    "team": "Abyssal",
+    "p": 0
+   },
+   {
+    "team": "Rooster",
+    "p": 0
+   },
+   {
+    "team": "THE UNIT",
+    "p": 0
+   },
+   {
+    "team": "Haunted House",
+    "p": 0
+   },
+   {
+    "team": "XDM",
+    "p": 0
+   },
+   {
+    "team": "Club 333",
+    "p": 0
+   },
+   {
+    "team": "Ding Cuts",
+    "p": 0
+   },
+   {
+    "team": "SemperFi",
+    "p": 0
+   },
+   {
+    "team": "The KnockoutX",
+    "p": 0
+   },
+   {
+    "team": "FURY",
+    "p": 0
+   }
+  ]
+ }
+}

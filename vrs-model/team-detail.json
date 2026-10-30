@@ -1,0 +1,3106 @@
+{
+ "asOf": "2026-10-28",
+ "runs": 20000,
+ "teams": {
+  "FUT": {
+   "team": "FUT",
+   "pts": 1778,
+   "pQual": 1,
+   "place": 6.54565,
+   "components": {
+    "base": 400,
+    "lan": 398,
+    "network": 167,
+    "offered": 398,
+    "collected": 351,
+    "h2h": 65
+   },
+   "rows": {
+    "lan": [
+     {
+      "date": "26/10/26",
+      "pts": 48,
+      "days": 2,
+      "recency": 100
+     },
+     {
+      "date": "25/10/26",
+      "pts": 48,
+      "days": 3,
+      "recency": 100
+     },
+     {
+      "date": "24/10/26",
+      "pts": 48,
+      "days": 4,
+      "recency": 100
+     },
+     {
+      "date": "30/08/26",
+      "pts": 39,
+      "days": 59,
+      "recency": 81
+     },
+     {
+      "date": "29/08/26",
+      "pts": 39,
+      "days": 60,
+      "recency": 80
+     },
+     {
+      "date": "22/08/26",
+      "pts": 36,
+      "days": 67,
+      "recency": 76
+     },
+     {
+      "date": "21/08/26",
+      "pts": 36,
+      "days": 68,
+      "recency": 75
+     },
+     {
+      "date": "19/08/26",
+      "pts": 35,
+      "days": 70,
+      "recency": 74
+     },
+     {
+      "date": "14/08/26",
+      "pts": 34,
+      "days": 75,
+      "recency": 70
+     },
+     {
+      "date": "12/08/26",
+      "pts": 33,
+      "days": 77,
+      "recency": 69
+     }
+    ],
+    "offered": [
+     {
+      "date": "27/10/26",
+      "pts": 35,
+      "days": 1,
+      "recency": 100
+     },
+     {
+      "date": "06/09/26",
+      "pts": 47,
+      "days": 52,
+      "recency": 86
+     },
+     {
+      "date": "23/08/26",
+      "pts": 287,
+      "days": 66,
+      "recency": 76
+     },
+     {
+      "date": "26/07/26",
+      "pts": 18,
+      "days": 94,
+      "recency": 58
+     },
+     {
+      "date": "21/06/26",
+      "pts": 8,
+      "days": 129,
+      "recency": 35
+     },
+     {
+      "date": "17/05/26",
+      "pts": 2,
+      "days": 164,
+      "recency": 12
+     }
+    ],
+    "collected": [
+     {
+      "date": "26/10/26",
+      "pts": 84,
+      "days": 2
+     },
+     {
+      "date": "25/10/26",
+      "pts": 17,
+      "days": 3
+     },
+     {
+      "date": "24/10/26",
+      "pts": 11,
+      "days": 4
+     },
+     {
+      "date": "30/08/26",
+      "pts": 9,
+      "days": 59
+     },
+     {
+      "date": "22/08/26",
+      "pts": 63,
+      "days": 67
+     },
+     {
+      "date": "21/08/26",
+      "pts": 62,
+      "days": 68
+     },
+     {
+      "date": "19/08/26",
+      "pts": 13,
+      "days": 70
+     },
+     {
+      "date": "14/08/26",
+      "pts": 59,
+      "days": 75
+     },
+     {
+      "date": "14/06/26",
+      "pts": 25,
+      "days": 136
+     },
+     {
+      "date": "07/06/26",
+      "pts": 9,
+      "days": 143
+     }
+    ],
+    "network": [
+     {
+      "date": "26/10/26",
+      "pts": 21,
+      "days": 2
+     },
+     {
+      "date": "25/10/26",
+      "pts": 27,
+      "days": 3
+     },
+     {
+      "date": "24/10/26",
+      "pts": 15,
+      "days": 4
+     },
+     {
+      "date": "30/08/26",
+      "pts": 17,
+      "days": 59
+     },
+     {
+      "date": "29/08/26",
+      "pts": 15,
+      "days": 60
+     },
+     {
+      "date": "22/08/26",
+      "pts": 15,
+      "days": 67
+     },
+     {
+      "date": "21/08/26",
+      "pts": 16,
+      "days": 68
+     },
+     {
+      "date": "19/08/26",
+      "pts": 11,
+      "days": 70
+     },
+     {
+      "date": "14/08/26",
+      "pts": 15,
+      "days": 75
+     },
+     {
+      "date": "23/07/26",
+      "pts": 16,
+      "days": 97
+     }
+    ]
+   },
+   "lanGain": 15,
+   "lanFull": true,
+   "events": [
+    {
+     "name": "PGL Masters Bucharest",
+     "prize": 1250000,
+     "when": "24–31 жовтня",
+     "rows": [
+      {
+       "place": "1-ше",
+       "money": 225000,
+       "wins": 3,
+       "lan": 42,
+       "collected": 27,
+       "network": 0,
+       "offered": 35,
+       "total": 104,
+       "after": 1882,
+       "pQual": 1
+      },
+      {
+       "place": "2-ге",
+       "money": 100000,
+       "wins": 2,
+       "lan": 29,
+       "collected": 19,
+       "network": 0,
+       "offered": 17,
+       "total": 65,
+       "after": 1843,
+       "pQual": 1
+      },
+      {
+       "place": "3-4",
+       "money": 50000,
+       "wins": 1,
+       "lan": 15,
+       "collected": 10,
+       "network": 0,
+       "offered": 8,
+       "total": 34,
+       "after": 1812,
+       "pQual": 1
+      },
+      {
+       "place": "5-8",
+       "money": 50000,
+       "wins": 0,
+       "lan": 0,
+       "collected": 0,
+       "network": 0,
+       "offered": 8,
+       "total": 9,
+       "after": 1787,
+       "pQual": 1
+      }
+     ]
+    }
+   ],
+   "matches": [],
+   "chasers": [
+    {
+     "team": "Natus Vincere",
+     "pts": 1557,
+     "need": 220,
+     "lanGain": 43,
+     "pAbove": 0.00255
+    }
+   ]
+  },
+  "G2": {
+   "team": "G2",
+   "pts": 1639,
+   "pQual": 1,
+   "place": 8.37635,
+   "components": {
+    "base": 400,
+    "lan": 413,
+    "network": 166,
+    "offered": 383,
+    "collected": 352,
+    "h2h": -75
+   },
+   "rows": {
+    "lan": [
+     {
+      "date": "05/10/26",
+      "pts": 48,
+      "days": 23,
+      "recency": 100
+     },
+     {
+      "date": "12/09/26",
+      "pts": 43,
+      "days": 46,
+      "recency": 89
+     },
+     {
+      "date": "11/09/26",
+      "pts": 43,
+      "days": 47,
+      "recency": 89
+     },
+     {
+      "date": "10/09/26",
+      "pts": 43,
+      "days": 48,
+      "recency": 88
+     },
+     {
+      "date": "10/09/26",
+      "pts": 42,
+      "days": 48,
+      "recency": 88
+     },
+     {
+      "date": "09/09/26",
+      "pts": 42,
+      "days": 49,
+      "recency": 88
+     },
+     {
+      "date": "31/08/26",
+      "pts": 39,
+      "days": 58,
+      "recency": 82
+     },
+     {
+      "date": "30/08/26",
+      "pts": 39,
+      "days": 59,
+      "recency": 81
+     },
+     {
+      "date": "26/08/26",
+      "pts": 38,
+      "days": 63,
+      "recency": 78
+     },
+     {
+      "date": "19/08/26",
+      "pts": 35,
+      "days": 70,
+      "recency": 74
+     }
+    ],
+    "offered": [
+     {
+      "date": "27/10/26",
+      "pts": 15,
+      "days": 1,
+      "recency": 100
+     },
+     {
+      "date": "11/10/26",
+      "pts": 17,
+      "days": 17,
+      "recency": 100
+     },
+     {
+      "date": "13/09/26",
+      "pts": 171,
+      "days": 45,
+      "recency": 90
+     },
+     {
+      "date": "06/09/26",
+      "pts": 76,
+      "days": 52,
+      "recency": 86
+     },
+     {
+      "date": "23/08/26",
+      "pts": 54,
+      "days": 66,
+      "recency": 76
+     },
+     {
+      "date": "26/07/26",
+      "pts": 20,
+      "days": 94,
+      "recency": 58
+     },
+     {
+      "date": "21/06/26",
+      "pts": 18,
+      "days": 129,
+      "recency": 35
+     },
+     {
+      "date": "17/05/26",
+      "pts": 10,
+      "days": 164,
+      "recency": 12
+     },
+     {
+      "date": "03/05/26",
+      "pts": 2,
+      "days": 178,
+      "recency": 3
+     }
+    ],
+    "collected": [
+     {
+      "date": "12/09/26",
+      "pts": 55,
+      "days": 46
+     },
+     {
+      "date": "11/09/26",
+      "pts": 73,
+      "days": 47
+     },
+     {
+      "date": "10/09/26",
+      "pts": 33,
+      "days": 48
+     },
+     {
+      "date": "09/09/26",
+      "pts": 11,
+      "days": 49
+     },
+     {
+      "date": "31/08/26",
+      "pts": 56,
+      "days": 58
+     },
+     {
+      "date": "30/08/26",
+      "pts": 19,
+      "days": 59
+     },
+     {
+      "date": "26/08/26",
+      "pts": 53,
+      "days": 63
+     },
+     {
+      "date": "19/08/26",
+      "pts": 14,
+      "days": 70
+     },
+     {
+      "date": "14/06/26",
+      "pts": 24,
+      "days": 136
+     },
+     {
+      "date": "12/06/26",
+      "pts": 14,
+      "days": 138
+     }
+    ],
+    "network": [
+     {
+      "date": "05/10/26",
+      "pts": 13,
+      "days": 23
+     },
+     {
+      "date": "12/09/26",
+      "pts": 16,
+      "days": 46
+     },
+     {
+      "date": "11/09/26",
+      "pts": 17,
+      "days": 47
+     },
+     {
+      "date": "10/09/26",
+      "pts": 13,
+      "days": 48
+     },
+     {
+      "date": "09/09/26",
+      "pts": 14,
+      "days": 49
+     },
+     {
+      "date": "31/08/26",
+      "pts": 22,
+      "days": 58
+     },
+     {
+      "date": "26/08/26",
+      "pts": 21,
+      "days": 63
+     },
+     {
+      "date": "19/08/26",
+      "pts": 15,
+      "days": 70
+     },
+     {
+      "date": "12/08/26",
+      "pts": 13,
+      "days": 77
+     },
+     {
+      "date": "22/07/26",
+      "pts": 22,
+      "days": 98
+     }
+    ]
+   },
+   "lanGain": 13,
+   "lanFull": true,
+   "events": [],
+   "matches": [],
+   "chasers": [
+    {
+     "team": "Natus Vincere",
+     "pts": 1557,
+     "need": 82,
+     "lanGain": 43,
+     "pAbove": 0.25645
+    },
+    {
+     "team": "Astralis",
+     "pts": 1589,
+     "need": 50,
+     "lanGain": 2,
+     "pAbove": 0.08465
+    },
+    {
+     "team": "Nemiga",
+     "pts": 1556,
+     "need": 83,
+     "lanGain": 4,
+     "pAbove": 0.03485
+    }
+   ]
+  },
+  "Astralis": {
+   "team": "Astralis",
+   "pts": 1589,
+   "pQual": 1,
+   "place": 10.74415,
+   "components": {
+    "base": 400,
+    "lan": 479,
+    "network": 178,
+    "offered": 294,
+    "collected": 263,
+    "h2h": -24
+   },
+   "rows": {
+    "lan": [
+     {
+      "date": "28/10/26",
+      "pts": 48,
+      "days": 0,
+      "recency": 100
+     },
+     {
+      "date": "14/10/26",
+      "pts": 48,
+      "days": 14,
+      "recency": 100
+     },
+     {
+      "date": "14/10/26",
+      "pts": 48,
+      "days": 14,
+      "recency": 100
+     },
+     {
+      "date": "04/10/26",
+      "pts": 48,
+      "days": 24,
+      "recency": 100
+     },
+     {
+      "date": "04/10/26",
+      "pts": 48,
+      "days": 24,
+      "recency": 100
+     },
+     {
+      "date": "03/10/26",
+      "pts": 48,
+      "days": 25,
+      "recency": 100
+     },
+     {
+      "date": "03/10/26",
+      "pts": 48,
+      "days": 25,
+      "recency": 100
+     },
+     {
+      "date": "02/10/26",
+      "pts": 48,
+      "days": 26,
+      "recency": 100
+     },
+     {
+      "date": "25/09/26",
+      "pts": 47,
+      "days": 33,
+      "recency": 98
+     },
+     {
+      "date": "21/09/26",
+      "pts": 46,
+      "days": 37,
+      "recency": 95
+     }
+    ],
+    "offered": [
+     {
+      "date": "28/10/26",
+      "pts": 16,
+      "days": 0,
+      "recency": 100
+     },
+     {
+      "date": "17/10/26",
+      "pts": 9,
+      "days": 11,
+      "recency": 100
+     },
+     {
+      "date": "04/10/26",
+      "pts": 55,
+      "days": 24,
+      "recency": 100
+     },
+     {
+      "date": "26/09/26",
+      "pts": 13,
+      "days": 32,
+      "recency": 99
+     },
+     {
+      "date": "13/09/26",
+      "pts": 39,
+      "days": 45,
+      "recency": 90
+     },
+     {
+      "date": "23/08/26",
+      "pts": 58,
+      "days": 66,
+      "recency": 76
+     },
+     {
+      "date": "02/08/26",
+      "pts": 86,
+      "days": 87,
+      "recency": 63
+     },
+     {
+      "date": "09/06/26",
+      "pts": 6,
+      "days": 141,
+      "recency": 27
+     },
+     {
+      "date": "17/05/26",
+      "pts": 10,
+      "days": 164,
+      "recency": 12
+     },
+     {
+      "date": "03/05/26",
+      "pts": 3,
+      "days": 178,
+      "recency": 3
+     }
+    ],
+    "collected": [
+     {
+      "date": "28/10/26",
+      "pts": 19,
+      "days": 0
+     },
+     {
+      "date": "04/10/26",
+      "pts": 15,
+      "days": 24
+     },
+     {
+      "date": "04/10/26",
+      "pts": 10,
+      "days": 24
+     },
+     {
+      "date": "03/10/26",
+      "pts": 13,
+      "days": 25
+     },
+     {
+      "date": "02/10/26",
+      "pts": 23,
+      "days": 26
+     },
+     {
+      "date": "08/09/26",
+      "pts": 86,
+      "days": 50
+     },
+     {
+      "date": "16/08/26",
+      "pts": 31,
+      "days": 73
+     },
+     {
+      "date": "12/08/26",
+      "pts": 39,
+      "days": 77
+     },
+     {
+      "date": "31/07/26",
+      "pts": 15,
+      "days": 89
+     },
+     {
+      "date": "21/07/26",
+      "pts": 11,
+      "days": 99
+     }
+    ],
+    "network": [
+     {
+      "date": "14/10/26",
+      "pts": 19,
+      "days": 14
+     },
+     {
+      "date": "04/10/26",
+      "pts": 23,
+      "days": 24
+     },
+     {
+      "date": "03/10/26",
+      "pts": 16,
+      "days": 25
+     },
+     {
+      "date": "21/09/26",
+      "pts": 14,
+      "days": 37
+     },
+     {
+      "date": "21/09/26",
+      "pts": 16,
+      "days": 37
+     },
+     {
+      "date": "08/09/26",
+      "pts": 13,
+      "days": 50
+     },
+     {
+      "date": "16/08/26",
+      "pts": 23,
+      "days": 73
+     },
+     {
+      "date": "12/08/26",
+      "pts": 16,
+      "days": 77
+     },
+     {
+      "date": "25/07/26",
+      "pts": 20,
+      "days": 95
+     },
+     {
+      "date": "21/07/26",
+      "pts": 18,
+      "days": 99
+     }
+    ]
+   },
+   "lanGain": 2,
+   "lanFull": true,
+   "events": [
+    {
+     "name": "Stake Ranked Episode 5",
+     "prize": 100000,
+     "when": "27–30 жовтня",
+     "rows": [
+      {
+       "place": "1-ше",
+       "money": 25000,
+       "wins": 6,
+       "lan": 3,
+       "collected": 7,
+       "network": 0,
+       "offered": 11,
+       "total": 21,
+       "after": 1610,
+       "pQual": 1
+      },
+      {
+       "place": "2-ге",
+       "money": 17500,
+       "wins": 5,
+       "lan": 3,
+       "collected": 7,
+       "network": 0,
+       "offered": 8,
+       "total": 18,
+       "after": 1607,
+       "pQual": 1
+      },
+      {
+       "place": "3-тє",
+       "money": 13500,
+       "wins": 4,
+       "lan": 3,
+       "collected": 6,
+       "network": 0,
+       "offered": 6,
+       "total": 15,
+       "after": 1604,
+       "pQual": 1
+      },
+      {
+       "place": "4-те",
+       "money": 11000,
+       "wins": 3,
+       "lan": 3,
+       "collected": 5,
+       "network": 0,
+       "offered": 5,
+       "total": 13,
+       "after": 1602,
+       "pQual": 1
+      },
+      {
+       "place": "5-6",
+       "money": 9000,
+       "wins": 2,
+       "lan": 3,
+       "collected": 4,
+       "network": 0,
+       "offered": 4,
+       "total": 11,
+       "after": 1600,
+       "pQual": 1
+      },
+      {
+       "place": "7-8",
+       "money": 7500,
+       "wins": 0,
+       "lan": 0,
+       "collected": 0,
+       "network": 0,
+       "offered": 3,
+       "total": 3,
+       "after": 1592,
+       "pQual": 1
+      }
+     ]
+    }
+   ],
+   "matches": [],
+   "chasers": [
+    {
+     "team": "Natus Vincere",
+     "pts": 1557,
+     "need": 32,
+     "lanGain": 43,
+     "pAbove": 0.68635
+    },
+    {
+     "team": "PARIVISION",
+     "pts": 1579,
+     "need": 10,
+     "lanGain": 25,
+     "pAbove": 0.37065
+    },
+    {
+     "team": "FaZe",
+     "pts": 1557,
+     "need": 32,
+     "lanGain": 14,
+     "pAbove": 0.2356
+    },
+    {
+     "team": "Nemiga",
+     "pts": 1556,
+     "need": 33,
+     "lanGain": 4,
+     "pAbove": 0.19925
+    },
+    {
+     "team": "1win",
+     "pts": 1517,
+     "need": 72,
+     "lanGain": 20,
+     "pAbove": 0.18385
+    },
+    {
+     "team": "Ninjas in Pyjamas",
+     "pts": 1563,
+     "need": 26,
+     "lanGain": 0,
+     "pAbove": 0.12615
+    },
+    {
+     "team": "HEROIC",
+     "pts": 1545,
+     "need": 44,
+     "lanGain": 2,
+     "pAbove": 0.01445
+    },
+    {
+     "team": "HOTU",
+     "pts": 1409,
+     "need": 180,
+     "lanGain": 38,
+     "pAbove": 0.00805
+    },
+    {
+     "team": "B8",
+     "pts": 1483,
+     "need": 106,
+     "lanGain": 28,
+     "pAbove": 0.00335
+    }
+   ]
+  },
+  "Natus Vincere": {
+   "team": "Natus Vincere",
+   "pts": 1558,
+   "pQual": 0.99625,
+   "place": 10.003,
+   "components": {
+    "base": 400,
+    "lan": 332,
+    "network": 107,
+    "offered": 310,
+    "collected": 331,
+    "h2h": 78
+   },
+   "rows": {
+    "lan": [
+     {
+      "date": "25/10/26",
+      "pts": 48,
+      "days": 3,
+      "recency": 100
+     },
+     {
+      "date": "24/10/26",
+      "pts": 48,
+      "days": 4,
+      "recency": 100
+     },
+     {
+      "date": "05/10/26",
+      "pts": 48,
+      "days": 23,
+      "recency": 100
+     },
+     {
+      "date": "03/10/26",
+      "pts": 48,
+      "days": 25,
+      "recency": 100
+     },
+     {
+      "date": "28/08/26",
+      "pts": 38,
+      "days": 61,
+      "recency": 80
+     },
+     {
+      "date": "15/08/26",
+      "pts": 34,
+      "days": 74,
+      "recency": 71
+     },
+     {
+      "date": "12/08/26",
+      "pts": 33,
+      "days": 77,
+      "recency": 69
+     },
+     {
+      "date": "13/06/26",
+      "pts": 14,
+      "days": 137,
+      "recency": 30
+     },
+     {
+      "date": "12/06/26",
+      "pts": 14,
+      "days": 138,
+      "recency": 29
+     },
+     {
+      "date": "17/05/26",
+      "pts": 5,
+      "days": 164,
+      "recency": 12
+     }
+    ],
+    "offered": [
+     {
+      "date": "27/10/26",
+      "pts": 59,
+      "days": 1,
+      "recency": 100
+     },
+     {
+      "date": "11/10/26",
+      "pts": 49,
+      "days": 17,
+      "recency": 100
+     },
+     {
+      "date": "20/09/26",
+      "pts": 18,
+      "days": 38,
+      "recency": 95
+     },
+     {
+      "date": "06/09/26",
+      "pts": 53,
+      "days": 52,
+      "recency": 86
+     },
+     {
+      "date": "23/08/26",
+      "pts": 51,
+      "days": 66,
+      "recency": 76
+     },
+     {
+      "date": "21/06/26",
+      "pts": 13,
+      "days": 129,
+      "recency": 35
+     },
+     {
+      "date": "17/05/26",
+      "pts": 61,
+      "days": 164,
+      "recency": 12
+     },
+     {
+      "date": "03/05/26",
+      "pts": 6,
+      "days": 178,
+      "recency": 3
+     }
+    ],
+    "collected": [
+     {
+      "date": "25/10/26",
+      "pts": 95,
+      "days": 3
+     },
+     {
+      "date": "24/10/26",
+      "pts": 52,
+      "days": 4
+     },
+     {
+      "date": "05/10/26",
+      "pts": 44,
+      "days": 23
+     },
+     {
+      "date": "03/10/26",
+      "pts": 52,
+      "days": 25
+     },
+     {
+      "date": "28/08/26",
+      "pts": 12,
+      "days": 61
+     },
+     {
+      "date": "15/08/26",
+      "pts": 17,
+      "days": 74
+     },
+     {
+      "date": "12/08/26",
+      "pts": 15,
+      "days": 77
+     },
+     {
+      "date": "12/06/26",
+      "pts": 27,
+      "days": 138
+     },
+     {
+      "date": "17/05/26",
+      "pts": 7,
+      "days": 164
+     },
+     {
+      "date": "16/05/26",
+      "pts": 9,
+      "days": 165
+     }
+    ],
+    "network": [
+     {
+      "date": "25/10/26",
+      "pts": 20,
+      "days": 3
+     },
+     {
+      "date": "24/10/26",
+      "pts": 15,
+      "days": 4
+     },
+     {
+      "date": "05/10/26",
+      "pts": 12,
+      "days": 23
+     },
+     {
+      "date": "03/10/26",
+      "pts": 15,
+      "days": 25
+     },
+     {
+      "date": "28/08/26",
+      "pts": 12,
+      "days": 61
+     },
+     {
+      "date": "15/08/26",
+      "pts": 10,
+      "days": 74
+     },
+     {
+      "date": "12/08/26",
+      "pts": 13,
+      "days": 77
+     },
+     {
+      "date": "13/06/26",
+      "pts": 4,
+      "days": 137
+     },
+     {
+      "date": "12/06/26",
+      "pts": 5,
+      "days": 138
+     },
+     {
+      "date": "16/05/26",
+      "pts": 2,
+      "days": 165
+     }
+    ]
+   },
+   "lanGain": 43,
+   "lanFull": true,
+   "events": [
+    {
+     "name": "Circuito Retake Season 13",
+     "prize": 14300,
+     "when": "29 жовтня – 1 листопада",
+     "rows": [
+      {
+       "place": "1-ше",
+       "money": 7800,
+       "wins": 5,
+       "lan": 140,
+       "collected": 0,
+       "network": 2,
+       "offered": 3,
+       "total": 145,
+       "after": 1703,
+       "pQual": 1
+      },
+      {
+       "place": "2-ге",
+       "money": 3500,
+       "wins": 4,
+       "lan": 126,
+       "collected": 0,
+       "network": 2,
+       "offered": 1,
+       "total": 129,
+       "after": 1687,
+       "pQual": 1
+      },
+      {
+       "place": "3-тє",
+       "money": 2100,
+       "wins": 3,
+       "lan": 111,
+       "collected": 0,
+       "network": 2,
+       "offered": 1,
+       "total": 114,
+       "after": 1672,
+       "pQual": 1
+      },
+      {
+       "place": "4-те",
+       "money": 700,
+       "wins": 2,
+       "lan": 77,
+       "collected": 0,
+       "network": 2,
+       "offered": 0,
+       "total": 79,
+       "after": 1637,
+       "pQual": 1
+      },
+      {
+       "place": "вилетіли рано",
+       "money": 0,
+       "wins": 1,
+       "lan": 43,
+       "collected": 0,
+       "network": 1,
+       "offered": 0,
+       "total": 44,
+       "after": 1602,
+       "pQual": 1
+      }
+     ]
+    },
+    {
+     "name": "PGL Masters Bucharest",
+     "prize": 1250000,
+     "when": "24–31 жовтня",
+     "rows": [
+      {
+       "place": "1-ше",
+       "money": 225000,
+       "wins": 3,
+       "lan": 111,
+       "collected": 33,
+       "network": 18,
+       "offered": 66,
+       "total": 228,
+       "after": 1786,
+       "pQual": 1
+      },
+      {
+       "place": "2-ге",
+       "money": 100000,
+       "wins": 2,
+       "lan": 77,
+       "collected": 23,
+       "network": 13,
+       "offered": 35,
+       "total": 148,
+       "after": 1706,
+       "pQual": 1
+      },
+      {
+       "place": "3-4",
+       "money": 50000,
+       "wins": 1,
+       "lan": 43,
+       "collected": 12,
+       "network": 8,
+       "offered": 19,
+       "total": 82,
+       "after": 1640,
+       "pQual": 1
+      },
+      {
+       "place": "5-8",
+       "money": 50000,
+       "wins": 0,
+       "lan": 0,
+       "collected": 0,
+       "network": 0,
+       "offered": 19,
+       "total": 19,
+       "after": 1577,
+       "pQual": 1
+      }
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "a": "Spirit",
+     "b": "Natus Vincere",
+     "when": "28 жовтня, 19:00",
+     "event": "PGL Masters Bucharest",
+     "own": true,
+     "pA": 0.695,
+     "qualIfA": 0.9951666666666666,
+     "qualIfB": 1,
+     "weight": 0.004833333333333356
+    }
+   ],
+   "chasers": [
+    {
+     "team": "Nemiga",
+     "pts": 1556,
+     "need": 1,
+     "lanGain": 4,
+     "pAbove": 0.1701
+    },
+    {
+     "team": "1win",
+     "pts": 1517,
+     "need": 40,
+     "lanGain": 20,
+     "pAbove": 0.1158
+    },
+    {
+     "team": "HEROIC",
+     "pts": 1545,
+     "need": 12,
+     "lanGain": 2,
+     "pAbove": 0.07965
+    },
+    {
+     "team": "B8",
+     "pts": 1483,
+     "need": 74,
+     "lanGain": 28,
+     "pAbove": 0.0236
+    },
+    {
+     "team": "HOTU",
+     "pts": 1409,
+     "need": 148,
+     "lanGain": 38,
+     "pAbove": 0.0137
+    },
+    {
+     "team": "Inner Circle",
+     "pts": 1450,
+     "need": 107,
+     "lanGain": 16,
+     "pAbove": 0.009
+    },
+    {
+     "team": "BIG",
+     "pts": 1453,
+     "need": 104,
+     "lanGain": 16,
+     "pAbove": 0.0085
+    },
+    {
+     "team": "100 Thieves",
+     "pts": 1478,
+     "need": 79,
+     "lanGain": 1,
+     "pAbove": 0.0081
+    },
+    {
+     "team": "fnatic",
+     "pts": 1448,
+     "need": 109,
+     "lanGain": 16,
+     "pAbove": 0.0069
+    }
+   ]
+  },
+  "Inner Circle": {
+   "team": "Inner Circle",
+   "pts": 1451,
+   "pQual": 0.24445,
+   "place": 20.6383,
+   "components": {
+    "base": 400,
+    "lan": 410,
+    "network": 135,
+    "offered": 256,
+    "collected": 254,
+    "h2h": -3
+   },
+   "rows": {
+    "lan": [
+     {
+      "date": "27/10/26",
+      "pts": 48,
+      "days": 1,
+      "recency": 100
+     },
+     {
+      "date": "12/10/26",
+      "pts": 48,
+      "days": 16,
+      "recency": 100
+     },
+     {
+      "date": "18/09/26",
+      "pts": 45,
+      "days": 40,
+      "recency": 93
+     },
+     {
+      "date": "18/09/26",
+      "pts": 45,
+      "days": 40,
+      "recency": 93
+     },
+     {
+      "date": "18/09/26",
+      "pts": 45,
+      "days": 40,
+      "recency": 93
+     },
+     {
+      "date": "18/09/26",
+      "pts": 45,
+      "days": 40,
+      "recency": 93
+     },
+     {
+      "date": "27/08/26",
+      "pts": 38,
+      "days": 62,
+      "recency": 79
+     },
+     {
+      "date": "09/08/26",
+      "pts": 32,
+      "days": 80,
+      "recency": 67
+     },
+     {
+      "date": "07/08/26",
+      "pts": 32,
+      "days": 82,
+      "recency": 66
+     },
+     {
+      "date": "07/08/26",
+      "pts": 32,
+      "days": 82,
+      "recency": 66
+     }
+    ],
+    "offered": [
+     {
+      "date": "27/10/26",
+      "pts": 25,
+      "days": 1,
+      "recency": 100
+     },
+     {
+      "date": "17/10/26",
+      "pts": 5,
+      "days": 11,
+      "recency": 100
+     },
+     {
+      "date": "24/09/26",
+      "pts": 33,
+      "days": 34,
+      "recency": 97
+     },
+     {
+      "date": "06/09/26",
+      "pts": 94,
+      "days": 52,
+      "recency": 86
+     },
+     {
+      "date": "09/08/26",
+      "pts": 17,
+      "days": 80,
+      "recency": 67
+     },
+     {
+      "date": "29/06/26",
+      "pts": 79,
+      "days": 121,
+      "recency": 40
+     },
+     {
+      "date": "24/05/26",
+      "pts": 3,
+      "days": 157,
+      "recency": 16
+     }
+    ],
+    "collected": [
+     {
+      "date": "27/10/26",
+      "pts": 13,
+      "days": 1
+     },
+     {
+      "date": "18/09/26",
+      "pts": 21,
+      "days": 40
+     },
+     {
+      "date": "18/09/26",
+      "pts": 19,
+      "days": 40
+     },
+     {
+      "date": "18/09/26",
+      "pts": 3,
+      "days": 40
+     },
+     {
+      "date": "10/09/26",
+      "pts": 6,
+      "days": 48
+     },
+     {
+      "date": "27/08/26",
+      "pts": 160,
+      "days": 62
+     },
+     {
+      "date": "09/08/26",
+      "pts": 5,
+      "days": 80
+     },
+     {
+      "date": "11/07/26",
+      "pts": 5,
+      "days": 109
+     },
+     {
+      "date": "10/07/26",
+      "pts": 15,
+      "days": 110
+     },
+     {
+      "date": "27/06/26",
+      "pts": 5,
+      "days": 123
+     }
+    ],
+    "network": [
+     {
+      "date": "27/10/26",
+      "pts": 18,
+      "days": 1
+     },
+     {
+      "date": "12/10/26",
+      "pts": 18,
+      "days": 16
+     },
+     {
+      "date": "18/09/26",
+      "pts": 9,
+      "days": 40
+     },
+     {
+      "date": "18/09/26",
+      "pts": 9,
+      "days": 40
+     },
+     {
+      "date": "18/09/26",
+      "pts": 12,
+      "days": 40
+     },
+     {
+      "date": "18/09/26",
+      "pts": 15,
+      "days": 40
+     },
+     {
+      "date": "27/08/26",
+      "pts": 16,
+      "days": 62
+     },
+     {
+      "date": "09/08/26",
+      "pts": 13,
+      "days": 80
+     },
+     {
+      "date": "11/07/26",
+      "pts": 10,
+      "days": 109
+     },
+     {
+      "date": "09/07/26",
+      "pts": 13,
+      "days": 111
+     }
+    ]
+   },
+   "lanGain": 16,
+   "lanFull": true,
+   "events": [
+    {
+     "name": "Stake Ranked Episode 5",
+     "prize": 100000,
+     "when": "27–30 жовтня",
+     "rows": [
+      {
+       "place": "1-ше",
+       "money": 25000,
+       "wins": 3,
+       "lan": 48,
+       "collected": 11,
+       "network": 0,
+       "offered": 18,
+       "total": 76,
+       "after": 1527,
+       "pQual": 0.9537
+      },
+      {
+       "place": "2-ге",
+       "money": 17500,
+       "wins": 2,
+       "lan": 32,
+       "collected": 7,
+       "network": 0,
+       "offered": 13,
+       "total": 52,
+       "after": 1503,
+       "pQual": 0.58365
+      },
+      {
+       "place": "3-тє",
+       "money": 13500,
+       "wins": 2,
+       "lan": 32,
+       "collected": 7,
+       "network": 0,
+       "offered": 10,
+       "total": 49,
+       "after": 1500,
+       "pQual": 0.5273
+      },
+      {
+       "place": "4-те",
+       "money": 11000,
+       "wins": 1,
+       "lan": 16,
+       "collected": 4,
+       "network": 0,
+       "offered": 8,
+       "total": 28,
+       "after": 1479,
+       "pQual": 0.1952
+      },
+      {
+       "place": "5-6",
+       "money": 9000,
+       "wins": 1,
+       "lan": 16,
+       "collected": 4,
+       "network": 0,
+       "offered": 7,
+       "total": 26,
+       "after": 1477,
+       "pQual": 0.1685
+      },
+      {
+       "place": "7-8",
+       "money": 7500,
+       "wins": 0,
+       "lan": 0,
+       "collected": 0,
+       "network": 0,
+       "offered": 6,
+       "total": 5,
+       "after": 1456,
+       "pQual": 0.00765
+      }
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "a": "Inner Circle",
+     "b": "MIBR",
+     "when": "28 жовтня, 20:30",
+     "event": "Stake Ranked Episode 5",
+     "own": true,
+     "pA": null,
+     "qualIfA": 0.5038333333333334,
+     "qualIfB": 0.0755,
+     "weight": 0.42833333333333334
+    },
+    {
+     "a": "HOTU",
+     "b": "GamerLegion",
+     "when": "28 жовтня, 16:00",
+     "event": "RLG Tesla Cup 2026",
+     "own": false,
+     "pA": null,
+     "qualIfA": 0.233,
+     "qualIfB": 0.24866666666666667,
+     "weight": 0.015666666666666662
+    },
+    {
+     "a": "Spirit",
+     "b": "Natus Vincere",
+     "when": "28 жовтня, 19:00",
+     "event": "PGL Masters Bucharest",
+     "own": false,
+     "pA": 0.695,
+     "qualIfA": 0.25416666666666665,
+     "qualIfB": 0.23866666666666667,
+     "weight": 0.015499999999999986
+    },
+    {
+     "a": "Nemesis",
+     "b": "Eternal Fire",
+     "when": "28 жовтня, 15:30",
+     "event": "Stake Ranked Episode 5",
+     "own": false,
+     "pA": null,
+     "qualIfA": 0.24483333333333332,
+     "qualIfB": 0.23383333333333334,
+     "weight": 0.010999999999999982
+    }
+   ],
+   "chasers": [
+    {
+     "team": "fnatic",
+     "pts": 1448,
+     "need": 2,
+     "lanGain": 16,
+     "pAbove": 0.5178
+    },
+    {
+     "team": "HOTU",
+     "pts": 1409,
+     "need": 41,
+     "lanGain": 38,
+     "pAbove": 0.4939
+    },
+    {
+     "team": "JiJieHao",
+     "pts": 1436,
+     "need": 14,
+     "lanGain": 0,
+     "pAbove": 0.30395
+    },
+    {
+     "team": "Virtus.pro",
+     "pts": 1427,
+     "need": 23,
+     "lanGain": 20,
+     "pAbove": 0.20195
+    },
+    {
+     "team": "Eternal Fire",
+     "pts": 1407,
+     "need": 43,
+     "lanGain": 0,
+     "pAbove": 0.1437
+    },
+    {
+     "team": "Luminosity",
+     "pts": 1396,
+     "need": 54,
+     "lanGain": null,
+     "pAbove": 0.10865
+    },
+    {
+     "team": "Nemesis",
+     "pts": 1371,
+     "need": 79,
+     "lanGain": null,
+     "pAbove": 0.04775
+    },
+    {
+     "team": "Envy",
+     "pts": 1364,
+     "need": 86,
+     "lanGain": null,
+     "pAbove": 0.03385
+    },
+    {
+     "team": "GamerLegion",
+     "pts": 1345,
+     "need": 105,
+     "lanGain": null,
+     "pAbove": 0.01455
+    },
+    {
+     "team": "SINNERS",
+     "pts": 1393,
+     "need": 57,
+     "lanGain": null,
+     "pAbove": 0.0045
+    }
+   ]
+  },
+  "fnatic": {
+   "team": "fnatic",
+   "pts": 1448,
+   "pQual": 0.2632,
+   "place": 20.6833,
+   "components": {
+    "base": 400,
+    "lan": 448,
+    "network": 146,
+    "offered": 232,
+    "collected": 222,
+    "h2h": 1
+   },
+   "rows": {
+    "lan": [
+     {
+      "date": "27/10/26",
+      "pts": 48,
+      "days": 1,
+      "recency": 100
+     },
+     {
+      "date": "19/10/26",
+      "pts": 48,
+      "days": 9,
+      "recency": 100
+     },
+     {
+      "date": "14/10/26",
+      "pts": 48,
+      "days": 14,
+      "recency": 100
+     },
+     {
+      "date": "14/10/26",
+      "pts": 48,
+      "days": 14,
+      "recency": 100
+     },
+     {
+      "date": "03/10/26",
+      "pts": 48,
+      "days": 25,
+      "recency": 100
+     },
+     {
+      "date": "02/10/26",
+      "pts": 48,
+      "days": 26,
+      "recency": 100
+     },
+     {
+      "date": "23/09/26",
+      "pts": 47,
+      "days": 35,
+      "recency": 97
+     },
+     {
+      "date": "23/09/26",
+      "pts": 47,
+      "days": 35,
+      "recency": 97
+     },
+     {
+      "date": "09/08/26",
+      "pts": 32,
+      "days": 80,
+      "recency": 67
+     },
+     {
+      "date": "09/08/26",
+      "pts": 32,
+      "days": 80,
+      "recency": 67
+     }
+    ],
+    "offered": [
+     {
+      "date": "27/10/26",
+      "pts": 36,
+      "days": 1,
+      "recency": 100
+     },
+     {
+      "date": "22/10/26",
+      "pts": 43,
+      "days": 6,
+      "recency": 100
+     },
+     {
+      "date": "17/10/26",
+      "pts": 19,
+      "days": 11,
+      "recency": 100
+     },
+     {
+      "date": "04/10/26",
+      "pts": 52,
+      "days": 24,
+      "recency": 100
+     },
+     {
+      "date": "26/09/26",
+      "pts": 19,
+      "days": 32,
+      "recency": 99
+     },
+     {
+      "date": "09/08/26",
+      "pts": 30,
+      "days": 80,
+      "recency": 67
+     },
+     {
+      "date": "05/08/26",
+      "pts": 18,
+      "days": 84,
+      "recency": 64
+     },
+     {
+      "date": "14/07/26",
+      "pts": 9,
+      "days": 106,
+      "recency": 50
+     },
+     {
+      "date": "14/06/26",
+      "pts": 3,
+      "days": 136,
+      "recency": 30
+     },
+     {
+      "date": "31/05/26",
+      "pts": 2,
+      "days": 150,
+      "recency": 21
+     }
+    ],
+    "collected": [
+     {
+      "date": "27/10/26",
+      "pts": 38,
+      "days": 1
+     },
+     {
+      "date": "19/10/26",
+      "pts": 33,
+      "days": 9
+     },
+     {
+      "date": "14/10/26",
+      "pts": 12,
+      "days": 14
+     },
+     {
+      "date": "10/10/26",
+      "pts": 11,
+      "days": 18
+     },
+     {
+      "date": "09/10/26",
+      "pts": 13,
+      "days": 19
+     },
+     {
+      "date": "03/10/26",
+      "pts": 39,
+      "days": 25
+     },
+     {
+      "date": "02/10/26",
+      "pts": 21,
+      "days": 26
+     },
+     {
+      "date": "06/09/26",
+      "pts": 30,
+      "days": 52
+     },
+     {
+      "date": "09/08/26",
+      "pts": 17,
+      "days": 80
+     },
+     {
+      "date": "09/08/26",
+      "pts": 9,
+      "days": 80
+     }
+    ],
+    "network": [
+     {
+      "date": "19/10/26",
+      "pts": 13,
+      "days": 9
+     },
+     {
+      "date": "14/10/26",
+      "pts": 19,
+      "days": 14
+     },
+     {
+      "date": "10/10/26",
+      "pts": 17,
+      "days": 18
+     },
+     {
+      "date": "09/10/26",
+      "pts": 16,
+      "days": 19
+     },
+     {
+      "date": "02/10/26",
+      "pts": 12,
+      "days": 26
+     },
+     {
+      "date": "06/09/26",
+      "pts": 12,
+      "days": 52
+     },
+     {
+      "date": "05/09/26",
+      "pts": 12,
+      "days": 53
+     },
+     {
+      "date": "09/08/26",
+      "pts": 17,
+      "days": 80
+     },
+     {
+      "date": "09/08/26",
+      "pts": 13,
+      "days": 80
+     },
+     {
+      "date": "07/08/26",
+      "pts": 15,
+      "days": 82
+     }
+    ]
+   },
+   "lanGain": 16,
+   "lanFull": true,
+   "events": [
+    {
+     "name": "Stake Ranked Episode 5",
+     "prize": 100000,
+     "when": "27–30 жовтня",
+     "rows": [
+      {
+       "place": "1-ше",
+       "money": 25000,
+       "wins": 3,
+       "lan": 33,
+       "collected": 14,
+       "network": 0,
+       "offered": 23,
+       "total": 70,
+       "after": 1518,
+       "pQual": 0.84055
+      },
+      {
+       "place": "2-ге",
+       "money": 17500,
+       "wins": 2,
+       "lan": 32,
+       "collected": 10,
+       "network": 0,
+       "offered": 16,
+       "total": 59,
+       "after": 1507,
+       "pQual": 0.65285
+      },
+      {
+       "place": "3-тє",
+       "money": 13500,
+       "wins": 2,
+       "lan": 32,
+       "collected": 10,
+       "network": 0,
+       "offered": 13,
+       "total": 55,
+       "after": 1503,
+       "pQual": 0.57625
+      },
+      {
+       "place": "4-те",
+       "money": 11000,
+       "wins": 1,
+       "lan": 16,
+       "collected": 6,
+       "network": 0,
+       "offered": 11,
+       "total": 32,
+       "after": 1480,
+       "pQual": 0.2175
+      },
+      {
+       "place": "5-6",
+       "money": 9000,
+       "wins": 1,
+       "lan": 16,
+       "collected": 6,
+       "network": 0,
+       "offered": 9,
+       "total": 30,
+       "after": 1478,
+       "pQual": 0.19165
+      },
+      {
+       "place": "7-8",
+       "money": 7500,
+       "wins": 0,
+       "lan": 0,
+       "collected": 0,
+       "network": 0,
+       "offered": 7,
+       "total": 7,
+       "after": 1455,
+       "pQual": 0.00825
+      }
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "a": "BIG",
+     "b": "fnatic",
+     "when": "28 жовтня, 18:00",
+     "event": "Stake Ranked Episode 5",
+     "own": true,
+     "pA": 0.523,
+     "qualIfA": 0.028,
+     "qualIfB": 0.51,
+     "weight": 0.482
+    },
+    {
+     "a": "Inner Circle",
+     "b": "MIBR",
+     "when": "28 жовтня, 20:30",
+     "event": "Stake Ranked Episode 5",
+     "own": false,
+     "pA": null,
+     "qualIfA": 0.22683333333333333,
+     "qualIfB": 0.272,
+     "weight": 0.04516666666666669
+    },
+    {
+     "a": "HOTU",
+     "b": "GamerLegion",
+     "when": "28 жовтня, 16:00",
+     "event": "RLG Tesla Cup 2026",
+     "own": false,
+     "pA": null,
+     "qualIfA": 0.23933333333333334,
+     "qualIfB": 0.2758333333333333,
+     "weight": 0.03649999999999998
+    },
+    {
+     "a": "1win",
+     "b": "5star",
+     "when": "31 жовтня, 17:00",
+     "event": "Moscow Cyber Games",
+     "own": false,
+     "pA": null,
+     "qualIfA": 0.25433333333333336,
+     "qualIfB": 0.2843333333333333,
+     "weight": 0.02999999999999997
+    },
+    {
+     "a": "Nemesis",
+     "b": "Eternal Fire",
+     "when": "28 жовтня, 15:30",
+     "event": "Stake Ranked Episode 5",
+     "own": false,
+     "pA": null,
+     "qualIfA": 0.2645,
+     "qualIfB": 0.25416666666666665,
+     "weight": 0.010333333333333361
+    },
+    {
+     "a": "Luminosity",
+     "b": "Envy",
+     "when": "28 жовтня, 19:00",
+     "event": "RLG Tesla Cup 2026",
+     "own": false,
+     "pA": null,
+     "qualIfA": 0.25483333333333336,
+     "qualIfB": 0.264,
+     "weight": 0.009166666666666656
+    },
+    {
+     "a": "Spirit",
+     "b": "Natus Vincere",
+     "when": "28 жовтня, 19:00",
+     "event": "PGL Masters Bucharest",
+     "own": false,
+     "pA": 0.695,
+     "qualIfA": 0.263,
+     "qualIfB": 0.2683333333333333,
+     "weight": 0.005333333333333301
+    }
+   ],
+   "chasers": [
+    {
+     "team": "HOTU",
+     "pts": 1409,
+     "need": 39,
+     "lanGain": 38,
+     "pAbove": 0.49345
+    },
+    {
+     "team": "JiJieHao",
+     "pts": 1436,
+     "need": 12,
+     "lanGain": 0,
+     "pAbove": 0.29535
+    },
+    {
+     "team": "Virtus.pro",
+     "pts": 1427,
+     "need": 21,
+     "lanGain": 20,
+     "pAbove": 0.1986
+    },
+    {
+     "team": "Eternal Fire",
+     "pts": 1407,
+     "need": 41,
+     "lanGain": 0,
+     "pAbove": 0.16295
+    },
+    {
+     "team": "Luminosity",
+     "pts": 1396,
+     "need": 52,
+     "lanGain": null,
+     "pAbove": 0.10805
+    },
+    {
+     "team": "Nemesis",
+     "pts": 1371,
+     "need": 77,
+     "lanGain": null,
+     "pAbove": 0.0691
+    },
+    {
+     "team": "Envy",
+     "pts": 1364,
+     "need": 84,
+     "lanGain": null,
+     "pAbove": 0.03455
+    },
+    {
+     "team": "GamerLegion",
+     "pts": 1345,
+     "need": 103,
+     "lanGain": null,
+     "pAbove": 0.01545
+    },
+    {
+     "team": "SINNERS",
+     "pts": 1393,
+     "need": 55,
+     "lanGain": null,
+     "pAbove": 0.0096
+    },
+    {
+     "team": "magic",
+     "pts": 1388,
+     "need": 60,
+     "lanGain": null,
+     "pAbove": 0.00535
+    }
+   ]
+  },
+  "B8": {
+   "team": "B8",
+   "pts": 1483,
+   "pQual": 0.48745,
+   "place": 18.26495,
+   "components": {
+    "base": 400,
+    "lan": 407,
+    "network": 107,
+    "offered": 255,
+    "collected": 267,
+    "h2h": 47
+   },
+   "rows": {
+    "lan": [
+     {
+      "date": "28/10/26",
+      "pts": 48,
+      "days": 0,
+      "recency": 100
+     },
+     {
+      "date": "28/10/26",
+      "pts": 48,
+      "days": 0,
+      "recency": 100
+     },
+     {
+      "date": "17/09/26",
+      "pts": 45,
+      "days": 41,
+      "recency": 93
+     },
+     {
+      "date": "17/09/26",
+      "pts": 45,
+      "days": 41,
+      "recency": 93
+     },
+     {
+      "date": "17/09/26",
+      "pts": 45,
+      "days": 41,
+      "recency": 93
+     },
+     {
+      "date": "17/09/26",
+      "pts": 45,
+      "days": 41,
+      "recency": 93
+     },
+     {
+      "date": "17/09/26",
+      "pts": 45,
+      "days": 41,
+      "recency": 93
+     },
+     {
+      "date": "14/08/26",
+      "pts": 34,
+      "days": 75,
+      "recency": 70
+     },
+     {
+      "date": "12/08/26",
+      "pts": 33,
+      "days": 77,
+      "recency": 69
+     },
+     {
+      "date": "04/07/26",
+      "pts": 20,
+      "days": 116,
+      "recency": 43
+     }
+    ],
+    "offered": [
+     {
+      "date": "04/10/26",
+      "pts": 25,
+      "days": 24,
+      "recency": 100
+     },
+     {
+      "date": "24/09/26",
+      "pts": 33,
+      "days": 34,
+      "recency": 97
+     },
+     {
+      "date": "23/08/26",
+      "pts": 90,
+      "days": 66,
+      "recency": 76
+     },
+     {
+      "date": "12/07/26",
+      "pts": 45,
+      "days": 108,
+      "recency": 49
+     },
+     {
+      "date": "21/06/26",
+      "pts": 23,
+      "days": 129,
+      "recency": 35
+     },
+     {
+      "date": "24/05/26",
+      "pts": 23,
+      "days": 157,
+      "recency": 16
+     },
+     {
+      "date": "17/05/26",
+      "pts": 15,
+      "days": 164,
+      "recency": 12
+     }
+    ],
+    "collected": [
+     {
+      "date": "28/10/26",
+      "pts": 17,
+      "days": 0
+     },
+     {
+      "date": "17/09/26",
+      "pts": 11,
+      "days": 41
+     },
+     {
+      "date": "17/09/26",
+      "pts": 9,
+      "days": 41
+     },
+     {
+      "date": "17/09/26",
+      "pts": 19,
+      "days": 41
+     },
+     {
+      "date": "14/08/26",
+      "pts": 119,
+      "days": 75
+     },
+     {
+      "date": "12/08/26",
+      "pts": 40,
+      "days": 77
+     },
+     {
+      "date": "04/07/26",
+      "pts": 8,
+      "days": 116
+     },
+     {
+      "date": "01/07/26",
+      "pts": 22,
+      "days": 119
+     },
+     {
+      "date": "08/06/26",
+      "pts": 11,
+      "days": 142
+     },
+     {
+      "date": "13/05/26",
+      "pts": 8,
+      "days": 168
+     }
+    ],
+    "network": [
+     {
+      "date": "28/10/26",
+      "pts": 16,
+      "days": 0
+     },
+     {
+      "date": "17/09/26",
+      "pts": 9,
+      "days": 41
+     },
+     {
+      "date": "17/09/26",
+      "pts": 15,
+      "days": 41
+     },
+     {
+      "date": "17/09/26",
+      "pts": 13,
+      "days": 41
+     },
+     {
+      "date": "11/09/26",
+      "pts": 6,
+      "days": 47
+     },
+     {
+      "date": "04/09/26",
+      "pts": 6,
+      "days": 54
+     },
+     {
+      "date": "14/08/26",
+      "pts": 15,
+      "days": 75
+     },
+     {
+      "date": "12/08/26",
+      "pts": 10,
+      "days": 77
+     },
+     {
+      "date": "04/07/26",
+      "pts": 8,
+      "days": 116
+     },
+     {
+      "date": "01/07/26",
+      "pts": 9,
+      "days": 119
+     }
+    ]
+   },
+   "lanGain": 28,
+   "lanFull": true,
+   "events": [
+    {
+     "name": "RLG Tesla Cup 2026",
+     "prize": 50000,
+     "when": "27–29 жовтня",
+     "rows": [
+      {
+       "place": "1-ше",
+       "money": 30000,
+       "wins": 2,
+       "lan": 43,
+       "collected": 2,
+       "network": 6,
+       "offered": 21,
+       "total": 71,
+       "after": 1554,
+       "pQual": 1
+      },
+      {
+       "place": "2-ге",
+       "money": 12000,
+       "wins": 1,
+       "lan": 28,
+       "collected": 1,
+       "network": 3,
+       "offered": 9,
+       "total": 40,
+       "after": 1523,
+       "pQual": 0.953
+      },
+      {
+       "place": "3-4",
+       "money": 5000,
+       "wins": 0,
+       "lan": 0,
+       "collected": -1,
+       "network": 0,
+       "offered": 4,
+       "total": 3,
+       "after": 1486,
+       "pQual": 0.374
+      }
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "a": "Inner Circle",
+     "b": "MIBR",
+     "when": "28 жовтня, 20:30",
+     "event": "Stake Ranked Episode 5",
+     "own": false,
+     "pA": null,
+     "qualIfA": 0.44333333333333336,
+     "qualIfB": 0.5193333333333333,
+     "weight": 0.07599999999999996
+    },
+    {
+     "a": "HOTU",
+     "b": "GamerLegion",
+     "when": "28 жовтня, 16:00",
+     "event": "RLG Tesla Cup 2026",
+     "own": false,
+     "pA": null,
+     "qualIfA": 0.46166666666666667,
+     "qualIfB": 0.5255,
+     "weight": 0.0638333333333333
+    },
+    {
+     "a": "1win",
+     "b": "5star",
+     "when": "31 жовтня, 17:00",
+     "event": "Moscow Cyber Games",
+     "own": false,
+     "pA": null,
+     "qualIfA": 0.47783333333333333,
+     "qualIfB": 0.5106666666666667,
+     "weight": 0.03283333333333338
+    },
+    {
+     "a": "Spirit",
+     "b": "Natus Vincere",
+     "when": "28 жовтня, 19:00",
+     "event": "PGL Masters Bucharest",
+     "own": false,
+     "pA": 0.695,
+     "qualIfA": 0.5025,
+     "qualIfB": 0.49183333333333334,
+     "weight": 0.010666666666666602
+    },
+    {
+     "a": "Luminosity",
+     "b": "Envy",
+     "when": "28 жовтня, 19:00",
+     "event": "RLG Tesla Cup 2026",
+     "own": false,
+     "pA": null,
+     "qualIfA": 0.49566666666666664,
+     "qualIfB": 0.486,
+     "weight": 0.009666666666666657
+    }
+   ],
+   "chasers": [
+    {
+     "team": "100 Thieves",
+     "pts": 1478,
+     "need": 5,
+     "lanGain": 1,
+     "pAbove": 0.43915
+    },
+    {
+     "team": "HOTU",
+     "pts": 1409,
+     "need": 74,
+     "lanGain": 38,
+     "pAbove": 0.3134
+    },
+    {
+     "team": "BIG",
+     "pts": 1453,
+     "need": 30,
+     "lanGain": 16,
+     "pAbove": 0.29255
+    },
+    {
+     "team": "fnatic",
+     "pts": 1448,
+     "need": 35,
+     "lanGain": 16,
+     "pAbove": 0.27345
+    },
+    {
+     "team": "Inner Circle",
+     "pts": 1450,
+     "need": 33,
+     "lanGain": 16,
+     "pAbove": 0.27215
+    },
+    {
+     "team": "JiJieHao",
+     "pts": 1436,
+     "need": 47,
+     "lanGain": 0,
+     "pAbove": 0.09135
+    },
+    {
+     "team": "Eternal Fire",
+     "pts": 1407,
+     "need": 76,
+     "lanGain": 0,
+     "pAbove": 0.03995
+    },
+    {
+     "team": "Luminosity",
+     "pts": 1396,
+     "need": 87,
+     "lanGain": null,
+     "pAbove": 0.03895
+    },
+    {
+     "team": "Nemesis",
+     "pts": 1371,
+     "need": 112,
+     "lanGain": null,
+     "pAbove": 0.0138
+    },
+    {
+     "team": "Envy",
+     "pts": 1364,
+     "need": 119,
+     "lanGain": null,
+     "pAbove": 0.00685
+    }
+   ]
+  },
+  "Eternal Fire": {
+   "team": "Eternal Fire",
+   "pts": 1409,
+   "pQual": 0.03145,
+   "place": 25.141,
+   "components": {
+    "base": 400,
+    "lan": 483,
+    "network": 114,
+    "offered": 226,
+    "collected": 179,
+    "h2h": 7
+   },
+   "rows": {
+    "lan": [
+     {
+      "date": "24/10/26",
+      "pts": 48,
+      "days": 4,
+      "recency": 100
+     },
+     {
+      "date": "23/10/26",
+      "pts": 48,
+      "days": 5,
+      "recency": 100
+     },
+     {
+      "date": "22/10/26",
+      "pts": 48,
+      "days": 6,
+      "recency": 100
+     },
+     {
+      "date": "21/10/26",
+      "pts": 48,
+      "days": 7,
+      "recency": 100
+     },
+     {
+      "date": "20/10/26",
+      "pts": 48,
+      "days": 8,
+      "recency": 100
+     },
+     {
+      "date": "03/10/26",
+      "pts": 48,
+      "days": 25,
+      "recency": 100
+     },
+     {
+      "date": "03/10/26",
+      "pts": 48,
+      "days": 25,
+      "recency": 100
+     },
+     {
+      "date": "02/10/26",
+      "pts": 48,
+      "days": 26,
+      "recency": 100
+     },
+     {
+      "date": "02/10/26",
+      "pts": 48,
+      "days": 26,
+      "recency": 100
+     },
+     {
+      "date": "02/10/26",
+      "pts": 48,
+      "days": 26,
+      "recency": 100
+     }
+    ],
+    "offered": [
+     {
+      "date": "27/10/26",
+      "pts": 39,
+      "days": 1,
+      "recency": 100
+     },
+     {
+      "date": "24/10/26",
+      "pts": 73,
+      "days": 4,
+      "recency": 100
+     },
+     {
+      "date": "03/10/26",
+      "pts": 21,
+      "days": 25,
+      "recency": 100
+     },
+     {
+      "date": "26/09/26",
+      "pts": 5,
+      "days": 32,
+      "recency": 99
+     },
+     {
+      "date": "20/09/26",
+      "pts": 48,
+      "days": 38,
+      "recency": 95
+     },
+     {
+      "date": "24/07/26",
+      "pts": 32,
+      "days": 96,
+      "recency": 57
+     },
+     {
+      "date": "29/06/26",
+      "pts": 4,
+      "days": 121,
+      "recency": 40
+     },
+     {
+      "date": "31/05/26",
+      "pts": 2,
+      "days": 150,
+      "recency": 21
+     },
+     {
+      "date": "30/05/26",
+      "pts": 1,
+      "days": 151,
+      "recency": 20
+     }
+    ],
+    "collected": [
+     {
+      "date": "24/10/26",
+      "pts": 30,
+      "days": 4
+     },
+     {
+      "date": "23/10/26",
+      "pts": 19,
+      "days": 5
+     },
+     {
+      "date": "22/10/26",
+      "pts": 10,
+      "days": 6
+     },
+     {
+      "date": "03/10/26",
+      "pts": 18,
+      "days": 25
+     },
+     {
+      "date": "02/10/26",
+      "pts": 27,
+      "days": 26
+     },
+     {
+      "date": "27/09/26",
+      "pts": 12,
+      "days": 31
+     },
+     {
+      "date": "20/09/26",
+      "pts": 11,
+      "days": 38
+     },
+     {
+      "date": "02/09/26",
+      "pts": 10,
+      "days": 56
+     },
+     {
+      "date": "02/09/26",
+      "pts": 33,
+      "days": 56
+     },
+     {
+      "date": "24/08/26",
+      "pts": 10,
+      "days": 65
+     }
+    ],
+    "network": [
+     {
+      "date": "24/10/26",
+      "pts": 13,
+      "days": 4
+     },
+     {
+      "date": "23/10/26",
+      "pts": 11,
+      "days": 5
+     },
+     {
+      "date": "22/10/26",
+      "pts": 9,
+      "days": 6
+     },
+     {
+      "date": "21/10/26",
+      "pts": 12,
+      "days": 7
+     },
+     {
+      "date": "03/10/26",
+      "pts": 10,
+      "days": 25
+     },
+     {
+      "date": "03/10/26",
+      "pts": 14,
+      "days": 25
+     },
+     {
+      "date": "02/10/26",
+      "pts": 11,
+      "days": 26
+     },
+     {
+      "date": "02/10/26",
+      "pts": 12,
+      "days": 26
+     },
+     {
+      "date": "20/09/26",
+      "pts": 12,
+      "days": 38
+     },
+     {
+      "date": "30/08/26",
+      "pts": 8,
+      "days": 59
+     }
+    ]
+   },
+   "lanGain": 0,
+   "lanFull": true,
+   "events": [
+    {
+     "name": "Stake Ranked Episode 5",
+     "prize": 100000,
+     "when": "27–30 жовтня",
+     "rows": [
+      {
+       "place": "1-ше",
+       "money": 25000,
+       "wins": 6,
+       "lan": 0,
+       "collected": 50,
+       "network": 9,
+       "offered": 25,
+       "total": 84,
+       "after": 1493,
+       "pQual": 0.3176
+      },
+      {
+       "place": "2-ге",
+       "money": 17500,
+       "wins": 5,
+       "lan": 0,
+       "collected": 45,
+       "network": 8,
+       "offered": 18,
+       "total": 71,
+       "after": 1480,
+       "pQual": 0.1422
+      },
+      {
+       "place": "3-тє",
+       "money": 13500,
+       "wins": 4,
+       "lan": 0,
+       "collected": 38,
+       "network": 7,
+       "offered": 14,
+       "total": 59,
+       "after": 1468,
+       "pQual": 0.03955
+      },
+      {
+       "place": "4-те",
+       "money": 11000,
+       "wins": 3,
+       "lan": 0,
+       "collected": 31,
+       "network": 5,
+       "offered": 12,
+       "total": 48,
+       "after": 1457,
+       "pQual": 0.005
+      },
+      {
+       "place": "5-6",
+       "money": 9000,
+       "wins": 2,
+       "lan": 0,
+       "collected": 22,
+       "network": 4,
+       "offered": 10,
+       "total": 36,
+       "after": 1445,
+       "pQual": 0.0002
+      },
+      {
+       "place": "7-8",
+       "money": 7500,
+       "wins": 0,
+       "lan": 0,
+       "collected": 0,
+       "network": 0,
+       "offered": 8,
+       "total": 8,
+       "after": 1417,
+       "pQual": 0
+      }
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "a": "Nemesis",
+     "b": "Eternal Fire",
+     "when": "28 жовтня, 15:30",
+     "event": "Stake Ranked Episode 5",
+     "own": true,
+     "pA": null,
+     "qualIfA": 0,
+     "qualIfB": 0.061,
+     "weight": 0.061
+    },
+    {
+     "a": "Inner Circle",
+     "b": "MIBR",
+     "when": "28 жовтня, 20:30",
+     "event": "Stake Ranked Episode 5",
+     "own": false,
+     "pA": null,
+     "qualIfA": 0.025833333333333333,
+     "qualIfB": 0.033,
+     "weight": 0.007166666666666668
+    }
+   ],
+   "chasers": [
+    {
+     "team": "Luminosity",
+     "pts": 1396,
+     "need": 11,
+     "lanGain": null,
+     "pAbove": 0.364
+    },
+    {
+     "team": "SINNERS",
+     "pts": 1393,
+     "need": 14,
+     "lanGain": null,
+     "pAbove": 0.2553
+    },
+    {
+     "team": "Nemesis",
+     "pts": 1371,
+     "need": 36,
+     "lanGain": null,
+     "pAbove": 0.23555
+    },
+    {
+     "team": "magic",
+     "pts": 1388,
+     "need": 19,
+     "lanGain": null,
+     "pAbove": 0.17245
+    },
+    {
+     "team": "K27",
+     "pts": 1387,
+     "need": 20,
+     "lanGain": null,
+     "pAbove": 0.15715
+    },
+    {
+     "team": "Envy",
+     "pts": 1364,
+     "need": 43,
+     "lanGain": null,
+     "pAbove": 0.1367
+    },
+    {
+     "team": "GamerLegion",
+     "pts": 1345,
+     "need": 62,
+     "lanGain": null,
+     "pAbove": 0.09195
+    },
+    {
+     "team": "BBL",
+     "pts": 1369,
+     "need": 38,
+     "lanGain": null,
+     "pAbove": 0.01635
+    },
+    {
+     "team": "Sangal",
+     "pts": 1366,
+     "need": 41,
+     "lanGain": null,
+     "pAbove": 0.00985
+    }
+   ]
+  }
+ }
+}

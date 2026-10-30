@@ -1,0 +1,674 @@
+{
+ "ESL Pro League Season 24": {
+  "prize": 1000000,
+  "lan": true,
+  "size": 16,
+  "fieldAvg": 1634,
+  "spots": [
+   1,
+   4,
+   8,
+   16
+  ],
+  "probes": {
+   "MOUZ": {
+    "rating": 1855,
+    "points": {
+     "1": 46,
+     "4": -12,
+     "8": -83,
+     "16": -119
+    }
+   },
+   "fnatic": {
+    "rating": 1369,
+    "points": {
+     "1": 388,
+     "4": 239,
+     "8": 122,
+     "16": -91
+    }
+   }
+  }
+ },
+ "Thunderpick World Championship": {
+  "prize": 1000000,
+  "lan": true,
+  "size": 8,
+  "fieldAvg": 1636,
+  "spots": [
+   1,
+   2,
+   4,
+   8
+  ],
+  "probes": {
+   "MOUZ": {
+    "rating": 1855,
+    "points": {
+     "1": 65,
+     "2": 47,
+     "4": -6,
+     "8": -44
+    }
+   },
+   "PARIVISION": {
+    "rating": 1410,
+    "points": {
+     "1": 369,
+     "2": 362,
+     "4": 228,
+     "8": -78
+    }
+   }
+  }
+ },
+ "PGL Masters Bucharest": {
+  "prize": 1250000,
+  "lan": true,
+  "size": 16,
+  "fieldAvg": 1651,
+  "spots": [
+   1,
+   4,
+   8,
+   16
+  ],
+  "probes": {
+   "MOUZ": {
+    "rating": 1855,
+    "points": {
+     "1": 42,
+     "4": -17,
+     "8": -87,
+     "16": -123
+    }
+   },
+   "PARIVISION": {
+    "rating": 1410,
+    "points": {
+     "1": 321,
+     "4": 222,
+     "8": 119,
+     "16": -81
+    }
+   }
+  }
+ },
+ "Stake Ranked Episode 4": {
+  "prize": 100000,
+  "lan": true,
+  "size": 7,
+  "fieldAvg": 1479,
+  "spots": [
+   1,
+   2,
+   4,
+   7
+  ],
+  "probes": {
+   "FURIA": {
+    "rating": 1820,
+    "points": {
+     "1": 44,
+     "2": 22,
+     "4": -15,
+     "7": -36
+    }
+   },
+   "BC.Game": {
+    "rating": 1241,
+    "points": {
+     "1": 302,
+     "2": 235,
+     "4": 148,
+     "7": 72
+    }
+   }
+  }
+ },
+ "Stake Ranked Episode 5": {
+  "prize": 100000,
+  "lan": true,
+  "size": 8,
+  "fieldAvg": 1483,
+  "spots": [
+   1,
+   2,
+   4,
+   8
+  ],
+  "probes": {
+   "FURIA": {
+    "rating": 1820,
+    "points": {
+     "1": 37,
+     "2": 22,
+     "4": -10,
+     "8": -32
+    }
+   },
+   "BC.Game": {
+    "rating": 1241,
+    "points": {
+     "1": 269,
+     "2": 218,
+     "4": 163,
+     "8": 65
+    }
+   }
+  }
+ },
+ "Private Club 2": {
+  "prize": 100000,
+  "lan": true,
+  "size": 6,
+  "fieldAvg": 1452,
+  "spots": [
+   1,
+   2,
+   3,
+   6
+  ],
+  "probes": {
+   "9z": {
+    "rating": 1539,
+    "points": {
+     "1": 213,
+     "2": 188,
+     "3": 150,
+     "6": 61
+    }
+   },
+   "BC.Game": {
+    "rating": 1241,
+    "points": {
+     "1": 291,
+     "2": 232,
+     "3": 186,
+     "6": 112
+    }
+   }
+  }
+ },
+ "Stake Pulse Beat 3": {
+  "prize": 80000,
+  "lan": true,
+  "size": 14,
+  "fieldAvg": 1416,
+  "spots": [
+   1,
+   4,
+   7,
+   14
+  ],
+  "probes": {
+   "9z": {
+    "rating": 1539,
+    "points": {
+     "1": 165,
+     "4": 105,
+     "7": 90,
+     "14": -16
+    }
+   },
+   "SportsBetExpert": {
+    "rating": 1212,
+    "points": {
+     "1": 258,
+     "4": 178,
+     "7": 152,
+     "14": 36
+    }
+   }
+  }
+ },
+ "FiReLEAGUE Last Chance": {
+  "prize": 75000,
+  "lan": true,
+  "size": 14,
+  "fieldAvg": 1198,
+  "spots": [
+   1,
+   4,
+   7,
+   14
+  ],
+  "probes": {
+   "fnatic": {
+    "rating": 1369,
+    "points": {
+     "1": 168,
+     "4": 71,
+     "7": 29,
+     "14": 5
+    }
+   },
+   "OG": {
+    "rating": 1017,
+    "points": {
+     "1": 287,
+     "4": 205,
+     "7": 155,
+     "14": 49
+    }
+   }
+  }
+ },
+ "CIS LAN 9": {
+  "prize": 50000,
+  "lan": true,
+  "size": 7,
+  "fieldAvg": 1212,
+  "spots": [
+   1,
+   2,
+   4,
+   7
+  ],
+  "probes": {
+   "PARIVISION": {
+    "rating": 1410,
+    "points": {
+     "1": 219,
+     "2": 181,
+     "4": 129,
+     "7": 28
+    }
+   },
+   "UNiTY": {
+    "rating": 1022,
+    "points": {
+     "1": 257,
+     "2": 221,
+     "4": 163,
+     "7": 67
+    }
+   }
+  }
+ },
+ "Tesla Cup 2026": {
+  "prize": 50000,
+  "lan": true,
+  "size": 10,
+  "fieldAvg": 1298,
+  "spots": [
+   1,
+   3,
+   5,
+   10
+  ],
+  "probes": {
+   "FaZe": {
+    "rating": 1489,
+    "points": {
+     "1": 180,
+     "3": 115,
+     "5": 92,
+     "10": -1
+    }
+   },
+   "FlyQuest": {
+    "rating": 1094,
+    "points": {
+     "1": 302,
+     "3": 240,
+     "5": 187,
+     "10": 57
+    }
+   }
+  }
+ },
+ "DraculaN 7": {
+  "prize": 35000,
+  "lan": true,
+  "size": 20,
+  "fieldAvg": 1195,
+  "spots": [
+   1,
+   5,
+   10,
+   20
+  ],
+  "probes": {
+   "fnatic": {
+    "rating": 1369,
+    "points": {
+     "1": 126,
+     "5": 67,
+     "10": 41,
+     "20": -18
+    }
+   },
+   "WW": {
+    "rating": 1015,
+    "points": {
+     "1": 256,
+     "5": 205,
+     "10": 168,
+     "20": 19
+    }
+   }
+  }
+ },
+ "DFRAG Invitational": {
+  "prize": 27886,
+  "lan": true,
+  "size": 7,
+  "fieldAvg": 884,
+  "spots": [
+   1,
+   2,
+   4,
+   7
+  ],
+  "probes": {
+   "OG": {
+    "rating": 1017,
+    "points": {
+     "1": 226,
+     "2": 188,
+     "4": 129,
+     "7": 47
+    }
+   },
+   "Saint Sinners": {
+    "rating": 801,
+    "points": {
+     "1": 237,
+     "2": 202,
+     "4": 150,
+     "7": 63
+    }
+   }
+  }
+ },
+ "FRAG University": {
+  "prize": 25000,
+  "lan": true,
+  "size": 9,
+  "fieldAvg": 1069,
+  "spots": [
+   1,
+   3,
+   5,
+   9
+  ],
+  "probes": {
+   "BC.Game": {
+    "rating": 1241,
+    "points": {
+     "1": 155,
+     "3": 86,
+     "5": 51,
+     "9": 9
+    }
+   },
+   "G2 Ares": {
+    "rating": 905,
+    "points": {
+     "1": 201,
+     "3": 160,
+     "5": 133,
+     "9": 24
+    }
+   }
+  }
+ },
+ "Circuit X Curitiba 4": {
+  "prize": 20000,
+  "lan": true,
+  "size": 6,
+  "fieldAvg": 1167,
+  "spots": [
+   1,
+   2,
+   3,
+   6
+  ],
+  "probes": {
+   "The MongolZ": {
+    "rating": 1324,
+    "points": {
+     "1": 216,
+     "2": 177,
+     "3": 145,
+     "6": 49
+    }
+   },
+   "THUNDER dOWNUNDER": {
+    "rating": 975,
+    "points": {
+     "1": 308,
+     "2": 261,
+     "3": 211,
+     "6": 86
+    }
+   }
+  }
+ },
+ "Elisa Breakout 2": {
+  "prize": 16899,
+  "lan": true,
+  "size": 4,
+  "fieldAvg": 1035,
+  "spots": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "probes": {
+   "Lynn Vision": {
+    "rating": 1186,
+    "points": {
+     "1": 196,
+     "2": 161,
+     "3": 128,
+     "4": 43
+    }
+   },
+   "Ground Zero": {
+    "rating": 879,
+    "points": {
+     "1": 254,
+     "2": 209,
+     "3": 169,
+     "4": 73
+    }
+   }
+  }
+ },
+ "Retake Season 13": {
+  "prize": 15000,
+  "lan": true,
+  "size": 7,
+  "fieldAvg": 1138,
+  "spots": [
+   1,
+   2,
+   4,
+   7
+  ],
+  "probes": {
+   "The MongolZ": {
+    "rating": 1324,
+    "points": {
+     "1": 202,
+     "2": 178,
+     "4": 149,
+     "7": 29
+    }
+   },
+   "NOVAQ": {
+    "rating": 967,
+    "points": {
+     "1": 279,
+     "2": 251,
+     "4": 215,
+     "7": 45
+    }
+   }
+  }
+ },
+ "Roman Imperium Cup IX": {
+  "prize": 12000,
+  "lan": true,
+  "size": 10,
+  "fieldAvg": 980,
+  "spots": [
+   1,
+   3,
+   5,
+   10
+  ],
+  "probes": {
+   "Sashi": {
+    "rating": 1131,
+    "points": {
+     "1": 158,
+     "3": 115,
+     "5": 111,
+     "10": 16
+    }
+   },
+   "regain": {
+    "rating": 829,
+    "points": {
+     "1": 250,
+     "3": 223,
+     "5": 211,
+     "10": 68
+    }
+   }
+  }
+ },
+ "VOID Autumn Cup": {
+  "prize": 12000,
+  "lan": true,
+  "size": 6,
+  "fieldAvg": 886,
+  "spots": [
+   1,
+   2,
+   3,
+   6
+  ],
+  "probes": {
+   "OG": {
+    "rating": 1017,
+    "points": {
+     "1": 204,
+     "2": 161,
+     "3": 132,
+     "6": 28
+    }
+   },
+   "Saint Sinners": {
+    "rating": 801,
+    "points": {
+     "1": 212,
+     "2": 173,
+     "3": 149,
+     "6": 43
+    }
+   }
+  }
+ },
+ "Moscow Cyber Games": {
+  "prize": 181214,
+  "lan": true,
+  "size": 4,
+  "fieldAvg": 1171,
+  "spots": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "probes": {
+   "JiJieHao": {
+    "rating": 1361,
+    "points": {
+     "1": 393,
+     "2": 293,
+     "3": 213,
+     "4": 115
+    }
+   },
+   "WW": {
+    "rating": 1015,
+    "points": {
+     "1": 494,
+     "2": 374,
+     "3": 289,
+     "4": 134
+    }
+   }
+  }
+ },
+ "CCT Europe Series 10": {
+  "prize": 25000,
+  "lan": false,
+  "size": 20,
+  "fieldAvg": 1004,
+  "spots": [
+   1,
+   5,
+   10,
+   20
+  ],
+  "probes": {
+   "Acend": {
+    "rating": 1176,
+    "points": {
+     "1": 64,
+     "5": -5,
+     "10": -21,
+     "20": -52
+    }
+   },
+   "LPH": {
+    "rating": 847,
+    "points": {
+     "1": 174,
+     "5": 101,
+     "10": 54,
+     "20": -3
+    }
+   }
+  }
+ },
+ "CROSSFIRE Season 6": {
+  "prize": 12000,
+  "lan": false,
+  "size": 12,
+  "fieldAvg": 779,
+  "spots": [
+   1,
+   3,
+   6,
+   12
+  ],
+  "probes": {
+   "G2 Ares": {
+    "rating": 905,
+    "points": {
+     "1": 50,
+     "3": 8,
+     "6": -12,
+     "12": -27
+    }
+   },
+   "Saint Sinners": {
+    "rating": 801,
+    "points": {
+     "1": 67,
+     "3": 28,
+     "6": 4,
+     "12": -15
+    }
+   }
+  }
+ }
+}

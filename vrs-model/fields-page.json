@@ -1,0 +1,211 @@
+{
+ "Stake Ranked Episode 4": {
+  "tbd": 0,
+  "teams": [
+   "Astralis",
+   "FaZe",
+   "B8",
+   "Alliance",
+   "BIG",
+   "Luminosity",
+   "Nemiga",
+   "fnatic"
+  ],
+  "note": "Дограно 4 жовтня; лишається для історії, у вікно до відсічення вже не входить."
+ },
+ "Stake Ranked Episode 5": {
+  "tbd": 0,
+  "teams": [
+   "MIBR",
+   "Astralis",
+   "magic",
+   "Inner Circle",
+   "fnatic",
+   "BIG",
+   "Eternal Fire",
+   "Nemesis"
+  ],
+  "note": "Склад зі сторінки HLTV, 24 жовтня. Проти попередньої версії: B8 нема, замість них fnatic (Replacement Team за глобальним VRS). Eternal Fire і Nemesis пройшли закриту кваліфікацію. Для fnatic це єдина подія до відсічення — Private Club 2 вони вже дограли."
+ },
+ "Tesla Cup 2026": {
+  "tbd": 0,
+  "teams": [
+   "FaZe",
+   "B8",
+   "Envy",
+   "GamerLegion",
+   "Luminosity",
+   "Alliance",
+   "HOTU",
+   "K27"
+  ],
+  "note": "Склад зі сторінки HLTV, 24 жовтня: вісім місць роздано за пріоритетом рейтингу з відкритої реєстрації. До цього тут стояв сам реєстраційний список на тридцять одну команду, і модель ділила вісім місць між усіма — тепер це єдина подія Luminosity до відсічення, і вона в них точно є."
+ },
+ "CyberClash S2": {
+  "tbd": 0,
+  "teams": [
+   "Nuclear TigeRES",
+   "Black Phoenix",
+   "PRIVATE",
+   "Fire Flux",
+   "Omega",
+   "PCIFIC",
+   "Lavked",
+   "HYPERSPIRIT"
+  ],
+  "note": "Склад зі сторінки HLTV, 24 жовтня — усі вісім вийшли з онлайн-етапу. Раніше подія стояла без складу, тож модель приписувала її всім по дрібці; тепер вона закрита для тих, кого тут нема."
+ },
+ "Moscow Cyber Games": {
+  "tbd": 0,
+  "teams": [
+   "1win",
+   "5star",
+   "HOTU",
+   "The Huns"
+  ],
+  "note": "Склад зі сторінки HLTV, 24 жовтня: Alter Ego замінили The Huns. Чотири команди на 181 214 доларів — найважча тир-2 подія вікна, перше місце 96 646. Москва, тож правило доступу тримає українські склади на нулі."
+ },
+ "Hotspawn Showdown": {
+  "tbd": 0,
+  "teams": [
+   "G2 Ares",
+   "STATE",
+   "The Last Resort",
+   "overTIME"
+  ],
+  "note": "Склад зі сторінки HLTV, 24 жовтня (фінали в Шеффілді). EAC і BASEMENT BOYS, що стояли тут раніше, не доїхали — замінені на The Last Resort і overTIME."
+ },
+ "DFRAG Invitational": {
+  "tbd": 0,
+  "teams": [
+   "FlyQuest",
+   "NEXVOID",
+   "Abyssal",
+   "Alter Ego",
+   "Off Chops",
+   "Ground Zero",
+   "Rooster",
+   "Staqued"
+  ],
+  "note": "Склад зі сторінки HLTV, 24 жовтня. THUNDER dOWNUNDER, що стояли тут, не їдуть; додались Off Chops і Staqued."
+ },
+ "Gamers Club Masters": {
+  "tbd": 0,
+  "teams": [
+   "paiN",
+   "DENDELE",
+   "Imperial",
+   "Turma do Pagode",
+   "ALKA",
+   "QUINTESSÊNCIA",
+   "NAOCOPULAS",
+   "Low Cortisol BR"
+  ],
+  "note": "Склад зі сторінки HLTV, 24 жовтня: чотири за південноамериканським VRS плюс чотири з відкритих кваліфікацій. Раніше подія стояла порожньою з вісьмома вільними місцями."
+ },
+ "NSTLGA Texas Open": {
+  "tbd": 14,
+  "teams": [
+   "NRG",
+   "LAG"
+  ],
+  "note": "Сторінка HLTV, 24 жовтня: два прогнозовані учасники з відкритої реєстрації, решта чотирнадцять місць відкриті. regain, що стояли тут раніше, на сторінці нема."
+ },
+ "Retake Season 13": {
+  "tbd": 0,
+  "teams": [
+   "Natus Vincere",
+   "TYLOO",
+   "JiJieHao",
+   "BC.Game",
+   "Iberian Soul",
+   "Metizport",
+   "BASEMENT BOYS",
+   "OG",
+   "SAW Youngsters",
+   "WBT Academy",
+   "SNITKO",
+   "Toobisie",
+   "ZOTIX"
+  ],
+  "note": "Склад зі сторінки HLTV, 25 жовтня — тепер остаточний: призові розписані до 13-го місця, тобто вільних місць більше немає. Проти попередньої версії SINNERS вибули, додався SNITKO. Luminosity й Alliance так і лишились у реєстрації дентена як Confirmed, але на сторінку події не потрапили."
+ },
+ "Private Club 2": {
+  "tbd": 0,
+  "teams": [
+   "PARIVISION",
+   "The MongolZ",
+   "magic",
+   "Liquid",
+   "Alliance",
+   "BIG",
+   "fnatic",
+   "PRIVATE"
+  ],
+  "out": [
+   "PARIVISION",
+   "The MongolZ",
+   "magic",
+   "Liquid",
+   "Alliance",
+   "BIG",
+   "fnatic",
+   "PRIVATE"
+  ],
+  "note": "Дограно 22 жовтня: The MongolZ перші (25 000), PARIVISION другі, BIG треті, PRIVATE четверті, fnatic і magic 5-6, Liquid і Alliance 7-8. Подія вийшла з вікна за датою; склад лишається для історії."
+ },
+ "DraculaN 7": {
+  "tbd": 0,
+  "teams": [
+   "FaZe",
+   "Envy",
+   "Luminosity",
+   "HEROIC",
+   "Eternal Fire",
+   "SINNERS",
+   "JiJieHao",
+   "BBL",
+   "Iberian Soul",
+   "SAW",
+   "BC.Game",
+   "Leo",
+   "INFINITE",
+   "BASEMENT BOYS",
+   "aimclub",
+   "ASTRAL",
+   "WBT",
+   "Nexus",
+   "Drama",
+   "MOUZ NXT",
+   "HYPERSPIRIT",
+   "Sashi",
+   "Insiders",
+   "Bayankhongor"
+  ],
+  "out": [
+   "JiJieHao",
+   "BC.Game",
+   "Nexus",
+   "FaZe",
+   "HEROIC",
+   "BASEMENT BOYS",
+   "Envy",
+   "SAW",
+   "Iberian Soul",
+   "BBL",
+   "ASTRAL",
+   "Luminosity",
+   "INFINITE",
+   "HYPERSPIRIT",
+   "WBT",
+   "Leo",
+   "Sashi",
+   "aimclub",
+   "Drama",
+   "Insiders",
+   "MOUZ NXT",
+   "Bayankhongor"
+  ],
+  "note": "Дограно 23 жовтня. Гранд-фінал SINNERS — Eternal Fire; усі інші двадцять дві команди вже на своїх місцях: JiJieHao треті, BC.Game четверті, Nexus і FaZe 5-6, HEROIC і BASEMENT BOYS 7-8, Envy, SAW, Iberian Soul, BBL 9-12, далі 13-24. Подія вийшла з вікна за датою."
+ }
+}

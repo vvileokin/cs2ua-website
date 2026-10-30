@@ -1,0 +1,234 @@
+{
+ "FRAG University": {
+  "accepted": 20,
+  "blank": 0,
+  "slots": null,
+  "teams": [
+   "DENDELE",
+   "NRG",
+   "Imperial",
+   "Wildcard",
+   "SportsBetExpert",
+   "Without a Roof",
+   "Marsborne",
+   "Alter Ego",
+   "Unreal Nightmare"
+  ],
+  "src": "вкладка дентена"
+ },
+ "Stake Pulse Beat 3": {
+  "accepted": 15,
+  "blank": 0,
+  "slots": null,
+  "teams": [
+   "Astralis",
+   "MIBR",
+   "HEROIC",
+   "Ninjas in Pyjamas",
+   "Liquid",
+   "Inner Circle",
+   "3DMAX",
+   "100 Thieves",
+   "JiJieHao",
+   "HOTU",
+   "fnatic",
+   "BBL",
+   "BC.Game",
+   "Betclic"
+  ],
+  "src": "вкладка дентена"
+ },
+ "Elisa Breakout 2": {
+  "accepted": 8,
+  "blank": 1,
+  "slots": null,
+  "teams": [
+   "WBT",
+   "Voca",
+   "Phantom",
+   "EAC",
+   "ENCE",
+   "HAVU",
+   "ROUNDS",
+   "BOJONG"
+  ],
+  "src": "вкладка дентена"
+ },
+ "DraculaN 7": {
+  "accepted": 24,
+  "blank": 3,
+  "slots": null,
+  "teams": [
+   "Luminosity",
+   "HEROIC",
+   "3DMAX",
+   "FaZe",
+   "JiJieHao",
+   "Eternal Fire",
+   "BBL",
+   "SINNERS",
+   "BC.Game",
+   "SAW",
+   "INFINITE",
+   "Iberian Soul",
+   "WBT",
+   "aimclub",
+   "ASTRAL",
+   "Nexus",
+   "Leo",
+   "BASEMENT BOYS",
+   "MOUZ NXT",
+   "Drama",
+   "HYPERSPIRIT"
+  ],
+  "src": "вкладка дентена"
+ },
+ "CIS LAN 9": {
+  "accepted": 13,
+  "blank": 0,
+  "slots": null,
+  "teams": [
+   "Nemesis",
+   "K27",
+   "Virtus.pro",
+   "CYBERSHOKE",
+   "UPGRADE",
+   "WW",
+   "TrafficPills"
+  ],
+  "src": "вкладка дентена"
+ },
+ "VOID Autumn Cup 2026": {
+  "accepted": 11,
+  "blank": 0,
+  "slots": null,
+  "teams": [
+   "Lynn Vision",
+   "Chinggis Warriors",
+   "NEXVOID",
+   "Rare Atom",
+   "Alter Ego",
+   "Kaleido",
+   "Vitalem Aerem"
+  ],
+  "src": "вкладка дентена"
+ },
+ "Retake Season 13": {
+  "accepted": 15,
+  "blank": 0,
+  "slots": null,
+  "teams": [
+   "Natus Vincere",
+   "Luminosity",
+   "Alliance",
+   "JiJieHao",
+   "SINNERS",
+   "BC.Game",
+   "Metizport",
+   "Lynn Vision",
+   "BASEMENT BOYS",
+   "OG",
+   "WBT Academy",
+   "SAW Youngsters",
+   "Teletubisie",
+   "ZOTIX"
+  ],
+  "src": "вкладка дентена"
+ },
+ "FiReLEAGUE Last Chance": {
+  "accepted": 15,
+  "blank": 0,
+  "slots": null,
+  "teams": [
+   "Ninjas in Pyjamas",
+   "100 Thieves",
+   "GamerLegion",
+   "DENDELE",
+   "Fluxo",
+   "Wildcard",
+   "SportsBetExpert",
+   "Voca",
+   "BESTIA",
+   "LP",
+   "Galorys",
+   "Bounty Hunters",
+   "Procyon",
+   "Isurus"
+  ],
+  "src": "вкладка дентена"
+ },
+ "Circuit X Curitiba 4": {
+  "accepted": 9,
+  "blank": 0,
+  "slots": 16,
+  "teams": [
+   "Imperial",
+   "paiN",
+   "BESTIA",
+   "ShindeN",
+   "LP",
+   "Galorys",
+   "Bounty Hunters",
+   "Turma do Pagode"
+  ],
+  "src": "таблиця зі статусами"
+ },
+ "Tesla Cup 2026": {
+  "accepted": 38,
+  "blank": 27,
+  "slots": null,
+  "teams": [
+   "1win",
+   "B8",
+   "Luminosity",
+   "HEROIC",
+   "Inner Circle",
+   "3DMAX",
+   "100 Thieves",
+   "magic",
+   "Alliance",
+   "GamerLegion",
+   "FaZe",
+   "K27",
+   "HOTU",
+   "Sangal",
+   "EYEBALLERS",
+   "BC.Game",
+   "Betclic",
+   "NRG",
+   "Virtus.pro",
+   "WBT",
+   "UPGRADE",
+   "Lynn Vision",
+   "Phantom",
+   "Black Phoenix",
+   "aimclub",
+   "ex-Zero Tenacity",
+   "BASEMENT BOYS",
+   "DEPO",
+   "WW",
+   "Drama"
+  ],
+  "src": "таблиця зі статусами"
+ },
+ "Station Strike 2026": {
+  "accepted": 6,
+  "blank": 2,
+  "slots": null,
+  "teams": [
+   "BASEMENT BOYS",
+   "Four Magic"
+  ],
+  "src": "таблиця зі статусами"
+ },
+ "NSTLGA Texas Open": {
+  "accepted": 12,
+  "blank": 0,
+  "slots": null,
+  "teams": [
+   "NRG",
+   "regain"
+  ],
+  "src": "таблиця без статусів"
+ }
+}

@@ -1,0 +1,142 @@
+[
+ {
+  "end": "2026-09-13",
+  "name": "FISSURE Playground 3",
+  "tier": 1,
+  "begin": "2026-09-08",
+  "prize": 1000000,
+  "slots": 16,
+  "weight": 0.72,
+  "hasQualifier": false
+ },
+ {
+  "end": "2026-09-20",
+  "name": "StarLadder StarSeries Fall",
+  "tier": 1,
+  "begin": "2026-09-17",
+  "prize": 500000,
+  "slots": 8,
+  "weight": 0.65,
+  "hasQualifier": false
+ },
+ {
+  "end": null,
+  "name": "Logitech G Connect",
+  "tier": 2,
+  "begin": "2026-09-17",
+  "prize": 100000,
+  "slots": 12,
+  "weight": 0.5,
+  "hasQualifier": false
+ },
+ {
+  "end": null,
+  "name": "Stake Pulse Beat 2",
+  "tier": 2,
+  "begin": "2026-09-21",
+  "prize": 60000,
+  "slots": 16,
+  "weight": 0.45,
+  "hasQualifier": false
+ },
+ {
+  "end": null,
+  "name": "Private Club 1",
+  "tier": 2,
+  "begin": "2026-09-25",
+  "prize": 100000,
+  "slots": 16,
+  "weight": 0.5,
+  "hasQualifier": false
+ },
+ {
+  "end": null,
+  "name": "Stake Ranked Episode 4",
+  "tier": 2,
+  "begin": "2026-10-01",
+  "prize": 100000,
+  "slots": 8,
+  "weight": 0.5,
+  "hasQualifier": false
+ },
+ {
+  "end": "2026-10-11",
+  "name": "ESL Pro League Season 24",
+  "tier": 1,
+  "begin": "2026-10-03",
+  "prize": 1000000,
+  "slots": 16,
+  "weight": 0.72,
+  "hasQualifier": false
+ },
+ {
+  "end": null,
+  "name": "Stake Pulse Beat 3",
+  "tier": 2,
+  "begin": "2026-10-12",
+  "prize": 80000,
+  "slots": 16,
+  "weight": 0.477,
+  "hasQualifier": false
+ },
+ {
+  "end": "2026-10-18",
+  "name": "Thunderpick World Championship",
+  "tier": 1,
+  "begin": "2026-10-14",
+  "prize": 1000000,
+  "slots": 8,
+  "weight": 0.72,
+  "hasQualifier": true
+ },
+ {
+  "end": null,
+  "name": "Private Club 2",
+  "tier": 2,
+  "begin": "2026-10-19",
+  "prize": 100000,
+  "slots": 16,
+  "weight": 0.5,
+  "hasQualifier": false
+ },
+ {
+  "end": "2026-10-31",
+  "name": "PGL Masters Bucharest",
+  "tier": 1,
+  "begin": "2026-10-24",
+  "prize": 1250000,
+  "slots": 16,
+  "weight": 0.72,
+  "hasQualifier": false
+ },
+ {
+  "end": null,
+  "name": "Stake Ranked Episode 5",
+  "tier": 2,
+  "begin": "2026-10-27",
+  "prize": 100000,
+  "slots": 16,
+  "weight": 0.5,
+  "hasQualifier": false
+ },
+ {
+  "end": null,
+  "name": "FiReLEAGUE Last Chance",
+  "tier": 2,
+  "begin": "2026-10-29",
+  "prize": 75000,
+  "slots": 16,
+  "weight": 0.471,
+  "hasQualifier": false
+ },
+ {
+  "end": null,
+  "name": "Moscow Cyber Games",
+  "tier": 2,
+  "begin": "2026-10-31",
+  "prize": 173352,
+  "slots": 16,
+  "weight": 0.568,
+  "hasQualifier": false
+ }
+]

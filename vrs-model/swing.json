@@ -1,0 +1,96 @@
+{
+ "asOf": "2026-10-06",
+ "event": "esl-pro-league-s24",
+ "rows": [
+  {
+   "match_id": "g2-vs-parivision-epl24",
+   "team_slug": "g2",
+   "team_name": "G2",
+   "p_now": 0.9913502412762407,
+   "p_win": 0.9913502412762877,
+   "p_lose": 0.9897551299344123,
+   "p_match": 0.7213004726458778
+  },
+  {
+   "match_id": "g2-vs-parivision-epl24",
+   "team_slug": "parivision",
+   "team_name": "PARIVISION",
+   "p_now": 0.4170071030393374,
+   "p_win": 0.7685714660377261,
+   "p_lose": 0.3843587321863025,
+   "p_match": 0.2786995273541222
+  },
+  {
+   "match_id": "aurora-vs-furia-epl24",
+   "team_slug": "aurora",
+   "team_name": "Aurora",
+   "p_now": 0.988178889376728,
+   "p_win": 0.9913502412762879,
+   "p_lose": 0.9881788882209405,
+   "p_match": 0.4528683095319879
+  },
+  {
+   "match_id": "aurora-vs-furia-epl24",
+   "team_slug": "furia",
+   "team_name": "FURIA",
+   "p_now": 0.9963043627855714,
+   "p_win": 0.9963043627855718,
+   "p_lose": 0.9963043627855722,
+   "p_match": 0.5471316904680121
+  },
+  {
+   "match_id": "ninez-vs-betboom-epl24",
+   "team_slug": "ninez",
+   "team_name": "9z",
+   "p_now": 0.9897465949478621,
+   "p_win": 0.9929683325857431,
+   "p_lose": 0.9896842370958236,
+   "p_match": 0.45694546403206
+  },
+  {
+   "match_id": "ninez-vs-betboom-epl24",
+   "team_slug": "betboom",
+   "team_name": "BETBOOM",
+   "p_now": 0.9431207701153785,
+   "p_win": 0.9729784821585934,
+   "p_lose": 0.9321495601490036,
+   "p_match": 0.54305453596794
+  },
+  {
+   "match_id": "natus-vs-falcons-epl24",
+   "team_slug": "natus",
+   "team_name": "Natus Vincere",
+   "p_now": 0.6179982293827204,
+   "p_win": 0.8994062519710283,
+   "p_lose": 0.5868782154796014,
+   "p_match": 0.2781489680639403
+  },
+  {
+   "match_id": "natus-vs-falcons-epl24",
+   "team_slug": "falcons",
+   "team_name": "Falcons",
+   "p_now": 0.9929684089596262,
+   "p_win": 0.9929684089596267,
+   "p_lose": 0.9929684089596259,
+   "p_match": 0.7218510319360597
+  },
+  {
+   "match_id": "m80-vs-legacy-epl24",
+   "team_slug": "m80",
+   "team_name": "M80",
+   "p_now": 0.9929672562246286,
+   "p_win": 0.9946160672629228,
+   "p_lose": 0.9929667918961947,
+   "p_match": 0.2759534296050869
+  },
+  {
+   "match_id": "m80-vs-legacy-epl24",
+   "team_slug": "legacy",
+   "team_name": "Legacy",
+   "p_now": 0.9980574639682849,
+   "p_win": 0.9980574639682849,
+   "p_lose": 0.9980574639682853,
+   "p_match": 0.724046570394913
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+/**
+ * Опубліковані склади тир-2 турнірів: { tbd, teams }.
+ * Зібрано 2 жовтня з реєстраційних таблиць у книзі дентена.
+ * Файл збирається скриптом gen-fields2.mjs і руками не правиться.
+ */
+export const FIELDS = {
+  "Circuit X Curitiba 4": { tbd: 8, teams: ["Imperial","paiN","BESTIA","ShindeN","Galorys","LP","Bounty Hunters"] },
+  "CIS LAN 9": { tbd: 8, teams: ["Nemesis","1win","Virtus.pro","CYBERSHOKE","UPGRADE","PRIVATE","WW","DEPO"] },
+  "DFRAG Invitational": { tbd: 0, teams: ["FlyQuest","Ground Zero","NEXVOID","Alter Ego","Abyssal","THUNDER dOWNUNDER","Rooster"] },
+  "DraculaN 7": { tbd: 0, teams: ["Luminosity","HEROIC","3DMAX","FaZe","Ninjas in Pyjamas","JiJieHao","Eternal Fire","SINNERS","BBL","SAW","INFINITE","Iberian Soul","WBT","9INE","aimclub","Nexus","BASEMENT BOYS","Leo","Nordic Partners","MOUZ NXT","Drama","HYPERSPIRIT","BC.Game","M80"] },
+  "Elisa Breakout 2": { tbd: 2, teams: ["WBT","Phantom","EAC","ENCE","HAVU","Voca"] },
+  "FiReLEAGUE Last Chance": { tbd: 0, teams: ["GamerLegion","100 Thieves","Ninjas in Pyjamas","DENDELE","Wildcard","Fluxo","SAW","Voca","Galorys","BESTIA","Bounty Hunters","SportsBetExpert","LP","Procyon","Isurus"] },
+  "FOX Legacy Cup 1": { tbd: 0, teams: ["SAW","INFINITE","Lazer Cats","aimclub","EAC","UNiTY","NT","Falcons Force","PURE","SINQU","ABT","Famalicão","Next Up","Wildcard","Natus Vincere Junior"] },
+  "FRAG University": { tbd: 0, teams: ["DENDELE","NRG","Imperial","Wildcard","SportsBetExpert","Without a Roof","Marsborne","Unreal Nightmare","Alter Ego"] },
+  "Gamers Club Masters": { tbd: 8, teams: [] },
+  "Hotspawn Showdown": { tbd: 0, teams: ["EAC","BASEMENT BOYS","G2 Ares","STATE"] },
+  "Moscow Cyber Games": { tbd: 0, teams: ["HOTU","5star","1win","Alter Ego"] },
+  "NSTLGA Texas Open": { tbd: 8, teams: ["regain"] },
+  "Private Club 2": { tbd: 2, teams: ["The MongolZ","magic","PARIVISION","Alliance","Liquid","BIG"] },
+  "Retake Season 13": { tbd: 7, teams: ["Luminosity","Alliance","SINNERS","Metizport","OG","WBT Academy","SAW Youngsters","Teletubisie","Lynn Vision"] },
+  "ROG Journey Autumn 2026": { tbd: 0, teams: ["Ninjas in Pyjamas","100 Thieves","JiJieHao","Eternal Fire","Sangal","SINNERS","BBL","FOKUS","Sashi","9INE","Johnny Speeds","BASEMENT BOYS","HAVU","Prestige","Glitch","BC.Game","MTX","EAC EXTRA","SportsBetExpert","Voca"] },
+  "Roman Imperium Cup IX": { tbd: 0, teams: ["FaZe","Sangal","SAW","INFINITE","WBT","Lazer Cats","EAC","OG","RBLS","G2 Ares","Falcons Force","PURE","SINQU","Famalicão","Natus Vincere Junior"] },
+  "Stake Pulse Beat 3": { tbd: 1, teams: ["Astralis","HEROIC","Inner Circle","3DMAX","Ninjas in Pyjamas","100 Thieves","JiJieHao","HOTU","fnatic","BBL","Betclic","Sashi","BC.Game","MIBR","Liquid"] },
+  "Stake Ranked Episode 4": { tbd: 0, teams: ["Astralis","FaZe","B8","Alliance","BIG","Luminosity","Nemiga","fnatic"], out: ["B8"] },
+  "Stake Ranked Episode 5": { tbd: 0, teams: ["Astralis","MIBR","fnatic","magic","Inner Circle","BIG","Nemesis","Eternal Fire"] },
+  "Station Strike 2026": { tbd: 10, teams: ["BASEMENT BOYS","Four Magic"] },
+  "SwitzerLAN 2026": { tbd: 0, teams: ["EAC"] },
+  "Tesla Cup 2026": { tbd: 0, teams: ["HEROIC","Inner Circle","3DMAX","100 Thieves","1win","EYEBALLERS","ex-Zero Tenacity","WW","BC.Game","DEPO"] },
+  "VOID Autumn Cup": { tbd: 0, teams: ["Lynn Vision","NEXVOID","Rare Atom","Alter Ego","Kaleido","Vitalem Aerem"] },
+};
