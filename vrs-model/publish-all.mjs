@@ -100,7 +100,7 @@ for (const [reg, list] of Object.entries(OLD.regions)) {
 }
 
 fs.writeFileSync("final15.json", JSON.stringify({
-  ...OLD, asOf: "2026-10-30", slots: SLOTS,
+  ...OLD, asOf: "2026-10-31", slots: SLOTS,
   source: "hltv.org/valve-ranking/teams + /valve-ranking/teams/details",
   sourceNote:
     "Усі три регіони порахована за опублікованою формулою VRS: п'ять компонентів із " +
@@ -110,7 +110,7 @@ fs.writeFileSync("final15.json", JSON.stringify({
     "прогону старої моделі на тій самій таблиці.",
   regions,
 }));
-fs.writeFileSync("sim.json", JSON.stringify({ runs: RUNS, asOf: "2026-10-30" }));
+fs.writeFileSync("sim.json", JSON.stringify({ runs: RUNS, asOf: "2026-10-31" }));
 
 const show = (v) => (v > 99.9 ? ">99,9" : v < 0.1 ? "<0,1" : v.toFixed(1).replace(".", ","));
 console.log(`прогонів ${RUNS}\n`);

@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { drift } from "./drift-exact.mjs";
 
 /**
  * Прогноз інвайтів на мейджор — усі три регіони на опублікованій формулі VRS.
@@ -38,7 +39,10 @@ const STAGES = {
 const SPIRIT = process.env.SPIRIT ?? "open";
 const CAPS = process.env.CAPS !== "0";
 const USE_ODDS = process.env.ODDS !== "0";
-const NOISE_SD = Number(process.env.NOISE_SD ?? 10);
+const NOISE_SD = Number(process.env.NOISE_SD ?? 1.81);
+/* Скільки діб від дати таблиці до відсічення: зріз за 31 жовтня, інвайти
+   роздаються 2 листопада. */
+const DAYS = Number(process.env.DAYS ?? 2);
 const H2H_DAMP = Number(process.env.H2H_DAMP ?? 0.56);
 
 const K = { O: 19.4, C: 244, N: 100 };
@@ -93,6 +97,15 @@ for (const f of fs.readdirSync("vrs-details")) {
 }
 LAN_BASE = Math.max(...Object.values(DET).flatMap((d) => d.lan), 1);
 
+/* ---- дрейф: точний спад recency по рядках плюс здуття таблиці ----
+   Для кого розклад є — рахується з нього; для решти лишається саме здуття. */
+const DEFLATE = Number(process.env.DEFLATE ?? 0.0028);
+export const DRIFT = new Map();
+for (const f of fs.readdirSync("vrs-details")) {
+  const r = drift(f, DAYS);
+  DRIFT.set(r.team, r.d - DEFLATE * DAYS * Math.max(0, r.p - 400));
+}
+
 const bountyOf = (t) => (DET[t] ? Math.min(1, DET[t].rawO / BOUNTY_FULL)
                                 : Math.min(1, 0.00018 * Math.max(0, (P0.get(t) ?? 600) - 900)));
 const networkOf = (t) => (DET[t] ? Math.min(1, DET[t].rawN / 3.2) : 0.3);
@@ -103,13 +116,11 @@ const gl = 1 / Math.sqrt(1 + (3 * Q * Q * RD * RD) / (Math.PI * Math.PI));
 const KG = Q * (1 / (1 / (RD * RD) + Q * Q * gl * gl * 0.25)) * gl;
 const H2H_K = 1.02;
 const Erate = (a, b) => 1 / (1 + Math.pow(10, (gl * (a - b)) / -D));
-/* Лінія букмекера на 31 жовтня, знята вночі через HLTV. Stake Ranked і
-   півфінали Бухареста дограно, тож лишились гранд-фінал, бронза і Москва. */
+/* Лінія на 1 листопада. Бухарест дограно (FURIA 3-2 Nemiga), лишились
+   фінали дрібніших подій — і єдиний, що важить для відсічки, це Москва. */
 const LINE = [
-  ["Nemiga", "FURIA", 3.10, 1.36],
-  ["Vitality", "MOUZ", 1.76, 2.03],
-  ["HOTU", "The Huns", 1.08, 6.00],
-  ["Abyssal", "NEXVOID", 5.50, 1.10],
+  ["HOTU", "1win", 1.91, 1.77],
+  ["FlyQuest", "Alter Ego", 1.15, 4.40],
 ];
 const ODDS = new Map();
 for (const [a, b, oa, ob] of LINE) {
@@ -189,7 +200,11 @@ export function simulate(force = {}) {
     else if (forfeit) { w = forfeit === a ? b : a; l = forfeit; }
     else { const ea = Eof(a, b, pts.get(a), pts.get(b)); [w, l] = Math.random() < ea ? [a, b] : [b, a]; }
     const ew = Eof(w, l, pts.get(w), pts.get(l));
-    const transfer = H2H_K * KG * (1 - ew);
+    /* Передача важиться розміром події — так само, як bounty collected і
+       opp. network. Без цього перемога на турнірі за $75 000 коштувала стільки
+       ж, скільки на мільйонному: саме через це 100 Thieves виходили на 1514
+       замість стелі 1487, яку дозволяє опублікована формула. */
+    const transfer = H2H_K * KG * (1 - ew) * weight(ev);
     const base = award(w, l, ev);
     pts.set(w, pts.get(w) + transfer - H2H_DAMP * base);
     pts.set(l, pts.get(l) - transfer);
@@ -223,84 +238,93 @@ export function simulate(force = {}) {
     return order;
   };
 
-  /* ---- PGL Masters Bucharest, останній день ----
-     Півфінали дограно: Nemiga 2-0 Vitality, FURIA 2-1 MOUZ. Лишився
-     гранд-фінал Bo5 і матч за третє місце. */
+  /* ---- Moscow Cyber Games, гранд-фінал 1 листопада ----
+     HOTU 2-0 The Huns, 1win 2-0 5star — обидва у фіналі. Це єдина подія, що
+     ще може зрушити європейську відсічку: HOTU стоять вісімнадцятими, а
+     гроші за місце в таблиці ще НЕ зараховані (у них висить рядок на $6 041
+     за участь, не за призове місце). */
   {
-    const BUCH = 1_250_000;
-    const champ = play("Nemiga", "FURIA", BUCH);
-    prize(champ, 450_000); prize(champ === "Nemiga" ? "FURIA" : "Nemiga", 200_000);
-    const third = play("Vitality", "MOUZ", BUCH);
-    prize(third, 137_500); prize(third === "Vitality" ? "MOUZ" : "Vitality", 87_500);
-  }
-
-  /* ---- Moscow Cyber Games, 31 жовтня — 1 листопада ----
-     Чотири команди, і це останній турнір, де ще можна рухати європейську
-     відсічку: HOTU відстають від fnatic на п'ять очок, 1win уже вище. */
-  {
-    const MCG = 190_000;
-    const s1 = play("HOTU", "The Huns", MCG), l1 = s1 === "HOTU" ? "The Huns" : "HOTU";
-    const s2 = play("1win", "5star", MCG), l2 = s2 === "1win" ? "5star" : "1win";
-    const champ = play(s1, s2, MCG);
+    const MCG = 181_214;                       // $96 646 / $48 323 / $30 204 / $6 041
+    const champ = play("HOTU", "1win", MCG);
+    const second = champ === "HOTU" ? "1win" : "HOTU";
     LAST.mcgChamp = champ;
-    const second = champ === s1 ? s2 : s1;
-    prize(champ, 100_000); prize(second, 50_000);
-    const third = play(l1, l2, MCG);
-    prize(third, 31_000);
-    LAST.mcgHotu = champ === "HOTU" ? 1 : second === "HOTU" ? 2
-      : third === "HOTU" ? 3 : 4;
+    LAST.mcgHotu = champ === "HOTU" ? 1 : 2;
+    /* Усім чотирьом уже нараховано $6 041 за четверте місце — підміняємо, а
+       не додаємо. */
+    upgrade(champ, 6_041, 96_646); upgrade(second, 6_041, 48_323);
+    const third = play("The Huns", "5star", MCG);
+    upgrade(third, 6_041, 30_204);
   }
 
   /* ---- FiRe Last Chance, плей-оф ----
-     Групи дограються зараз, 100 Thieves пройшли з двох перемог. Точні пари
-     чвертьфіналів ще не зведені, тож плей-оф розігрується як сітка на вісім:
-     для 100 Thieves це те саме, бо вони там уже є, а дрібні перестановки в
-     групах на їхню гілку не впливають. */
+     Сітка з сторінки події, а не вгадана: чвертьфінали йдуть просто зараз
+     (100 Thieves — Isurus, NRG — Wildcard), а BESTIA й BARCA свої вже
+     зіграли 31 жовтня і чекають у півфіналах. Раніше рушій переграв ті два
+     матчі заново — BESTIA і BARCA діставали очки двічі. 100 Thieves —
+     останній європеєць, що ще грає. */
   {
-    const FS = 75_000;
-    const field = ["100 Thieves", "NRG", "Wildcard", "BESTIA", "Fluxo",
-                   "ShindeN", "Galorys", "Bounty Hunters"];
-    const q = [play(field[0], field[7], FS), play(field[3], field[4], FS),
-               play(field[2], field[5], FS), play(field[1], field[6], FS)];
-    const s = [play(q[0], q[1], FS), play(q[2], q[3], FS)];
-    const champ = play(s[0], s[1], FS);
-    const second = champ === s[0] ? s[1] : s[0];
+    const FS = 75_000;                 // $40k / $15k / $6,5k / $3,5k / $2,5k
+    const q1 = play("100 Thieves", "Isurus", FS);
+    const q2 = play("NRG", "Wildcard", FS);
+    const s1 = play("BESTIA", q1, FS), s2 = play("BARCA", q2, FS);
+    const l1 = s1 === "BESTIA" ? q1 : "BESTIA", l2 = s2 === "BARCA" ? q2 : "BARCA";
+    const champ = play(s1, s2, FS);
+    const second = champ === s1 ? s2 : s1;
+    const third = play(l1, l2, FS);
+    LAST.fsChamp = champ;
     LAST.fs100Tplace = champ === "100 Thieves" ? 1 : second === "100 Thieves" ? 2
-      : s.includes("100 Thieves") ? 4 : 8;
-    prize(champ, 40_000); prize(second, 15_000);
+      : third === "100 Thieves" ? 3 : [l1, l2].includes("100 Thieves") ? 4 : 8;
+    /* Четверо, що лишились у сітці, мають нараховані $2 500 за 5-8 місце. */
+    upgrade(champ, 2_500, 40_000); upgrade(second, 2_500, 15_000);
+    upgrade(third, 2_500, 6_500);
   }
 
-  /* ---- Gamers Club Masters VII ---- */
-  bracket(["paiN", "DENDELE", "Imperial", "Turma do Pagode", "ALKA", "QUINTESSÊNCIA",
-           "NAOCOPULAS", "Low Cortisol BR"], 30_000, [12_000, 6_000, 4_000, 3_000]);
+  /* ---- Gamers Club Masters VII, останні матчі ---- */
+  {
+    const GC = 30_000;
+    const semi = play("Imperial", "Low Cortisol BR", GC);
+    const champ = play("DENDELE", semi, GC);
+    prize(champ, 12_000); prize(champ === "DENDELE" ? semi : "DENDELE", 6_000);
+  }
 
-  /* ---- HyperX Retake Season 13, плей-оф ----
-     НАВІ виграли групу, але в плей-оф не вийдуть: вони вже летять на IEM
-     Beijing. Отже один техлуз у чвертьфіналі — суперник бере вільну перемогу,
-     а далі сітка йде без них. */
+  /* ---- HyperX Retake Season 13, півфінали й фінал ----
+     НАВІ віддали чвертьфінал технічною поразкою — вони вже летять на
+     IEM Beijing. У сітці лишились четверо. */
   {
     const RT = 13_642;
-    const pool = ["Iberian Soul", "Metizport", "OG", "BC.Game", "TYLOO",
-                  "JiJieHao", "BASEMENT BOYS", "WBT Academy"];
-    play(pool[Math.floor(Math.random() * pool.length)], "Natus Vincere", RT, "Natus Vincere");
-    bracket(pool, RT, [7_800, 3_500, 2_100, 700]);
+    const f1 = play("Metizport", "JiJieHao", RT);
+    const f2 = play("WBT Academy", "Iberian Soul", RT);
+    const champ = play(f1, f2, RT);
+    prize(champ, 7_800); prize(champ === f1 ? f2 : f1, 3_500);
   }
 
-  /* ---- DFRAG Invitational, гранд-фінал 1 листопада ----
-     FlyQuest виграли верхню сітку й чекають суперника з нижньої. */
+  /* ---- DFRAG Invitational, гранд-фінал ---- */
   {
     const DF = 27_886;
-    const low = play(play("Abyssal", "NEXVOID", DF), "Alter Ego", DF);
-    const champ = play("FlyQuest", low, DF);
-    prize(champ, 10_000); prize(champ === "FlyQuest" ? low : "FlyQuest", 6_000);
+    const champ = play("FlyQuest", "Alter Ego", DF);
+    prize(champ, 10_000); prize(champ === "FlyQuest" ? "Alter Ego" : "FlyQuest", 6_000);
   }
 
-  /* ---- рух, якого формула не бачить ---- */
-  if (NOISE_SD > 0) for (const t of ALL) {
+  /* ---- дрейф до відсічення ----
+     Раніше тут стояв симетричний шум із нулем у середньому. Він неправильний:
+     рух неграючої команди не випадковий, він майже повністю обчислюється.
+     Кожен рядок розкладу має свою recency, і за добу вона падає — це
+     обчислюється точно (drift-exact.mjs). Поверх цього вся таблиця щодоби
+     зсувається спільно, і той зсув НЕ стала величина: 29→30 жовтня він був
+     +1,3, а 30→31 уже −10,9 (drift-fit.mjs). Але він пропорційний очкам, а
+     отже між сусідами по таблиці скасовується й місць не змінює. Те, що
+     справді вирішує місця, — залишок після спільного зсуву, і він малий:
+     σ 1,81 очка за добу на 28 спостереженнях. Саме він тут і стоїть шумом,
+     а не колишні 10 очок, узяті зі старої каліброваної моделі. */
+  for (const t of ALL) {
+    const d = DRIFT.get(t);
+    const dec = d != null ? d : -0.0088 * DAYS * Math.max(0, pts.get(t) - 400);
     let u = 0, v = 0;
     while (u === 0) u = Math.random();
     while (v === 0) v = Math.random();
-    pts.set(t, pts.get(t) + Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v) * NOISE_SD);
+    const noise = Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v)
+      * NOISE_SD * Math.sqrt(DAYS);
+    pts.set(t, pts.get(t) + dec + noise);
   }
   return pts;
 }

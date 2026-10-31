@@ -11,7 +11,7 @@ import path from "node:path";
  *
  * Запуск: node apply-fresh.mjs [--apply]
  */
-const FRESH = JSON.parse(fs.readFileSync("fresh/details-3110.json", "utf8"));
+const FRESH = JSON.parse(fs.readFileSync("fresh/details-0111.json", "utf8"));
 const DIR = "vrs-details";
 const byName = {};
 for (const f of fs.readdirSync(DIR)) {
@@ -42,9 +42,9 @@ for (const [n, e, v] of rows) {
 
 if (!process.argv.includes("--apply")) { console.log("\nпробний прогін. --apply щоб записати"); process.exit(0); }
 
-fs.mkdirSync("fresh/backup-3110", { recursive: true });
+fs.mkdirSync("fresh/backup-0111", { recursive: true });
 for (const [n, e, v] of rows) {
-  fs.copyFileSync(path.join(DIR, e.file), path.join("fresh/backup-3110", e.file));
+  fs.copyFileSync(path.join(DIR, e.file), path.join("fresh/backup-0111", e.file));
   fs.writeFileSync(path.join(DIR, e.file), JSON.stringify(v, null, 1) + "\n");
 }
-console.log(`\nзаписано ${rows.length} розкладів, старі в fresh/backup-3110/`);
+console.log(`\nзаписано ${rows.length} розкладів, старі в fresh/backup-0111/`);
