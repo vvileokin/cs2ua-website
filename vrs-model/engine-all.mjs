@@ -77,16 +77,19 @@ for (const [reg, file] of [["europe", "eu-2810.json"], ["americas", "am-2810.jso
     P0.set(t, +p); REGION[t] = reg;
   }
 }
-/* Дрібні учасники подій, яких у верхніх рядках таблиць немає: їхні очки
-   потрібні, щоб рахувати ймовірність матчу, але самі вони нікуди не метять. */
+/* Дрібні учасники подій, яких у верхніх рядках регіональних таблиць немає:
+   їхні очки потрібні, щоб рахувати ймовірність матчу й ціну скальпа. Значення
+   зняті з глобальної таблиці HLTV за 31 жовтня (h2h/rate-3110.txt) — раніше
+   тут стояли застарілі, і помилка сягала 261 очка на NAOCOPULAS. */
 for (const [t, p] of Object.entries({
-  "Arena Pro Team": 600, "Tactical Chaos": 600, Signatus: 600, BTH: 600,
-  Teletubisie: 619, SNITKO: 600, Hacha: 436, Isurus: 704, Procyon: 805,
-  "Iberian Soul": 1233, Metizport: 1167, "BASEMENT BOYS": 1119, OG: 937,
-  "SAW Youngsters": 817, "WBT Academy": 872, ZOTIX: 534, JiJieHao: 1436,
-  "Turma do Pagode": 976, ALKA: 727, "QUINTESSÊNCIA": 666, NAOCOPULAS: 600,
-  "Low Cortisol BR": 670, "Off Chops": 944, "Ground Zero": 928, Rooster: 854,
-  Staqued: 600, LAG: 1007, "The Audacity": 600, "the ONE": 533,
+  Isurus: 790, Procyon: 904, "Iberian Soul": 1286, Metizport: 1259,
+  "BASEMENT BOYS": 1094, OG: 931, "SAW Youngsters": 839, "WBT Academy": 943,
+  ZOTIX: 532, JiJieHao: 1437, "Turma do Pagode": 987, NAOCOPULAS: 861,
+  "Low Cortisol BR": 674, "Off Chops": 934, "Ground Zero": 912, Rooster: 843,
+  LAG: 991, "the ONE": 529, Hacha: 488, SNITKO: 488, Toobisie: 689,
+  /* у таблиці HLTV їх немає взагалі — ставимо дно */
+  "Arena Pro": 600, "Tactical Chaos": 600, Signatus: 600, BTH: 600,
+  ALKA: 716, "QUINTESSÊNCIA": 654, Staqued: 600, "The Audacity": 600,
 })) if (!P0.has(t)) P0.set(t, p);
 
 /* ---- розклади ---- */
@@ -348,6 +351,13 @@ export function simulate(force = {}) {
     const champ = play("FlyQuest", "Alter Ego", DF);
     prize(champ, 10_000); prize(champ === "FlyQuest" ? "Alter Ego" : "FlyQuest", 6_000);
   }
+
+  /* ---- стеля з опублікованого ----
+     Там, де власна модель не має роздільної здатності, а точна відповідь
+     опублікована, береться опублікована — так само, як дрейф і межа TYLOO.
+     Див. capNote у proj-0211.json. */
+  for (const [t, v] of Object.entries(PROJ.cap ?? {}))
+    if (pts.has(t) && pts.get(t) > v) pts.set(t, v);
 
   /* ---- дрейф до відсічення ----
      Раніше тут стояв симетричний шум із нулем у середньому. Він неправильний:
