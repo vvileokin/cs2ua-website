@@ -314,7 +314,8 @@ export function simulate(force = {}) {
      їх на $40 000, другий — на $15 000, третій — на $6 500. */
   {
     const FS = 75_000;
-    const champ = play("100 Thieves", "Wildcard", FS);
+    /* 100 Thieves виграли гранд-фінал — останній матч, що рахувався. */
+    const champ = play("100 Thieves", "Wildcard", FS, "Wildcard");
     const second = champ === "100 Thieves" ? "Wildcard" : "100 Thieves";
     const third = play("BESTIA", "BARCA", FS);
     LAST.fsChamp = champ;
