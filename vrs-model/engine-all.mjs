@@ -73,8 +73,14 @@ for (const [reg, file] of [["europe", "eu-2810.json"], ["americas", "am-2810.jso
   const j = JSON.parse(fs.readFileSync(file, "utf8"));
   TABLE[reg] = j.rows.split(";").map((s) => s.split("|")[1]);
   for (const s of j.rows.split(";")) {
-    const [, t, p] = s.split("|");
-    P0.set(t, +p); REGION[t] = reg;
+    const [rank, t, p] = s.split("|");
+    /* Рівні очки трапляються, і тоді порядок вирішують десяті, яких таблиця
+       не друкує. 1 листопада fnatic і 100 Thieves обидва на 1488, але HLTV
+       ставить fnatic вище — отже за десятими вони попереду. Зберігаємо цей
+       порядок мікрододатком: без нього сортування за очками розводить нічию
+       як попало, і в таблиці сайту команди можуть помінятись місцями проти
+       справжнього рейтингу. */
+    P0.set(t, +p + (1000 - +rank) * 1e-6); REGION[t] = reg;
   }
 }
 /* Дрібні учасники подій, яких у верхніх рядках регіональних таблиць немає:
@@ -131,7 +137,13 @@ for (const f of fs.readdirSync("vrs-details")) {
    оцінка, а величина, тож шуму на ній немає. */
 export const EXACT = new Set();
 for (const [t, v] of Object.entries(PROJ.pts))
-  if (P0.has(t)) { DRIFT.set(t, v - P0.get(t)); EXACT.add(t); }
+  if (P0.has(t)) {
+    /* Прогноз HLTV — ціле, а мікрододаток порядку з таблиці треба зберегти:
+       на межі стоять дві команди з однаковими очками, і без нього нічия
+       розв'яжеться як попало. */
+    const eps = P0.get(t) - Math.round(P0.get(t));
+    DRIFT.set(t, v + eps - P0.get(t)); EXACT.add(t);
+  }
 /* TYLOO у п'ятірці HLTV немає, а п'яті там Lynn Vision на 1261 — отже
    TYLOO строго нижче. Межа, не вгадана цифра. */
 for (const [t, v] of Object.entries(PROJ.bound))
@@ -333,7 +345,13 @@ export function simulate(force = {}) {
        Через це розрив у два очки між fnatic і HOTU — не нуль відсотків:
        fnatic стоять твердо, а HOTU по дорозі проходять фінал Москви. */
     const nm = Math.sqrt(played.get(t) ?? 0) * MATCH_SD;
+    /* Прогноз HLTV опублікований цілими числами, а межа стоїть на одному
+       очку: fnatic 1487 проти HOTU 1486. Самі десяті нам невідомі, і робити
+       вигляд, що одне очко — це певність, було б брехнею точності. Тож для
+       команд із опублікованого прогнозу лишається рівно похибка заокруглення
+       — рівномірно ±0,5 очка, не більше й не менше. */
     const base = EXACT.has(t) ? 0 : NOISE_SD;
+    if (EXACT.has(t)) pts.set(t, pts.get(t) + (Math.random() - 0.5));
     const sd = Math.sqrt(base * base + nm * nm);
     const noise = sd === 0 ? 0
       : Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v) * sd;
@@ -397,7 +415,7 @@ if (DIRECT) {
     order.slice(0, SLOTS[reg] + 6).forEach((t, i) => {
       const mu = r.sum.get(t) / r.n;
       const sd = Math.sqrt(Math.max(0, r.sumSq.get(t) / r.n - mu * mu));
-      console.log(`  ${String(i + 1).padStart(4)}   ${t.padEnd(18)}${String(P0.get(t)).padStart(5)}` +
+      console.log(`  ${String(i + 1).padStart(4)}   ${t.padEnd(18)}${String(Math.round(P0.get(t))).padStart(5)}` +
         `${mu.toFixed(0).padStart(6)}${sd.toFixed(0).padStart(5)}` +
         `${show((100 * r.qual.get(t)) / r.n).padStart(8)}%` +
         `${i + 1 === SLOTS[reg] ? "   ← межа" : ""}`);
