@@ -39,7 +39,7 @@ const STAGES = {
 const SPIRIT = process.env.SPIRIT ?? "open";
 const CAPS = process.env.CAPS !== "0";
 const USE_ODDS = process.env.ODDS !== "0";
-const NOISE_SD = Number(process.env.NOISE_SD ?? 1.81);
+const NOISE_SD = Number(process.env.NOISE_SD ?? 2.43);
 /* Скільки діб від дати таблиці до відсічення: зріз за 31 жовтня, інвайти
    роздаються 2 листопада. */
 const DAYS = Number(process.env.DAYS ?? 2);
@@ -97,14 +97,32 @@ for (const f of fs.readdirSync("vrs-details")) {
 }
 LAN_BASE = Math.max(...Object.values(DET).flatMap((d) => d.lan), 1);
 
-/* ---- дрейф: точний спад recency по рядках плюс здуття таблиці ----
-   Для кого розклад є — рахується з нього; для решти лишається саме здуття. */
-const DEFLATE = Number(process.env.DEFLATE ?? 0.0028);
+/* ---- дрейф до відсічення ----
+   Найнадійніше джерело тут не моя модель, а сама HLTV: вона друкує прогноз
+   таблиці на дату відсічення без симуляції, тобто той самий детермінований
+   спад, обчислений на повній базі матчів. Для кого він опублікований — беремо
+   його, і це рівно ті команди, що стоять на межах квот. Для решти лишається
+   мій рядковий спад, підігнаний під ці ж 20 точок: ×0,64 і легке роздуття
+   0,16%, залишок σ 2,43 (drift-vs-hltv.mjs). Без підгонки мій спад давав
+   σ 4,04, а «жодного спаду» — 2,86: за ці дві доби таблиця майже не рухається,
+   і мої колишні −10 очок за добу були підгонкою під один невдалий день. */
+const SCALE = Number(process.env.DRIFT_SCALE ?? 0.64);
+const DEFLATE = Number(process.env.DEFLATE ?? -0.0016);
+const PROJ = JSON.parse(fs.readFileSync("proj-0211.json", "utf8"));
 export const DRIFT = new Map();
 for (const f of fs.readdirSync("vrs-details")) {
   const r = drift(f, DAYS);
-  DRIFT.set(r.team, r.d - DEFLATE * DAYS * Math.max(0, r.p - 400));
+  DRIFT.set(r.team, SCALE * r.d - DEFLATE * Math.max(0, r.p - 400));
 }
+/* Опубліковане перебиває порахованe — і для цих команд дрейф уже не
+   оцінка, а величина, тож шуму на ній немає. */
+export const EXACT = new Set();
+for (const [t, v] of Object.entries(PROJ.pts))
+  if (P0.has(t)) { DRIFT.set(t, v - P0.get(t)); EXACT.add(t); }
+/* TYLOO у п'ятірці HLTV немає, а п'яті там Lynn Vision на 1261 — отже
+   TYLOO строго нижче. Межа, не вгадана цифра. */
+for (const [t, v] of Object.entries(PROJ.bound))
+  if (P0.has(t)) { DRIFT.set(t, v - P0.get(t)); EXACT.add(t); }
 
 const bountyOf = (t) => (DET[t] ? Math.min(1, DET[t].rawO / BOUNTY_FULL)
                                 : Math.min(1, 0.00018 * Math.max(0, (P0.get(t) ?? 600) - 900)));
@@ -322,8 +340,10 @@ export function simulate(force = {}) {
     let u = 0, v = 0;
     while (u === 0) u = Math.random();
     while (v === 0) v = Math.random();
-    const noise = Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v)
-      * NOISE_SD * Math.sqrt(DAYS);
+    /* σ калібрований на все вікно до відсічення, не на добу; там, де дрейф
+       узято з опублікованого прогнозу, його немає взагалі. */
+    const noise = EXACT.has(t) ? 0
+      : Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v) * NOISE_SD;
     pts.set(t, pts.get(t) + dec + noise);
   }
   return pts;
