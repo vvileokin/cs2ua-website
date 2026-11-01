@@ -152,7 +152,6 @@ const Erate = (a, b) => 1 / (1 + Math.pow(10, (gl * (a - b)) / -D));
    фінали дрібніших подій — і єдиний, що важить для відсічки, це Москва. */
 const LINE = [
   ["HOTU", "1win", 1.91, 1.77],
-  ["FlyQuest", "Alter Ego", 1.15, 4.40],
 ];
 const ODDS = new Map();
 for (const [a, b, oa, ob] of LINE) {
@@ -298,7 +297,8 @@ export function simulate(force = {}) {
     /* Усім чотирьом уже нараховано $6 041 за четверте місце — підміняємо, а
        не додаємо. */
     upgrade(champ, 6_041, 96_646); upgrade(second, 6_041, 48_323);
-    const third = play("The Huns", "5star", MCG);
+    /* The Huns 2-1 5star — матч за третє місце дограно. */
+    const third = play("The Huns", "5star", MCG, "5star");
     upgrade(third, 6_041, 30_204);
   }
 
@@ -312,7 +312,8 @@ export function simulate(force = {}) {
     const FS = 75_000;                 // $40k / $15k / $6,5k / $3,5k / $2,5k
     /* 100 Thieves 2-0 Isurus — чвертьфінал дограно. */
     const q1 = play("100 Thieves", "Isurus", FS, "Isurus");
-    const q2 = play("NRG", "Wildcard", FS);
+    /* NRG 1-2 Wildcard — чвертьфінал дограно. */
+    const q2 = play("NRG", "Wildcard", FS, "NRG");
     const s1 = play("BESTIA", q1, FS), s2 = play("BARCA", q2, FS);
     const l1 = s1 === "BESTIA" ? q1 : "BESTIA", l2 = s2 === "BARCA" ? q2 : "BARCA";
     const champ = play(s1, s2, FS);
@@ -329,7 +330,8 @@ export function simulate(force = {}) {
   /* ---- Gamers Club Masters VII, останні матчі ---- */
   {
     const GC = 30_000;
-    const semi = play("Imperial", "Low Cortisol BR", GC);
+    /* Imperial 2-1 Low Cortisol BR — півфінал дограно. */
+    const semi = play("Imperial", "Low Cortisol BR", GC, "Low Cortisol BR");
     const champ = play("DENDELE", semi, GC);
     prize(champ, 12_000); prize(champ === "DENDELE" ? semi : "DENDELE", 6_000);
   }
@@ -348,7 +350,8 @@ export function simulate(force = {}) {
   /* ---- DFRAG Invitational, гранд-фінал ---- */
   {
     const DF = 27_886;
-    const champ = play("FlyQuest", "Alter Ego", DF);
+    /* FlyQuest 3-0 Alter Ego — гранд-фінал дограно. */
+    const champ = play("FlyQuest", "Alter Ego", DF, "Alter Ego");
     prize(champ, 10_000); prize(champ === "FlyQuest" ? "Alter Ego" : "FlyQuest", 6_000);
   }
 
