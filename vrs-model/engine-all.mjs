@@ -283,57 +283,45 @@ export function simulate(force = {}) {
     return order;
   };
 
-  /* ---- Moscow Cyber Games, гранд-фінал 1 листопада ----
-     HOTU 2-0 The Huns, 1win 2-0 5star — обидва у фіналі. Це єдина подія, що
-     ще може зрушити європейську відсічку: HOTU стоять вісімнадцятими, а
-     гроші за місце в таблиці ще НЕ зараховані (у них висить рядок на $6 041
-     за участь, не за призове місце). */
+  /* ---- Moscow Cyber Games, лишився гранд-фінал ----
+     The Huns 2-1 5star за третє місце — отже HOTU і 1win уже гарантували
+     собі щонайменше друге, і $48 323 їм УЖЕ нараховано: Bounty offered у
+     HOTU стрибнув 252→281, у 1win 251→279. Тому поразка у фіналі не додає
+     нічого, тільки знімає H2H, а перемога підміняє $48 323 на $96 646. */
   {
-    const MCG = 181_214;                       // $96 646 / $48 323 / $30 204 / $6 041
+    const MCG = 181_214;
     const champ = play("HOTU", "1win", MCG);
-    const second = champ === "HOTU" ? "1win" : "HOTU";
     LAST.mcgChamp = champ;
     LAST.mcgHotu = champ === "HOTU" ? 1 : 2;
-    /* Усім чотирьом уже нараховано $6 041 за четверте місце — підміняємо, а
-       не додаємо. */
-    upgrade(champ, 6_041, 96_646); upgrade(second, 6_041, 48_323);
-    /* The Huns 2-1 5star — матч за третє місце дограно. */
-    const third = play("The Huns", "5star", MCG, "5star");
-    upgrade(third, 6_041, 30_204);
+    upgrade(champ, 48_323, 96_646);
   }
 
-  /* ---- FiRe Last Chance, плей-оф ----
-     Сітка з сторінки події, а не вгадана: чвертьфінали йдуть просто зараз
-     (100 Thieves — Isurus, NRG — Wildcard), а BESTIA й BARCA свої вже
-     зіграли 31 жовтня і чекають у півфіналах. Раніше рушій переграв ті два
-     матчі заново — BESTIA і BARCA діставали очки двічі. 100 Thieves —
-     останній європеєць, що ще грає. */
+  /* ---- FiRe Last Chance, лишились півфінали й фінал ----
+     Чвертьфінали дограно: 100 Thieves 2-0 Isurus, NRG 1-2 Wildcard — обидва
+     вже в таблиці, тому рушій їх не переграє. Четверо, що лишились, мають
+     нараховані $3 500 за четверте місце. */
   {
-    const FS = 75_000;                 // $40k / $15k / $6,5k / $3,5k / $2,5k
-    /* 100 Thieves 2-0 Isurus — чвертьфінал дограно. */
-    const q1 = play("100 Thieves", "Isurus", FS, "Isurus");
-    /* NRG 1-2 Wildcard — чвертьфінал дограно. */
-    const q2 = play("NRG", "Wildcard", FS, "NRG");
-    const s1 = play("BESTIA", q1, FS), s2 = play("BARCA", q2, FS);
-    const l1 = s1 === "BESTIA" ? q1 : "BESTIA", l2 = s2 === "BARCA" ? q2 : "BARCA";
+    const FS = 75_000;                 // $40k / $15k / $6,5k / $3,5k
+    const s1 = play("BESTIA", "100 Thieves", FS);
+    const s2 = play("BARCA", "Wildcard", FS);
+    const l1 = s1 === "BESTIA" ? "100 Thieves" : "BESTIA";
+    const l2 = s2 === "BARCA" ? "Wildcard" : "BARCA";
     const champ = play(s1, s2, FS);
     const second = champ === s1 ? s2 : s1;
     const third = play(l1, l2, FS);
     LAST.fsChamp = champ;
     LAST.fs100Tplace = champ === "100 Thieves" ? 1 : second === "100 Thieves" ? 2
-      : third === "100 Thieves" ? 3 : [l1, l2].includes("100 Thieves") ? 4 : 8;
-    /* Четверо, що лишились у сітці, мають нараховані $2 500 за 5-8 місце. */
-    upgrade(champ, 2_500, 40_000); upgrade(second, 2_500, 15_000);
-    upgrade(third, 2_500, 6_500);
+      : third === "100 Thieves" ? 3 : 4;
+    upgrade(champ, 3_500, 40_000); upgrade(second, 3_500, 15_000);
+    upgrade(third, 3_500, 6_500);
   }
 
-  /* ---- Gamers Club Masters VII, останні матчі ---- */
+  /* ---- Gamers Club Masters VII, лишився гранд-фінал ----
+     Imperial 2-1 Low Cortisol BR у півфіналі — уже в таблиці. */
   {
     const GC = 30_000;
-    /* Imperial 2-1 Low Cortisol BR — півфінал дограно. */
-    const semi = play("Imperial", "Low Cortisol BR", GC, "Low Cortisol BR");
-    const champ = play("DENDELE", semi, GC);
-    prize(champ, 12_000); prize(champ === "DENDELE" ? semi : "DENDELE", 6_000);
+    const champ = play("DENDELE", "Imperial", GC);
+    prize(champ, 12_000); prize(champ === "DENDELE" ? "Imperial" : "DENDELE", 6_000);
   }
 
   /* ---- HyperX Retake Season 13, півфінали й фінал ----
@@ -345,14 +333,6 @@ export function simulate(force = {}) {
     const f2 = play("WBT Academy", "Iberian Soul", RT);
     const champ = play(f1, f2, RT);
     prize(champ, 7_800); prize(champ === f1 ? f2 : f1, 3_500);
-  }
-
-  /* ---- DFRAG Invitational, гранд-фінал ---- */
-  {
-    const DF = 27_886;
-    /* FlyQuest 3-0 Alter Ego — гранд-фінал дограно. */
-    const champ = play("FlyQuest", "Alter Ego", DF, "Alter Ego");
-    prize(champ, 10_000); prize(champ === "FlyQuest" ? "Alter Ego" : "FlyQuest", 6_000);
   }
 
   /* ---- дрейф до відсічення ----

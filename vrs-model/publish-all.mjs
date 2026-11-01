@@ -13,6 +13,9 @@ import { run, P0, REGION } from "./engine-all.mjs";
 
 const RUNS = Number(process.argv[2] ?? 40000);
 const OLD = JSON.parse(fs.readFileSync("final15-2810-old.json", "utf8"));
+/* Дата зрізу береться з регіональної таблиці, а не прибивається руками:
+   1 листопада таблиця оновилась серед дня, і зріз поїхав на добу вперед. */
+const ASOF = JSON.parse(fs.readFileSync("eu-2810.json", "utf8")).asOf;
 const SLOTS = OLD.slots;
 
 /** Глобальне місце — первинний ключ таблиці на сайті. */
@@ -100,7 +103,7 @@ for (const [reg, list] of Object.entries(OLD.regions)) {
 }
 
 fs.writeFileSync("final15.json", JSON.stringify({
-  ...OLD, asOf: "2026-10-31", slots: SLOTS,
+  ...OLD, asOf: ASOF, slots: SLOTS,
   source: "hltv.org/valve-ranking/teams + /valve-ranking/teams/details",
   sourceNote:
     "Усі три регіони порахована за опублікованою формулою VRS: п'ять компонентів із " +
@@ -110,7 +113,7 @@ fs.writeFileSync("final15.json", JSON.stringify({
     "прогону старої моделі на тій самій таблиці.",
   regions,
 }));
-fs.writeFileSync("sim.json", JSON.stringify({ runs: RUNS, asOf: "2026-10-31" }));
+fs.writeFileSync("sim.json", JSON.stringify({ runs: RUNS, asOf: ASOF }));
 
 const show = (v) => (v > 99.9 ? ">99,9" : v < 0.1 ? "<0,1" : v.toFixed(1).replace(".", ","));
 console.log(`прогонів ${RUNS}\n`);

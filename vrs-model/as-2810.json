@@ -1,6 +1,6 @@
 {
- "asOf": "2026-10-31",
- "source": "hltv.org/valve-ranking/teams/2026/october/31/region/Asia",
- "note": "Зліп знято рядок у рядок зі сторінки HLTV 1 листопада (verify-hltv.mjs). Попередній зліп Америки був застарілий: BARCA стояли 1114 замість 1156, BESTIA 1291 замість 1301, Fluxo 1265 замість 1247, DENDELE 1426 замість 1435 — тобто без результатів FiRe і Gamers Club за 31 жовтня. Азія після 31 жовтня. Чотири очки вкладаються між 4-м і 6-м: TYLOO 1266, Lynn Vision 1264 на відсічці, Chinggis Warriors 1262. Lynn Vision і Chinggis уже дограли, TYLOO теж — вони вилетіли з HyperX.",
- "rows": "1|The MongolZ|1554;2|BC.Game|1331;3|FlyQuest|1300;4|TYLOO|1266;5|Lynn Vision|1264;6|Chinggis Warriors|1262;7|5star|1181;8|NEXVOID|1147;9|Alter Ego|1053;10|Sashi|1029;11|DEPO|974;12|The Huns|960;13|Abyssal|947;14|Rare Atom|940"
+ "asOf": "2026-11-01",
+ "source": "hltv.org/valve-ranking/teams/2026/november/1/region/Asia",
+ "note": "Зріз за 1 листопада: таблиця вже бачить сьогоднішні результати. Головне, що в ній змінилось — The Huns обіграли 5star за третє місце Москви, отже HOTU і 1win гарантували собі щонайменше друге й дістали по $48 323. Bounty offered у HOTU стрибнув 252→281, у 1win 251→279. Тобто гроші за друге місце ВЖЕ нараховані, і поразка у фіналі більше нічого не додає — тільки знімає H2H.",
+ "rows": "1|The MongolZ|1554;2|BC.Game|1333;3|FlyQuest|1317;4|Chinggis Warriors|1272;5|Lynn Vision|1268;6|TYLOO|1267;7|5star|1168;8|NEXVOID|1157;9|Alter Ego|1058;10|The Huns|1029;11|Sashi|1028;12|DEPO|979;13|Rare Atom|952;14|Abyssal|949"
 }

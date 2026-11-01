@@ -1,6 +1,6 @@
 {
- "asOf": "2026-10-31",
- "source": "hltv.org/valve-ranking/teams/2026/october/31/region/Americas",
- "note": "Зліп знято рядок у рядок зі сторінки HLTV 1 листопада (verify-hltv.mjs). Попередній зліп Америки був застарілий: BARCA стояли 1114 замість 1156, BESTIA 1291 замість 1301, Fluxo 1265 замість 1247, DENDELE 1426 замість 1435 — тобто без результатів FiRe і Gamers Club за 31 жовтня. Америка після 31 жовтня. FURIA виграли Бухарест (3-2 Nemiga) і пішли на 1909. Відсічка — 9-те, Wildcard 1362; NRG 1334 відстають на 28 і грають чвертьфінал FiRe.",
- "rows": "1|FURIA|1910;2|Legacy|1663;3|MIBR|1545;4|Liquid|1526;5|9z|1494;6|M80|1487;7|DENDELE|1435;8|Imperial|1413;9|Wildcard|1365;10|NRG|1335;11|BESTIA|1301;12|paiN|1293;13|Fluxo|1247;14|SportsBetExpert|1157;15|BARCA|1156;16|Voca|1126;17|ShindeN|1096;18|Galorys|1091;19|Without a Roof|1060;20|Bounty Hunters|1056"
+ "asOf": "2026-11-01",
+ "source": "hltv.org/valve-ranking/teams/2026/november/1/region/Americas",
+ "note": "Зріз за 1 листопада: таблиця вже бачить сьогоднішні результати. Головне, що в ній змінилось — The Huns обіграли 5star за третє місце Москви, отже HOTU і 1win гарантували собі щонайменше друге й дістали по $48 323. Bounty offered у HOTU стрибнув 252→281, у 1win 251→279. Тобто гроші за друге місце ВЖЕ нараховані, і поразка у фіналі більше нічого не додає — тільки знімає H2H.",
+ "rows": "1|FURIA|1911;2|Legacy|1663;3|MIBR|1546;4|Liquid|1526;5|9z|1493;6|M80|1487;7|DENDELE|1436;8|Imperial|1414;9|Wildcard|1383;10|NRG|1322;11|BESTIA|1302;12|paiN|1293;13|Fluxo|1248;14|SportsBetExpert|1161;15|BARCA|1157;16|Voca|1127;17|ShindeN|1096;18|Galorys|1091;19|Without a Roof|1066;20|Bounty Hunters|1057"
 }
