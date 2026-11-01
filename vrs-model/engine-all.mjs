@@ -43,7 +43,11 @@ const NOISE_SD = Number(process.env.NOISE_SD ?? 2.43);
 /* Скільки діб від дати таблиці до відсічення: зріз за 31 жовтня, інвайти
    роздаються 2 листопада. */
 const DAYS = Number(process.env.DAYS ?? 2);
-const H2H_DAMP = Number(process.env.H2H_DAMP ?? 0.56);
+/* Скільки H2H забирає назад, коли база підскочила. 0,56 було зміряно на днях,
+   де Δбаза була мала. На чотирьох командах FiRe за 31 жовтня, де сторінка
+   розкладу віддає компоненти на обидві дати: BESTIA 0,638, Wildcard 0,637,
+   BARCA 0,606, Isurus 0,469 — зважено за Δбазою 0,584 (h2h-damp-0111.mjs). */
+const H2H_DAMP = Number(process.env.H2H_DAMP ?? 0.59);
 
 /* K.O перевірено на опублікованих сумах призових: сторінка розкладу друкує
    і суму в доларах, і recency кожного рядка, тож масштаб не треба вгадувати.
@@ -290,7 +294,8 @@ export function simulate(force = {}) {
      останній європеєць, що ще грає. */
   {
     const FS = 75_000;                 // $40k / $15k / $6,5k / $3,5k / $2,5k
-    const q1 = play("100 Thieves", "Isurus", FS);
+    /* 100 Thieves 2-0 Isurus — чвертьфінал дограно. */
+    const q1 = play("100 Thieves", "Isurus", FS, "Isurus");
     const q2 = play("NRG", "Wildcard", FS);
     const s1 = play("BESTIA", q1, FS), s2 = play("BARCA", q2, FS);
     const l1 = s1 === "BESTIA" ? q1 : "BESTIA", l2 = s2 === "BARCA" ? q2 : "BARCA";

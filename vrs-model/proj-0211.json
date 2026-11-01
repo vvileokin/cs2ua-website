@@ -1,20 +1,22 @@
 {
   "asOf": "2026-11-02",
-  "source": "hltv.org/valve-ranking/teams/event/8302?simulate=false",
-  "note": "Прогноз HLTV таблиці на дату відсічення БЕЗ симуляції — тобто чистий спад recency від зрізу за 31 жовтня, обчислений на повній базі матчів. Показані тільки команди в межах квот: 18 Європи, 9 Америки, 5 Азії. Звідси дві речі. Перше: спад за ці дві доби мізерний, від −5 до +7, а не −10 за добу, як виходило в мене. Друге: TYLOO у цій п'ятірці ВІДСУТНІ, а п'яті там Lynn Vision на 1261 — отже TYLOO проектуються строго нижче 1261. Це не чужий прогноз результатів, це обчислення тієї самої детермінованої величини, яку я рахую сам і в якій промахуюсь.",
+  "source": "hltv.org/valve-ranking/teams/details/2026/november/2?lineup=<...>&isFuture=true",
+  "note": "Сторінка розкладу приймає МАЙБУТНЮ дату з isFuture=true і друкує компоненти, спроектовані на неї. Отже дрейф до відсічення не треба моделювати взагалі — він обчислений HLTV по кожній команді, разом з H2H. Нижче 400+Σ компонентів на 2 листопада. Lynn Vision 1261 узято зі списку квот (/valve-ranking/teams/event/8302?simulate=false), бо за компонентами в них і в TYLOO виходить рівно 1260 — різниця в десятих, і HLTV розводить її на користь Lynn Vision.",
   "pts": {
+    "Eternal Fire": 1508, "HOTU": 1485, "fnatic": 1481, "100 Thieves": 1472,
+    "B8": 1463, "JiJieHao": 1436, "Inner Circle": 1418, "1win": 1545,
+    "FaZe": 1537, "HEROIC": 1538, "Virtus.pro": 1415, "BIG": 1407,
     "MOUZ": 1959, "Vitality": 1919, "Aurora": 1858, "Spirit": 1840,
     "BETBOOM": 1785, "Falcons": 1763, "FUT": 1720, "Nemiga": 1643,
     "G2": 1613, "Natus Vincere": 1588, "Astralis": 1567,
-    "Ninjas in Pyjamas": 1559, "PARIVISION": 1556, "1win": 1545,
-    "FaZe": 1536, "HEROIC": 1536, "Eternal Fire": 1508, "HOTU": 1484,
+    "Ninjas in Pyjamas": 1559, "PARIVISION": 1556,
     "FURIA": 1911, "Legacy": 1659, "MIBR": 1542, "Liquid": 1523,
-    "9z": 1489, "M80": 1483, "DENDELE": 1433, "Imperial": 1411,
-    "Wildcard": 1362,
-    "The MongolZ": 1552, "BC.Game": 1329, "FlyQuest": 1301,
-    "Chinggis Warriors": 1263, "Lynn Vision": 1261
+    "9z": 1489, "M80": 1483, "DENDELE": 1434, "Imperial": 1411,
+    "Wildcard": 1363, "NRG": 1332, "BESTIA": 1300, "Fluxo": 1244,
+    "paiN": 1290, "BARCA": 1154,
+    "The MongolZ": 1552, "BC.Game": 1328, "FlyQuest": 1301,
+    "Chinggis Warriors": 1263, "Lynn Vision": 1261, "TYLOO": 1260,
+    "5star": 1181, "NEXVOID": 1148, "Alter Ego": 1063
   },
-  "bound": {
-    "TYLOO": 1260
-  }
+  "bound": {}
 }
