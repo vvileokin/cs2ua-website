@@ -150,8 +150,9 @@ const H2H_S = Number(process.env.H2H_S ?? 190);
 const Erate = (a, b) => 1 / (1 + Math.pow(10, (gl * (a - b)) / -D));
 /* Лінія на 1 листопада. Бухарест дограно (FURIA 3-2 Nemiga), лишились
    фінали дрібніших подій — і єдиний, що важить для відсічки, це Москва. */
+/* Лінія букмекера на фінал FiRe: 100 Thieves ведуть 1-0 по мапах. */
 const LINE = [
-  ["HOTU", "1win", 1.91, 1.77],
+  ["100 Thieves", "Wildcard", 1.25, 3.75],
 ];
 const ODDS = new Map();
 for (const [a, b, oa, ob] of LINE) {
@@ -283,56 +284,28 @@ export function simulate(force = {}) {
     return order;
   };
 
-  /* ---- Moscow Cyber Games, лишився гранд-фінал ----
-     The Huns 2-1 5star за третє місце — отже HOTU і 1win уже гарантували
-     собі щонайменше друге, і $48 323 їм УЖЕ нараховано: Bounty offered у
-     HOTU стрибнув 252→281, у 1win 251→279. Тому поразка у фіналі не додає
-     нічого, тільки знімає H2H, а перемога підміняє $48 323 на $96 646. */
+  /* ---- FiRe Last Chance, лишився гранд-фінал ----
+     Усе інше вже в таблиці: 100 Thieves 2-0 BESTIA, BARCA 0-2 Wildcard,
+     а в Москві HOTU 0-2 1win. Фінал іде просто зараз, 100 Thieves ведуть
+     по мапах. Четверо в сітці мають нараховані $3 500; переможець підміняє
+     їх на $40 000, другий — на $15 000, третій — на $6 500. */
   {
-    const MCG = 181_214;
-    const champ = play("HOTU", "1win", MCG);
-    LAST.mcgChamp = champ;
-    LAST.mcgHotu = champ === "HOTU" ? 1 : 2;
-    upgrade(champ, 48_323, 96_646);
-  }
-
-  /* ---- FiRe Last Chance, лишились півфінали й фінал ----
-     Чвертьфінали дограно: 100 Thieves 2-0 Isurus, NRG 1-2 Wildcard — обидва
-     вже в таблиці, тому рушій їх не переграє. Четверо, що лишились, мають
-     нараховані $3 500 за четверте місце. */
-  {
-    const FS = 75_000;                 // $40k / $15k / $6,5k / $3,5k
-    const s1 = play("BESTIA", "100 Thieves", FS);
-    const s2 = play("BARCA", "Wildcard", FS);
-    const l1 = s1 === "BESTIA" ? "100 Thieves" : "BESTIA";
-    const l2 = s2 === "BARCA" ? "Wildcard" : "BARCA";
-    const champ = play(s1, s2, FS);
-    const second = champ === s1 ? s2 : s1;
-    const third = play(l1, l2, FS);
+    const FS = 75_000;
+    const champ = play("100 Thieves", "Wildcard", FS);
+    const second = champ === "100 Thieves" ? "Wildcard" : "100 Thieves";
+    const third = play("BESTIA", "BARCA", FS);
     LAST.fsChamp = champ;
-    LAST.fs100Tplace = champ === "100 Thieves" ? 1 : second === "100 Thieves" ? 2
-      : third === "100 Thieves" ? 3 : 4;
-    upgrade(champ, 3_500, 40_000); upgrade(second, 3_500, 15_000);
+    LAST.fs100Tplace = champ === "100 Thieves" ? 1 : 2;
+    upgrade(champ, 3_500, 40_000);
+    upgrade(second, 3_500, 15_000);
     upgrade(third, 3_500, 6_500);
   }
 
-  /* ---- Gamers Club Masters VII, лишився гранд-фінал ----
-     Imperial 2-1 Low Cortisol BR у півфіналі — уже в таблиці. */
+  /* ---- Gamers Club Masters VII, гранд-фінал ---- */
   {
     const GC = 30_000;
     const champ = play("DENDELE", "Imperial", GC);
     prize(champ, 12_000); prize(champ === "DENDELE" ? "Imperial" : "DENDELE", 6_000);
-  }
-
-  /* ---- HyperX Retake Season 13, півфінали й фінал ----
-     НАВІ віддали чвертьфінал технічною поразкою — вони вже летять на
-     IEM Beijing. У сітці лишились четверо. */
-  {
-    const RT = 13_642;
-    const f1 = play("Metizport", "JiJieHao", RT);
-    const f2 = play("WBT Academy", "Iberian Soul", RT);
-    const champ = play(f1, f2, RT);
-    prize(champ, 7_800); prize(champ === f1 ? f2 : f1, 3_500);
   }
 
   /* ---- дрейф до відсічення ----
