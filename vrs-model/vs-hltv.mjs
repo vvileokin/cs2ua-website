@@ -16,9 +16,10 @@ import fs from "node:fs";
  * Числа нижче вбиті руками зі сторінки /valve-ranking/teams/event/8302.
  */
 const HIS = {
-  europe: { "Eternal Fire": 97, HOTU: 57.8, "100 Thieves": 24.7, fnatic: 23.5 },
-  americas: { Imperial: 98.1, Wildcard: 48.6, NRG: 47.1, BESTIA: 8.0 },
-  asia: { "Chinggis Warriors": 99.5, "Lynn Vision": 99.5, TYLOO: 1.5 },
+  /* знято 1 листопада, після результатів NRG—Wildcard і Imperial—Low Cortisol */
+  europe: { "Eternal Fire": 97, HOTU: 59.2, "100 Thieves": 30.7, fnatic: 15.7 },
+  americas: { Imperial: 99.5, Wildcard: 96, BESTIA: 4.3, NRG: 0.5 },
+  asia: { "Chinggis Warriors": 99.5, "Lynn Vision": 97, TYLOO: 3 },
 };
 const F = JSON.parse(fs.readFileSync(process.argv[2] ?? "final15.json", "utf8"));
 const NAME = { europe: "Європа", americas: "Америка", asia: "Азія" };
