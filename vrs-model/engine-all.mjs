@@ -133,6 +133,13 @@ for (const f of fs.readdirSync("vrs-details")) {
   const r = drift(f, DAYS);
   DRIFT.set(r.team, SCALE * r.d - DEFLATE * Math.max(0, r.p - 400));
 }
+/* Порядок на межі, узятий ззовні: ставиться мікрододатком, щоб не вигадувати
+   десятих, яких ми не знаємо. Див. orderNote у proj-0211.json. */
+const ORDER = PROJ.order ?? [];
+/* Для цих команд порядок відомий ззовні, отже похибки заокруглення на їхньому
+   ВЗАЄМНОМУ розташуванні вже немає — інакше вона його просто затре. */
+const ORDERED = new Set(ORDER);
+
 /* Опубліковане перебиває порахованe — і для цих команд дрейф уже не
    оцінка, а величина, тож шуму на ній немає. */
 export const EXACT = new Set();
@@ -146,6 +153,10 @@ for (const [t, v] of Object.entries(PROJ.pts))
   }
 /* TYLOO у п'ятірці HLTV немає, а п'яті там Lynn Vision на 1261 — отже
    TYLOO строго нижче. Межа, не вгадана цифра. */
+for (let i = 0; i < ORDER.length; i++) {
+  const t = ORDER[i];
+  if (DRIFT.has(t)) DRIFT.set(t, DRIFT.get(t) + (ORDER.length - i) * 0.5);
+}
 for (const [t, v] of Object.entries(PROJ.bound))
   if (P0.has(t)) { DRIFT.set(t, v - P0.get(t)); EXACT.add(t); }
 
@@ -351,7 +362,7 @@ export function simulate(force = {}) {
        команд із опублікованого прогнозу лишається рівно похибка заокруглення
        — рівномірно ±0,5 очка, не більше й не менше. */
     const base = EXACT.has(t) ? 0 : NOISE_SD;
-    if (EXACT.has(t)) pts.set(t, pts.get(t) + (Math.random() - 0.5));
+    if (EXACT.has(t) && !ORDERED.has(t)) pts.set(t, pts.get(t) + (Math.random() - 0.5));
     const sd = Math.sqrt(base * base + nm * nm);
     const noise = sd === 0 ? 0
       : Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v) * sd;
