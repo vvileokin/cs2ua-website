@@ -1,0 +1,367 @@
+MOUZ|Vitality|100|W|15
+MOUZ|FURIA|100|L|-18
+MOUZ|Aurora|100|W|12
+MOUZ|Spirit|100|W|13
+MOUZ|The MongolZ|100|W|3
+MOUZ|9z|100|W|3
+MOUZ|Liquid|100|L|-29
+MOUZ|Vitality|100|L|-16
+MOUZ|Spirit|100|W|13
+MOUZ|FURIA|100|W|12
+MOUZ|Spirit|100|W|15
+MOUZ|FURIA|100|W|14
+MOUZ|M80|100|W|2
+Vitality|Nemiga|100|L|-27
+Vitality|Natus Vincere|100|W|4
+Vitality|FUT|100|L|-25
+Vitality|The MongolZ|100|W|3
+Vitality|9z|100|W|2
+Vitality|MOUZ|100|W|16
+Vitality|Aurora|100|W|13
+Vitality|PARIVISION|100|W|3
+Vitality|Falcons|100|W|10
+Vitality|1win|100|W|2
+Aurora|Liquid|100|W|4
+Aurora|Nemiga|100|W|5
+Aurora|G2|100|W|7
+Aurora|The MongolZ|100|L|-27
+Aurora|Falcons|100|W|12
+Aurora|FURIA|100|L|-15
+Aurora|9z|100|W|4
+Aurora|Ninjas in Pyjamas|100|W|4
+Aurora|9z|100|L|-28
+Aurora|Spirit|100|W|16
+Aurora|1win|100|W|4
+Aurora|FURIA|100|W|15
+Aurora|BETBOOM|100|W|11
+Aurora|Falcons|100|L|-20
+Aurora|9z|100|W|3
+Spirit|Natus Vincere|100|L|-25
+Spirit|FURIA|100|W|16
+Spirit|TYLOO|100|W|1
+Spirit|BETBOOM|100|L|-20
+Spirit|Falcons|100|W|11
+Spirit|M80|100|W|3
+Spirit|1win|100|L|-28
+Spirit|PARIVISION|100|W|3
+Spirit|ShindeN|100|W|0
+BETBOOM|FURIA|100|L|-12
+BETBOOM|Natus Vincere|100|W|8
+BETBOOM|Nemiga|100|W|8
+BETBOOM|Spirit|100|W|20
+BETBOOM|FURIA|100|L|-10
+BETBOOM|Falcons|100|W|17
+BETBOOM|Legacy|100|W|15
+BETBOOM|PARIVISION|100|W|8
+BETBOOM|9z|100|L|-26
+BETBOOM|Aurora|100|L|-11
+BETBOOM|M80|100|W|5
+BETBOOM|FURIA|100|L|-11
+Falcons|9z|100|W|6
+Falcons|Ninjas in Pyjamas|100|W|6
+Falcons|Spirit|100|L|-11
+Falcons|Natus Vincere|100|W|8
+Falcons|Vitality|100|L|-10
+Falcons|Aurora|100|W|20
+Falcons|TYLOO|100|W|2
+FUT|Nemiga|100|L|-21
+FUT|Vitality|100|W|25
+FUT|Liquid|100|W|8
+FUT|TYLOO|100|W|3
+Nemiga|FURIA|100|L|-6
+Nemiga|FUT|100|W|21
+Nemiga|The MongolZ|100|W|14
+Nemiga|DENDELE|100|W|10
+Nemiga|Aurora|100|L|-5
+Nemiga|BETBOOM|100|L|-8
+Nemiga|Legacy|100|W|21
+Nemiga|Iberian Soul|100|L|-26
+Nemiga|Astralis|100|L|-16
+Nemiga|Luminosity|100|W|10
+Nemiga|Alliance|100|W|7
+Nemiga|FaZe|100|W|14
+Nemiga|FOKUS|98|W|6
+G2|DENDELE|100|L|-24
+G2|Aurora|100|L|-7
+G2|Natus Vincere|100|L|-19
+G2|PARIVISION|100|L|-22
+G2|ShindeN|100|W|1
+G2|1win|100|L|-25
+G2|Natus Vincere|100|L|-22
+Natus Vincere|WBT Academy|100|L|-31
+Natus Vincere|Vitality|100|L|-4
+Natus Vincere|Spirit|100|W|25
+Natus Vincere|BETBOOM|100|L|-8
+Natus Vincere|FURIA|100|W|27
+Natus Vincere|G2|100|W|19
+Natus Vincere|PARIVISION|100|L|-17
+Natus Vincere|Falcons|100|L|-8
+Natus Vincere|9z|100|W|12
+Natus Vincere|G2|100|W|22
+Astralis|Eternal Fire|100|L|-21
+Astralis|Inner Circle|100|W|9
+Astralis|magic|100|W|8
+Astralis|fnatic|100|L|-21
+Astralis|MIBR|100|L|-18
+Astralis|HOTU|100|W|9
+Astralis|Sashi|100|W|1
+Astralis|Nemiga|100|W|16
+Astralis|Luminosity|100|W|10
+Astralis|fnatic|100|W|10
+Astralis|BIG|100|W|10
+Astralis|FaZe|100|W|15
+Astralis|Alliance|100|L|-24
+Ninjas in Pyjamas|MIBR|100|W|17
+Ninjas in Pyjamas|HEROIC|100|W|17
+Ninjas in Pyjamas|Liquid|100|W|17
+Ninjas in Pyjamas|Aurora|100|L|-4
+Ninjas in Pyjamas|Falcons|100|L|-6
+Ninjas in Pyjamas|Inner Circle|100|W|13
+Ninjas in Pyjamas|Betclic|100|W|5
+Ninjas in Pyjamas|Eternal Fire|100|W|14
+Ninjas in Pyjamas|BBL|100|W|11
+Ninjas in Pyjamas|SINNERS|100|W|12
+Ninjas in Pyjamas|SportsBetExpert|100|W|5
+Ninjas in Pyjamas|HAVU|100|W|2
+Ninjas in Pyjamas|Sangal|100|L|-20
+Ninjas in Pyjamas|GamerLegion|98|W|14
+Ninjas in Pyjamas|magic|97|W|14
+Ninjas in Pyjamas|SINNERS|97|W|13
+PARIVISION|The MongolZ|100|L|-18
+PARIVISION|BIG|100|W|10
+PARIVISION|fnatic|100|W|12
+PARIVISION|magic|100|W|9
+PARIVISION|BETBOOM|100|L|-8
+PARIVISION|Legacy|100|L|-8
+PARIVISION|Vitality|100|L|-3
+PARIVISION|Natus Vincere|100|W|17
+PARIVISION|G2|100|W|22
+PARIVISION|FURIA|100|L|-4
+PARIVISION|Spirit|100|L|-3
+PARIVISION|Legacy|100|W|26
+1win|5star|100|W|4
+1win|Aurora|100|L|-4
+1win|Spirit|100|W|28
+1win|Legacy|100|W|26
+1win|G2|100|W|25
+1win|Vitality|100|L|-2
+HEROIC|FaZe|100|L|-16
+HEROIC|BBL|100|W|8
+HEROIC|SINNERS|100|L|-23
+HEROIC|100 Thieves|100|W|12
+HEROIC|Ninjas in Pyjamas|100|L|-17
+HEROIC|fnatic|100|W|11
+HEROIC|BC.Game|100|W|8
+HEROIC|Envy|100|W|10
+HEROIC|100 Thieves|97|W|13
+HEROIC|Sangal|97|W|8
+FaZe|B8|100|W|13
+FaZe|GamerLegion|100|L|-22
+FaZe|K27|100|W|11
+FaZe|Alliance|100|W|7
+FaZe|BC.Game|100|L|-22
+FaZe|HEROIC|100|W|16
+FaZe|Envy|100|W|9
+FaZe|JiJieHao|100|L|-20
+FaZe|NAVI Junior|100|W|3
+FaZe|PURE|100|W|4
+FaZe|Sangal|100|W|8
+FaZe|Astralis|100|L|-15
+FaZe|Nemiga|100|L|-14
+Eternal Fire|fnatic|100|W|15
+Eternal Fire|MIBR|100|W|19
+Eternal Fire|Astralis|100|W|21
+Eternal Fire|BIG|100|W|14
+Eternal Fire|Nemesis|100|W|13
+Eternal Fire|MIBR|100|L|-10
+Eternal Fire|SINNERS|100|W|15
+Eternal Fire|JiJieHao|100|W|17
+Eternal Fire|SINNERS|100|L|-16
+Eternal Fire|BC.Game|100|W|14
+Eternal Fire|BASEMENT BOYS|100|W|5
+Eternal Fire|Nuclear TigeRES|100|L|-20
+Eternal Fire|Betclic|100|L|-24
+Eternal Fire|Ninjas in Pyjamas|100|L|-14
+Eternal Fire|JiJieHao|100|W|15
+Eternal Fire|Sangal|100|W|12
+Eternal Fire|100 Thieves|100|L|-14
+Eternal Fire|SINNERS|100|W|13
+Eternal Fire|K27|97|W|15
+Eternal Fire|Nuclear TigeRES|97|W|10
+HOTU|The Huns|100|W|2
+HOTU|GamerLegion|100|W|12
+HOTU|B8|100|W|17
+HOTU|GamerLegion|100|W|13
+HOTU|Luminosity|100|W|14
+HOTU|fnatic|100|L|-14
+HOTU|Astralis|100|L|-9
+HOTU|fnatic|100|W|17
+HOTU|fnatic|100|L|-15
+HOTU|Acend|100|W|5
+HOTU|STATE|100|W|2
+HOTU|Nemesis|100|L|-16
+HOTU|Black Phoenix|98|W|4
+HOTU|Black Phoenix|98|L|-27
+fnatic|Eternal Fire|100|L|-15
+fnatic|MIBR|100|W|19
+fnatic|BIG|100|W|14
+fnatic|Astralis|100|W|21
+fnatic|PRIVATE|100|L|-22
+fnatic|PARIVISION|100|L|-12
+fnatic|Liquid|100|W|18
+fnatic|HEROIC|100|L|-11
+fnatic|HOTU|100|W|14
+fnatic|Sashi|100|W|3
+fnatic|HOTU|100|L|-17
+fnatic|HOTU|100|W|15
+fnatic|K27|100|W|15
+fnatic|Phantom|100|W|7
+fnatic|Astralis|100|L|-10
+fnatic|Alliance|100|W|12
+fnatic|B8|100|W|20
+fnatic|BIG|100|L|-15
+fnatic|Nemesis|97|L|-16
+100 Thieves|Bounty Hunters|100|W|3
+100 Thieves|HEROIC|100|L|-12
+100 Thieves|MIBR|100|L|-12
+100 Thieves|Sangal|100|W|10
+100 Thieves|Liquid|100|W|19
+100 Thieves|JiJieHao|100|W|14
+100 Thieves|JiJieHao|100|L|-17
+100 Thieves|Voca|100|W|5
+100 Thieves|SINNERS|100|L|-20
+100 Thieves|Eternal Fire|100|W|14
+100 Thieves|HEROIC|97|L|-13
+B8|FaZe|100|L|-13
+B8|HOTU|100|L|-17
+B8|K27|100|W|12
+B8|Alliance|100|W|9
+B8|K27|100|L|-19
+B8|fnatic|100|L|-20
+B8|Luminosity|100|L|-19
+JiJieHao|BASEMENT BOYS|100|W|4
+JiJieHao|SAW Youngsters|100|W|1
+JiJieHao|Eternal Fire|100|L|-17
+JiJieHao|BC.Game|100|W|13
+JiJieHao|Nexus|100|W|6
+JiJieHao|SINNERS|100|L|-18
+JiJieHao|FaZe|100|W|20
+JiJieHao|Iberian Soul|100|W|10
+JiJieHao|Liquid|100|L|-11
+JiJieHao|BBL|100|W|12
+JiJieHao|100 Thieves|100|L|-14
+JiJieHao|Eternal Fire|100|L|-15
+JiJieHao|100 Thieves|100|W|17
+JiJieHao|FOKUS|100|W|11
+JiJieHao|9INE|100|W|3
+JiJieHao|Johnny Speeds|100|W|3
+Inner Circle|Astralis|100|L|-9
+Inner Circle|MIBR|100|L|-10
+Inner Circle|Nemesis|100|W|13
+Inner Circle|Sangal|100|L|-20
+Inner Circle|Ninjas in Pyjamas|100|L|-13
+Inner Circle|Sangal|100|W|10
+Virtus.pro|Nemesis|100|W|16
+Virtus.pro|K27|100|W|17
+Virtus.pro|UPGRADE|100|W|5
+Virtus.pro|Black Phoenix|100|W|8
+BIG|Eternal Fire|100|L|-14
+BIG|fnatic|100|L|-14
+BIG|magic|100|W|14
+BIG|The MongolZ|100|L|-13
+BIG|PARIVISION|100|L|-10
+BIG|The MongolZ|100|W|18
+BIG|PRIVATE|100|W|9
+BIG|Astralis|100|L|-10
+BIG|Luminosity|100|L|-15
+BIG|fnatic|100|W|15
+Nemesis|Eternal Fire|100|L|-13
+Nemesis|Inner Circle|100|L|-13
+Nemesis|BRUTE|100|L|-25
+Nemesis|ex-INOX|100|W|5
+Nemesis|mellren|100|W|2
+Nemesis|Virtus.pro|100|L|-16
+Nemesis|Black Phoenix|100|W|7
+Nemesis|WW|100|W|3
+Nemesis|Betclic|100|L|-23
+Nemesis|Nuclear TigeRES|100|W|11
+Nemesis|EYEBALLERS|100|W|8
+Nemesis|Betclic|100|L|-24
+Nemesis|Nuclear TigeRES|100|W|10
+Nemesis|SINNERS|100|L|-18
+Nemesis|K27|100|L|-17
+Nemesis|Nuclear TigeRES|100|W|9
+Nemesis|HOTU|100|W|16
+Nemesis|fnatic|97|W|16
+FURIA|Nemiga|100|W|6
+FURIA|MOUZ|100|W|18
+FURIA|BETBOOM|100|W|12
+FURIA|Liquid|100|W|4
+FURIA|TYLOO|100|W|1
+FURIA|Spirit|100|L|-16
+FURIA|Natus Vincere|100|L|-27
+FURIA|DENDELE|100|W|2
+FURIA|BETBOOM|100|W|10
+FURIA|Aurora|100|W|15
+FURIA|Legacy|100|W|10
+FURIA|BETBOOM|100|W|10
+FURIA|MOUZ|100|L|-12
+FURIA|9z|100|W|4
+FURIA|Aurora|100|L|-15
+FURIA|PARIVISION|100|W|4
+FURIA|MOUZ|100|L|-14
+FURIA|BETBOOM|100|W|11
+Legacy|The MongolZ|100|L|-21
+Legacy|Liquid|100|L|-23
+Legacy|DENDELE|100|W|5
+Legacy|Nemiga|100|L|-21
+Legacy|BETBOOM|100|L|-15
+Legacy|FURIA|100|L|-10
+Legacy|PARIVISION|100|W|8
+Legacy|M80|100|L|-26
+Legacy|1win|100|L|-26
+Legacy|PARIVISION|100|L|-26
+M80|Spirit|100|L|-3
+M80|Legacy|100|W|26
+M80|TYLOO|100|W|9
+M80|BETBOOM|100|L|-5
+M80|MOUZ|100|L|-2
+M80|DENDELE|97|W|15
+M80|Liquid|97|L|-12
+M80|Voca|97|W|4
+DENDELE|NAOCOPULAS|100|W|1
+DENDELE|Turma do Pagode|100|W|3
+DENDELE|Low Cortisol BR|100|W|1
+DENDELE|Nemiga|100|L|-10
+DENDELE|G2|100|W|24
+DENDELE|Legacy|100|L|-5
+DENDELE|FURIA|100|L|-2
+DENDELE|Wildcard|100|L|-18
+DENDELE|Imperial|100|W|13
+DENDELE|Wildcard|100|L|-19
+DENDELE|Imperial|100|W|13
+DENDELE|Marsborne|100|W|2
+DENDELE|M80|97|L|-15
+DENDELE|Wildcard|97|L|-19
+Lynn Vision|Chinggis Warriors|100|W|17
+Lynn Vision|Chinggis Warriors|100|W|18
+Lynn Vision|Rare Atom|100|W|5
+Lynn Vision|Alter Ego|100|W|9
+Lynn Vision|Just Swing|100|W|3
+Lynn Vision|Chinggis Warriors|100|W|20
+Lynn Vision|NEXVOID|99|L|-14
+Lynn Vision|NEXVOID|97|W|17
+Chinggis Warriors|5star|100|W|13
+Chinggis Warriors|Lynn Vision|100|L|-17
+Chinggis Warriors|Rare Atom|100|W|4
+Chinggis Warriors|Lynn Vision|100|L|-18
+Chinggis Warriors|NEXVOID|100|W|12
+Chinggis Warriors|Alter Ego|100|L|-26
+Chinggis Warriors|5star|100|W|12
+Chinggis Warriors|NEXVOID|100|W|11
+Chinggis Warriors|The Huns|100|W|4
+Chinggis Warriors|Lynn Vision|100|L|-20
+Chinggis Warriors|5star|100|L|-20
+Chinggis Warriors|The Huns|100|W|5
+Chinggis Warriors|5star|100|W|12
+Chinggis Warriors|NEXVOID|100|W|13

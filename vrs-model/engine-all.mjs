@@ -142,8 +142,8 @@ const networkOf = (t) => (DET[t] ? Math.min(1, DET[t].rawN / 3.2) : 0.3);
 const Q = Math.log(10) / 400, RD = 75, D = 817.4;
 const gl = 1 / Math.sqrt(1 + (3 * Q * Q * RD * RD) / (Math.PI * Math.PI));
 const KG = Q * (1 / (1 / (RD * RD) + Q * Q * gl * gl * 0.25)) * gl;
-const H2H_A = Number(process.env.H2H_A ?? 45.0);
-const H2H_B = Number(process.env.H2H_B ?? 1.56);
+const H2H_A = Number(process.env.H2H_A ?? 32.5);
+const H2H_S = Number(process.env.H2H_S ?? 190);
 const Erate = (a, b) => 1 / (1 + Math.pow(10, (gl * (a - b)) / -D));
 /* Лінія на 1 листопада. Бухарест дограно (FURIA 3-2 Nemiga), лишились
    фінали дрібніших подій — і єдиний, що важить для відсічки, це Москва. */
@@ -230,13 +230,22 @@ export function simulate(force = {}) {
     else if (forfeit) { w = forfeit === a ? b : a; l = forfeit; }
     else { const ea = Eof(a, b, pts.get(a), pts.get(b)); [w, l] = Math.random() < ea ? [a, b] : [b, a]; }
     const ew = Eof(w, l, pts.get(w), pts.get(l));
-    /* Передача H2H НЕ важиться розміром події — це видно з опублікованої
-       таблиці H2H: перемога над The Huns на ЛАНі за $181 000 дала HOTU +2, а
-       перемога над B8 на турнірі за $30 000 — +17. Величина залежить тільки
-       від суперника й recency. Крива підігнана на 69 опублікованих рядках
-       HOTU і fnatic: A=45,0, B=1,56, залишок σ 1,85 проти 2,30 у лінійної
-       (h2h-fit.mjs). */
-    const transfer = H2H_A * Math.pow(1 - ew, H2H_B);
+    /* Передача H2H. Алгоритм описано на самій сторінці HLTV: спершу рахуються
+       чотири інші компоненти, кожна команда дістає «ranking starting point», і
+       далі всі матчі проходяться від найстарішого до найновішого, переносячи
+       очки від того, хто програв, до переможця — тим більше, чим нижче стояв
+       переможець. Розмір події на це не впливає взагалі: перемога над The Huns
+       на ЛАНі за $181 000 дала HOTU +2, а над B8 на турнірі за $30 000 — +17.
+
+       Форму підігнано на 367 опублікованих матчах (h2h-model.mjs). Логістика
+       по РІЗНИЦІ рейтингів лягає найкраще:
+
+         transfer = 32,5 / (1 + e^((Rw − Rl)/190)) · recency     σ 2,12
+
+       Крива Glicko, яку я тут тримав раніше, давала σ 2,46 і системно
+       завищувала проти слабких суперників — саме через неї 100 Thieves
+       виходили вище за Eternal Fire. */
+    const transfer = H2H_A / (1 + Math.exp((pts.get(w) - pts.get(l)) / H2H_S));
     const base = award(w, l, ev);
     pts.set(w, pts.get(w) + transfer - H2H_DAMP * base);
     pts.set(l, pts.get(l) - transfer);
