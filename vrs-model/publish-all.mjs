@@ -15,6 +15,8 @@ const RUNS = Number(process.argv[2] ?? 40000);
 const OLD = JSON.parse(fs.readFileSync("final15-2810-old.json", "utf8"));
 /* Дата зрізу береться з регіональної таблиці, а не прибивається руками:
    1 листопада таблиця оновилась серед дня, і зріз поїхав на добу вперед. */
+/* P0 несе мікрододаток, що зберігає порядок нічиїх із таблиці HLTV
+   (див. engine-all.mjs). У базі колонка ціла, тож округлюємо тут. */
 const ASOF = JSON.parse(fs.readFileSync("eu-2810.json", "utf8")).asOf;
 const SLOTS = OLD.slots;
 
@@ -61,7 +63,7 @@ for (const [reg, list] of Object.entries(OLD.regions)) {
     const sd = Math.sqrt(Math.max(0, r.sumSq.get(t) / n - mu * mu));
     const [s3, s2, s1] = r.stage.get(t);
     out.push({
-      ...old, team: t, live: P0.get(t),
+      ...old, team: t, live: Math.round(P0.get(t)),
       globalRank: GLOBAL.get(t) ?? old.globalRank,
       mu, sd,
       p3: s3 / n, p2: s2 / n, p1: s1 / n, pQual: r.qual.get(t) / n,
@@ -82,7 +84,7 @@ for (const [reg, list] of Object.entries(OLD.regions)) {
     const pl = r.places.get(t), n = r.n, mu = r.sum.get(t) / n;
     const [s3, s2, s1] = r.stage.get(t);
     out.push({
-      team: t, srcTeam: t, live: P0.get(t), globalRank: GLOBAL.get(t) ?? 999,
+      team: t, srcTeam: t, live: Math.round(P0.get(t)), globalRank: GLOBAL.get(t) ?? 999,
       mu, sd: Math.sqrt(Math.max(0, r.sumSq.get(t) / n - mu * mu)),
       p3: s3 / n, p2: s2 / n, p1: s1 / n, pQual: r.qual.get(t) / n,
       expRank: r.placeSum.get(t) / n, lo: qt(pl, 0.05), hi: qt(pl, 0.95),
