@@ -45,7 +45,12 @@ const NOISE_SD = Number(process.env.NOISE_SD ?? 2.43);
 const DAYS = Number(process.env.DAYS ?? 2);
 const H2H_DAMP = Number(process.env.H2H_DAMP ?? 0.56);
 
-const K = { O: 19.4, C: 244, N: 100 };
+/* K.O перевірено на опублікованих сумах призових: сторінка розкладу друкує
+   і суму в доларах, і recency кожного рядка, тож масштаб не треба вгадувати.
+   HOTU 252 p на $78 073 → 18,88; 100 Thieves 237 на $59 306 → 18,91;
+   Eternal Fire 238 на $60 126 → 18,94. Колишні 19,4 занижували базу на 10%,
+   а отже завищували, скільки коштує новий чек. */
+const K = { O: 18.9, C: 244, N: 100 };
 const POW = 0.23, BOUNTY_FULL = 600_000, SLOT_CAP = 10;
 /* Скільки важить свіжа перемога на ЛАНі. 28 жовтня це було 48, 29-го HLTV
    перерахував на 47 — величина не прибита намертво, тож береться з даних:
@@ -132,7 +137,8 @@ const networkOf = (t) => (DET[t] ? Math.min(1, DET[t].rawN / 3.2) : 0.3);
 const Q = Math.log(10) / 400, RD = 75, D = 817.4;
 const gl = 1 / Math.sqrt(1 + (3 * Q * Q * RD * RD) / (Math.PI * Math.PI));
 const KG = Q * (1 / (1 / (RD * RD) + Q * Q * gl * gl * 0.25)) * gl;
-const H2H_K = 1.02;
+const H2H_A = Number(process.env.H2H_A ?? 45.0);
+const H2H_B = Number(process.env.H2H_B ?? 1.56);
 const Erate = (a, b) => 1 / (1 + Math.pow(10, (gl * (a - b)) / -D));
 /* Лінія на 1 листопада. Бухарест дограно (FURIA 3-2 Nemiga), лишились
    фінали дрібніших подій — і єдиний, що важить для відсічки, це Москва. */
@@ -218,11 +224,13 @@ export function simulate(force = {}) {
     else if (forfeit) { w = forfeit === a ? b : a; l = forfeit; }
     else { const ea = Eof(a, b, pts.get(a), pts.get(b)); [w, l] = Math.random() < ea ? [a, b] : [b, a]; }
     const ew = Eof(w, l, pts.get(w), pts.get(l));
-    /* Передача важиться розміром події — так само, як bounty collected і
-       opp. network. Без цього перемога на турнірі за $75 000 коштувала стільки
-       ж, скільки на мільйонному: саме через це 100 Thieves виходили на 1514
-       замість стелі 1487, яку дозволяє опублікована формула. */
-    const transfer = H2H_K * KG * (1 - ew) * weight(ev);
+    /* Передача H2H НЕ важиться розміром події — це видно з опублікованої
+       таблиці H2H: перемога над The Huns на ЛАНі за $181 000 дала HOTU +2, а
+       перемога над B8 на турнірі за $30 000 — +17. Величина залежить тільки
+       від суперника й recency. Крива підігнана на 69 опублікованих рядках
+       HOTU і fnatic: A=45,0, B=1,56, залишок σ 1,85 проти 2,30 у лінійної
+       (h2h-fit.mjs). */
+    const transfer = H2H_A * Math.pow(1 - ew, H2H_B);
     const base = award(w, l, ev);
     pts.set(w, pts.get(w) + transfer - H2H_DAMP * base);
     pts.set(l, pts.get(l) - transfer);
