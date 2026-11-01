@@ -40,6 +40,7 @@ const SPIRIT = process.env.SPIRIT ?? "open";
 const CAPS = process.env.CAPS !== "0";
 const USE_ODDS = process.env.ODDS !== "0";
 const NOISE_SD = Number(process.env.NOISE_SD ?? 2.43);
+const MATCH_SD = Number(process.env.MATCH_SD ?? 2.05);
 /* Скільки діб від дати таблиці до відсічення: зріз за 31 жовтня, інвайти
    роздаються 2 листопада. */
 const DAYS = Number(process.env.DAYS ?? 2);
@@ -221,6 +222,7 @@ export function simulate(force = {}) {
     const d = s.O.comp - was;
     pts.set(t, pts.get(t) + d - H2H_DAMP * d);
   };
+  const played = new Map();
   const play = (a, b, ev, forfeit = null) => {
     let w, l;
     const fk = force[a + "|" + b] ?? force[b + "|" + a];
@@ -238,6 +240,8 @@ export function simulate(force = {}) {
     const base = award(w, l, ev);
     pts.set(w, pts.get(w) + transfer - H2H_DAMP * base);
     pts.set(l, pts.get(l) - transfer);
+    played.set(a, (played.get(a) ?? 0) + 1);
+    played.set(b, (played.get(b) ?? 0) + 1);
     return w;
   };
   const otr = (p, w) => (p[0] === w ? p[1] : p[0]);
@@ -349,14 +353,22 @@ export function simulate(force = {}) {
      а не колишні 10 очок, узяті зі старої каліброваної моделі. */
   for (const t of ALL) {
     const d = DRIFT.get(t);
-    const dec = d != null ? d : -0.0088 * DAYS * Math.max(0, pts.get(t) - 400);
+    const dec = d != null ? d : -0.0028 * DAYS * Math.max(0, pts.get(t) - 400);
     let u = 0, v = 0;
     while (u === 0) u = Math.random();
     while (v === 0) v = Math.random();
-    /* σ калібрований на все вікно до відсічення, не на добу; там, де дрейф
-       узято з опублікованого прогнозу, його немає взагалі. */
-    const noise = EXACT.has(t) ? 0
-      : Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v) * NOISE_SD;
+    /* Де дрейф узято з опублікованого прогнозу, невизначеності в ньому
+       немає — але вона лишається в тому, що МИ рахуємо самі: у ціні кожного
+       зіграного матчу. Залишок кривої H2H σ 1,85 на матч, плюс ~0,9 на
+       похибку концавних компонентів — разом ≈2,05, і росте як корінь із
+       кількості матчів. Команда, що не грає, стоїть точно.
+       Через це розрив у два очки між fnatic і HOTU — не нуль відсотків:
+       fnatic стоять твердо, а HOTU по дорозі проходять фінал Москви. */
+    const nm = Math.sqrt(played.get(t) ?? 0) * MATCH_SD;
+    const base = EXACT.has(t) ? 0 : NOISE_SD;
+    const sd = Math.sqrt(base * base + nm * nm);
+    const noise = sd === 0 ? 0
+      : Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v) * sd;
     pts.set(t, pts.get(t) + dec + noise);
   }
   return pts;

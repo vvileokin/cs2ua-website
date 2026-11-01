@@ -1,6 +1,6 @@
 {
  "asOf": "2026-10-31",
  "source": "hltv.org/valve-ranking/teams/2026/october/31/region/Americas",
- "note": "Америка після 31 жовтня. FURIA виграли Бухарест (3-2 Nemiga) і пішли на 1909. Відсічка — 9-те, Wildcard 1362; NRG 1334 відстають на 28 і грають чвертьфінал FiRe.",
- "rows": "1|FURIA|1909;2|Legacy|1662;3|MIBR|1545;4|Liquid|1526;5|9z|1494;6|M80|1486;7|DENDELE|1426;8|Imperial|1409;9|Wildcard|1362;10|NRG|1334;11|BESTIA|1291;12|paiN|1290;13|Fluxo|1265;14|SportsBetExpert|1156;15|Voca|1125;16|BARCA|1114"
+ "note": "Зліп знято рядок у рядок зі сторінки HLTV 1 листопада (verify-hltv.mjs). Попередній зліп Америки був застарілий: BARCA стояли 1114 замість 1156, BESTIA 1291 замість 1301, Fluxo 1265 замість 1247, DENDELE 1426 замість 1435 — тобто без результатів FiRe і Gamers Club за 31 жовтня. Америка після 31 жовтня. FURIA виграли Бухарест (3-2 Nemiga) і пішли на 1909. Відсічка — 9-те, Wildcard 1362; NRG 1334 відстають на 28 і грають чвертьфінал FiRe.",
+ "rows": "1|FURIA|1910;2|Legacy|1663;3|MIBR|1545;4|Liquid|1526;5|9z|1494;6|M80|1487;7|DENDELE|1435;8|Imperial|1413;9|Wildcard|1365;10|NRG|1335;11|BESTIA|1301;12|paiN|1293;13|Fluxo|1247;14|SportsBetExpert|1157;15|BARCA|1156;16|Voca|1126;17|ShindeN|1096;18|Galorys|1091;19|Without a Roof|1060;20|Bounty Hunters|1056"
 }

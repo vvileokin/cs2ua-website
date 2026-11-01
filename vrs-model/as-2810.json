@@ -1,6 +1,6 @@
 {
  "asOf": "2026-10-31",
  "source": "hltv.org/valve-ranking/teams/2026/october/31/region/Asia",
- "note": "Азія після 31 жовтня. Чотири очки вкладаються між 4-м і 6-м: TYLOO 1266, Lynn Vision 1264 на відсічці, Chinggis Warriors 1262. Lynn Vision і Chinggis уже дограли, TYLOO теж — вони вилетіли з HyperX.",
- "rows": "1|The MongolZ|1554;2|BC.Game|1331;3|FlyQuest|1300;4|TYLOO|1266;5|Lynn Vision|1264;6|Chinggis Warriors|1262;7|5star|1181;8|NEXVOID|1147;9|Alter Ego|1053;10|Sashi|1028;11|DEPO|975;12|The Huns|960;13|Abyssal|947;14|Rare Atom|940"
+ "note": "Зліп знято рядок у рядок зі сторінки HLTV 1 листопада (verify-hltv.mjs). Попередній зліп Америки був застарілий: BARCA стояли 1114 замість 1156, BESTIA 1291 замість 1301, Fluxo 1265 замість 1247, DENDELE 1426 замість 1435 — тобто без результатів FiRe і Gamers Club за 31 жовтня. Азія після 31 жовтня. Чотири очки вкладаються між 4-м і 6-м: TYLOO 1266, Lynn Vision 1264 на відсічці, Chinggis Warriors 1262. Lynn Vision і Chinggis уже дограли, TYLOO теж — вони вилетіли з HyperX.",
+ "rows": "1|The MongolZ|1554;2|BC.Game|1331;3|FlyQuest|1300;4|TYLOO|1266;5|Lynn Vision|1264;6|Chinggis Warriors|1262;7|5star|1181;8|NEXVOID|1147;9|Alter Ego|1053;10|Sashi|1029;11|DEPO|974;12|The Huns|960;13|Abyssal|947;14|Rare Atom|940"
 }
