@@ -26,6 +26,7 @@ export default async function MajorAdminPage() {
     kind: ((r.kind as StageKind | null) ?? "swiss") as StageKind,
     teams: (r.teams as string[]) ?? [],
     startsAt: r.starts_at as string,
+    played: (r.played as { a: string; b: string; w: string }[] | null) ?? [],
     actual: (r.actual as Record<string, string> | null) ?? null,
     scoredAt: (r.scored_at as string | null) ?? null,
   }));

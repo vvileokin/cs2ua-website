@@ -10,6 +10,7 @@ import { LockCountdown } from "@/components/major/LockCountdown";
 import { PickemCard } from "@/components/major/PickemCard";
 import { PickemBoard, plural } from "@/components/major/PickemBoard";
 import { getChampionTally, getMyChampionVote } from "@/lib/db/champion";
+import { getStageOdds, getMyOdds, type CardOdds } from "@/lib/db/odds";
 import { findTeam } from "@/lib/data";
 import {
   getStages, getMyCards, getBoard, getStageBoard, getDistribution,
@@ -60,9 +61,11 @@ export default async function MajorPickemPage({
   const open = isOpen(stage);
   const ready = isReady(stage);
   const card = cards[stage.stage] ?? null;
-  const [dist, stageBoard] = await Promise.all([
+  const [dist, stageBoard, stageOdds, myOdds] = await Promise.all([
     getDistribution(stage.stage, stage.startsAt),
     stage.scoredAt ? getStageBoard(stage.stage) : Promise.resolve<BoardRow[]>([]),
+    getStageOdds(stage.stage),
+    getMyOdds(stage.stage),
   ]);
 
   /* Учасники голосування — усі, кого вписали в стадії, від найвищого посіву
@@ -162,6 +165,11 @@ export default async function MajorPickemPage({
         ) : null}
       </div>
 
+      {/* Шанси власної картки. Стоять над нею, бо відповідають на питання,
+          з яким на цю сторінку й заходять удруге: «а в мене є шанс?».
+          Самої лише суми очок замало — вона не каже, чи це багато. */}
+      {myOdds && card && <CardOddsLine odds={myOdds} max={shape.max} picks={shape.picks} />}
+
       {!ready ? (
         <IncompleteStage teams={stage.teams} />
       ) : open ? (
@@ -171,6 +179,7 @@ export default async function MajorPickemPage({
           teams={stage.teams}
           initial={card?.picks ?? {}}
           canSave={signedIn}
+          odds={stageOdds.byTeam}
         />
       ) : (
         <LockedStage
@@ -227,6 +236,47 @@ export default async function MajorPickemPage({
 }
 
 /* ------------------------------------------------------------------------- */
+
+/**
+ * Шанси картки одним рядком.
+ *
+ * Три числа, і всі три відповідають на різні питання. Очікувані очки —
+ * скільки картка принесе в середньому; влучання — наскільки вона точна;
+ * шанс на скін — єдине, що людину справді цікавить, і саме його не можна
+ * показати до замка: доки чужі картки ще міняються, порівнювати нема з чим.
+ */
+function CardOddsLine({
+  odds,
+  max,
+  picks,
+}: {
+  odds: CardOdds;
+  max: number;
+  picks: number;
+}) {
+  return (
+    <div className="flex flex-wrap items-center gap-x-5 gap-y-1 rounded-[4px] surface-1 px-4 py-2.5 text-sm">
+      <span className="text-ink-muted">
+        Очікувано{" "}
+        <b className="tnum text-ink">{Math.round(odds.evPoints)}</b>
+        <span className="text-ink-dim"> із {max} очок</span>
+      </span>
+      <span className="text-ink-muted">
+        Влучань{" "}
+        <b className="tnum text-ink">{odds.evHits.toFixed(1)}</b>
+        <span className="text-ink-dim">/{picks}</span>
+      </span>
+      {odds.pPrize !== null && (
+        <span className="text-ink-muted">
+          Шанс на скін{" "}
+          <b className="tnum text-[var(--major-hot)]">
+            {Math.round(odds.pPrize * 100)}%
+          </b>
+        </span>
+      )}
+    </div>
+  );
+}
 
 /** Стадія без повного складу: показуємо тих, хто вже тут. */
 function IncompleteStage({ teams }: { teams: string[] }) {

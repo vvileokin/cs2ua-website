@@ -70,17 +70,35 @@ const BOX_TINT: Record<Tone, string> = {
   out: "color-mix(in oklch, var(--ink) 55%, transparent)",
 };
 
+/** Яке з трьох чисел показувати, коли ціляться в цей кошик. */
+const ODDS_KEY: Record<PickRole, "w" | "a" | "o"> = {
+  "3-0": "w",
+  adv: "a",
+  "0-3": "o",
+  champ: "w",
+  final: "a",
+  semi: "o",
+};
+
 export function PickemCard({
   stage,
   shape,
   teams,
   initial,
   canSave,
+  odds = {},
 }: {
   stage: number;
   shape: CardShape;
   teams: string[];
   initial: PickemPicks;
+  /**
+   * Шанси команд на поточний момент: слаг → {w, a, o}.
+   *
+   * Порожньо — значить, прогін ще не робили, і картка малюється без цифр.
+   * Це навмисно м'яка залежність: відсотки — добавка, а не умова.
+   */
+  odds?: Record<string, { w: number; a: number; o: number }>;
   /** Чи є кому зберігати. Для гостя кнопка мовчала б так само, як і для
    *  недозаповненої картки, а причина зовсім інша. */
   canSave: boolean;
@@ -347,6 +365,14 @@ export function PickemCard({
           {teams.map((slug) => {
             const team = findTeam(slug);
             const used = !!picks[slug];
+            /* Яке саме число показати, залежить від того, куди ціляться.
+               Ймовірностей у команди три, і «18%» без ролі нічого не
+               означає: вісімнадцять на 3:0 — це сильна команда, вісімнадцять
+               на 0:3 — слабка. Коли кошик обрано, показуємо його ймовірність;
+               коли ні — прохід, бо це найзагальніша міра сили. */
+            const o = odds[slug];
+            const key = live ? ODDS_KEY[live] : "a";
+            const pct = o ? Math.round(o[key] * 100) : null;
             return (
               <button
                 key={slug}
@@ -354,6 +380,9 @@ export function PickemCard({
                 onClick={() => pickTeam(slug)}
                 onPointerDown={(e) => !used && beginDrag(e, slug)}
                 onDragStart={(e) => e.preventDefault()}
+                aria-label={
+                  pct === null ? undefined : `${team?.name ?? slug}, ${pct}%`
+                }
                 disabled={used}
                 aria-pressed={sel === slug}
                 title={team?.name ?? slug}
@@ -368,6 +397,20 @@ export function PickemCard({
                   drag?.team === slug && "opacity-40",
                 )}
               >
+                {pct !== null && (
+                  <span
+                    className={cn(
+                      "tnum text-[0.625rem] font-black leading-[0.875rem]",
+                      used
+                        ? "text-ink-faint"
+                        : live
+                          ? "text-[var(--major-hot)]"
+                          : "text-ink-dim",
+                    )}
+                  >
+                    {pct}%
+                  </span>
+                )}
                 <MajorCrest
                   team={team}
                   slug={slug}
@@ -508,7 +551,9 @@ export function PickemCard({
                         tone={tone}
                       />
                       <span className="max-w-full truncate text-[0.625rem] font-bold text-ink-muted group-hover:text-ink">
-                        {team?.tag ?? slug}
+                        {odds[slug]
+                          ? `${Math.round(odds[slug][ODDS_KEY[role]] * 100)}%`
+                          : (team?.tag ?? slug)}
                       </span>
                     </button>
                   );

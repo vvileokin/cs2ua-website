@@ -17,10 +17,11 @@ import { shapeOf, type StageKind } from "@/lib/major-pickem";
  */
 
 type Body = {
-  action?: "lock" | "outcome" | "score" | "teams";
+  action?: "lock" | "outcome" | "score" | "teams" | "played";
   stage?: number;
   actual?: Record<string, string>;
   teams?: string[];
+  played?: { a: string; b: string; w: string }[];
 };
 
 export async function POST(request: Request) {
@@ -65,6 +66,38 @@ export async function POST(request: Request) {
       .eq("stage", stage);
     await logAdmin("major", `стадія ${stage}: склад — ${list.length} команд`);
     return NextResponse.json({ ok: true, teams: list });
+  }
+
+  /* --- Зіграні матчі ---------------------------------------------------- */
+  // Потрібні не для нарахування, а для шансів: щоб сказати, що буде далі,
+  // треба знати, звідки рахувати. Матч, а не рахунок команди — з переліку
+  // матчів виводяться і рекорди, і те, хто з ким уже грав, а швейцарка не
+  // зводить тих самих удруге.
+  if (body.action === "played") {
+    const list = Array.isArray(body.played) ? body.played : [];
+    for (const m of list) {
+      if (!teams.includes(m.a) || !teams.includes(m.b)) {
+        return NextResponse.json(
+          { ok: false, error: `${m.a} або ${m.b} не з цієї стадії.` },
+          { status: 400 },
+        );
+      }
+      if (m.a === m.b) {
+        return NextResponse.json({ ok: false, error: "Команда сама з собою." }, { status: 400 });
+      }
+      if (m.w !== m.a && m.w !== m.b) {
+        return NextResponse.json(
+          { ok: false, error: "Переможець не з цієї пари." },
+          { status: 400 },
+        );
+      }
+    }
+    await admin
+      .from("major_stages")
+      .update({ played: list, updated_at: new Date().toISOString() })
+      .eq("stage", stage);
+    await logAdmin("major", `стадія ${stage}: зіграних матчів — ${list.length}`);
+    return NextResponse.json({ ok: true, played: list.length });
   }
 
   /* --- Замок ------------------------------------------------------------ */

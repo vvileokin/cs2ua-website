@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useRouter } from "next/navigation";
-import { Loader2, Lock, Calculator, Check } from "lucide-react";
+import { Loader2, Lock, Calculator, Check, Plus, X } from "lucide-react";
 import { Panel } from "@/components/admin/ui";
 import { findTeam } from "@/lib/data";
 import { shapeOf, type StageKind } from "@/lib/major-pickem";
@@ -22,12 +22,15 @@ import { cn } from "@/lib/utils";
  * тепер, і сторінка, RPC та адмінка дивляться в одне місце.
  */
 
+export type PlayedMatch = { a: string; b: string; w: string };
+
 export type AdminStage = {
   stage: number;
   title: string;
   kind: StageKind;
   teams: string[];
   startsAt: string;
+  played: PlayedMatch[];
   actual: Record<string, string> | null;
   scoredAt: string | null;
 };
@@ -83,6 +86,8 @@ function StagePanel({ stage }: { stage: AdminStage }) {
   const router = useRouter();
   const shape = shapeOf(stage.kind);
   const [actual, setActual] = React.useState<Record<string, string>>(stage.actual ?? {});
+  const [played, setPlayed] = React.useState<PlayedMatch[]>(stage.played ?? []);
+  const [pair, setPair] = React.useState<{ a: string; b: string }>({ a: "", b: "" });
   const [busy, setBusy] = React.useState<string | null>(null);
   const [note, setNote] = React.useState<{ ok: boolean; text: string } | null>(null);
 
@@ -167,6 +172,95 @@ function StagePanel({ stage }: { stage: AdminStage }) {
             </button>
           )}
         </div>
+      </Panel>
+
+      {/* Зіграні матчі — не для нарахування, а для шансів.
+          Нарахування бере підсумок стадії (нижче), а шанси рахуються від
+          того, що вже сталося: без переліку матчів відсотки застигають на
+          тих, що були до першої карти. */}
+      <Panel
+        title={`Зіграні матчі — ${played.length}`}
+        action={
+          <button
+            type="button"
+            onClick={() => void call("played", { played })}
+            disabled={!!busy}
+            className="inline-flex items-center gap-2 rounded-lg bg-fill-2 px-3 py-2 text-sm font-bold text-ink transition-colors hover:bg-fill-3 disabled:opacity-50"
+          >
+            {busy === "played" ? <Loader2 className="size-4 animate-spin" /> : <Check className="size-4" />}
+            Зберегти матчі
+          </button>
+        }
+      >
+        <div className="mb-3 flex flex-wrap items-end gap-2">
+          <Select
+            label="Перша"
+            value={pair.a}
+            teams={stage.teams}
+            onChange={(v) => setPair((p) => ({ ...p, a: v }))}
+          />
+          <Select
+            label="Друга"
+            value={pair.b}
+            teams={stage.teams}
+            onChange={(v) => setPair((p) => ({ ...p, b: v }))}
+          />
+          {/* Переможець обирається кнопкою, а не третім списком: пара вже
+              задана, і вибір тут завжди з двох. */}
+          {(["a", "b"] as const).map((side) => {
+            const slug = pair[side];
+            if (!slug) return null;
+            return (
+              <button
+                key={side}
+                type="button"
+                onClick={() => {
+                  if (!pair.a || !pair.b || pair.a === pair.b) return;
+                  setPlayed((list) => [...list, { a: pair.a, b: pair.b, w: slug }]);
+                  setPair({ a: "", b: "" });
+                }}
+                className="inline-flex items-center gap-1.5 rounded-lg bg-fill-2 px-3 py-2 text-sm font-bold text-ink transition-colors hover:bg-fill-3"
+              >
+                <Plus className="size-3.5" />
+                виграла {findTeam(slug)?.tag ?? slug}
+              </button>
+            );
+          })}
+        </div>
+
+        {played.length === 0 ? (
+          <p className="text-sm text-ink-muted">Поки жодного матчу.</p>
+        ) : (
+          <ol className="space-y-1">
+            {played.map((m, i) => (
+              <li key={`${m.a}-${m.b}-${i}`} className="flex items-center gap-2 text-sm">
+                <span className="tnum w-6 shrink-0 text-right text-ink-dim">{i + 1}</span>
+                <span className={cn("font-bold", m.w === m.a ? "text-success" : "text-ink-dim")}>
+                  {findTeam(m.a)?.name ?? m.a}
+                </span>
+                <span className="text-ink-dim">—</span>
+                <span className={cn("font-bold", m.w === m.b ? "text-success" : "text-ink-dim")}>
+                  {findTeam(m.b)?.name ?? m.b}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setPlayed((list) => list.filter((_, k) => k !== i))}
+                  className="ml-auto text-ink-dim transition-colors hover:text-danger"
+                  aria-label="прибрати"
+                >
+                  <X className="size-4" />
+                </button>
+              </li>
+            ))}
+          </ol>
+        )}
+
+        <p className="mt-3 text-[0.8125rem] text-ink-dim">
+          Після збереження перерахувати шанси:{" "}
+          <code className="rounded bg-fill-2 px-1.5 py-0.5 font-mono text-[0.75rem]">
+            node scripts/major-odds.mjs {stage.stage}
+          </code>
+        </p>
       </Panel>
 
       <Panel
@@ -259,5 +353,37 @@ function StagePanel({ stage }: { stage: AdminStage }) {
         </p>
       )}
     </div>
+  );
+}
+
+function Select({
+  label,
+  value,
+  teams,
+  onChange,
+}: {
+  label: string;
+  value: string;
+  teams: string[];
+  onChange: (v: string) => void;
+}) {
+  return (
+    <label className="flex flex-col gap-1">
+      <span className="text-[0.6875rem] font-semibold uppercase tracking-wide text-ink-dim">
+        {label}
+      </span>
+      <select
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="h-9 rounded-lg surface-1 px-2 text-sm font-bold text-ink"
+      >
+        <option value="">—</option>
+        {teams.map((t) => (
+          <option key={t} value={t}>
+            {findTeam(t)?.name ?? t}
+          </option>
+        ))}
+      </select>
+    </label>
   );
 }
