@@ -209,7 +209,10 @@ export function ChampionPoll({
                     команди — і сітка не починається з порожньої смуги. */}
                 {total > 0 && (
                   <span
-                    className="tnum text-[0.625rem] font-black leading-[0.875rem] sm:text-[0.6875rem]"
+                    /* Просвіт між числом і плиткою. Без нього відсоток лежав
+                       просто на краю герба й читався як частина плитки, а не
+                       як підпис до неї. */
+                    className="tnum mb-0.5 text-[0.625rem] font-black leading-[0.875rem] sm:mb-1 sm:text-[0.6875rem]"
                     style={{ color: n > 0 ? tone(rank) : "var(--ink-faint)" }}
                   >
                     {n > 0 ? `${pct}%` : "·"}
