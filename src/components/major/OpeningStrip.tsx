@@ -36,10 +36,9 @@ export function OpeningStrip({ matches }: { matches: StageMatch[] }) {
 
   return (
     <section className="major-plate rounded-[4px] px-3 py-3 sm:px-4">
-      <p className="mb-3 text-[0.625rem] font-bold uppercase tracking-[0.14em] text-ink-dim">
-        Перший тур
-      </p>
-
+      {/* Підпису «Перший тур» тут немає. Чотири години поспіль із парами під
+          кожною — це розклад і ні що інше; слово над ним називало те, що й
+          так видно, і забирало рядок у того, що треба прочитати. */}
       <div className="grid grid-cols-2 gap-x-4 gap-y-4 sm:grid-cols-4">
         {[...slots.entries()].map(([at, list]) => (
           <div key={at}>

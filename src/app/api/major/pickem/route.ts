@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
-import { isComplete, type PickemPicks } from "@/lib/major-pickem";
+import type { PickemPicks } from "@/lib/major-pickem";
 
 /**
  * Збереження картки пікемів.
@@ -15,9 +15,9 @@ import { isComplete, type PickemPicks } from "@/lib/major-pickem";
 const SAY: Record<string, string> = {
   anon: "Увійди, щоб зберегти картку.",
   no_stage: "Такої стадії немає.",
-  not_open: "Склад цієї стадії ще не відомий — картка відкриється, коли визначаться всі шістнадцять.",
+  not_open: "Склад цієї стадії ще не відомий — картка відкриється, коли визначаться всі її команди.",
   locked: "Стадія вже почалася, картку закрито.",
-  bad_shape: "Картка неповна: треба двоє на 3-0, шестеро на прохід і двоє на 0-3.",
+  bad_shape: "Картка неповна: кошики мають зійтися рівно.",
   bad_team: "У картці команда не з цієї стадії.",
 };
 
@@ -36,12 +36,17 @@ export async function POST(req: Request) {
   }
 
   const stage = Number(body.stage);
-  if (!Number.isInteger(stage) || stage < 1 || stage > 3) {
+  if (!Number.isInteger(stage) || stage < 1 || stage > 4) {
     return NextResponse.json({ error: SAY.no_stage }, { status: 400 });
   }
 
+  /* Повноту картки тут більше не рахуємо. Форм тепер дві — швейцарка 2/6/2 і
+     плей-оф 1/1/2 — і яка з них правильна, знає тільки стадія. Маршрут
+     стадію не читає, тож будь-яка перевірка тут була б здогадом; відсіюємо
+     лише очевидний брак, а форму звіряє `save_major_pickem`, яка стадію вже
+     читає заради замка. */
   const picks = body.picks as PickemPicks | undefined;
-  if (!picks || typeof picks !== "object" || !isComplete(picks)) {
+  if (!picks || typeof picks !== "object" || !Object.keys(picks).length) {
     return NextResponse.json({ error: SAY.bad_shape }, { status: 400 });
   }
 

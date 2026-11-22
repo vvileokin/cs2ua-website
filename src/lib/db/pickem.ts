@@ -1,9 +1,11 @@
 import { cache } from "react";
 import { createClient } from "@/lib/supabase/server";
 import {
-  ROLES,
+  shapeOf,
+  type CardShape,
   type PickRole,
   type PickemPicks,
+  type StageKind,
   type StageOutcome,
 } from "@/lib/major-pickem";
 
@@ -11,8 +13,8 @@ import {
  * Пікеми на мейджор — читання.
  *
  * Жодного запису тут немає навмисно. Картка зберігається рівно одним шляхом —
- * через `save_major_pickem` (0094), бо саме там живуть замок і перевірка, що
- * команда з цієї стадії. Другий шлях усередину — це другий набір перевірок,
+ * через `save_major_pickem` (0094, 0096), бо саме там живуть замок і перевірка,
+ * що команда з цієї стадії. Другий шлях усередину — це другий набір перевірок,
  * які рано чи пізно розійдуться.
  */
 
@@ -20,9 +22,11 @@ import {
 export type StageMatch = { a: string; b: string; at: string };
 
 export type MajorStage = {
-  stage: 1 | 2 | 3;
+  stage: number;
   title: string;
-  /** Слаги. Поки їх менше шістнадцяти, стадія ще не укомплектована. */
+  /** Швейцарка чи плей-оф. Від цього залежить усе: склад, форма, ціни. */
+  kind: StageKind;
+  /** Слаги. Поки їх менше за склад стадії, вона ще не укомплектована. */
   teams: string[];
   startsAt: string;
   /** Розклад першого туру. Порожньо, доки його не внесли. */
@@ -40,6 +44,8 @@ export type PickemCard = {
 };
 
 export type BoardRow = {
+  /** Місце, яке порахувала база разом із тайбрейком. Саме за ним — призи. */
+  rank: number;
   userId: string;
   handle: string | null;
   avatarUrl: string | null;
@@ -51,7 +57,7 @@ export type BoardRow = {
 /** Скільки людей поставило кожну роль на кожну команду. */
 export type Distribution = {
   total: number;
-  byTeam: Record<string, Record<PickRole, number>>;
+  byTeam: Record<string, Record<string, number>>;
 };
 
 export const getStages = cache(async (): Promise<MajorStage[]> => {
@@ -66,8 +72,9 @@ export const getStages = cache(async (): Promise<MajorStage[]> => {
     .order("stage");
 
   return (data ?? []).map((r) => ({
-    stage: r.stage as 1 | 2 | 3,
+    stage: r.stage as number,
     title: r.title as string,
+    kind: ((r.kind as StageKind | null) ?? "swiss") as StageKind,
     teams: (r.teams as string[]) ?? [],
     startsAt: r.starts_at as string,
     opening: (r.opening as StageMatch[]) ?? [],
@@ -76,9 +83,19 @@ export const getStages = cache(async (): Promise<MajorStage[]> => {
   }));
 });
 
+/** Форма картки цієї стадії. */
+export function shapeFor(s: MajorStage): CardShape {
+  return shapeOf(s.kind);
+}
+
+/** Склад зібрано повністю. */
+export function isReady(s: MajorStage): boolean {
+  return s.teams.length === shapeFor(s).roster;
+}
+
 /** Стадія відкрита для заповнення: укомплектована і ще не почалася. */
 export function isOpen(s: MajorStage, now = Date.now()): boolean {
-  return s.teams.length === 16 && now < new Date(s.startsAt).getTime();
+  return isReady(s) && now < new Date(s.startsAt).getTime();
 }
 
 /** Яку стадію показувати першою: найближчу відкриту, інакше останню, що
@@ -117,24 +134,56 @@ export const getMyCards = cache(async (): Promise<Record<number, PickemCard>> =>
   return out;
 });
 
+/**
+ * Підсумкова таблиця — сума за всі зіграні стадії.
+ *
+ * Порядок приходить із бази разом із місцем: тайбрейк (очки → влучання → час
+ * збереження) описаний у в'юсі 0096, і перераховувати його тут означало б
+ * завести друге правило про те, кому дістається скін.
+ */
 export const getBoard = cache(async (limit = 100): Promise<BoardRow[]> => {
   const sb = await createClient();
-  const { data } = await sb
-    .from("major_pickem_board")
-    .select("user_id, handle, avatar_url, points, hits, stages")
-    .order("points", { ascending: false })
-    .order("hits", { ascending: false })
-    .limit(limit);
+  const q = () => sb.from("major_pickem_board").select("*").limit(limit);
 
-  return (data ?? []).map((r) => ({
+  /* Спершу — порядком, який порахувала база. Якщо 0096 ще не виконана, колонки
+     `rank` немає, PostgREST відповідає помилкою на сортування за нею, і дошка
+     зникла б цілком. Тому запасний варіант: той самий порядок без тайбрейка.
+     Він гірший — рівні рядки стануть у довільному порядку, — але це краще за
+     порожню таблицю, і живе рівно до моменту, коли міграцію виконають. */
+  const first = await q().order("rank");
+  const { data } = first.error
+    ? await q().order("points", { ascending: false }).order("hits", { ascending: false })
+    : first;
+
+  return (data ?? []).map((r, i) => ({ ...toRow(r), rank: (r.rank as number) ?? i + 1 }));
+});
+
+/** Таблиця однієї стадії. Саме по ній видаються скіни за цю стадію. */
+export const getStageBoard = cache(
+  async (stage: number, limit = 50): Promise<BoardRow[]> => {
+    const sb = await createClient();
+    const { data } = await sb
+      .from("major_stage_board")
+      .select("rank, user_id, handle, avatar_url, points, hits")
+      .eq("stage", stage)
+      .order("rank")
+      .limit(limit);
+
+    return (data ?? []).map(toRow);
+  },
+);
+
+function toRow(r: Record<string, unknown>): BoardRow {
+  return {
+    rank: (r.rank as number) ?? 0,
     userId: r.user_id as string,
     handle: (r.handle as string | null) ?? null,
     avatarUrl: (r.avatar_url as string | null) ?? null,
     points: (r.points as number) ?? 0,
     hits: (r.hits as number) ?? 0,
-    stages: (r.stages as number) ?? 0,
-  }));
-});
+    stages: (r.stages as number) ?? 1,
+  };
+}
 
 /**
  * Розподіл виборів по стадії.
@@ -152,11 +201,11 @@ export const getDistribution = cache(
     const { data } = await sb.from("major_pickem").select("picks").eq("stage", stage);
     if (!data?.length) return { total: 0, byTeam: {} };
 
-    const byTeam: Record<string, Record<PickRole, number>> = {};
+    const byTeam: Record<string, Record<string, number>> = {};
     for (const row of data) {
       for (const [team, role] of Object.entries((row.picks as PickemPicks) ?? {})) {
-        byTeam[team] ??= { "3-0": 0, adv: 0, "0-3": 0 };
-        if (ROLES.includes(role)) byTeam[team][role] += 1;
+        byTeam[team] ??= {};
+        byTeam[team][role as PickRole] = (byTeam[team][role as PickRole] ?? 0) + 1;
       }
     }
     return { total: data.length, byTeam };

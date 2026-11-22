@@ -50,6 +50,7 @@ export function MajorCrest({
   team,
   slug,
   size = 44,
+  fluid = false,
   state = "idle",
   tone = "held",
   className,
@@ -58,18 +59,29 @@ export function MajorCrest({
   /** Щоб було що показати, коли слаг випав із довідника. */
   slug: string;
   size?: number;
+  /**
+   * Герб на всю ширину комірки, а не на задані пікселі.
+   *
+   * Сітка складу розтягується від телефона до широкого монітора, і герб у
+   * фіксовані сорок пікселів тримався посередині комірки, лишаючи праворуч
+   * порожнечу тим більшу, чим ширший екран. Тут розмір задає комірка: герб
+   * квадратний і займає її всю, тож склад заповнює рядок на будь-якій
+   * ширині.
+   */
+  fluid?: boolean;
   state?: "idle" | "active" | "dim";
   tone?: "win" | "pass" | "out" | "held";
   className?: string;
 }) {
-  const radius = Math.max(6, Math.round(size * 0.22));
   const external = team ? /^https?:\/\//.test(team.logo) : false;
-  const inner = Math.round(size * (external ? 0.8 : 0.66));
+  const share = external ? 0.8 : 0.66;
+  const inner = Math.round(size * share);
 
   return (
     <span
       className={cn(
         "relative inline-flex shrink-0 items-center justify-center transition-[background-color,box-shadow,transform] duration-150 ease-[cubic-bezier(0.22,1,0.36,1)]",
+        fluid && "aspect-square w-full",
         state === "active"
           ? ACTIVE[tone]
           : state === "dim"
@@ -77,7 +89,13 @@ export function MajorCrest({
             : "bg-white/[0.05] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.09)]",
         className,
       )}
-      style={{ width: size, height: size, borderRadius: radius }}
+      style={
+        fluid
+          ? /* Відсоток, а не пікселі: кут має лишатися однаковим на вигляд,
+               хоч би якої величини виросла комірка. */
+            { borderRadius: "22%" }
+          : { width: size, height: size, borderRadius: Math.max(6, Math.round(size * 0.22)) }
+      }
     >
       {team?.logo ? (
         // eslint-disable-next-line @next/next/no-img-element
@@ -89,8 +107,8 @@ export function MajorCrest({
           width={inner}
           height={inner}
           style={{
-            width: inner,
-            height: inner,
+            width: fluid ? `${Math.round(share * 100)}%` : inner,
+            height: fluid ? `${Math.round(share * 100)}%` : inner,
             objectFit: "contain",
             // Каталожні знаки намальовані під перефарбовування — робимо білими.
             // Привізні логотипи це готова кольорова графіка, її не чіпаємо.
@@ -99,8 +117,11 @@ export function MajorCrest({
         />
       ) : (
         <span
-          className="font-extrabold leading-none tracking-tight text-white/90"
-          style={{ fontSize: Math.round(size * 0.26) }}
+          className={cn(
+            "font-extrabold leading-none tracking-tight text-white/90",
+            fluid && "text-xs sm:text-sm",
+          )}
+          style={fluid ? undefined : { fontSize: Math.round(size * 0.26) }}
         >
           {team?.tag ?? slug.slice(0, 4).toUpperCase()}
         </span>

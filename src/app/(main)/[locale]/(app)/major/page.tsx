@@ -1,25 +1,28 @@
+import * as React from "react";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { MajorMode } from "@/components/major/MajorMode";
 import { MajorCrest } from "@/components/major/MajorCrest";
+import { MajorPrizes } from "@/components/major/MajorPrizes";
 import { OpeningStrip } from "@/components/major/OpeningStrip";
 import { LockCountdown } from "@/components/major/LockCountdown";
 import { PickemCard } from "@/components/major/PickemCard";
-import { PickemBoard } from "@/components/major/PickemBoard";
+import { PickemBoard, plural } from "@/components/major/PickemBoard";
 import { findTeam } from "@/lib/data";
 import {
-  getStages, getMyCards, getBoard, getDistribution, isOpen, currentStage,
+  getStages, getMyCards, getBoard, getStageBoard, getDistribution,
+  isOpen, isReady, shapeFor, currentStage,
+  type BoardRow, type Distribution,
 } from "@/lib/db/pickem";
 import {
-  ROLES, ROLE_LABEL, ROLE_PRICE, ROLE_TITLE, isHit, tierOf,
-  type PickRole,
+  isHit, tierOf, type CardShape, type PickRole, type StageOutcome,
 } from "@/lib/major-pickem";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Пікеми на мейджор",
   description:
-    "Розклади швейцарку PGL Major Singapore 2026: двоє на 3-0, шестеро на прохід, двоє на 0-3.",
+    "Розклади швейцарку й сітку PGL Major Singapore 2026. Топ-10 кожної стадії забирає скін.",
 };
 
 /* Сторінка читає картки конкретної людини й розподіл, що міняється з кожним
@@ -49,10 +52,14 @@ export default async function MajorPickemPage({
 
   const picked = stages.find((s) => String(s.stage) === wanted);
   const stage = picked ?? currentStage(stages) ?? stages[0];
+  const shape = shapeFor(stage);
   const open = isOpen(stage);
-  const ready = stage.teams.length === 16;
+  const ready = isReady(stage);
   const card = cards[stage.stage] ?? null;
-  const dist = await getDistribution(stage.stage, stage.startsAt);
+  const [dist, stageBoard] = await Promise.all([
+    getDistribution(stage.stage, stage.startsAt),
+    stage.scoredAt ? getStageBoard(stage.stage) : Promise.resolve<BoardRow[]>([]),
+  ]);
 
   return (
     <div className="space-y-5 sm:space-y-6">
@@ -65,9 +72,16 @@ export default async function MajorPickemPage({
 
       {/* Стадії — плитами, як навігація на сторінці самої події: прямі кути,
           дрібна капітель, обрана заливається кольором події цілком. Ряд
-          рівних плит також чесно каже, що стадії рівноцінні, тоді як
-          попередні картки з підзаголовками натякали на ієрархію. */}
-      <nav className="grid grid-cols-3 gap-px overflow-hidden rounded-[4px] bg-white/10">
+          рівних плит також чесно каже, що стадії рівноцінні — і це тепер
+          буквально так: максимум за кожну однаковий, бо кожна це одна
+          роздача скінів. */}
+      {/* Колонок рівно стільки, скільки стадій. Вписане число тут означало б,
+          що невиконана міграція лишає порожню плиту в ряду — сторінка
+          малювала б чотири вкладки на три стадії. */}
+      <nav
+        className="grid gap-px overflow-hidden rounded-[4px] bg-white/10 [grid-template-columns:repeat(var(--tabs),minmax(0,1fr))]"
+        style={{ "--tabs": stages.length } as React.CSSProperties}
+      >
         {stages.map((s) => {
           const here = s.stage === stage.stage;
           const mine = cards[s.stage];
@@ -77,7 +91,7 @@ export default async function MajorPickemPage({
               href={`/major?stage=${s.stage}`}
               aria-current={here ? "page" : undefined}
               className={cn(
-                "px-3 py-3 text-center transition-colors duration-150",
+                "px-2 py-3 text-center transition-colors duration-150 sm:px-3",
                 here
                   ? "bg-[var(--major-hot)]"
                   : "bg-[var(--major-floor)] hover:bg-white/[0.05]",
@@ -85,22 +99,18 @@ export default async function MajorPickemPage({
             >
               <p
                 className={cn(
-                  "truncate text-[0.75rem] font-black uppercase tracking-[0.1em]",
+                  "truncate text-[0.6875rem] font-black uppercase tracking-[0.08em] sm:text-[0.75rem] sm:tracking-[0.1em]",
                   here ? "text-[var(--major-ink)]" : "text-ink-muted",
                 )}
               >
                 {s.title}
               </p>
-              {/* Підзаголовка немає. «Склад невідомий» під двома з трьох
-                  вкладок читалося як поломка, а не як розклад турніру, і
-                  єдине, що справді варто показати, — власний результат, коли
-                  він уже є. */}
               {mine?.scored && (
                 <p className={cn(
                   "mt-0.5 truncate text-[0.6875rem] font-bold tabular-nums",
                   here ? "text-[var(--major-ink)]/75" : "text-ink-dim",
                 )}>
-                  {mine.hits}/10 · {mine.points}
+                  {mine.hits}/{shapeFor(s).picks} · {mine.points}
                 </p>
               )}
             </Link>
@@ -116,7 +126,6 @@ export default async function MajorPickemPage({
         <h1 className="flex items-center gap-2 text-sm font-extrabold text-ink">
           <span className="size-1.5 shrink-0 rounded-full bg-[var(--major-hot)] shadow-[0_0_10px_var(--major-hot)]" />
           {stage.title}
-          <span className="font-semibold text-ink-dim">· пікеми на мейджор</span>
         </h1>
         {ready ? (
           open ? (
@@ -134,7 +143,11 @@ export default async function MajorPickemPage({
           )
         ) : (
           <p className="text-sm text-ink-muted">
-            Чекаємо, хто вийде з попередньої стадії — відомо {stage.teams.length} із 16
+            {stage.kind === "playoff"
+              ? `Чекаємо на сітку — вісімка збереться після третьої стадії${
+                  stage.teams.length ? `, відомо ${stage.teams.length}` : ""
+                }`
+              : `Чекаємо, хто вийде з попередньої стадії — відомо ${stage.teams.length} із ${shape.roster}`}
           </p>
         )}
       </div>
@@ -142,9 +155,15 @@ export default async function MajorPickemPage({
       {!ready ? (
         <IncompleteStage teams={stage.teams} />
       ) : open ? (
-        <PickemCard stage={stage.stage} teams={stage.teams} initial={card?.picks ?? {}} />
+        <PickemCard
+          stage={stage.stage}
+          shape={shape}
+          teams={stage.teams}
+          initial={card?.picks ?? {}}
+        />
       ) : (
         <LockedStage
+          shape={shape}
           teams={stage.teams}
           picks={card?.picks ?? null}
           actual={stage.actual}
@@ -155,8 +174,30 @@ export default async function MajorPickemPage({
         />
       )}
 
-      <PickemBoard rows={board} />
+      <MajorPrizes stage={stage.stage} />
 
+      {/* Таблиця самої стадії — тільки коли є що показувати. Саме по ній
+          їдуть скіни за цю стадію, тож вона стоїть ближче, ніж підсумок. */}
+      {stageBoard.length > 0 && (
+        <PickemBoard
+          rows={stageBoard}
+          shape={shape}
+          title={`Залік: ${stage.title.toLowerCase()}`}
+          caption={`${stageBoard.length} ${plural(stageBoard.length, "картка", "картки", "карток")}`}
+          empty=""
+        />
+      )}
+
+      <PickemBoard
+        rows={board}
+        title="Підсумкова таблиця"
+        caption={
+          board.length
+            ? `${board.length} ${plural(board.length, "гравець", "гравці", "гравців")}`
+            : undefined
+        }
+        empty="Поки порожньо. Перші очки з’являться тут, коли дограється перша стадія."
+      />
     </div>
   );
 }
@@ -165,6 +206,15 @@ export default async function MajorPickemPage({
 
 /** Стадія без повного складу: показуємо тих, хто вже тут. */
 function IncompleteStage({ teams }: { teams: string[] }) {
+  if (!teams.length) {
+    return (
+      <p className="rounded-2xl surface-1 px-4 py-10 text-center text-sm text-ink-subtle">
+        Склад цієї стадії ще не визначений. Картка відкриється, щойно стане
+        відомо, хто в ній грає.
+      </p>
+    );
+  }
+
   return (
     <div className="major-plate rounded-2xl p-4 sm:p-5">
       <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-wide text-ink-dim">
@@ -199,17 +249,18 @@ function IncompleteStage({ teams }: { teams: string[] }) {
  * саму гру.
  */
 function LockedStage({
-  teams, picks, actual, hits, points, scored, dist,
+  shape, teams, picks, actual, hits, points, scored, dist,
 }: {
+  shape: CardShape;
   teams: string[];
   picks: Record<string, PickRole> | null;
-  actual: Record<string, string> | null;
+  actual: StageOutcome | null;
   hits: number;
   points: number;
   scored: boolean;
-  dist: { total: number; byTeam: Record<string, Record<PickRole, number>> } | null;
+  dist: Distribution | null;
 }) {
-  const tier = scored ? tierOf(hits) : null;
+  const tier = scored ? tierOf(hits, shape) : null;
 
   return (
     <div className="space-y-3">
@@ -219,7 +270,9 @@ function LockedStage({
             <p className="text-[0.6875rem] font-semibold uppercase tracking-wide text-ink-dim">
               Влучань
             </p>
-            <p className="tnum text-2xl font-black leading-tight text-ink">{hits}/10</p>
+            <p className="tnum text-2xl font-black leading-tight text-ink">
+              {hits}/{shape.picks}
+            </p>
           </div>
           <div>
             <p className="text-[0.6875rem] font-semibold uppercase tracking-wide text-ink-dim">
@@ -267,18 +320,18 @@ function LockedStage({
                 {team?.name ?? slug}
               </span>
 
-              {/* Розподіл спільноти — три дрібні відсотки в тому ж порядку,
-                  що й кнопки в картці, тож колонка читається згори вниз як
-                  одна таблиця, а не як три незалежні числа. */}
+              {/* Розподіл спільноти — дрібні відсотки в тому ж порядку, що й
+                  кошики в картці, тож колонка читається згори вниз як одна
+                  таблиця, а не як кілька незалежних чисел. */}
               {total > 0 && (
                 <span className="hidden shrink-0 gap-3 sm:flex">
-                  {ROLES.map((r) => {
-                    const n = d?.[r] ?? 0;
+                  {shape.roles.map((r) => {
+                    const n = d?.[r.role] ?? 0;
                     const p = Math.round((n / total) * 100);
                     return (
                       <span
-                        key={r}
-                        title={`${ROLE_TITLE[r]}: ${n} з ${total}`}
+                        key={r.role}
+                        title={`${r.title}: ${n} з ${total}`}
                         className={cn(
                           "tnum w-11 text-right text-[0.75rem] font-bold",
                           p >= 50 ? "text-ink-muted" : "text-ink-dim",
@@ -294,7 +347,7 @@ function LockedStage({
               {/* Підсумок стадії, коли він уже відомий. */}
               {out && (
                 <span className="tnum w-10 shrink-0 text-right text-[0.75rem] font-extrabold text-ink-muted">
-                  {out}
+                  {outLabel(out, shape)}
                 </span>
               )}
 
@@ -311,7 +364,7 @@ function LockedStage({
                           : "bg-fill-2 text-ink-faint line-through",
                     )}
                   >
-                    {ROLE_LABEL[mine]}
+                    {shape.roles.find((r) => r.role === mine)?.label ?? mine}
                   </span>
                 ) : (
                   <span className="text-[0.75rem] text-ink-faint">—</span>
@@ -326,9 +379,21 @@ function LockedStage({
         <p className="px-1 text-[0.75rem] text-ink-dim">
           Відсотки — частка карток, у яких команда стоїть у цій ролі. Усього карток:{" "}
           <span className="tnum font-bold">{dist.total}</span>. Колонки в тому ж порядку,
-          що й кнопки: {ROLES.map((r) => `${ROLE_LABEL[r].toLowerCase()} ×${ROLE_PRICE[r]}`).join(", ")}.
+          що й кошики: {shape.roles.map((r) => `${r.label.toLowerCase()} ×${r.price}`).join(", ")}.
         </p>
       )}
     </div>
   );
+}
+
+/**
+ * Підсумок однієї команди в людському вигляді.
+ *
+ * У швейцарці він уже такий: «3-0» читається як рахунок. У плей-офі в базі
+ * лежить роль — `champ`, `semi`, `qf` — і показувати англійський ключ
+ * посеред української таблиці нема сенсу.
+ */
+function outLabel(out: string, shape: CardShape): string {
+  if (shape.kind !== "playoff") return out;
+  return ({ champ: "1-е", final: "2-е", semi: "3-4", qf: "5-8" } as Record<string, string>)[out] ?? out;
 }
