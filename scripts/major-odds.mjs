@@ -5,6 +5,10 @@ import fs from "node:fs";
  *
  * Запуск:  node scripts/major-odds.mjs [стадія] [прогонів]
  *
+ * Друкує те, що порахувало, ДО того як писати в базу: якщо запис упаде —
+ * через невиконану міграцію чи зниклу мережу, — числа все одно видно, і
+ * прогін не доведеться повторювати наосліп.
+ *
  * Відповідає на питання «який у мене шанс», і головне — рахує його від
  * поточного стану стадії, а не від її початку. Після кожного туру числа
  * інші: саме це й перетворює чужий матч у щось, за чим стежиш.
@@ -94,7 +98,17 @@ const RATING = FIELD.map((t) => PTS.get(t));
 const E1 = (a, b) => 1 / (1 + Math.pow(10, (GL * (RATING[a] - RATING[b])) / -D));
 
 const OPEN = (stage.opening ?? []).map((m) => [IDX.get(m.a), IDX.get(m.b)]);
-const PLAYED = (stage.played ?? []).map((m) => [IDX.get(m.a), IDX.get(m.b), IDX.get(m.w)]);
+/* Зігране беремо з бази. `PLAYED=...` у середовищі підміняє його на
+   «а що якби» — щоб можна було подивитись, як посунуться числа після туру,
+   не вносячи результати нікуди. Формат: "heroic>imperial,ninez>lynn". */
+const PLAYED = (process.env.PLAYED
+  ? process.env.PLAYED.split(",").map((p) => {
+      const [w, l] = p.split(">").map((x) => x.trim());
+      return { a: w, b: l, w };
+    })
+  : stage.played ?? []
+).map((m) => [IDX.get(m.a), IDX.get(m.b), IDX.get(m.w)]);
+const DRY = process.env.DRY === "1" || !!process.env.PLAYED;
 
 const locked = Date.now() >= new Date(stage.starts_at).getTime();
 
@@ -226,6 +240,29 @@ for (let run = 0; run < RUNS; run++) {
   }
 }
 
+/* --- Що вийшло ---------------------------------------------------------- */
+
+console.log("\nкоманда           3:0    прохід    0:3");
+FIELD.map((t, i) => [t, tally[i]])
+  .sort((a, b) => b[1].a - a[1].a)
+  .forEach(([t, o]) => {
+    const f = (n) => ((n / RUNS) * 100).toFixed(1).padStart(5) + "%";
+    console.log(t.padEnd(16), f(o.w), " ", f(o.a), " ", f(o.o));
+  });
+
+if (CARDS.length) {
+  console.log("\nкартки");
+  stat
+    .map((s, i) => ({ s, user: CARDS[i].user }))
+    .sort((a, b) => b.s.pts - a.s.pts)
+    .forEach(({ s, user }) => {
+      const ev = (s.pts / RUNS).toFixed(0).padStart(4);
+      const hits = (s.hits / RUNS).toFixed(2);
+      const top = locked ? `  скін ${((s.top / RUNS) * 100).toFixed(1)}%` : "";
+      console.log(`  ${user.slice(0, 8)}  ${ev} очок  ${hits}/10${top}`);
+    });
+}
+
 /* --- Запис -------------------------------------------------------------- */
 
 const odds = {};
@@ -238,6 +275,10 @@ FIELD.forEach((t, i) => {
   };
 });
 
+if (DRY) {
+  console.log();
+  console.log("сухий прогін — у базу нічого не писалось");
+} else {
 await send("PATCH", `major_stages?stage=eq.${STAGE}`, {
   odds,
   odds_at: new Date().toISOString(),
@@ -261,26 +302,4 @@ if (CARDS.length) {
   });
   await send("POST", "major_pickem_odds", rows, "resolution=merge-duplicates");
 }
-
-/* --- Що вийшло ---------------------------------------------------------- */
-
-console.log("\nкоманда           3:0    прохід    0:3");
-FIELD.map((t, i) => [t, tally[i]])
-  .sort((a, b) => b[1].a - a[1].a)
-  .forEach(([t, o]) => {
-    const f = (n) => ((n / RUNS) * 100).toFixed(1).padStart(5) + "%";
-    console.log(t.padEnd(16), f(o.w), " ", f(o.a), " ", f(o.o));
-  });
-
-if (CARDS.length) {
-  console.log("\nкартки");
-  stat
-    .map((s, i) => ({ s, user: CARDS[i].user }))
-    .sort((a, b) => b.s.pts - a.s.pts)
-    .forEach(({ s, user }) => {
-      const ev = (s.pts / RUNS).toFixed(0).padStart(4);
-      const hits = (s.hits / RUNS).toFixed(2);
-      const top = locked ? `  скін ${((s.top / RUNS) * 100).toFixed(1)}%` : "";
-      console.log(`  ${user.slice(0, 8)}  ${ev} очок  ${hits}/10${top}`);
-    });
 }
