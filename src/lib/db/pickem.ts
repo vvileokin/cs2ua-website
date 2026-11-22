@@ -16,12 +16,17 @@ import {
  * які рано чи пізно розійдуться.
  */
 
+/** Пара першого туру зі стадії. */
+export type StageMatch = { a: string; b: string; at: string };
+
 export type MajorStage = {
   stage: 1 | 2 | 3;
   title: string;
   /** Слаги. Поки їх менше шістнадцяти, стадія ще не укомплектована. */
   teams: string[];
   startsAt: string;
+  /** Розклад першого туру. Порожньо, доки його не внесли. */
+  opening: StageMatch[];
   actual: StageOutcome | null;
   scoredAt: string | null;
 };
@@ -53,7 +58,11 @@ export const getStages = cache(async (): Promise<MajorStage[]> => {
   const sb = await createClient();
   const { data } = await sb
     .from("major_stages")
-    .select("stage, title, teams, starts_at, actual, scored_at")
+    /* Зірочка, а не перелік колонок. PostgREST відповідає помилкою на
+       запит колонки, якої ще немає, і один невиконаний міграційний крок
+       клав би всю сторінку в «Стадії ще не заведені». Зі `*` нова колонка
+       просто приходить порожньою, доки її не додадуть. */
+    .select("*")
     .order("stage");
 
   return (data ?? []).map((r) => ({
@@ -61,6 +70,7 @@ export const getStages = cache(async (): Promise<MajorStage[]> => {
     title: r.title as string,
     teams: (r.teams as string[]) ?? [],
     startsAt: r.starts_at as string,
+    opening: (r.opening as StageMatch[]) ?? [],
     actual: (r.actual as StageOutcome | null) ?? null,
     scoredAt: (r.scored_at as string | null) ?? null,
   }));

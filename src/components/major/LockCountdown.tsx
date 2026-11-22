@@ -38,6 +38,10 @@ export function LockCountdown({ at, className }: { at: string; className?: strin
     return () => window.clearInterval(id);
   }, [target]);
 
+  /* Прийменник належить компоненту, а не сторінці. Сторінка не знає, що саме
+     тут буде надруковано: до монтування це абсолютна дата («о 08:00»), після —
+     інтервал («через 1 д 17 год»), і «через» перед датою в першому кадрі дає
+     «Закриється через 24 листопада о 08:00». */
   if (left === null) {
     return (
       <span className={className} suppressHydrationWarning>
@@ -60,7 +64,7 @@ export function LockCountdown({ at, className }: { at: string; className?: strin
 
   return (
     <span className={className} suppressHydrationWarning>
-      {text}
+      через {text}
     </span>
   );
 }

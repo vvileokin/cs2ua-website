@@ -1,0 +1,110 @@
+import { cn } from "@/lib/utils";
+import type { Team } from "@/lib/data";
+
+/**
+ * Герб команди в оформленні мейджора.
+ *
+ * Звичайний `TeamLogo` ставить силует на плитку фірмового кольору команди —
+ * і це правильно скрізь, де команди треба розрізняти одну від одної: у стрічці
+ * матчів, у таблиці, у ставці. На сторінці події це ламається. Шістнадцять
+ * брендових плиток — зелена, червона, жовта, бірюзова — перетворюють сітку на
+ * палітру, у якій колір самої події вже нічого не означає: він стає
+ * сімнадцятим кольором серед шістнадцяти.
+ *
+ * Тому тут усі герби однакові: білий знак на тьмяній підкладці. Рівно так
+ * роблять і в клієнті, і на сторінках самих мейджорів — на сітці пікемів
+ * команди стоять білими марками на тлі події, а не кожна у своєму кольорі.
+ * Різниця між ними лишається там, де вона й має бути — у формі знака.
+ *
+ * Колір повертається рівно в одному місці: коли герб обраний або поставлений
+ * у кошик, підкладка займається кольором події. Тобто колір тут означає не
+ * «що це за команда», а «що з нею зроблено», і це єдине, про що сітка має
+ * говорити кольором.
+ */
+/**
+ * Чим світиться обраний герб.
+ *
+ * Кольори тут не від бренду події, а від самої гри. У клієнті кошики пікема
+ * підписані зеленим і червоним незалежно від того, якого кольору турнір:
+ * зелене — пройшов, червоне — вилетів. Це читається без жодного підпису і
+ * читається однаково в кожного, хто колись складав картку.
+ *
+ * Тому червоне поля мейджора на цій сторінці свідомо пригашене. Якби панель
+ * світилась подієвим багряним на повну, зелений і червоний на кошиках не
+ * мали б де прозвучати — і сторінка втратила б рівно те, що в ній найлегше
+ * впізнається.
+ */
+const ACTIVE: Record<string, string> = {
+  /* 3:0 — найгарячіше, що є в картці. */
+  win: "bg-[color-mix(in_oklch,var(--major-hot)_32%,transparent)] shadow-[inset_0_0_0_1px_var(--major-hot),0_0_16px_-6px_var(--major-hot)]",
+  /* Прохід — той самий колір, тихіше: їх шестеро, і шість однакових вогнів
+     у стовпці перетягнули б на себе всю сторінку. */
+  pass: "bg-[color-mix(in_oklch,var(--major)_24%,transparent)] shadow-[inset_0_0_0_1px_color-mix(in_oklch,var(--major)_62%,transparent)]",
+  /* 0:3 — холодне: виліт це відсутність події, а не її відтінок. */
+  out: "bg-white/[0.09] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.22)]",
+  /* Обране в складі, ще не покладене в кошик — колір події. */
+  held: "bg-[color-mix(in_oklch,var(--major-hot)_30%,transparent)] shadow-[inset_0_0_0_1px_var(--major-hot),0_0_16px_-6px_var(--major-hot)]",
+};
+
+export function MajorCrest({
+  team,
+  slug,
+  size = 44,
+  state = "idle",
+  tone = "held",
+  className,
+}: {
+  team: Team | null;
+  /** Щоб було що показати, коли слаг випав із довідника. */
+  slug: string;
+  size?: number;
+  state?: "idle" | "active" | "dim";
+  tone?: "win" | "pass" | "out" | "held";
+  className?: string;
+}) {
+  const radius = Math.max(6, Math.round(size * 0.22));
+  const external = team ? /^https?:\/\//.test(team.logo) : false;
+  const inner = Math.round(size * (external ? 0.8 : 0.66));
+
+  return (
+    <span
+      className={cn(
+        "relative inline-flex shrink-0 items-center justify-center transition-[background-color,box-shadow,transform] duration-150 ease-[cubic-bezier(0.22,1,0.36,1)]",
+        state === "active"
+          ? ACTIVE[tone]
+          : state === "dim"
+            ? "bg-white/[0.03] opacity-35 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]"
+            : "bg-white/[0.05] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.09)]",
+        className,
+      )}
+      style={{ width: size, height: size, borderRadius: radius }}
+    >
+      {team?.logo ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={team.logo}
+          alt={team.name}
+          loading="lazy"
+          decoding="async"
+          width={inner}
+          height={inner}
+          style={{
+            width: inner,
+            height: inner,
+            objectFit: "contain",
+            // Каталожні знаки намальовані під перефарбовування — робимо білими.
+            // Привізні логотипи це готова кольорова графіка, її не чіпаємо.
+            filter: external ? undefined : "brightness(0) invert(1)",
+          }}
+        />
+      ) : (
+        <span
+          className="font-extrabold leading-none tracking-tight text-white/90"
+          style={{ fontSize: Math.round(size * 0.26) }}
+        >
+          {team?.tag ?? slug.slice(0, 4).toUpperCase()}
+        </span>
+      )}
+    </span>
+  );
+}

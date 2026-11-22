@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
-import { TeamLogo } from "@/components/ui/TeamLogo";
 import { MajorMode } from "@/components/major/MajorMode";
-import { MajorHero } from "@/components/major/MajorHero";
+import { MajorCrest } from "@/components/major/MajorCrest";
+import { OpeningStrip } from "@/components/major/OpeningStrip";
 import { LockCountdown } from "@/components/major/LockCountdown";
 import { PickemCard } from "@/components/major/PickemCard";
 import { PickemBoard } from "@/components/major/PickemBoard";
@@ -11,7 +11,7 @@ import {
   getStages, getMyCards, getBoard, getDistribution, isOpen, currentStage,
 } from "@/lib/db/pickem";
 import {
-  ROLES, ROLE_LABEL, ROLE_PRICE, ROLE_TITLE, STAGE_MAX, isHit, tierOf,
+  ROLES, ROLE_LABEL, ROLE_PRICE, ROLE_TITLE, isHit, tierOf,
   type PickRole,
 } from "@/lib/major-pickem";
 import { cn } from "@/lib/utils";
@@ -39,8 +39,8 @@ export default async function MajorPickemPage({
     return (
       <div className="space-y-5">
         <MajorMode />
-        <MajorHero kicker="PGL Major Singapore 2026" title="Пікеми" />
-        <p className="rounded-2xl surface-1 px-6 py-12 text-center text-sm text-ink-subtle">
+        <h1 className="sr-only">Пікеми на мейджор</h1>
+        <p className="rounded-[4px] surface-1 px-6 py-12 text-center text-sm text-ink-subtle">
           Стадії ще не заведені. Заходь ближче до старту.
         </p>
       </div>
@@ -58,64 +58,70 @@ export default async function MajorPickemPage({
     <div className="space-y-5 sm:space-y-6">
       <MajorMode />
 
-      <MajorHero kicker="PGL Major Singapore 2026" title="Пікеми">
-        {/* Правило гри одним рядком, прямо в шапці. Воно коротке, і сторінка,
-            яка починається з «ось арт, а тепер здогадайся», марнує єдиний
-            екран, на якому людина точно дивиться. */}
-        <p className="max-w-xl text-pretty text-[0.8125rem] font-semibold leading-snug text-white/80 sm:text-sm">
-          Двоє пройдуть без поразок, шестеро пройдуть далі, двоє вилетять усуха.
-          Десять виборів із шістнадцяти — до {STAGE_MAX} очок за стадію.
-        </p>
-      </MajorHero>
+      {/* Найближчі матчі — над вкладками, бо вони про те, що станеться зі
+          стадією, а не про картку. Коли розкладу ще немає, стрічки немає
+          теж: порожня смуга над вкладками обіцяє те, чого в ній нема. */}
+      <OpeningStrip matches={stage.opening} />
 
-      {/* Стадії. Три, і всі три завжди видно: друга і третя ще без складу, але
-          сховати їх означало б приховати й те, що гра триватиме два тижні. */}
-      <nav className="grid grid-cols-3 gap-2">
+      {/* Стадії — плитами, як навігація на сторінці самої події: прямі кути,
+          дрібна капітель, обрана заливається кольором події цілком. Ряд
+          рівних плит також чесно каже, що стадії рівноцінні, тоді як
+          попередні картки з підзаголовками натякали на ієрархію. */}
+      <nav className="grid grid-cols-3 gap-px overflow-hidden rounded-[4px] bg-white/10">
         {stages.map((s) => {
           const here = s.stage === stage.stage;
           const mine = cards[s.stage];
-          const locked = !isOpen(s);
           return (
             <Link
               key={s.stage}
               href={`/major?stage=${s.stage}`}
               aria-current={here ? "page" : undefined}
               className={cn(
-                "rounded-xl px-3 py-2.5 transition-colors duration-150",
+                "px-3 py-3 text-center transition-colors duration-150",
                 here
-                  ? "bg-[color-mix(in_oklch,var(--major)_20%,transparent)] shadow-[inset_0_0_0_1px_color-mix(in_oklch,var(--major)_50%,transparent)]"
-                  : "bg-surface hover:bg-surface-2",
+                  ? "bg-[var(--major-hot)]"
+                  : "bg-[var(--major-floor)] hover:bg-white/[0.05]",
               )}
             >
               <p
                 className={cn(
-                  "truncate text-sm font-extrabold",
-                  here ? "text-[var(--major-hot)]" : "text-ink",
+                  "truncate text-[0.75rem] font-black uppercase tracking-[0.1em]",
+                  here ? "text-[var(--major-ink)]" : "text-ink-muted",
                 )}
               >
                 {s.title}
               </p>
-              <p className="mt-0.5 truncate text-[0.6875rem] font-semibold text-ink-dim">
-                {s.teams.length < 16
-                  ? "Склад невідомий"
-                  : mine?.scored
-                    ? `${mine.hits}/10 · ${mine.points} очок`
-                    : mine
-                      ? locked ? "Картка подана" : "Чернетка є"
-                      : locked ? "Без картки" : "Картка відкрита"}
-              </p>
+              {/* Підзаголовка немає. «Склад невідомий» під двома з трьох
+                  вкладок читалося як поломка, а не як розклад турніру, і
+                  єдине, що справді варто показати, — власний результат, коли
+                  він уже є. */}
+              {mine?.scored && (
+                <p className={cn(
+                  "mt-0.5 truncate text-[0.6875rem] font-bold tabular-nums",
+                  here ? "text-[var(--major-ink)]/75" : "text-ink-dim",
+                )}>
+                  {mine.hits}/10 · {mine.points}
+                </p>
+              )}
             </Link>
           );
         })}
       </nav>
 
-      {/* Стан стадії: коли замок, що вже зіграно. */}
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 rounded-xl surface-1 px-4 py-3">
-        <p className="text-sm font-extrabold text-ink">{stage.title}</p>
+      {/* Стан стадії: коли замок, що вже зіграно.
+          Тут же живе єдиний заголовок сторінки. Банера над ним немає
+          свідомо — назва сторінки це підпис, а не вміст, і місце нагорі
+          віддано тому, заради чого її відкрили. */}
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 rounded-[4px] surface-1 px-4 py-3">
+        <h1 className="flex items-center gap-2 text-sm font-extrabold text-ink">
+          <span className="size-1.5 shrink-0 rounded-full bg-[var(--major-hot)] shadow-[0_0_10px_var(--major-hot)]" />
+          {stage.title}
+          <span className="font-semibold text-ink-dim">· пікеми на мейджор</span>
+        </h1>
         {ready ? (
           open ? (
             <p className="text-sm text-ink-muted">
-              Замок через{" "}
+              Закриється{" "}
               <LockCountdown
                 at={stage.startsAt}
                 className="font-extrabold text-[var(--major-hot)]"
@@ -136,12 +142,7 @@ export default async function MajorPickemPage({
       {!ready ? (
         <IncompleteStage teams={stage.teams} />
       ) : open ? (
-        <PickemCard
-          stage={stage.stage}
-          teams={stage.teams}
-          initial={card?.picks ?? {}}
-          locked={false}
-        />
+        <PickemCard stage={stage.stage} teams={stage.teams} initial={card?.picks ?? {}} />
       ) : (
         <LockedStage
           teams={stage.teams}
@@ -156,19 +157,6 @@ export default async function MajorPickemPage({
 
       <PickemBoard rows={board} />
 
-      {/* Гонка за інвайти закрилась 2 листопада, але це місяць роботи й
-          єдине місце, де лежить, як саме ці тридцять дві команди сюди
-          потрапили. Посилання лишається, зі сторінки воно пішло. */}
-      <p className="text-center text-[0.8125rem] text-ink-subtle">
-        Як рахувались запрошення —{" "}
-        <Link
-          href="/major/invites"
-          className="font-bold text-[var(--major-hot)] underline-offset-4 hover:underline"
-        >
-          таблиця VRS і прогноз відсічення
-        </Link>
-        .
-      </p>
     </div>
   );
 }
@@ -190,7 +178,7 @@ function IncompleteStage({ teams }: { teams: string[] }) {
               key={slug}
               className="flex items-center gap-2 rounded-lg bg-fill-1 py-1.5 pl-1.5 pr-3"
             >
-              {team ? <TeamLogo team={team} size="xs" /> : null}
+              <MajorCrest team={team} slug={slug} size={22} />
               <span className="text-[0.8125rem] font-bold text-ink-muted">
                 {team?.name ?? slug}
               </span>
@@ -274,11 +262,7 @@ function LockedStage({
 
           return (
             <div key={slug} className="flex items-center gap-3 px-3 py-2.5 sm:px-4">
-              {team ? (
-                <TeamLogo team={team} size="sm" />
-              ) : (
-                <span className="size-7 shrink-0 rounded-md bg-fill-2" aria-hidden />
-              )}
+              <MajorCrest team={team} slug={slug} size={28} />
               <span className="min-w-0 flex-1 truncate text-sm font-bold text-ink">
                 {team?.name ?? slug}
               </span>

@@ -55,7 +55,9 @@ export function LiveRail({ initial }: { initial: Match[] }) {
   if (!live.length) return null;
 
   return (
-    <div className="min-h-0 flex-1 overflow-y-auto px-3 pt-1">
+    /* Висоту й прокрутку тримає обгортка в Sidebar: цей блок зникає разом із
+       матчами, а місце в рейці зникати не повинно. */
+    <div className="px-3 pt-1">
       <p className="mb-2 flex items-center gap-1.5 px-1 text-[0.625rem] font-semibold uppercase tracking-wide text-ink-dim">
         <span className="size-1.5 rounded-full bg-[var(--live)]" />
         Зараз грають
