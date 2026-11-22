@@ -10,10 +10,9 @@ import { LockCountdown } from "@/components/major/LockCountdown";
 import { PickemCard } from "@/components/major/PickemCard";
 import { PickemBoard, plural } from "@/components/major/PickemBoard";
 import { getChampionTally, getMyChampionVote } from "@/lib/db/champion";
-import { getStageOdds } from "@/lib/db/odds";
 import { findTeam } from "@/lib/data";
 import {
-  getStages, getMyCards, getBoard, getStageBoard, getDistribution,
+  getStages, getMyCards, getBoard, getStageBoard, getDistribution, getSpread,
   isOpen, isReady, hasStarted, shapeFor, currentStage, isSignedIn,
   type BoardRow, type Distribution,
 } from "@/lib/db/pickem";
@@ -61,10 +60,10 @@ export default async function MajorPickemPage({
   const open = isOpen(stage);
   const ready = isReady(stage);
   const card = cards[stage.stage] ?? null;
-  const [dist, stageBoard, stageOdds] = await Promise.all([
+  const [dist, stageBoard, spread] = await Promise.all([
     getDistribution(stage.stage, stage.startsAt),
     stage.scoredAt ? getStageBoard(stage.stage) : Promise.resolve<BoardRow[]>([]),
-    getStageOdds(stage.stage),
+    getSpread(stage.stage),
   ]);
 
   /* Учасники голосування — усі, кого вписали в стадії, від найвищого посіву
@@ -173,7 +172,7 @@ export default async function MajorPickemPage({
           teams={stage.teams}
           initial={card?.picks ?? {}}
           canSave={signedIn}
-          odds={stageOdds.byTeam}
+          spread={spread}
         />
       ) : (
         <LockedStage

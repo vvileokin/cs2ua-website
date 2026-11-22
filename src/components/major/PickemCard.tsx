@@ -70,35 +70,26 @@ const BOX_TINT: Record<Tone, string> = {
   out: "color-mix(in oklch, var(--ink) 55%, transparent)",
 };
 
-/** Яке з трьох чисел показувати, коли ціляться в цей кошик. */
-const ODDS_KEY: Record<PickRole, "w" | "a" | "o"> = {
-  "3-0": "w",
-  adv: "a",
-  "0-3": "o",
-  champ: "w",
-  final: "a",
-  semi: "o",
-};
-
 export function PickemCard({
   stage,
   shape,
   teams,
   initial,
   canSave,
-  odds = {},
+  spread = { total: 0, byTeam: {} },
 }: {
   stage: number;
   shape: CardShape;
   teams: string[];
   initial: PickemPicks;
   /**
-   * Шанси команд на поточний момент: слаг → {w, a, o}.
+   * Як розклалася спільнота: скільки карток поставило кожну команду в кожну
+   * роль, і скільки карток усього.
    *
-   * Порожньо — значить, прогін ще не робили, і картка малюється без цифр.
-   * Це навмисно м'яка залежність: відсотки — добавка, а не умова.
+   * Нуль карток — значить, показувати нема чого, і картка малюється без
+   * цифр. Це навмисно м'яка залежність: відсотки — добавка, а не умова.
    */
-  odds?: Record<string, { w: number; a: number; o: number }>;
+  spread?: { total: number; byTeam: Record<string, Record<string, number>> };
   /** Чи є кому зберігати. Для гостя кнопка мовчала б так само, як і для
    *  недозаповненої картки, а причина зовсім інша. */
   canSave: boolean;
@@ -312,6 +303,23 @@ export function PickemCard({
     return () => clearTimeout(t);
   }, [canSave, complete, dirty, saving, picks, save]);
 
+  /**
+   * Частка карток, у яких ця команда стоїть у цій ролі.
+   *
+   * `role === null` означає «без ролі»: таких карток стільки, скільки
+   * всього, мінус ті, де команду кудись поклали.
+   */
+  const pctFor = React.useCallback(
+    (slug: string, role: PickRole | null): number | null => {
+      if (!spread.total) return null;
+      const row = spread.byTeam[slug] ?? {};
+      const placed = Object.values(row).reduce((n, v) => n + v, 0);
+      const n = role ? (row[role] ?? 0) : spread.total - placed;
+      return Math.round((n / spread.total) * 100);
+    },
+    [spread],
+  );
+
   /** Чого ще бракує, кошиками. Порожньо — картка повна. */
   const short = shape.roles
     .map((r) => ({ r, n: r.cap - inRole(r.role).length }))
@@ -365,14 +373,13 @@ export function PickemCard({
           {teams.map((slug) => {
             const team = findTeam(slug);
             const used = !!picks[slug];
-            /* Яке саме число показати, залежить від того, куди ціляться.
-               Ймовірностей у команди три, і «18%» без ролі нічого не
-               означає: вісімнадцять на 3:0 — це сильна команда, вісімнадцять
-               на 0:3 — слабка. Коли кошик обрано, показуємо його ймовірність;
-               коли ні — прохід, бо це найзагальніша міра сили. */
-            const o = odds[slug];
-            const key = live ? ODDS_KEY[live] : "a";
-            const pct = o ? Math.round(o[key] * 100) : null;
+            /* Скільки людей зробило так само.
+               Коли кошик обрано — частка тих, хто поклав цю команду саме
+               туди: видно, куди йде натовп. Коли не обрано — частка тих,
+               хто згоден із твоєю власною карткою, зокрема й із тим, що
+               команду ти не чіпав узагалі: шестеро без ролі — це теж
+               твердження, і погодитися з ним так само можна. */
+            const pct = pctFor(slug, live ?? picks[slug] ?? null);
             return (
               <button
                 key={slug}
@@ -552,9 +559,9 @@ export function PickemCard({
                         state="active"
                         tone={tone}
                       />
-                      <span className="max-w-full truncate text-[0.625rem] font-bold text-ink-muted group-hover:text-ink">
-                        {odds[slug]
-                          ? `${Math.round(odds[slug][ODDS_KEY[role]] * 100)}%`
+                          <span className="max-w-full truncate text-[0.625rem] font-bold text-ink-muted group-hover:text-ink">
+                        {pctFor(slug, role) !== null
+                          ? `${pctFor(slug, role)}%`
                           : (team?.tag ?? slug)}
                       </span>
                     </button>

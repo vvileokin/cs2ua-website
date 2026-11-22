@@ -199,6 +199,40 @@ function toRow(r: Record<string, unknown>): BoardRow {
 }
 
 /**
+ * Як розклалася спільнота — ще до замка.
+ *
+ * Чужі картки закриті політикою, і це правильно. Агрегат — інша річ: він
+ * каже, скільки людей зробило так само, і нічого про те, хто саме. Рахує
+ * його функція з 0100, у якої межа стоїть у сигнатурі, а не в тексті
+ * запиту; там же живе й поріг у п'ять карток, нижче якого відсоток це не
+ * статистика, а чужа картка, прочитана вголос.
+ *
+ * «Без ролі» теж роль: у швейцарській картці десять виборів із шістнадцяти,
+ * і шестеро, що лишилися, — це теж твердження («вилетить, але не всуха»).
+ * Тому повертаємо й загальну кількість карток: частку тих, хто команду не
+ * чіпав, інакше не порахувати.
+ */
+export type Spread = {
+  total: number;
+  byTeam: Record<string, Record<string, number>>;
+};
+
+export const getSpread = cache(async (stage: number): Promise<Spread> => {
+  const sb = await createClient();
+  const [count, rows] = await Promise.all([
+    sb.rpc("major_pickem_count", { p_stage: stage }),
+    sb.rpc("major_pickem_spread", { p_stage: stage }),
+  ]);
+
+  const byTeam: Record<string, Record<string, number>> = {};
+  for (const r of (rows.data as { team: string; role: string; cards: number }[] | null) ?? []) {
+    byTeam[r.team] ??= {};
+    byTeam[r.team][r.role] = r.cards;
+  }
+  return { total: (count.data as number | null) ?? 0, byTeam };
+});
+
+/**
  * Розподіл виборів по стадії.
  *
  * До замка RLS віддасть сюди щонайбільше власну картку, і цифра «100% обрали
