@@ -35,7 +35,7 @@ export function OpeningStrip({ matches }: { matches: StageMatch[] }) {
   }
 
   return (
-    <section className="major-plate rounded-2xl px-3 py-3 sm:px-4">
+    <section className="major-plate rounded-[4px] px-3 py-3 sm:px-4">
       {/* Підпису «Перший тур» тут немає. Чотири години поспіль із парами під
           кожною — це розклад і ні що інше; слово над ним називало те, що й
           так видно, і забирало рядок у того, що треба прочитати. */}
@@ -61,7 +61,7 @@ export function OpeningStrip({ matches }: { matches: StageMatch[] }) {
                   <div
                     key={`${m.a}-${m.b}-${i}`}
                     title={`${a?.name ?? m.a} — ${b?.name ?? m.b}`}
-                    className="flex items-center gap-1.5 rounded-lg bg-black/25 px-1.5 py-1"
+                    className="flex items-center gap-1.5 rounded-[3px] bg-black/25 px-1.5 py-1"
                   >
                     <MajorCrest team={a} slug={m.a} size={20} />
                     <span className="min-w-0 flex-1 truncate text-[0.6875rem] font-bold text-ink-muted">

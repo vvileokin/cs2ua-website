@@ -266,7 +266,7 @@ export function PickemCard({
   return (
     <div className="space-y-4">
       {/* --- Склад стадії --- */}
-      <section className="major-plate rounded-2xl p-3 sm:p-4">
+      <section className="major-plate rounded-[4px] p-3 sm:p-4">
         {/* Над складом немає нічого — ні підпису, ні рядка під підказку.
             Шістнадцять гербів під вкладкою стадії не треба називати, їх
             видно; а порожній рядок, що тримав висоту під підказку, з'їдав
@@ -318,7 +318,7 @@ export function PickemCard({
                    прокручує сторінку замість перетягування. Вимкнено рівно
                    на гербах: решта сторінки гортається як завжди. */
                 className={cn(
-                  "flex min-w-0 touch-none select-none flex-col items-center gap-1 rounded-lg p-1 transition-colors duration-150",
+                  "flex min-w-0 touch-none select-none flex-col items-center gap-1 rounded-[3px] p-1 transition-colors duration-150",
                   used
                     ? "cursor-default"
                     : "cursor-grab hover:bg-white/[0.04] active:cursor-grabbing",
@@ -356,7 +356,7 @@ export function PickemCard({
           коробка, що виглядає як незаповнена форма. Тут ширину задає
           найбільший кошик, а менші вирівнюються по його правому краю: ряди
           читаються як одна таблиця, і жодна площа не стоїть даремно. */}
-      <div className="major-plate major-divide overflow-hidden rounded-2xl">
+      <div className="major-plate major-divide overflow-hidden rounded-[4px]">
         {shape.roles.map((spec) => {
           const role = spec.role;
           const tone = TONE[role];
@@ -391,7 +391,7 @@ export function PickemCard({
                    кут плити — рамка виглядала надламаною саме там, де має
                    починатися. Тепер ряд заокруглений так само, і тінь іде по
                    тій самій дузі, якою плита обрізає. */
-                "first:rounded-t-2xl last:rounded-b-2xl",
+                "first:rounded-t-[4px] last:rounded-b-[4px]",
                 free === 0
                   ? BOX_FULL[tone]
                   : isTarget || armed
@@ -468,7 +468,7 @@ export function PickemCard({
                        квадратний знак — це дві різні фігури на одному місці,
                        і порожній кошик виглядав не як вільне місце, а як
                        інший елемент. */
-                    className="h-10 w-10 shrink-0 rounded-[9px] border border-dashed transition-colors duration-150"
+                    className="h-10 w-10 shrink-0 rounded-[4px] border border-dashed transition-colors duration-150"
                     style={{
                       borderColor: isTarget || armed
                         ? tint
@@ -528,10 +528,10 @@ export function PickemCard({
           onClick={save}
           disabled={!complete || saving || !dirty}
           className={cn(
-            /* `rounded-lg`, як у решти кнопок сайта (`ui/Button`, розмір
+            /* `rounded-[3px]`, як у решти кнопок сайта (`ui/Button`, розмір
                md). Пігулка тут була сьомим радіусом на сторінці, де їх і так
                було більше, ніж елементів, що їх заслуговують. */
-            "h-11 rounded-lg px-6 text-sm font-extrabold transition-colors duration-150",
+            "h-11 rounded-[3px] px-6 text-sm font-extrabold transition-colors duration-150",
             complete && dirty && !saving
               ? "bg-accent text-accent-ink hover:bg-accent-hover"
               : "cursor-default bg-fill-2 text-ink-faint",

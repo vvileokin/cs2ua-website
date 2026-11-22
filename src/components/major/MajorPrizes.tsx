@@ -19,7 +19,7 @@ export function MajorPrizes({ stage }: { stage?: number }) {
     <section>
       <h2 className="mb-3 px-1 text-base font-extrabold text-ink">Призи</h2>
 
-      <div className="major-plate major-divide overflow-hidden rounded-2xl">
+      <div className="major-plate major-divide overflow-hidden rounded-[4px]">
         {PRIZES.map((p) => {
           const here = p.key === stage;
           return (

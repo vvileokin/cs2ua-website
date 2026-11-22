@@ -153,7 +153,7 @@ export function ChampionPoll({
         )}
       </h2>
 
-      <div className="major-plate overflow-hidden rounded-2xl p-3 sm:p-4">
+      <div className="major-plate overflow-hidden rounded-[4px] p-3 sm:p-4">
         {locked && (
           <p className="mb-3 text-center text-[0.8125rem] text-ink-dim">
             Плей-оф почався — голосування закрите.
@@ -199,7 +199,7 @@ export function ChampionPoll({
                 aria-label={`${team?.name ?? slug}${total > 0 ? `, ${pct}%` : ""}`}
                 title={team?.name ?? slug}
                 className={cn(
-                  "flex min-w-0 flex-col items-center rounded-lg p-0.5 transition-colors duration-150",
+                  "flex min-w-0 flex-col items-center rounded-[3px] p-0.5 transition-colors duration-150",
                   mine || locked ? "cursor-default" : "hover:bg-white/[0.05]",
                   busy === slug && "opacity-60",
                 )}

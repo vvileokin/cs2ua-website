@@ -47,11 +47,11 @@ export function PickemBoard({
       </h2>
 
       {rows.length === 0 ? (
-        <p className="rounded-2xl surface-1 px-4 py-8 text-center text-sm text-ink-subtle">
+        <p className="rounded-[4px] surface-1 px-4 py-8 text-center text-sm text-ink-subtle">
           {empty}
         </p>
       ) : (
-        <ol className="major-plate major-divide overflow-hidden rounded-2xl">
+        <ol className="major-plate major-divide overflow-hidden rounded-[4px]">
           {rows.map((r, i) => {
             const tier = shape ? tierOf(r.hits, shape) : null;
             const paid = r.rank <= PRIZE_TOP;
@@ -115,7 +115,7 @@ export function PickemBoard({
 function TierChip({ tier }: { tier: PickemTier }) {
   return (
     <span
-      className="hidden shrink-0 rounded-lg px-2 py-0.5 text-[0.6875rem] font-extrabold sm:inline"
+      className="hidden shrink-0 rounded-[3px] px-2 py-0.5 text-[0.6875rem] font-extrabold sm:inline"
       style={{
         color: tier.tone,
         backgroundColor: `color-mix(in oklch, ${tier.tone} 16%, transparent)`,

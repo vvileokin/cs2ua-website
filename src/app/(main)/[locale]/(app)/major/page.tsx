@@ -46,7 +46,7 @@ export default async function MajorPickemPage({
       <div className="space-y-5">
         <MajorMode />
         <h1 className="sr-only">Пікеми на мейджор</h1>
-        <p className="rounded-2xl surface-1 px-6 py-12 text-center text-sm text-ink-subtle">
+        <p className="rounded-[4px] surface-1 px-6 py-12 text-center text-sm text-ink-subtle">
           Стадії ще не заведені. Заходь ближче до старту.
         </p>
       </div>
@@ -96,7 +96,7 @@ export default async function MajorPickemPage({
           що невиконана міграція лишає порожню плиту в ряду — сторінка
           малювала б чотири вкладки на три стадії. */}
       <nav
-        className="grid gap-px overflow-hidden rounded-2xl bg-white/10 [grid-template-columns:repeat(var(--tabs),minmax(0,1fr))]"
+        className="grid gap-px overflow-hidden rounded-[4px] bg-white/10 [grid-template-columns:repeat(var(--tabs),minmax(0,1fr))]"
         style={{ "--tabs": stages.length } as React.CSSProperties}
       >
         {stages.map((s) => {
@@ -139,7 +139,7 @@ export default async function MajorPickemPage({
           Тут же живе єдиний заголовок сторінки. Банера над ним немає
           свідомо — назва сторінки це підпис, а не вміст, і місце нагорі
           віддано тому, заради чого її відкрили. */}
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 rounded-2xl surface-1 px-4 py-3">
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 rounded-[4px] surface-1 px-4 py-3">
         <h1 className="flex items-center gap-2 text-sm font-extrabold text-ink">
           <span className="size-1.5 shrink-0 rounded-full bg-[var(--major-hot)] shadow-[0_0_10px_var(--major-hot)]" />
           {stage.title}
@@ -228,7 +228,7 @@ export default async function MajorPickemPage({
 function IncompleteStage({ teams }: { teams: string[] }) {
   if (!teams.length) {
     return (
-      <p className="rounded-2xl surface-1 px-4 py-10 text-center text-sm text-ink-subtle">
+      <p className="rounded-[4px] surface-1 px-4 py-10 text-center text-sm text-ink-subtle">
         Склад цієї стадії ще не визначений. Картка відкриється, щойно стане
         відомо, хто в ній грає.
       </p>
@@ -236,7 +236,7 @@ function IncompleteStage({ teams }: { teams: string[] }) {
   }
 
   return (
-    <div className="major-plate rounded-2xl p-4 sm:p-5">
+    <div className="major-plate rounded-[4px] p-4 sm:p-5">
       {/* Без підпису «Уже кваліфіковані». Під вкладкою стадії, у якої ще
           немає картки, ряд гербів може означати тільки одне, і називати це
           словами — витрачати рядок на переказ очевидного. */}
@@ -246,7 +246,7 @@ function IncompleteStage({ teams }: { teams: string[] }) {
           return (
             <span
               key={slug}
-              className="flex items-center gap-2 rounded-lg bg-fill-1 py-1.5 pl-1.5 pr-3"
+              className="flex items-center gap-2 rounded-[3px] bg-fill-1 py-1.5 pl-1.5 pr-3"
             >
               <MajorCrest team={team} slug={slug} size={22} />
               <span className="text-[0.8125rem] font-bold text-ink-muted">
@@ -285,7 +285,7 @@ function LockedStage({
   return (
     <div className="space-y-3">
       {scored && (
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 rounded-2xl major-plate px-4 py-3.5 sm:px-5">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 rounded-[4px] major-plate px-4 py-3.5 sm:px-5">
           <div>
             <p className="text-[0.6875rem] font-semibold uppercase tracking-wide text-ink-dim">
               Влучань
@@ -319,12 +319,12 @@ function LockedStage({
       )}
 
       {!picks && (
-        <p className="rounded-2xl surface-1 px-4 py-3 text-sm text-ink-subtle">
+        <p className="rounded-[4px] surface-1 px-4 py-3 text-sm text-ink-subtle">
           Картки на цю стадію в тебе немає. Нижче — як розклалася спільнота.
         </p>
       )}
 
-      <div className="major-plate major-divide overflow-hidden rounded-2xl">
+      <div className="major-plate major-divide overflow-hidden rounded-[4px]">
         {teams.map((slug) => {
           const team = findTeam(slug);
           const mine = picks?.[slug];
@@ -376,7 +376,7 @@ function LockedStage({
                 {mine ? (
                   <span
                     className={cn(
-                      "rounded-lg px-2 py-1 text-[0.75rem] font-extrabold",
+                      "rounded-[3px] px-2 py-1 text-[0.75rem] font-extrabold",
                       hit === null
                         ? "bg-fill-2 text-ink-muted"
                         : hit
