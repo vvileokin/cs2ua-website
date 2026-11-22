@@ -151,6 +151,26 @@ export type Prize = {
   wear: string;
   /** Ціна одного екземпляра на торговій площадці, USD. */
   unit: number;
+  /** Картинка скіна в `public/skins`. Приз краще показати, ніж назвати:
+   *  «Desert Eagle | Trigger Discipline» нічого не каже тому, хто цього
+   *  скіна не бачив, а побачивши — впізнає одразу. */
+  img: string;
+  /**
+   * Частка ширини коробки, яку займає ствол. Від довжини справжньої зброї.
+   *
+   * Картинки приходять обрізаними впритул, і якщо просто вписати кожну у
+   * свою коробку, пістолет займе її всю, а AWP ляже тонкою смужкою — на
+   * сторінці Glock виходить більшим за AK. Тому масштаб один на всіх і
+   * береться з довжини: AWP 1180 мм, AK 880, USP із глушником 330,
+   * Desert Eagle 270, Glock 186.
+   *
+   * Не прямою пропорцією, а стисненою (корінь із відношення): у чистих
+   * пропорціях Glock — шістнадцять відсотків від AWP, тобто двадцять
+   * пікселів, на яких уже нічого не видно. Стиснення лишає порядок
+   * правильним — гвинтівки довші за пістолети, — але тримає найменший
+   * приз таким, що його ще можна роздивитися.
+   */
+  scale: number;
   /** Закладений бюджет роздачі, USD. Він трохи більший за десять цін: скіни
    *  купуються в різні дні й за різними цінами, і рівний бюджет — це те, що
    *  ми обіцяємо, а `unit` — те, скільки воно коштує сьогодні. */
@@ -158,11 +178,11 @@ export type Prize = {
 };
 
 export const PRIZES: Prize[] = [
-  { key: 1, label: "Стадія 1", skin: "AWP | Duality", wear: "Minimal Wear", unit: 5.28 , budget: 50 },
-  { key: 2, label: "Стадія 2", skin: "Glock-18 | Vogue", wear: "Minimal Wear", unit: 5.77 , budget: 60 },
-  { key: 3, label: "Стадія 3", skin: "Desert Eagle | Trigger Discipline", wear: "Factory New", unit: 6.47 , budget: 70 },
-  { key: 4, label: "Плей-оф", skin: "USP-S | Cortex", wear: "Minimal Wear", unit: 7.37 , budget: 80 },
-  { key: "final", label: "Підсумок", skin: "AK-47 | Midnight Laminate", wear: "Minimal Wear", unit: 10.43 , budget: 100 },
+  { key: 1, label: "Стадія 1", skin: "AWP | Duality", wear: "Minimal Wear", unit: 5.28 , budget: 50 , img: "/skins/awp-duality.png" , scale: 1 },
+  { key: 2, label: "Стадія 2", skin: "Glock-18 | Vogue", wear: "Minimal Wear", unit: 5.77 , budget: 60 , img: "/skins/glock-vogue.webp" , scale: 0.435 },
+  { key: 3, label: "Стадія 3", skin: "Desert Eagle | Trigger Discipline", wear: "Factory New", unit: 6.47 , budget: 70 , img: "/skins/deagle-trigger-discipline.webp" , scale: 0.515 },
+  { key: 4, label: "Плей-оф", skin: "USP-S | Cortex", wear: "Minimal Wear", unit: 7.37 , budget: 80 , img: "/skins/usp-cortex.webp" , scale: 0.565 },
+  { key: "final", label: "Підсумок", skin: "AK-47 | Midnight Laminate", wear: "Minimal Wear", unit: 10.43 , budget: 100 , img: "/skins/ak-midnight-laminate.webp" , scale: 0.875 },
 ];
 
 export function prizeFor(key: number | "final"): Prize | null {

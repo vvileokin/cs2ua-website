@@ -141,15 +141,7 @@ export default async function MajorPickemPage({
               {stage.scoredAt ? "Зіграно й зараховано" : "Стадія почалася, картки закриті"}
             </p>
           )
-        ) : (
-          <p className="text-sm text-ink-muted">
-            {stage.kind === "playoff"
-              ? `Чекаємо на сітку — вісімка збереться після третьої стадії${
-                  stage.teams.length ? `, відомо ${stage.teams.length}` : ""
-                }`
-              : `Чекаємо, хто вийде з попередньої стадії — відомо ${stage.teams.length} із ${shape.roster}`}
-          </p>
-        )}
+        ) : null}
       </div>
 
       {!ready ? (
@@ -217,9 +209,9 @@ function IncompleteStage({ teams }: { teams: string[] }) {
 
   return (
     <div className="major-plate rounded-2xl p-4 sm:p-5">
-      <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-wide text-ink-dim">
-        Уже кваліфіковані
-      </p>
+      {/* Без підпису «Уже кваліфіковані». Під вкладкою стадії, у якої ще
+          немає картки, ряд гербів може означати тільки одне, і називати це
+          словами — витрачати рядок на переказ очевидного. */}
       <div className="flex flex-wrap gap-2">
         {teams.map((slug) => {
           const team = findTeam(slug);
