@@ -374,13 +374,23 @@ export function PickemCard({
               key={role}
               data-basket={role}
               onClick={() => hitBox(role)}
+              /* Рамка — тільки під курсором або на обраному кошику.
+                 Доки її малювало кожне «сюди можна», три рамки поспіль
+                 сходилися краями, і між рядами з'являлися подвійні лінії —
+                 власна рамка верхнього, роздільник плити й власна рамка
+                 нижнього в одному місці. Схоже було на щілини в плиті.
+                 Тепер «сюди можна» каже сама заливка, а рамка лишається
+                 відповіддю на питання «куди саме покладеться» — і вона
+                 завжди одна. */
               style={
-                isTarget || armed
+                hovered || isTarget
                   ? {
-                      backgroundColor: `color-mix(in oklch, ${tint} ${hovered ? 30 : 16}%, transparent)`,
-                      boxShadow: `inset 0 0 0 ${hovered ? 2 : 1}px ${tint}`,
+                      backgroundColor: `color-mix(in oklch, ${tint} 28%, transparent)`,
+                      boxShadow: `inset 0 0 0 1px ${tint}`,
                     }
-                  : undefined
+                  : armed
+                    ? { backgroundColor: `color-mix(in oklch, ${tint} 12%, transparent)` }
+                    : undefined
               }
               className={cn(
                 "flex flex-col gap-3 p-3 transition-[background-color,box-shadow] duration-150 sm:flex-row sm:items-center sm:gap-4 sm:p-4",
