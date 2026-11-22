@@ -199,7 +199,7 @@ export function ChampionPoll({
                 aria-label={`${team?.name ?? slug}${total > 0 ? `, ${pct}%` : ""}`}
                 title={team?.name ?? slug}
                 className={cn(
-                  "flex min-w-0 flex-col items-center rounded-md p-0.5 transition-colors duration-150",
+                  "flex min-w-0 flex-col items-center rounded-lg p-0.5 transition-colors duration-150",
                   mine || locked ? "cursor-default" : "hover:bg-white/[0.05]",
                   busy === slug && "opacity-60",
                 )}

@@ -46,7 +46,7 @@ export default async function MajorPickemPage({
       <div className="space-y-5">
         <MajorMode />
         <h1 className="sr-only">Пікеми на мейджор</h1>
-        <p className="rounded-[4px] surface-1 px-6 py-12 text-center text-sm text-ink-subtle">
+        <p className="rounded-2xl surface-1 px-6 py-12 text-center text-sm text-ink-subtle">
           Стадії ще не заведені. Заходь ближче до старту.
         </p>
       </div>
@@ -87,8 +87,8 @@ export default async function MajorPickemPage({
           теж: порожня смуга над вкладками обіцяє те, чого в ній нема. */}
       <OpeningStrip matches={stage.opening} />
 
-      {/* Стадії — плитами, як навігація на сторінці самої події: прямі кути,
-          дрібна капітель, обрана заливається кольором події цілком. Ряд
+      {/* Стадії — плитами: дрібна капітель, обрана заливається кольором
+          події цілком. Ряд
           рівних плит також чесно каже, що стадії рівноцінні — і це тепер
           буквально так: максимум за кожну однаковий, бо кожна це одна
           роздача скінів. */}
@@ -96,7 +96,7 @@ export default async function MajorPickemPage({
           що невиконана міграція лишає порожню плиту в ряду — сторінка
           малювала б чотири вкладки на три стадії. */}
       <nav
-        className="grid gap-px overflow-hidden rounded-[4px] bg-white/10 [grid-template-columns:repeat(var(--tabs),minmax(0,1fr))]"
+        className="grid gap-px overflow-hidden rounded-2xl bg-white/10 [grid-template-columns:repeat(var(--tabs),minmax(0,1fr))]"
         style={{ "--tabs": stages.length } as React.CSSProperties}
       >
         {stages.map((s) => {
@@ -139,7 +139,7 @@ export default async function MajorPickemPage({
           Тут же живе єдиний заголовок сторінки. Банера над ним немає
           свідомо — назва сторінки це підпис, а не вміст, і місце нагорі
           віддано тому, заради чого її відкрили. */}
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 rounded-[4px] surface-1 px-4 py-3">
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 rounded-2xl surface-1 px-4 py-3">
         <h1 className="flex items-center gap-2 text-sm font-extrabold text-ink">
           <span className="size-1.5 shrink-0 rounded-full bg-[var(--major-hot)] shadow-[0_0_10px_var(--major-hot)]" />
           {stage.title}
@@ -319,7 +319,7 @@ function LockedStage({
       )}
 
       {!picks && (
-        <p className="rounded-xl surface-1 px-4 py-3 text-sm text-ink-subtle">
+        <p className="rounded-2xl surface-1 px-4 py-3 text-sm text-ink-subtle">
           Картки на цю стадію в тебе немає. Нижче — як розклалася спільнота.
         </p>
       )}
@@ -376,7 +376,7 @@ function LockedStage({
                 {mine ? (
                   <span
                     className={cn(
-                      "rounded-md px-2 py-1 text-[0.75rem] font-extrabold",
+                      "rounded-lg px-2 py-1 text-[0.75rem] font-extrabold",
                       hit === null
                         ? "bg-fill-2 text-ink-muted"
                         : hit

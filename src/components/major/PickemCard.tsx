@@ -310,6 +310,7 @@ export function PickemCard({
                 type="button"
                 onClick={() => pickTeam(slug)}
                 onPointerDown={(e) => !used && beginDrag(e, slug)}
+                onDragStart={(e) => e.preventDefault()}
                 disabled={used}
                 aria-pressed={sel === slug}
                 title={team?.name ?? slug}
@@ -440,6 +441,7 @@ export function PickemCard({
                         e.stopPropagation();
                         beginDrag(e, slug);
                       }}
+                      onDragStart={(e) => e.preventDefault()}
                       className={cn(
                         "group flex w-10 shrink-0 cursor-grab touch-none select-none flex-col items-center gap-1 active:cursor-grabbing",
                         drag?.team === slug && "opacity-40",
@@ -462,7 +464,11 @@ export function PickemCard({
                   <span
                     key={`empty-${i}`}
                     aria-hidden
-                    className="h-10 w-10 shrink-0 rounded-full border border-dashed transition-colors duration-150"
+                    /* Та сама форма, що й у герба, який сюди стане. Коло під
+                       квадратний знак — це дві різні фігури на одному місці,
+                       і порожній кошик виглядав не як вільне місце, а як
+                       інший елемент. */
+                    className="h-10 w-10 shrink-0 rounded-[9px] border border-dashed transition-colors duration-150"
                     style={{
                       borderColor: isTarget || armed
                         ? tint
@@ -522,7 +528,10 @@ export function PickemCard({
           onClick={save}
           disabled={!complete || saving || !dirty}
           className={cn(
-            "h-11 rounded-full px-6 text-sm font-extrabold transition-colors duration-150",
+            /* `rounded-lg`, як у решти кнопок сайта (`ui/Button`, розмір
+               md). Пігулка тут була сьомим радіусом на сторінці, де їх і так
+               було більше, ніж елементів, що їх заслуговують. */
+            "h-11 rounded-lg px-6 text-sm font-extrabold transition-colors duration-150",
             complete && dirty && !saving
               ? "bg-accent text-accent-ink hover:bg-accent-hover"
               : "cursor-default bg-fill-2 text-ink-faint",

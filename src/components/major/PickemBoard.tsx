@@ -115,7 +115,7 @@ export function PickemBoard({
 function TierChip({ tier }: { tier: PickemTier }) {
   return (
     <span
-      className="hidden shrink-0 rounded-md px-2 py-0.5 text-[0.6875rem] font-extrabold sm:inline"
+      className="hidden shrink-0 rounded-lg px-2 py-0.5 text-[0.6875rem] font-extrabold sm:inline"
       style={{
         color: tier.tone,
         backgroundColor: `color-mix(in oklch, ${tier.tone} 16%, transparent)`,
