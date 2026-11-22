@@ -102,34 +102,132 @@ export function PickemCard({
   const complete = isComplete(picks, shape);
   const dirty = JSON.stringify(picks) !== JSON.stringify(initial);
 
-  function place(team: string, role: PickRole) {
+  /**
+   * Обраний кошик, якщо в ньому ще є місце.
+   *
+   * Раніше `target` скидався вручну всередині `place` — по числу, порахованому
+   * зі старого стану, тобто завжди на крок позаду. Тут він не скидається
+   * взагалі: кошик, що заповнився, просто перестає бути активним, а якщо з
+   * нього щось прибрати, він активний знову. Один вираз замість двох місць,
+   * де можна розійтися з дійсністю.
+   */
+  const live = target && inRole(target).length < capOf(target) ? target : null;
+
+  const place = React.useCallback(
+    (team: string, role: PickRole) => {
+      setSaved(false);
+      setPicks((prev) => {
+        if (prev[team] === role) return prev;
+        /* Команда може переїжджати з кошика в кошик, тому рахуємо місце без
+           неї самої — інакше перенос у повний кошик, з якого вона ж і
+           виходить, виглядав би як брак місця. */
+        const taken = Object.keys(prev).filter((t) => prev[t] === role && t !== team).length;
+        if (taken >= capOf(role)) return prev;
+        return { ...prev, [team]: role };
+      });
+      setSel(null);
+    },
+    [capOf],
+  );
+
+  const remove = React.useCallback((team: string) => {
     setSaved(false);
     setPicks((prev) => {
-      if (Object.keys(prev).filter((t) => prev[t] === role).length >= capOf(role)) {
-        return prev;
-      }
-      return { ...prev, [team]: role };
+      const next = { ...prev };
+      delete next[team];
+      return next;
     });
-    setSel(null);
-    // Кошик лишається активним, поки в ньому є місце.
-    setTarget((t) =>
-      t === role &&
-      Object.keys(picks).filter((x) => picks[x] === role).length + 1 >= capOf(role)
-        ? null
-        : t,
-    );
+  }, []);
+
+  /* --- Перетягування --------------------------------------------------- *
+   *
+   * Тап нікуди не дівся: команда, потім кошик. Він лишається основним на
+   * телефоні й єдиним із клавіатури. Але миша просить іншого — узяти герб і
+   * покласти, як у клієнті, — і без цього сторінка відчувається як форма, а
+   * не як пікем.
+   *
+   * Зроблено на pointer-подіях, а не на HTML5 drag&drop: той на тачі не
+   * працює взагалі, і довелося б тримати два різні механізми для миші й для
+   * пальця. Тут один на обох.
+   *
+   * Поріг у шість пікселів відділяє тап від перетягування: без нього
+   * найменше тремтіння пальця перетворювало б дотик на драг, і картка
+   * переставала б слухатися тапів.
+   */
+  const startRef = React.useRef<{
+    x: number;
+    y: number;
+    team: string;
+    moved: boolean;
+  } | null>(null);
+  /* Після перетягування браузер усе одно шле click по спільному предку —
+     без цього прапорця він відразу ж скасовував би щойно покладене. */
+  const draggedRef = React.useRef(false);
+  const [drag, setDrag] = React.useState<{
+    team: string;
+    x: number;
+    y: number;
+    over: PickRole | null;
+  } | null>(null);
+
+  function beginDrag(e: React.PointerEvent, team: string) {
+    if (e.button !== 0 && e.pointerType === "mouse") return;
+    startRef.current = { x: e.clientX, y: e.clientY, team, moved: false };
   }
 
+  React.useEffect(() => {
+    function boxAt(x: number, y: number): PickRole | null {
+      const el = document.elementFromPoint(x, y) as HTMLElement | null;
+      const box = el?.closest("[data-basket]") as HTMLElement | null;
+      return (box?.dataset.basket as PickRole | undefined) ?? null;
+    }
+
+    function onMove(e: PointerEvent) {
+      const s = startRef.current;
+      if (!s) return;
+      if (!s.moved && Math.hypot(e.clientX - s.x, e.clientY - s.y) < 6) return;
+      s.moved = true;
+      setDrag({ team: s.team, x: e.clientX, y: e.clientY, over: boxAt(e.clientX, e.clientY) });
+    }
+
+    function onUp(e: PointerEvent) {
+      const s = startRef.current;
+      startRef.current = null;
+      if (!s?.moved) return;
+      setDrag(null);
+      draggedRef.current = true;
+      /* Повертаємо клікам силу аж після того, як браузер відправить свій
+         click по цьому ж жесту. */
+      setTimeout(() => {
+        draggedRef.current = false;
+      }, 0);
+
+      const role = boxAt(e.clientX, e.clientY);
+      if (role) place(s.team, role);
+    }
+
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", onUp);
+    window.addEventListener("pointercancel", onUp);
+    return () => {
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", onUp);
+      window.removeEventListener("pointercancel", onUp);
+    };
+  }, [place]);
+
   function pickTeam(team: string) {
+    if (draggedRef.current) return;
     if (picks[team]) return; // вже в кошику — знімається кліком по комірці
-    if (target && inRole(target).length < capOf(target)) {
-      place(team, target);
+    if (live) {
+      place(team, live);
       return;
     }
     setSel((s) => (s === team ? null : team));
   }
 
   function hitBox(role: PickRole) {
+    if (draggedRef.current) return;
     const full = inRole(role).length >= capOf(role);
     if (sel && !full) {
       place(sel, role);
@@ -137,15 +235,6 @@ export function PickemCard({
     }
     if (full) return;
     setTarget((t) => (t === role ? null : role));
-  }
-
-  function remove(team: string) {
-    setSaved(false);
-    setPicks((prev) => {
-      const next = { ...prev };
-      delete next[team];
-      return next;
-    });
   }
 
   async function save() {
@@ -168,8 +257,8 @@ export function PickemCard({
     }
   }
 
-  const hint = target
-    ? `Обери команду в «${shape.roles.find((r) => r.role === target)?.label}»`
+  const hint = live
+    ? `Обери команду в «${shape.roles.find((r) => r.role === live)?.label}»`
     : sel
       ? "Тепер обери кошик нижче"
       : null;
@@ -220,19 +309,26 @@ export function PickemCard({
                 key={slug}
                 type="button"
                 onClick={() => pickTeam(slug)}
+                onPointerDown={(e) => !used && beginDrag(e, slug)}
                 disabled={used}
                 aria-pressed={sel === slug}
                 title={team?.name ?? slug}
+                /* `touch-action: none` — інакше палець, що тягне герб униз,
+                   прокручує сторінку замість перетягування. Вимкнено рівно
+                   на гербах: решта сторінки гортається як завжди. */
                 className={cn(
-                  "flex min-w-0 flex-col items-center gap-1 rounded-lg p-1 transition-colors duration-150",
-                  used ? "cursor-default" : "hover:bg-white/[0.04]",
+                  "flex min-w-0 touch-none select-none flex-col items-center gap-1 rounded-lg p-1 transition-colors duration-150",
+                  used
+                    ? "cursor-default"
+                    : "cursor-grab hover:bg-white/[0.04] active:cursor-grabbing",
+                  drag?.team === slug && "opacity-40",
                 )}
               >
                 <MajorCrest
                   team={team}
                   slug={slug}
                   fluid
-                  state={used ? "dim" : sel === slug ? "active" : "idle"}
+                  state={used ? "dim" : sel === slug || drag?.team === slug ? "active" : "idle"}
                 />
                 <span
                   className={cn(
@@ -266,18 +362,22 @@ export function PickemCard({
           const tint = BOX_TINT[tone];
           const filled = inRole(role);
           const free = spec.cap - filled.length;
-          const isTarget = target === role;
-          const armed = !!sel && free > 0;
+          const isTarget = live === role;
+          /* Кошик світиться, коли в нього справді можна покласти: або в руці
+             вже є обрана команда, або над ним зараз тягнуть герб. */
+          const armed = (!!sel || !!drag) && free > 0;
+          const hovered = drag?.over === role && free > 0;
 
           return (
             <section
               key={role}
+              data-basket={role}
               onClick={() => hitBox(role)}
               style={
                 isTarget || armed
                   ? {
-                      backgroundColor: `color-mix(in oklch, ${tint} 16%, transparent)`,
-                      boxShadow: `inset 0 0 0 1px ${tint}`,
+                      backgroundColor: `color-mix(in oklch, ${tint} ${hovered ? 30 : 16}%, transparent)`,
+                      boxShadow: `inset 0 0 0 ${hovered ? 2 : 1}px ${tint}`,
                     }
                   : undefined
               }
@@ -328,12 +428,22 @@ export function PickemCard({
                     <button
                       key={slug}
                       type="button"
-                      title={`${team?.name ?? slug} — прибрати`}
+                      title={`${team?.name ?? slug} — прибрати або перетягнути в інший кошик`}
                       onClick={(e) => {
                         e.stopPropagation();
+                        if (draggedRef.current) return;
                         remove(slug);
                       }}
-                      className="group flex w-10 shrink-0 flex-col items-center gap-1"
+                      /* Покладене теж можна тягнути — з кошика в кошик, не
+                         прибираючи спершу назад у склад. */
+                      onPointerDown={(e) => {
+                        e.stopPropagation();
+                        beginDrag(e, slug);
+                      }}
+                      className={cn(
+                        "group flex w-10 shrink-0 cursor-grab touch-none select-none flex-col items-center gap-1 active:cursor-grabbing",
+                        drag?.team === slug && "opacity-40",
+                      )}
                     >
                       <MajorCrest
                         team={team}
@@ -378,6 +488,27 @@ export function PickemCard({
           );
         })}
       </div>
+
+      {/* Герб у руці.
+          Малюється поверх усього й не ловить подій сам: інакше
+          `elementFromPoint` під курсором знаходив би його, а не кошик, і
+          покласти команду було б нікуди. */}
+      {drag && (
+        <div
+          aria-hidden
+          className="pointer-events-none fixed z-[60] -translate-x-1/2 -translate-y-1/2"
+          style={{ left: drag.x, top: drag.y }}
+        >
+          <MajorCrest
+            team={findTeam(drag.team)}
+            slug={drag.team}
+            size={48}
+            state="active"
+            tone={drag.over ? TONE[drag.over] : "held"}
+            className="shadow-[0_8px_24px_-6px_rgba(0,0,0,0.7)]"
+          />
+        </div>
+      )}
 
       <div className="flex flex-wrap items-center justify-end gap-3">
         {note && <p className="flex-1 text-sm font-semibold text-[var(--danger)]">{note}</p>}

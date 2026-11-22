@@ -93,6 +93,11 @@ export function isReady(s: MajorStage): boolean {
   return s.teams.length === shapeFor(s).roster;
 }
 
+/** Стадія вже почалася. */
+export function hasStarted(s: MajorStage, now = Date.now()): boolean {
+  return now >= new Date(s.startsAt).getTime();
+}
+
 /** Стадія відкрита для заповнення: укомплектована і ще не почалася. */
 export function isOpen(s: MajorStage, now = Date.now()): boolean {
   return isReady(s) && now < new Date(s.startsAt).getTime();

@@ -4,14 +4,16 @@ import { Link } from "@/i18n/navigation";
 import { MajorMode } from "@/components/major/MajorMode";
 import { MajorCrest } from "@/components/major/MajorCrest";
 import { MajorPrizes } from "@/components/major/MajorPrizes";
+import { ChampionPoll } from "@/components/major/ChampionPoll";
 import { OpeningStrip } from "@/components/major/OpeningStrip";
 import { LockCountdown } from "@/components/major/LockCountdown";
 import { PickemCard } from "@/components/major/PickemCard";
 import { PickemBoard, plural } from "@/components/major/PickemBoard";
+import { getChampionTally, getMyChampionVote } from "@/lib/db/champion";
 import { findTeam } from "@/lib/data";
 import {
   getStages, getMyCards, getBoard, getStageBoard, getDistribution,
-  isOpen, isReady, shapeFor, currentStage,
+  isOpen, isReady, hasStarted, shapeFor, currentStage,
   type BoardRow, type Distribution,
 } from "@/lib/db/pickem";
 import {
@@ -34,8 +36,9 @@ export default async function MajorPickemPage({
 }: {
   searchParams: Promise<{ stage?: string }>;
 }) {
-  const [{ stage: wanted }, stages, cards, board] = await Promise.all([
+  const [{ stage: wanted }, stages, cards, board, tally, myVote] = await Promise.all([
     searchParams, getStages(), getMyCards(), getBoard(50),
+    getChampionTally(), getMyChampionVote(),
   ]);
 
   if (!stages.length) {
@@ -60,6 +63,20 @@ export default async function MajorPickemPage({
     getDistribution(stage.stage, stage.startsAt),
     stage.scoredAt ? getStageBoard(stage.stage) : Promise.resolve<BoardRow[]>([]),
   ]);
+
+  /* Учасники голосування — усі, кого вписали в стадії, від найвищого посіву
+     до найнижчого: третя стадія це верх таблиці VRS, перша — низ. Окремого
+     списку команд мейджора ніде немає й не треба, бо він розійшовся б зі
+     складами стадій рівно тоді, коли когось замінять. */
+  const contenders = [...stages]
+    .sort((a, b) => b.stage - a.stage)
+    .flatMap((s) => s.teams)
+    .filter((slug, i, all) => all.indexOf(slug) === i);
+
+  /* Замок голосування — початок плей-офа, як і в 0097. Коли сітка почалася,
+     питання «хто візьме мейджор» наполовину вирішене нею. */
+  const playoff = stages.find((s) => s.kind === "playoff");
+  const pollLocked = !!playoff && hasStarted(playoff);
 
   return (
     <div className="space-y-5 sm:space-y-6">
@@ -167,6 +184,17 @@ export default async function MajorPickemPage({
       )}
 
       <MajorPrizes stage={stage.stage} />
+
+      {/* Голосування — після призів і перед таблицями. Воно не про картку й
+          не дає очок, тож стояти над карткою не має права; але воно єдине на
+          сторінці, що працює вже зараз, поки жодна стадія не дограна й обидві
+          таблиці чесно порожні. */}
+      <ChampionPoll
+        teams={contenders}
+        initialTally={tally.byTeam}
+        initialVote={myVote}
+        locked={pollLocked}
+      />
 
       {/* Таблиця самої стадії — тільки коли є що показувати. Саме по ній
           їдуть скіни за цю стадію, тож вона стоїть ближче, ніж підсумок. */}
