@@ -320,11 +320,16 @@ export function PickemCard({
     [spread],
   );
 
-  /** Чого ще бракує, кошиками. Порожньо — картка повна. */
-  const short = shape.roles
-    .map((r) => ({ r, n: r.cap - inRole(r.role).length }))
-    .filter((x) => x.n > 0)
-    .map((x) => `${x.r.label} — ${x.n}`);
+  /** Що сказати під карткою — або нічого. */
+  const status: { text: string; tone: "ok" | "bad" | "quiet" } | null = note
+    ? { text: note, tone: "bad" }
+    : !canSave
+      ? { text: "Увійди, щоб зберегти картку", tone: "quiet" }
+      : saving || (complete && dirty)
+        ? { text: "Зберігаю…", tone: "quiet" }
+        : complete
+          ? { text: "Збережено", tone: "ok" }
+          : null;
 
   const hint = live
     ? `Обери команду в «${shape.roles.find((r) => r.role === live)?.label}»`
@@ -624,31 +629,29 @@ export function PickemCard({
       )}
 
       {/* Стан картки замість кнопки.
-          Один рядок, і він завжди каже щось одне: чого бракує, що зараз
-          їде, або що все лежить у базі. */}
-      <p
-        aria-live="polite"
-        className={cn(
-          "px-1 text-[0.8125rem]",
-          note
-            ? "font-semibold text-[var(--danger)]"
-            : complete && !dirty && !saving
-              ? "font-semibold text-[var(--success)]"
-              : "text-ink-dim",
-        )}
-      >
-        {/* Коротко. Довгі пояснення тут читають один раз, а бачать щоразу —
-            і кожну наступну сесію вони просто займають рядок. */}
-        {note
-          ? note
-          : !canSave
-            ? "Увійди, щоб зберегти картку"
-            : short.length
-              ? `Лишилось обрати: ${short.join(", ")}`
-              : saving || dirty
-                ? "Зберігаю…"
-                : "Збережено"}
-      </p>
+          Рядка немає, поки немає що сказати. «Лишилось обрати: 3:0 — 1»
+          звідси пішло: те саме стоїть лічильником у самому кошику («1/2»),
+          там, де на нього й дивляться, — а внизу воно просто повторювало
+          цифру словами.
+
+          «Збережено» — кольором події, а не зеленим: зелений на багряній
+          сторінці читається як чужий елемент. Він близький до кольору
+          помилки, але помилки тут — повні речення, а це одне слово. */}
+      {status && (
+        <p
+          aria-live="polite"
+          className={cn(
+            "px-1 text-[0.8125rem] font-semibold",
+            status.tone === "bad"
+              ? "text-[var(--danger)]"
+              : status.tone === "ok"
+                ? "text-[var(--major-hot)]"
+                : "font-normal text-ink-dim",
+          )}
+        >
+          {status.text}
+        </p>
+      )}
 
     </div>
   );
