@@ -4,8 +4,12 @@ import ticker from "./PartnerTicker.module.css";
 
 // Per-partner heights tuned so the marks read at the same visual size.
 // BetKing's lockup is much wider than it is tall (mark + wordmark, ~8:1), so
-// matching Hellcase on height would make it dominate the row — it's matched on
-// width instead.
+// it is matched to the row on width rather than on height — on height it would
+// dominate everything standing next to it.
+//
+// Один партнер — це поки що список з одного. Решта коду свідомо лишилась
+// списком: наступного партнера додають рядком сюди, і більше ніде. Єдине, що
+// доведеться перечитати при цьому, — TICKER_PASSES нижче.
 const partners = [
   {
     name: "BetKing",
@@ -16,26 +20,10 @@ const partners = [
     ticker: "h-[9px]",
     tickerLogo: "/brand/partner-betking.svg",
     offset: "",
-    // Solid red artwork: greyscale turns it a muddy mid-grey that reads far
-    // dimmer than Hellcase's white wordmark, so it's forced white instead and
-    // drops back to its own red on hover.
+    // Solid red artwork: greyscale turns it a muddy mid-grey, so it is forced
+    // white instead and drops back to its own red on hover.
     idle: "brightness-0 invert",
     hover: "group-hover:brightness-100 group-hover:invert-0",
-  },
-  {
-    name: "Hellcase",
-    logo: "/brand/partner-hellcase.svg",
-    url: "https://hellcase.com/ua?utm_source=telegram&utm_medium=collaboration&utm_campaign=cs2ua&promocode=cs2ua",
-    row: "h-[17px]",
-    strip: "h-[22px]",
-    ticker: "h-[15px] -translate-y-px",
-    // The ticker is a white ribbon, where the white wordmark would vanish —
-    // same artwork with the wordmark inked dark.
-    tickerLogo: "/brand/partner-hellcase-dark.svg",
-    offset: "-translate-y-[2px]",
-    // Its wordmark is already white; only the gradient mark needs desaturating.
-    idle: "grayscale",
-    hover: "group-hover:grayscale-0",
   },
 ];
 
@@ -88,11 +76,20 @@ export function Partners({
   );
 }
 
-// Twelve passes of the pair, so the track is two identical halves and sliding
-// it by exactly half lands on a frame indistinguishable from the start. Six
-// pairs run ~1400px, which still covers the widest screen the bottom bar is
-// shown on (it goes away at lg, 1024px).
-const TICKER_PASSES = 12;
+// Парне число проходів, щоб доріжка була двома однаковими половинами: зсув
+// рівно на половину дає кадр, не відрізнити від початкового, і шва не видно.
+//
+// Рахується від половини, а не від усієї доріжки. Половина має бути не вужчою
+// за екран, інакше в кадр потрапляє її край — тобто порожнеча між кінцем
+// першої половини і початком другої. Лого BetKing у стрічці йде ~72px плюс
+// px-6 з обох боків, разом ~120px на прохід; дванадцять проходів у половині —
+// це ~1440px і з запасом перекриває найширший екран, на якому нижній бар ще
+// існує (він зникає на lg, 1024px).
+//
+// Було дванадцять, коли партнерів було двоє: дванадцять проходів пари — це
+// двадцять чотири лого, по дванадцять у половині. Партнер лишився один, тож
+// щоб половина не схудла вдвічі, проходів стало вдвічі більше.
+const TICKER_PASSES = 24;
 
 /**
  * Partner ticker — the strip riding on top of the mobile bottom bar. Phones
