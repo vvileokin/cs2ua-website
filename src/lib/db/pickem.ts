@@ -225,11 +225,18 @@ export const getSpread = cache(async (stage: number): Promise<Spread> => {
   ]);
 
   const byTeam: Record<string, Record<string, number>> = {};
-  for (const r of (rows.data as { team: string; role: string; cards: number }[] | null) ?? []) {
+  const list = (rows.data as { team: string; role: string; cards: number }[] | null) ?? [];
+  for (const r of list) {
     byTeam[r.team] ??= {};
     byTeam[r.team][r.role] = r.cards;
   }
-  return { total: (count.data as number | null) ?? 0, byTeam };
+
+  /* Нуль, коли розкладу немає.
+     Нижче порога функція віддає порожньо, а карток при цьому може бути,
+     скажімо, дві — і сторінка чесно ділила нуль на два, показуючи «0%» на
+     кожній команді. Читається це як «ніхто так не зробив», тобто як факт,
+     якого ми не знаємо. Знаменник існує рівно тоді, коли є що ділити. */
+  return { total: list.length ? ((count.data as number | null) ?? 0) : 0, byTeam };
 });
 
 /**
