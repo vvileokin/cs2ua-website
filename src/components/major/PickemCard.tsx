@@ -189,6 +189,10 @@ export function PickemCard({
     startRef.current = { x: e.clientX, y: e.clientY, team, moved: false };
   }
 
+  /* Куди зараз показує палець — для автопрокрутки. Окремо від `drag`, бо
+     читається щокадру, а не щорендера. */
+  const atRef = React.useRef<{ x: number; y: number } | null>(null);
+
   React.useEffect(() => {
     function boxAt(x: number, y: number): PickRole | null {
       const el = document.elementFromPoint(x, y) as HTMLElement | null;
@@ -201,12 +205,14 @@ export function PickemCard({
       if (!s) return;
       if (!s.moved && Math.hypot(e.clientX - s.x, e.clientY - s.y) < 6) return;
       s.moved = true;
+      atRef.current = { x: e.clientX, y: e.clientY };
       setDrag({ team: s.team, x: e.clientX, y: e.clientY, over: boxAt(e.clientX, e.clientY) });
     }
 
     function onUp(e: PointerEvent) {
       const s = startRef.current;
       startRef.current = null;
+      atRef.current = null;
       if (!s?.moved) return;
       setDrag(null);
       draggedRef.current = true;
@@ -220,10 +226,29 @@ export function PickemCard({
       if (role) place(s.team, role);
     }
 
+    /* Сторінка їде сама, коли палець біля краю.
+       Без цього перетягування впирається в межі екрана: на телефоні склад і
+       кошики не завжди в одному полі зору, а відпустити герб на півдорозі,
+       щоб прокрутити, — означає почати спочатку. Крок залежить від того, як
+       близько до краю, тож біля самого краю їде швидше. */
+    let raf = 0;
+    const EDGE = 90;
+    function tick() {
+      raf = requestAnimationFrame(tick);
+      const at = atRef.current;
+      if (!at) return;
+      const top = at.y - EDGE;
+      const bottom = at.y - (window.innerHeight - EDGE);
+      const step = top < 0 ? top / 6 : bottom > 0 ? bottom / 6 : 0;
+      if (step) window.scrollBy(0, step);
+    }
+    raf = requestAnimationFrame(tick);
+
     window.addEventListener("pointermove", onMove);
     window.addEventListener("pointerup", onUp);
     window.addEventListener("pointercancel", onUp);
     return () => {
+      cancelAnimationFrame(raf);
       window.removeEventListener("pointermove", onMove);
       window.removeEventListener("pointerup", onUp);
       window.removeEventListener("pointercancel", onUp);
@@ -338,9 +363,18 @@ export function PickemCard({
       : null;
 
   return (
-    <div className="space-y-4">
+    <div className="flex flex-col gap-4">
       {/* --- Склад стадії --- */}
-      <section className="major-plate rounded-[4px] p-3 sm:p-4">
+      {/* На телефоні склад іде ПІСЛЯ кошиків, а не перед ними.
+          Разом вони в екран не влазять, і доки кошики лежали внизу, покласти
+          команду в «0:3» означало прогорнути вниз до кошика, вгору до складу,
+          знову вниз — і так на кожну з десяти. Кошики, прилиплі під шапкою,
+          прибирають цю ходьбу цілком: мішень завжди на місці, а список під
+          нею гортається скільки треба.
+
+          На широкому екрані все вміщається й так, і там порядок звичайний:
+          спершу з кого вибирати, потім куди класти. */}
+      <section className="order-2 major-plate rounded-[4px] p-3 sm:order-1 sm:p-4">
         {/* Над складом немає нічого — ні підпису, ні рядка під підказку.
             Шістнадцять гербів під вкладкою стадії не треба називати, їх
             видно; а порожній рядок, що тримав висоту під підказку, з'їдав
@@ -357,9 +391,12 @@ export function PickemCard({
             Рядок, що набирає скільки влізе, давав на телефоні п'ять, п'ять,
             п'ять і одну команду саму внизу — вона читалася як окрема, хоча
             нічим не відрізняється від решти. Сітка ділить склад на рівні
-            колонки, і шістнадцять лягають без залишку на будь-якій із трьох
-            ширин. Герби при цьому розтягуються разом із коміркою й
-            заповнюють рядок до правого краю. */}
+            колонки, і шістнадцять лягають без залишку на будь-якій ширині.
+
+            По чотири на телефоні. Вісім тут пробувалося — щоб склад і кошики
+            вмістились в один екран — і виявилося, що герб у тридцять сім
+            пікселів це вже не знак команди, а значок. Задачу вирішує не
+            розмір складу, а те, де стоять кошики. */}
         <div
           className={cn(
             "grid gap-1.5 sm:gap-2",
@@ -378,13 +415,17 @@ export function PickemCard({
           {teams.map((slug) => {
             const team = findTeam(slug);
             const used = !!picks[slug];
-            /* Скільки людей зробило так само.
-               Коли кошик обрано — частка тих, хто поклав цю команду саме
-               туди: видно, куди йде натовп. Коли не обрано — частка тих,
-               хто згоден із твоєю власною карткою, зокрема й із тим, що
-               команду ти не чіпав узагалі: шестеро без ролі — це теж
-               твердження, і погодитися з ним так само можна. */
-            const pct = pctFor(slug, live ?? picks[slug] ?? null);
+            /* Скільки людей зробило так само — але тільки там, де вибір уже
+               є: або ціляться в кошик, або команда вже в ньому.
+
+               Спершу тут стояла ще й частка тих, хто команду не чіпав. Вийшла
+               стіна зі ста відсотків на щойно відкритій картці: формально
+               правда — більшість цю команду теж не чіпала, — але читається
+               вона як поломка, бо відповідає на питання, якого ще ніхто не
+               ставив. Відсоток має сенс як відповідь на твій вибір, а не
+               замість нього. */
+            const role = live ?? picks[slug] ?? null;
+            const pct = role ? pctFor(slug, role) : null;
             return (
               <button
                 key={slug}
@@ -448,12 +489,19 @@ export function PickemCard({
       </section>
 
       {/* --- Кошики --- */}
+      {/* z-20 — нижче за шапку (z-40) і вище за склад, щоб герби проїжджали
+          під кошиками, а не крізь них. */}
       {/* Рядки одного об'єкта, а не окремі картки.
           Окремою карткою кошик «3:0» виходив на всю ширину колонки заради
           двох комірок, і дві третини його площі були порожнім полем —
           коробка, що виглядає як незаповнена форма. Тут ширину задає
           найбільший кошик, а менші вирівнюються по його правому краю: ряди
           читаються як одна таблиця, і жодна площа не стоїть даремно. */}
+      {/* Прилипає обгортка, а не сама плита: `.major-plate` ставить
+          `position: relative` звичайним правилом, а воно за каскадом сильніше
+          за утиліту `sticky` з шару Tailwind — плита мовчки лишалась
+          relative і нікуди не прилипала. */}
+      <div className="sticky top-14 z-20 order-1 sm:static sm:order-2">
       <div className="major-plate major-divide overflow-hidden rounded-[4px]">
         {shape.roles.map((spec) => {
           const role = spec.role;
@@ -491,7 +539,7 @@ export function PickemCard({
                     : undefined
               }
               className={cn(
-                "flex flex-col gap-3 p-3 transition-[background-color,box-shadow] duration-150 sm:flex-row sm:items-center sm:gap-4 sm:p-4",
+                "flex flex-col gap-2 p-2.5 transition-[background-color,box-shadow] duration-150 sm:flex-row sm:items-center sm:gap-4 sm:p-4",
                 /* Кут повторює кут плити.
                    Рамка кошика малюється як inset-тінь по краю самого ряду, а
                    плита навколо заокруглена й ріже все, що виходить за її
@@ -553,14 +601,14 @@ export function PickemCard({
                       }}
                       onDragStart={(e) => e.preventDefault()}
                       className={cn(
-                        "group flex w-10 shrink-0 cursor-grab touch-none select-none flex-col items-center gap-1 active:cursor-grabbing",
+                        "group flex w-9 shrink-0 cursor-grab touch-none select-none flex-col items-center gap-0.5 active:cursor-grabbing sm:w-10 sm:gap-1",
                         drag?.team === slug && "opacity-40",
                       )}
                     >
                       <MajorCrest
                         team={team}
                         slug={slug}
-                        size={40}
+                        fluid
                         state="active"
                         tone={tone}
                       />
@@ -580,7 +628,7 @@ export function PickemCard({
                        квадратний знак — це дві різні фігури на одному місці,
                        і порожній кошик виглядав не як вільне місце, а як
                        інший елемент. */
-                    className="h-10 w-10 shrink-0 rounded-[4px] border border-dashed transition-colors duration-150"
+                    className="h-9 w-9 shrink-0 rounded-[4px] border border-dashed transition-colors duration-150 sm:h-10 sm:w-10"
                     style={{
                       borderColor: isTarget || armed
                         ? tint
@@ -605,6 +653,7 @@ export function PickemCard({
             </section>
           );
         })}
+      </div>
       </div>
 
       {/* Герб у руці.
@@ -641,7 +690,7 @@ export function PickemCard({
         <p
           aria-live="polite"
           className={cn(
-            "px-1 text-[0.8125rem] font-semibold",
+            "order-3 px-1 text-[0.8125rem] font-semibold",
             status.tone === "bad"
               ? "text-[var(--danger)]"
               : status.tone === "ok"
