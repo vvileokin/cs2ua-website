@@ -2,19 +2,26 @@ import { Sidebar } from "@/components/layout/Sidebar";
 import { Topbar } from "@/components/layout/Topbar";
 import { BottomNav } from "@/components/layout/BottomNav";
 import { getSiteSettings } from "@/lib/db/settings";
+import { getLiveTeamMatches } from "@/lib/db/matches";
 
 export default async function AppLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const { promo } = await getSiteSettings();
+  const [{ promo }, byTeam] = await Promise.all([getSiteSettings(), getLiveTeamMatches()]);
+  /* Мапа віддає кожну серію двічі, з обох боків — згортаємо назад у список.
+     Перший малюнок рейки приходить із сервера, далі вона оновлює себе сама. */
+  const seen = new Set<string>();
+  const live = [...byTeam.values()]
+    .filter((m) => !seen.has(m.id) && seen.add(m.id))
+    .sort((x, y) => x.startISO.localeCompare(y.startISO));
   return (
     <>
       {/* Impeccable: Crafted Arena Atmosphere — fixed, behind everything, the
           light the whole product sits in. Decorative only, never announced. */}
       <div className="arena" aria-hidden />
-      <Sidebar promo={promo} />
+      <Sidebar promo={promo} live={live} />
       <div className="lg:pl-[248px]">
         <Topbar />
         {/* Phones buy back a little width: 12px gutters instead of 16px, and a

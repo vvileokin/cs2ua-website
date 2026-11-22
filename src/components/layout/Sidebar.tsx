@@ -4,7 +4,8 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { primaryNav, majorNav } from "@/lib/nav";
-import { promoBanner, promoHref, type PromoBanner } from "@/lib/data";
+import { promoBanner, promoHref, type Match, type PromoBanner } from "@/lib/data";
+import { LiveRail } from "./LiveRail";
 import { Brand } from "./Brand";
 import { Partners } from "./Partners";
 import { OnlineCount } from "./OnlineCount";
@@ -15,7 +16,13 @@ function isActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(href + "/");
 }
 
-export function Sidebar({ promo = promoBanner }: { promo?: PromoBanner }) {
+export function Sidebar({
+  promo = promoBanner,
+  live = [],
+}: {
+  promo?: PromoBanner;
+  live?: Match[];
+}) {
   const pathname = usePathname();
   const t = useTranslations("nav");
 
@@ -62,7 +69,7 @@ export function Sidebar({ promo = promoBanner }: { promo?: PromoBanner }) {
         </Link>
       )}
 
-      <nav className="flex-1 space-y-0.5 px-3 py-2">
+      <nav className="space-y-0.5 px-3 py-2">
         {primaryNav.map((item) => {
           const active = isActive(pathname, item.href);
           const Icon = item.icon;
@@ -118,6 +125,11 @@ export function Sidebar({ promo = promoBanner }: { promo?: PromoBanner }) {
           );
         })}
       </nav>
+
+      {/* Порожнеча під меню була найбільшим блоком рейки, і на сайті про
+          матчі єдине, чого там бракувало, — матчі. Блок росте в те, що
+          лишилось, і зникає цілком, коли нічого не йде. */}
+      <LiveRail initial={live} />
 
       {/* The Major, in its own cell at the foot of the rail.
           Not a sixth row in the list: it is one event with its own colour and
