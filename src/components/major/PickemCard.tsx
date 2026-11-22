@@ -495,15 +495,17 @@ export function PickemCard({
                     : "cursor-pointer hover:bg-white/[0.03]",
               )}
             >
-              <div className="flex items-baseline gap-2 sm:w-36 sm:shrink-0 sm:flex-col sm:items-start sm:gap-0.5">
+              <div className="flex items-baseline gap-2 sm:w-28 sm:shrink-0 sm:flex-col sm:items-start sm:gap-0.5">
+                {/* Сам рахунок, великим. Пояснення «без поразок · ×150» під
+                    ним більше немає: воно повторювало те, що й так написано
+                    цифрами, і займало рядок, через який сам рахунок мусив
+                    бути дрібним. Тепер рядок один — і він може бути таким,
+                    щоб його було видно через усю картку. */}
                 <p
-                  className="whitespace-nowrap text-sm font-black tracking-tight"
+                  className="flex-1 whitespace-nowrap text-base font-black tracking-tight sm:flex-none sm:text-2xl"
                   style={{ color: tint }}
                 >
                   {spec.label}
-                </p>
-                <p className="min-w-0 flex-1 truncate text-[0.6875rem] font-semibold text-ink-dim sm:flex-none">
-                  {spec.note} · ×{spec.price}
                 </p>
                 <p
                   className={cn(
@@ -628,15 +630,17 @@ export function PickemCard({
               : "text-ink-dim",
         )}
       >
+        {/* Коротко. Довгі пояснення тут читають один раз, а бачать щоразу —
+            і кожну наступну сесію вони просто займають рядок. */}
         {note
           ? note
           : !canSave
-            ? "Картка зберігається під акаунтом — увійди, щоб вона зарахувалася."
+            ? "Увійди, щоб зберегти картку"
             : short.length
               ? `Лишилось обрати: ${short.join(", ")}`
               : saving || dirty
                 ? "Зберігаю…"
-                : "Збережено. Поки стадія не почалась, картку ще можна міняти."}
+                : "Збережено"}
       </p>
 
     </div>
