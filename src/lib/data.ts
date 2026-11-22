@@ -467,7 +467,7 @@ export const allTournaments: Tournament[] = [
     name: "PGL Masters Bucharest 2026",
     shortName: "PGL Bucharest",
     tier: 1,
-    status: "live",
+    status: "finished",
     startISO: "2026-10-24",
     endISO: "2026-10-31",
     dateLabel: "24 – 31 жовт",
