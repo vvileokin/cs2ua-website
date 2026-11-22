@@ -22,16 +22,6 @@ export type StageOdds = {
   at: string | null;
 };
 
-export type CardOdds = {
-  /** Шанс потрапити в десятку, якій їдуть скіни. До замка — null. */
-  pPrize: number | null;
-  evPoints: number;
-  evHits: number;
-  /** Шанс кожного власного вибору: слаг → ймовірність саме тієї ролі. */
-  pPick: Record<string, number>;
-  dist: number[];
-};
-
 export const getStageOdds = cache(async (stage: number): Promise<StageOdds> => {
   const sb = await createClient();
   const { data } = await sb
@@ -43,29 +33,5 @@ export const getStageOdds = cache(async (stage: number): Promise<StageOdds> => {
   return {
     byTeam: (data?.odds as Record<string, TeamOdds> | null) ?? {},
     at: (data?.odds_at as string | null) ?? null,
-  };
-});
-
-export const getMyOdds = cache(async (stage: number): Promise<CardOdds | null> => {
-  const sb = await createClient();
-  const {
-    data: { user },
-  } = await sb.auth.getUser();
-  if (!user) return null;
-
-  const { data } = await sb
-    .from("major_pickem_odds")
-    .select("p_prize, ev_points, ev_hits, p_pick, dist")
-    .eq("stage", stage)
-    .eq("user_id", user.id)
-    .maybeSingle();
-  if (!data) return null;
-
-  return {
-    pPrize: (data.p_prize as number | null) ?? null,
-    evPoints: (data.ev_points as number) ?? 0,
-    evHits: (data.ev_hits as number) ?? 0,
-    pPick: (data.p_pick as Record<string, number>) ?? {},
-    dist: (data.dist as number[]) ?? [],
   };
 });
