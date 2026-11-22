@@ -17,8 +17,7 @@ import {
   DatabaseZap,
   GitFork,
   Grid2x2,
-  Skull,
-} from "lucide-react";
+  Skull, Trophy} from "lucide-react";
 import { Brand } from "@/components/layout/Brand";
 import { createClient } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
@@ -33,6 +32,7 @@ const nav: { href: string; label: string; icon: IconType; adminOnly?: boolean }[
   { href: "/admin/bracket", label: "Сітка плей-офу", icon: GitFork },
   { href: "/admin/porto", label: "Клуб 0-2", icon: Skull },
   { href: "/admin/epl", label: "Швейцарка EPL", icon: Grid2x2 },
+  { href: "/admin/major", label: "Пікеми на мейджор", icon: Trophy },
   { href: "/admin/giveaways", label: "Розіграші", icon: Gift },
   { href: "/admin/content", label: "Контент", icon: LayoutTemplate },
   { href: "/admin/users", label: "Користувачі та ролі", icon: Users, adminOnly: true },

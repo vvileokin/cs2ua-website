@@ -113,6 +113,14 @@ export function currentStage(stages: MajorStage[], now = Date.now()): MajorStage
   return started.length ? started[started.length - 1] : stages[0];
 }
 
+/** Чи є хто за екраном. Порожні картки гостя й недозаповнена картка гравця
+ *  виглядають однаково, а причини в них різні — і сказати треба різне. */
+export const isSignedIn = cache(async (): Promise<boolean> => {
+  const sb = await createClient();
+  const { data: { user } } = await sb.auth.getUser();
+  return !!user;
+});
+
 /** Усі картки гравця, ключем — номер стадії. Для гостя — порожньо. */
 export const getMyCards = cache(async (): Promise<Record<number, PickemCard>> => {
   const sb = await createClient();

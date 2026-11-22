@@ -119,15 +119,19 @@ export function MajorCrest({
             width: fluid ? `${Math.round(share * 100)}%` : inner,
             height: fluid ? `${Math.round(share * 100)}%` : inner,
             objectFit: "contain",
-            // Каталожні знаки намальовані під перефарбовування — робимо білими.
+            // Каталожні знаки намальовані під перефарбовування — робимо
+            // світлими. Не чистий білий: `invert(1)` дає #FFF, а тридцять два
+            // таких знаки на багряній плиті світяться так, що від них
+            // втомлюються очі раніше, ніж устигаєш їх роздивитися. 0.92 — це
+            // приблизно #EBEBEB, на вигляд той самий знак, тільки без блиску.
             // Привізні логотипи це готова кольорова графіка, її не чіпаємо.
-            filter: external ? undefined : "brightness(0) invert(1)",
+            filter: external ? undefined : "brightness(0) invert(0.92)",
           }}
         />
       ) : (
         <span
           className={cn(
-            "font-extrabold leading-none tracking-tight text-white/90",
+            "font-extrabold leading-none tracking-tight text-ink",
             fluid && "text-xs sm:text-sm",
           )}
           style={fluid ? undefined : { fontSize: Math.round(size * 0.26) }}

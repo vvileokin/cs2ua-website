@@ -75,18 +75,25 @@ export function PickemCard({
   shape,
   teams,
   initial,
+  canSave,
 }: {
   stage: number;
   shape: CardShape;
   teams: string[];
   initial: PickemPicks;
+  /** Чи є кому зберігати. Для гостя кнопка мовчала б так само, як і для
+   *  недозаповненої картки, а причина зовсім інша. */
+  canSave: boolean;
 }) {
   const [picks, setPicks] = React.useState<PickemPicks>(initial);
   const [sel, setSel] = React.useState<string | null>(null);
   const [target, setTarget] = React.useState<PickRole | null>(null);
   const [saving, setSaving] = React.useState(false);
   const [note, setNote] = React.useState<string | null>(null);
-  const [saved, setSaved] = React.useState(false);
+  /** Те, що точно лежить у базі. Порівнювати треба з ним, а не з тим, що
+   *  приїхало при завантаженні: після першого ж автозбереження `initial`
+   *  застаріває, і картка вічно вважалася б незбереженою. */
+  const [savedPicks, setSavedPicks] = React.useState<PickemPicks>(initial);
 
   const capOf = React.useCallback(
     (role: PickRole) => shape.roles.find((r) => r.role === role)?.cap ?? 0,
@@ -100,7 +107,7 @@ export function PickemCard({
   );
 
   const complete = isComplete(picks, shape);
-  const dirty = JSON.stringify(picks) !== JSON.stringify(initial);
+  const dirty = JSON.stringify(picks) !== JSON.stringify(savedPicks);
 
   /**
    * Обраний кошик, якщо в ньому ще є місце.
@@ -115,7 +122,6 @@ export function PickemCard({
 
   const place = React.useCallback(
     (team: string, role: PickRole) => {
-      setSaved(false);
       setPicks((prev) => {
         if (prev[team] === role) return prev;
         /* Команда може переїжджати з кошика в кошик, тому рахуємо місце без
@@ -131,7 +137,6 @@ export function PickemCard({
   );
 
   const remove = React.useCallback((team: string) => {
-    setSaved(false);
     setPicks((prev) => {
       const next = { ...prev };
       delete next[team];
@@ -237,25 +242,63 @@ export function PickemCard({
     setTarget((t) => (t === role ? null : role));
   }
 
-  async function save() {
-    if (!complete || saving) return;
+  /**
+   * Збереження.
+   *
+   * Кнопки немає. Вона була третім станом там, де потрібні два: картка або
+   * повна, або ні. Поки неповна — зберігати нічого, і кнопка стояла мертва,
+   * нічого не пояснюючи; щойно повна — натискати її вже формальність, бо
+   * іншої дії на сторінці немає. Тому картка їде сама, щойно кошики
+   * зійшлися, а рядок під нею каже, що з нею зараз.
+   *
+   * Затримка в сімсот мілісекунд не для сервера, а для людини: шістнадцять
+   * гербів розкладають поспіль, і без неї кожен проміжний стан — а їх
+   * десять — їхав би окремим запитом.
+   */
+  /* Картка, на якій сервер уже сказав «ні».
+     Без неї автозбереження перетворюється на нескінченний цикл: помилка не
+     міняє `picks`, тож картка лишається «незбереженою», ефект спрацьовує
+     знову — і так щосемсот мілісекунд, доки людина не піде зі сторінки.
+     Повторюємо тільки тоді, коли вибір справді змінився. */
+  const failedRef = React.useRef<string | null>(null);
+
+  const save = React.useCallback(async (next: PickemPicks) => {
     setSaving(true);
     setNote(null);
     try {
       const r = await fetch("/api/major/pickem", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ stage, picks }),
+        body: JSON.stringify({ stage, picks: next }),
       });
       const j = await r.json();
-      if (!r.ok) setNote(j.error ?? "Не вдалося зберегти.");
-      else setSaved(true);
+      if (!r.ok) {
+        failedRef.current = JSON.stringify(next);
+        setNote(j.error ?? "Не вдалося зберегти.");
+      } else {
+        failedRef.current = null;
+        setSavedPicks(next);
+      }
     } catch {
+      failedRef.current = JSON.stringify(next);
       setNote("Мережа не відповіла. Спробуй ще раз.");
     } finally {
       setSaving(false);
     }
-  }
+  }, [stage]);
+
+  React.useEffect(() => {
+    if (!canSave || !complete || !dirty || saving) return;
+    if (failedRef.current === JSON.stringify(picks)) return;
+    const t = setTimeout(() => { void save(picks); }, 700);
+    return () => clearTimeout(t);
+  }, [canSave, complete, dirty, saving, picks, save]);
+
+  /** Чого ще бракує, кошиками. Порожньо — картка повна. */
+  const short = shape.roles
+    .map((r) => ({ r, n: r.cap - inRole(r.role).length }))
+    .filter((x) => x.n > 0)
+    .map((x) => `${x.r.label} — ${x.n}`);
 
   const hint = live
     ? `Обери команду в «${shape.roles.find((r) => r.role === live)?.label}»`
@@ -526,33 +569,31 @@ export function PickemCard({
         </div>
       )}
 
-      <div className="flex flex-wrap items-center justify-end gap-3">
-        {note && <p className="flex-1 text-sm font-semibold text-[var(--danger)]">{note}</p>}
-        {!note && saved && !dirty && (
-          <p className="flex-1 text-sm font-semibold text-[var(--success)]">
-            Картку збережено. Поки стадія не почалась, її ще можна міняти.
-          </p>
+      {/* Стан картки замість кнопки.
+          Один рядок, і він завжди каже щось одне: чого бракує, що зараз
+          їде, або що все лежить у базі. */}
+      <p
+        aria-live="polite"
+        className={cn(
+          "px-1 text-[0.8125rem]",
+          note
+            ? "font-semibold text-[var(--danger)]"
+            : complete && !dirty && !saving
+              ? "font-semibold text-[var(--success)]"
+              : "text-ink-dim",
         )}
-        <button
-          type="button"
-          onClick={save}
-          disabled={!complete || saving || !dirty}
-          className={cn(
-            /* `rounded-[3px]`, як у решти кнопок сайта (`ui/Button`, розмір
-               md). Пігулка тут була сьомим радіусом на сторінці, де їх і так
-               було більше, ніж елементів, що їх заслуговують. */
-            "h-11 rounded-[3px] px-6 text-sm font-extrabold transition-colors duration-150",
-            complete && dirty && !saving
-              ? "bg-accent text-accent-ink hover:bg-accent-hover"
-              : "cursor-default bg-fill-2 text-ink-faint",
-          )}
-        >
-          {/* «Збережено» тільки тоді, коли справді є що було зберігати.
-              На порожній картці `dirty` теж хибний — і кнопка впевнено
-              повідомляла про збереження того, чого ніхто не робив. */}
-          {saving ? "Зберігаю…" : complete && !dirty ? "Збережено" : "Зберегти картку"}
-        </button>
-      </div>
+      >
+        {note
+          ? note
+          : !canSave
+            ? "Картка зберігається під акаунтом — увійди, щоб вона зарахувалася."
+            : short.length
+              ? `Лишилось обрати: ${short.join(", ")}`
+              : saving || dirty
+                ? "Зберігаю…"
+                : "Збережено. Поки стадія не почалась, картку ще можна міняти."}
+      </p>
+
     </div>
   );
 }

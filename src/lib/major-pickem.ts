@@ -56,6 +56,15 @@ export type CardShape = {
   /** Максимум за стадію. */
   max: number;
   tiers: PickemTier[];
+  /**
+   * Чим може закінчитися стадія для однієї команди.
+   *
+   * Це не ролі з картки: ролей три, а підсумків шість, бо «пройшов» — це
+   * і 3:1, і 3:2. Потрібні там, де підсумок вносять руками: в адмінці треба
+   * обрати один із них кожній команді, і список має бути повний, інакше
+   * нарахування не зійдеться.
+   */
+  outcomes: { key: string; label: string }[];
 };
 
 /**
@@ -84,6 +93,14 @@ const SWISS: CardShape = build({
     { role: "adv", cap: 6, label: "3:1 3:2", title: "3:1 3:2 — проходять", note: "проходять", price: 50 },
     { role: "0-3", cap: 2, label: "0:3", title: "0:3 — виліт", note: "виліт", price: 150 },
   ],
+  outcomes: [
+    { key: "3-0", label: "3:0" },
+    { key: "3-1", label: "3:1" },
+    { key: "3-2", label: "3:2" },
+    { key: "2-3", label: "2:3" },
+    { key: "1-3", label: "1:3" },
+    { key: "0-3", label: "0:3" },
+  ],
   tiers: [
     { key: "diamond", name: "Діамант", from: 10, tone: "var(--info)" },
     { key: "gold", name: "Золото", from: 9, tone: "var(--tier1)" },
@@ -100,6 +117,12 @@ const PLAYOFF: CardShape = build({
     { role: "champ", cap: 1, label: "Чемпіон", title: "Візьме мейджор", note: "бере трофей", price: 400 },
     { role: "final", cap: 1, label: "Фіналіст", title: "Дійде до фіналу й програє його", note: "програє фінал", price: 300 },
     { role: "semi", cap: 2, label: "Півфінал", title: "Зупиняться за крок до фіналу", note: "за крок до фіналу", price: 200 },
+  ],
+  outcomes: [
+    { key: "champ", label: "Чемпіон" },
+    { key: "final", label: "Фіналіст" },
+    { key: "semi", label: "Півфінал" },
+    { key: "qf", label: "Чвертьфінал" },
   ],
   tiers: [
     { key: "diamond", name: "Діамант", from: 4, tone: "var(--info)" },

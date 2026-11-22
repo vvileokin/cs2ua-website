@@ -13,7 +13,7 @@ import { getChampionTally, getMyChampionVote } from "@/lib/db/champion";
 import { findTeam } from "@/lib/data";
 import {
   getStages, getMyCards, getBoard, getStageBoard, getDistribution,
-  isOpen, isReady, hasStarted, shapeFor, currentStage,
+  isOpen, isReady, hasStarted, shapeFor, currentStage, isSignedIn,
   type BoardRow, type Distribution,
 } from "@/lib/db/pickem";
 import {
@@ -40,6 +40,7 @@ export default async function MajorPickemPage({
     searchParams, getStages(), getMyCards(), getBoard(50),
     getChampionTally(), getMyChampionVote(),
   ]);
+  const signedIn = await isSignedIn();
 
   if (!stages.length) {
     return (
@@ -169,6 +170,7 @@ export default async function MajorPickemPage({
           shape={shape}
           teams={stage.teams}
           initial={card?.picks ?? {}}
+          canSave={signedIn}
         />
       ) : (
         <LockedStage
@@ -183,18 +185,20 @@ export default async function MajorPickemPage({
         />
       )}
 
-      <MajorPrizes stage={stage.stage} />
-
-      {/* Голосування — після призів і перед таблицями. Воно не про картку й
-          не дає очок, тож стояти над карткою не має права; але воно єдине на
-          сторінці, що працює вже зараз, поки жодна стадія не дограна й обидві
-          таблиці чесно порожні. */}
+      {/* Голосування одразу під карткою, призи — за ним.
+          Обидва блоки не про картку, але один із них діє: голос можна
+          віддати просто зараз, одним дотиком, і побачити, як зрушилися
+          відсотки. Призи — текст, який читають один раз і більше до нього
+          не повертаються, тож вони й пропускають уперед те, з чим є що
+          робити. */}
       <ChampionPoll
         teams={contenders}
         initialTally={tally.byTeam}
         initialVote={myVote}
         locked={pollLocked}
       />
+
+      <MajorPrizes stage={stage.stage} />
 
       {/* Таблиця самої стадії — тільки коли є що показувати. Саме по ній
           їдуть скіни за цю стадію, тож вона стоїть ближче, ніж підсумок. */}
