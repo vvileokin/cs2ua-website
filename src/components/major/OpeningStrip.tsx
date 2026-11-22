@@ -3,55 +3,87 @@ import { findTeam } from "@/lib/data";
 import type { StageMatch } from "@/lib/db/pickem";
 
 /**
- * Найближчі матчі стадії — тонка стрічка над вкладками.
+ * Перший тур стадії.
  *
- * Вона не про результат і не про ставку: до старту стадії жодного результату
- * ще немає. Її робота — зробити шістнадцять слагів зі складу чимось, що вже
- * має дату. Поки пар не видно, стадія лишається списком команд; коли видно,
- * видно й те, що до першого матчу лишилось стільки-то, і що HEROIC грає з
- * Imperial, а не «десь колись».
+ * Перша версія була стрічкою, що їде вбік. Вісім однакових чипів в один ряд
+ * не влізали ніколи, і внизу з'являлася горизонтальна смуга прокрутки — тобто
+ * половина розкладу ховалася за краєм екрана, і щоб дізнатися, хто з ким
+ * грає, треба було спершу здогадатися потягнути. Розклад, який треба шукати,
+ * не виконує своєї роботи.
  *
- * Тільки перший тур. Далі пари зводить швейцарка за результатами, і вписати
- * їх наперед неможливо — тож стрічка чесно закінчується там, де закінчується
- * відоме.
+ * Тут він розкладений стовпчиками за часом початку, і це не просто спосіб
+ * умістити вісім пар без прокрутки. Матчі справді йдуть парами: о кожній
+ * годині стартують два. Колонка на годину показує цю структуру сама собою —
+ * видно, що тур іде чотирма хвилями, а не вісьмома окремими подіями, і
+ * скільки їх лишилось до останньої.
  *
- * Їде вбік, а не переноситься. Вісім пар у два ряди на телефоні з'їли б
- * півекрана ще до того, як людина побачить, за чим прийшла; один ряд із
- * прокруткою лишається смугою, якою й був задуманий.
+ * Час один на колонку, а не повторений у кожному рядку. Два однакові «08:00»
+ * поруч — це не інформація, а шум, у якому тоне те єдине, чим рядки справді
+ * різняться: хто грає.
  */
 export function OpeningStrip({ matches }: { matches: StageMatch[] }) {
   if (!matches.length) return null;
 
+  /* Групування по моменту старту, у хронологічному порядку. Ключем іде сам
+     ISO, а не відформатована година: дві різні доби з однаковим «08:00»
+     склеїлися б в одну колонку. */
+  const slots = new Map<string, StageMatch[]>();
+  for (const m of [...matches].sort((x, y) => x.at.localeCompare(y.at))) {
+    const list = slots.get(m.at) ?? [];
+    list.push(m);
+    slots.set(m.at, list);
+  }
+
   return (
-    <div className="-mx-3 overflow-x-auto px-3 sm:mx-0 sm:px-0">
-      <div className="flex min-w-max gap-1.5">
-        {matches.map((m, i) => {
-          const a = findTeam(m.a);
-          const b = findTeam(m.b);
-          return (
-            <div
-              key={`${m.a}-${m.b}-${i}`}
-              title={`${a?.name ?? m.a} — ${b?.name ?? m.b}`}
-              className="flex shrink-0 items-center gap-2 rounded-[4px] bg-[var(--major-floor)] px-2.5 py-2 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]"
-            >
-              <MajorCrest team={a} slug={m.a} size={22} />
-              <MajorCrest team={b} slug={m.b} size={22} />
-              <time
-                dateTime={m.at}
-                className="tnum text-[0.6875rem] font-bold text-ink-dim"
-              >
-                {new Date(m.at).toLocaleString("uk-UA", {
-                  day: "numeric",
-                  month: "short",
+    <section className="major-plate rounded-[4px] px-3 py-3 sm:px-4">
+      <p className="mb-3 text-[0.625rem] font-bold uppercase tracking-[0.14em] text-ink-dim">
+        Перший тур
+      </p>
+
+      <div className="grid grid-cols-2 gap-x-4 gap-y-4 sm:grid-cols-4">
+        {[...slots.entries()].map(([at, list]) => (
+          <div key={at}>
+            <p className="mb-1.5 flex items-center gap-1.5 text-[0.6875rem] font-extrabold tabular-nums text-[var(--major-hot)]">
+              <span className="size-1 rounded-full bg-[var(--major-hot)]" />
+              <time dateTime={at}>
+                {new Date(at).toLocaleTimeString("uk-UA", {
                   hour: "2-digit",
                   minute: "2-digit",
                   timeZone: "Europe/Kyiv",
                 })}
               </time>
+            </p>
+
+            <div className="space-y-1">
+              {list.map((m, i) => {
+                const a = findTeam(m.a);
+                const b = findTeam(m.b);
+                return (
+                  <div
+                    key={`${m.a}-${m.b}-${i}`}
+                    title={`${a?.name ?? m.a} — ${b?.name ?? m.b}`}
+                    className="flex items-center gap-1.5 rounded-[3px] bg-black/25 px-1.5 py-1"
+                  >
+                    <MajorCrest team={a} slug={m.a} size={20} />
+                    <span className="min-w-0 flex-1 truncate text-[0.6875rem] font-bold text-ink-muted">
+                      {a?.tag ?? m.a}
+                    </span>
+                    {/* Тире, а не «vs»: воно коротше за будь-яке слово і не
+                        конкурує з тегами за увагу в рядку завширшки з палець. */}
+                    <span aria-hidden className="text-[0.625rem] text-ink-faint">
+                      —
+                    </span>
+                    <span className="min-w-0 flex-1 truncate text-right text-[0.6875rem] font-bold text-ink-muted">
+                      {b?.tag ?? m.b}
+                    </span>
+                    <MajorCrest team={b} slug={m.b} size={20} />
+                  </div>
+                );
+              })}
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
-    </div>
+    </section>
   );
 }
