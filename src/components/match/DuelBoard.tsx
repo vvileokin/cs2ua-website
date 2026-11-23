@@ -8,7 +8,7 @@ import { Avatar } from "@/components/ui/Avatar";
 import { BrandIcon } from "@/components/ui/BrandIcon";
 import { useUser } from "@/lib/supabase/use-user";
 import { refreshProfile } from "@/lib/supabase/use-profile";
-import { getTeam, type Match } from "@/lib/data";
+import { getTeam, type Match, eventGem, runningEvent } from "@/lib/data";
 import { cn, formatInt } from "@/lib/utils";
 
 const TIERS = [50, 100, 250, 500];
@@ -313,7 +313,7 @@ export function DuelBoard({ match }: { match: Match }) {
                     <span className="ml-1.5 font-normal text-white/45">на {backed.tag}</span>
                   </span>
                   <span className="tnum flex shrink-0 items-center gap-1 font-mono text-xs font-bold text-[rgb(var(--skin-ring))]">
-                    <BrandIcon name="points-porto" className="size-3.5" />
+                    <BrandIcon name={eventGem(runningEvent()?.skin)} className="size-3.5" />
                     {formatInt(d.stake)}
                   </span>
                   {/* The button says which side taking it puts you on. "Взяти"
@@ -389,7 +389,7 @@ function MyDuel({
             settled ? (won ? "text-success" : "text-white/35") : "text-[rgb(var(--skin-ring))]",
           )}
         >
-          <BrandIcon name="points-porto" className="size-4" />
+          <BrandIcon name={eventGem(runningEvent()?.skin)} className="size-4" />
           {settled ? (won ? `+${formatInt(duel.stake * 2)}` : "—") : formatInt(duel.stake)}
         </span>
       </div>

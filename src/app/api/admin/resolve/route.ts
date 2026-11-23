@@ -54,10 +54,19 @@ export async function POST(request: Request) {
     // about which tournament the match belongs to. Read the fact.
     if (match?.tournament_slug === "ewc-2026") {
       eventColumns = "ewc";
-    } else if (match?.tournament_slug === "blast-porto-2026") {
+    } else if (
+      match?.tournament_slug === "blast-porto-2026" ||
+      match?.tournament_slug === "pgl-major-singapore-2026"
+    ) {
       // The running event's own balance. `ewc` and `bounty` still write the
       // columns their finished events are ranked on, so those boards stay the
       // historical records they are.
+      //
+      // Турніри перелічені поіменно, а не взяті з `runningEvent()`, і це
+      // навмисно: це правило про виплату. Воно не має мінятися від того, що
+      // хтось поставив події статус «finished» на день раніше — інакше
+      // питання, яке розраховують уранці, заплатить не тим гаманцем, ніж те,
+      // що розрахували звечора.
       eventColumns = "event";
     } else if (match?.is_event) {
       eventColumns = "bounty";

@@ -156,9 +156,14 @@ export function TournamentView({
                  вкладки не отримує взагалі. Порожнє місце чесніше за сітку,
                  яка називає груповий матч півфіналом; щойно для PGL зроблять
                  свою картку — гілка стане така сама, як в EPL вище. */
-              t.skin
-                ? null
-                : { id: "predictor" as Tab, label: "Прогнозатор", icon: GitFork },
+              t.skin === "major"
+                ? /* Мейджор має своє: пікеми живуть окремою сторінкою, а тут —
+                     дуелі. Вкладка названа по тому, що в ній лежить, а не
+                     «Інтерактиви»: інтерактив тут рівно один. */
+                  { id: "predictor" as Tab, label: "Дуелі", icon: Swords }
+                : t.skin
+                  ? null
+                  : { id: "predictor" as Tab, label: "Прогнозатор", icon: GitFork },
         ].filter((x) => x !== null)),
     {
       id: "leaderboard",
@@ -540,6 +545,10 @@ export function TournamentView({
         (t.skin === "epl" ? (
           <div className="space-y-3">
             <EplSwissCard teamSlugs={t.teamSlugs} />
+          </div>
+        ) : t.skin === "major" ? (
+          <div className="space-y-3">
+            <MyDuels matches={matches} />
           </div>
         ) : t.skin === "porto" ? (
           <div className="space-y-3">

@@ -8,6 +8,7 @@ import { TeamLogo } from "@/components/ui/TeamLogo";
 import { Badge } from "@/components/ui/Badge";
 import { QuestionCard } from "@/components/match/QuestionCard";
 import { DuelBoard } from "@/components/match/DuelBoard";
+import { runningEvent } from "@/lib/data";
 import { StickyMatchHeader } from "@/components/match/StickyMatchHeader";
 import { Tooltip } from "@/components/ui/Tooltip";
 import { EventMark } from "@/components/ui/EventMark";
@@ -340,7 +341,11 @@ export default async function MatchPage({
           head-to-head are things to read. Porto only — the mechanic does not
           exist anywhere else, and an empty panel on every other match page
           would be worse than none. */}
-      {skin === "porto" && <DuelBoard match={match} />}
+      {/* Дуелі — у події, яка зараз іде. Раніше тут стояв «porto», і разом із
+          кінцем того турніру дуелі зникли з сайту взагалі, хоча нічого
+          специфічно портівського в них немає: ставка йде з івентового
+          гаманця, а гаманець один на всі події. */}
+      {skin === runningEvent()?.skin && <DuelBoard match={match} />}
 
       {/* CONTEXT: subordinate */}
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">

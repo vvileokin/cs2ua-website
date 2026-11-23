@@ -5,7 +5,7 @@ import { ChevronLeft, Loader2, Plus } from "lucide-react";
 import { Modal } from "@/components/ui/Modal";
 import { refreshProfile } from "@/lib/supabase/use-profile";
 import { TeamLogo } from "@/components/ui/TeamLogo";
-import { getTeam, matchTimeLabel, type Match } from "@/lib/data";
+import { getTeam, matchTimeLabel, type Match, runningEvent } from "@/lib/data";
 import { cn, formatInt } from "@/lib/utils";
 
 /**
@@ -106,7 +106,7 @@ export function ChallengeDialog({
           wears the event. `data-skin` sits here rather than on a parent because
           a modal renders into its own tree, outside the page that declares the
           palette — without it every token would fall back to the World Cup. */}
-      <div data-skin="porto">
+      <div data-skin={runningEvent()?.skin}>
       {done ? (
         <p className="rounded-xl bg-success/10 px-3 py-4 text-center text-sm font-bold text-success">
           Виклик надіслано. {target?.handle} побачить його на матчі.
