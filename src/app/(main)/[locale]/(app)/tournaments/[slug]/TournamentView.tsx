@@ -62,13 +62,22 @@ export function TournamentView({
   matches,
   leaderboard,
   ranks = {},
+  majorStages = [],
 }: {
   tournament: Tournament;
   matches: Match[];
   leaderboard: LeaderRow[];
   /** Live world ranks by slug, from Valve's standings. */
   ranks?: Record<string, number>;
+  /** Стадії мейджора з бази. Для решти турнірів порожньо. */
+  majorStages?: { stage: number; title: string; kind: string; teams: string[] }[];
 }) {
+  /* Яку стадію розгорнути: ту, що зараз грає, інакше першу.
+     Чотири розгорнуті сітки поспіль — це чотири екрани прокрутки до того, що
+     людина шукала. */
+  const openMajorStage =
+    majorStages.find((st) => matches.some((m) => new RegExp(String(st.stage)).test(m.stage ?? "")))
+      ?.stage ?? majorStages[0]?.stage;
   const tabs: {
     id: Tab;
     label: string;
@@ -423,6 +432,49 @@ export function TournamentView({
                   <BracketPanel label="Плейоф">
                     <PlayoffBracket matches={matches} slug={t.slug} />
                   </BracketPanel>
+                </div>
+              ) : t.skin === "major" ? (
+                /* Мейджор — це не групи й не одна швейцарка, а чотири стадії
+                   поспіль: три по шістнадцять і плейоф на вісьмох. Тому й
+                   панелей чотири, названих так само, як на сторінці пікемів,
+                   — людина ходить між ними й не має щоразу здогадуватись, що
+                   «Швейцарка» тут означає.
+
+                   Склад кожної стадії приходить із бази, а не з каталогу:
+                   друга й третя доукомплектовуються по ходу турніру, і
+                   вписаний наперед список застарів би в перший же день.
+
+                   Матч потрапляє у стадію за своїм підписом: у ньому має бути
+                   її номер. Спільного ключа між таблицею матчів і стадіями
+                   немає, і заводити його заради чотирьох панелей — зайва
+                   сутність; підпис стадії адмін усе одно пише. */
+                <div className="space-y-3">
+                  {majorStages
+                    .filter((st) => st.kind !== "playoff")
+                    .map((st) => (
+                      <BracketPanel
+                        key={st.stage}
+                        label={st.title}
+                        defaultOpen={st.stage === openMajorStage}
+                      >
+                        <SwissBracket
+                          matches={matches.filter((m) =>
+                            new RegExp(String(st.stage)).test(m.stage ?? ""),
+                          )}
+                          teamSlugs={st.teams}
+                        />
+                      </BracketPanel>
+                    ))}
+                  {/* Плейоф з'являється разом зі своїми матчами: порожня сітка
+                      на вісьмох за два тижні до неї — це обіцянка, а не дані. */}
+                  {matches.some((m) => /плей/i.test(m.stage ?? "")) && (
+                    <BracketPanel label="Плей-оф">
+                      <PlayoffBracket
+                        matches={matches.filter((m) => /плей/i.test(m.stage ?? ""))}
+                        slug={t.slug}
+                      />
+                    </BracketPanel>
+                  )}
                 </div>
               ) : t.skin === "porto" ? (
                 <PortoBracket matches={matches} />

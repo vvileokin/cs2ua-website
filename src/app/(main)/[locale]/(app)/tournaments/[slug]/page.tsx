@@ -4,6 +4,7 @@ import { tournaments, isAuraSkin } from "@/lib/data";
 import { findTournament } from "@/lib/db/tournaments";
 import { getSiteSettings } from "@/lib/db/settings";
 import { getMatches } from "@/lib/db/matches";
+import { getStages, MAJOR_SLUG } from "@/lib/db/pickem";
 import { getLeaderboard, getBountyLeaderboard, getEwcLeaderboard , getEventLeaderboard} from "@/lib/db/leaderboard";
 import { getWorldRanks } from "@/lib/db/team-ranks";
 import { TournamentView } from "./TournamentView";
@@ -30,6 +31,13 @@ export default async function TournamentPage({
   const { slug } = await params;
   const t = await findTournament(slug);
   if (!t) notFound();
+
+  /* Стадії мейджора — з тієї самої таблиці, що й сторінка пікемів.
+     Склад кожної з них там уже ведеться і міняється, коли хтось проходить
+     далі; дублювати його в каталозі турнірів означало б завести друге місце,
+     яке колись розійдеться з першим. Для решти турнірів це порожньо і нічого
+     не коштує. */
+  const majorStages = slug === MAJOR_SLUG ? await getStages() : [];
 
   const { covers } = await getSiteSettings();
   const tournament = covers[slug] ? { ...t, coverImage: covers[slug] } : t;
@@ -61,6 +69,7 @@ export default async function TournamentPage({
 
   return (
     <TournamentView
+      majorStages={majorStages}
       tournament={tournament}
       matches={tourMatches}
       leaderboard={leaderboard}

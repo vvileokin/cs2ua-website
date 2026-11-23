@@ -2,7 +2,8 @@ import Image from "next/image";
 import { BETKING_URL } from "@/components/ui/BetkingMark";
 import { MajorCrest } from "./MajorCrest";
 import { findTeam } from "@/lib/data";
-import type { StageMatch } from "@/lib/db/pickem";
+import { Link } from "@/i18n/navigation";
+import type { OpeningLive, StageMatch } from "@/lib/db/pickem";
 import { cn } from "@/lib/utils";
 
 /**
@@ -24,7 +25,15 @@ import { cn } from "@/lib/utils";
  * поруч — це не інформація, а шум, у якому тоне те єдине, чим рядки справді
  * різняться: хто грає.
  */
-export function OpeningStrip({ matches }: { matches: StageMatch[] }) {
+export function OpeningStrip({
+  matches,
+  live = {},
+}: {
+  matches: StageMatch[];
+  /** Заведені матчі, ключем — пара слагів за абеткою. Порожньо, доки їх не
+   *  імпортували: тоді рядок лишається просто розкладом. */
+  live?: Record<string, OpeningLive>;
+}) {
   if (!matches.length) return null;
 
   /** Чи є хоч один коефіцієнт — від цього залежить ширина колонок. */
@@ -72,12 +81,16 @@ export function OpeningStrip({ matches }: { matches: StageMatch[] }) {
               {list.map((m, i) => {
                 const a = findTeam(m.a);
                 const b = findTeam(m.b);
-                return (
-                  <div
-                    key={`${m.a}-${m.b}-${i}`}
-                    title={`${a?.name ?? m.a} — ${b?.name ?? m.b}`}
-                    className="flex items-center gap-1.5 rounded-[3px] bg-black/25 px-1.5 py-1"
-                  >
+                const hit = live[[m.a, m.b].sort().join("|")];
+                /* Рахунок пишеться в порядку пари, а не матчу: у таблиці
+                   матчів команди могли завести навпаки, і тоді 2:0 стало б
+                   0:2 просто через порядок стовпців. */
+                const sa = hit ? (hit.flipped ? hit.scoreB : hit.scoreA) : 0;
+                const sb = hit ? (hit.flipped ? hit.scoreA : hit.scoreB) : 0;
+                const played = !!hit && hit.status !== "upcoming";
+
+                const row = (
+                  <>
                     <MajorCrest team={a} slug={m.a} size={20} />
                     <span className="min-w-0 flex-1 truncate text-[0.6875rem] font-bold text-ink-muted">
                       {a?.tag ?? m.a}
@@ -89,7 +102,7 @@ export function OpeningStrip({ matches }: { matches: StageMatch[] }) {
                         сторінці, і воно має виглядати як вставка, а не як
                         наша цифра. Логотип між двома числами каже, чиї вони,
                         без жодного підпису. */}
-                    {m.oa && m.ob ? (
+                    {m.oa && m.ob && !played ? (
                       /* Пігулка веде до букмекера, як і всі інші його місця на
                          сайті: ті самі `target`, `rel="sponsored"` і те саме
                          посилання з реферальним кодом. Коефіцієнт, який нікуди
@@ -117,19 +130,49 @@ export function OpeningStrip({ matches }: { matches: StageMatch[] }) {
                         </span>
                       </a>
                     ) : null}
-                    <span
-                      aria-hidden
-                      className={cn(
-                        "text-[0.625rem] text-ink-faint",
-                        m.oa && m.ob && "lg:hidden",
-                      )}
-                    >
-                      —
-                    </span>
+                    {played ? (
+                      /* Зіграний матч показує рахунок замість тире: коефіцієнти
+                         після початку вже нічого не варті, а рахунок — єдине,
+                         по що на цей рядок дивляться. */
+                      <span className="tnum shrink-0 text-[0.6875rem] font-black text-ink">
+                        {sa}:{sb}
+                      </span>
+                    ) : (
+                      <span
+                        aria-hidden
+                        className={cn(
+                          "text-[0.625rem] text-ink-faint",
+                          m.oa && m.ob && "lg:hidden",
+                        )}
+                      >
+                        —
+                      </span>
+                    )}
                     <span className="min-w-0 flex-1 truncate text-right text-[0.6875rem] font-bold text-ink-muted">
                       {b?.tag ?? m.b}
                     </span>
                     <MajorCrest team={b} slug={m.b} size={20} />
+                  </>
+                );
+
+                /* Матч є — рядок стає посиланням на його сторінку, де є і
+                   склад, і ставки. Немає — лишається тим, чим був. */
+                const cls =
+                  "flex items-center gap-1.5 rounded-[3px] bg-black/25 px-1.5 py-1";
+                const title = `${a?.name ?? m.a} — ${b?.name ?? m.b}`;
+
+                return hit ? (
+                  <Link
+                    key={`${m.a}-${m.b}-${i}`}
+                    href={`/matches/${hit.id}`}
+                    title={title}
+                    className={cn(cls, "transition-colors hover:bg-black/40")}
+                  >
+                    {row}
+                  </Link>
+                ) : (
+                  <div key={`${m.a}-${m.b}-${i}`} title={title} className={cls}>
+                    {row}
                   </div>
                 );
               })}

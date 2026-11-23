@@ -96,6 +96,59 @@ export const getStages = cache(async (): Promise<MajorStage[]> => {
   }));
 });
 
+/** Слаг мейджора в каталозі турнірів. Один рядок, бо він потрібен і тут, і
+ *  на сторінці: матч шукається за ним, а не за назвою. */
+export const MAJOR_SLUG = "pgl-major-singapore-2026";
+
+/** Що сталося з парою першого туру, якщо матч уже заведений у турнір. */
+export type OpeningLive = {
+  id: string;
+  status: string;
+  scoreA: number;
+  scoreB: number;
+  /** Чи в тому ж порядку команди стоять у матчі, що й у парі. */
+  flipped: boolean;
+};
+
+/**
+ * Матчі мейджора, ключем — пара команд.
+ *
+ * Розклад стадії лежить у `major_stages.opening` (0095) і нічого не знає про
+ * таблицю матчів: пари вносилися, коли мейджора в турнірах ще не було. Тепер
+ * він там є, і ті самі вісім пар можуть мати живий матч зі своєю сторінкою й
+ * рахунком — але зв'язати їх можна лише по командах, бо спільного ключа в
+ * них немає і заводити його заднім числом нема сенсу.
+ *
+ * Ключ складається з двох слагів, відсортованих за абеткою, тож порядок
+ * команд у матчі й у парі може не збігатися — а він і не збігається, коли
+ * матч заводять руками.
+ */
+export const getOpeningLive = cache(
+  async (): Promise<Record<string, OpeningLive>> => {
+    const sb = await createClient();
+    const { data } = await sb
+      .from("matches")
+      .select("id, team_a, team_b, status, score_a, score_b")
+      .eq("tournament_slug", MAJOR_SLUG);
+
+    const out: Record<string, OpeningLive> = {};
+    for (const m of data ?? []) {
+      const a = m.team_a as string;
+      const b = m.team_b as string;
+      if (!a || !b) continue;
+      const key = [a, b].sort().join("|");
+      out[key] = {
+        id: m.id as string,
+        status: (m.status as string) ?? "upcoming",
+        scoreA: (m.score_a as number) ?? 0,
+        scoreB: (m.score_b as number) ?? 0,
+        flipped: a > b,
+      };
+    }
+    return out;
+  },
+);
+
 /** Форма картки цієї стадії. */
 export function shapeFor(s: MajorStage): CardShape {
   return shapeOf(s.kind);

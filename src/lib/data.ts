@@ -175,8 +175,11 @@ export type Tournament = {
  *           турніру.
  *   pgl   — PGL Masters Bucharest 2026: кобальт на темно-синьому, з ключового
  *           арту події.
+ *   major — PGL Major Singapore 2026: багряний на майже чорному. Той самий
+ *           колір, яким пофарбована сторінка пікемів, тож картка події і її
+ *           сторінка нарешті одного кольору.
  */
-export type EventSkin = "blast" | "ewc" | "porto" | "epl" | "pgl";
+export type EventSkin = "blast" | "ewc" | "porto" | "epl" | "pgl" | "major";
 
 /**
  * Skins that dress a surface with the event's own floor, glow and ring.
@@ -230,16 +233,19 @@ export function entryGem(currency: EntryCurrency, skin?: EventSkin | null) {
 
 export function eventGem(
   skin?: EventSkin | null,
-): "points" | "points-ewc" | "points-porto" | "points-epl" | "points-pgl" {
+): "points" | "points-ewc" | "points-porto" | "points-epl" | "points-pgl" | "points-major" {
   return skin === "ewc" ? "points-ewc"
     : skin === "porto" ? "points-porto"
     : skin === "epl" ? "points-epl"
     : skin === "pgl" ? "points-pgl"
+    : skin === "major" ? "points-major"
     : "points";
 }
 
 export function isAuraSkin(skin?: EventSkin | null): boolean {
-  return skin === "ewc" || skin === "porto" || skin === "epl" || skin === "pgl";
+  return (
+    skin === "ewc" || skin === "porto" || skin === "epl" || skin === "pgl" || skin === "major"
+  );
 }
 
 export const allTournaments: Tournament[] = [
@@ -493,6 +499,36 @@ export const allTournaments: Tournament[] = [
     accent: "oklch(0.58 0.22 264)",
     skin: "pgl",
   },
+  {
+    slug: "pgl-major-singapore-2026",
+    name: "PGL Major Singapore 2026",
+    shortName: "PGL Major",
+    tier: 1,
+    status: "upcoming",
+    startISO: "2026-11-24",
+    endISO: "2026-12-13",
+    dateLabel: "24 лист – 13 груд",
+    location: "Сінгапур",
+    online: false,
+    prizeUSD: 1250000,
+    /* Тридцять дві в порядку посіву: спершу третя стадія (верх таблиці VRS),
+       далі друга, далі перша. Той самий порядок, у якому їх перелічують
+       стадії в базі, тож склад турніру і склад стадій не можуть розійтися
+       непомітно. */
+    teamSlugs: [
+      "mouz", "vitality", "aurora", "spirit", "betboom", "falcons", "furia", "legacy",
+      "fut", "nemiga", "g2", "onewin", "natus", "astralis", "mibr", "mongolz",
+      "nip", "parivision", "heroic", "faze", "hundredthieves", "eternalfire", "liquid",
+      "ninez", "m80", "sharks", "imperial", "wildcard", "bcgame", "flyquest",
+      "chinggis", "lynn",
+    ],
+    format: "Три швейцарки (BO3) → плейоф",
+    coverImage: "/brand/hero-major.webp",
+    heroImage: "/brand/hero-major.webp",
+    /* Той самий багряний, що й `--major-hot` на сторінці пікемів. */
+    accent: "oklch(0.665 0.262 29)",
+    skin: "major",
+  },
 ];
 
 // Only the BLAST Bounty event is public for now (other events are kept as
@@ -503,7 +539,8 @@ export const tournaments: Tournament[] = allTournaments.filter(
     t.slug === "ewc-2026" ||
     t.slug === "blast-porto-2026" ||
     t.slug === "esl-pro-league-s24" ||
-    t.slug === "pgl-masters-bucharest-2026",
+    t.slug === "pgl-masters-bucharest-2026" ||
+    t.slug === "pgl-major-singapore-2026",
 );
 
 /* --- BLAST Bounty S2: seeds & bounty stages --- */

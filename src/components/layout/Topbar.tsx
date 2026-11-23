@@ -344,8 +344,13 @@ export function Topbar() {
                 aria-label={t("notifications")}
                 className="absolute right-0 top-[calc(100%+0.5rem)] z-40 flex max-h-[min(70vh,32rem)] w-[min(22rem,calc(100vw-1.5rem))] flex-col overflow-hidden rounded-2xl bg-surface shadow-[0_0_0_1px_color-mix(in_oklch,var(--ink)_9%,transparent),0_24px_60px_-16px_rgba(0,0,0,0.95)]"
               >
-                <div className="flex shrink-0 items-center justify-between shadow-[0_1px_0_0_color-mix(in_oklch,var(--ink)_7%,transparent)] px-4 py-2.5">
-                  <span className="text-sm font-bold text-ink">{t("notifications")}</span>
+                {/* Шапка є тільки тоді, коли в ній щось є.
+                    Слово «Сповіщення» над списком сповіщень, що відкрився з
+                    дзвіночка, не повідомляє нічого: його вже сказали і
+                    іконка, і сам список. Лишилася тільки дія — і рядок
+                    з'являється разом із нею. */}
+                {unread > 0 && (
+                <div className="flex shrink-0 items-center justify-end shadow-[0_1px_0_0_color-mix(in_oklch,var(--ink)_7%,transparent)] px-4 py-2">
                   {unread > 0 && (
                     <button
                       onClick={markAll}
@@ -356,6 +361,7 @@ export function Topbar() {
                     </button>
                   )}
                 </div>
+                )}
                 <ul className="no-scrollbar min-h-0 flex-1 divide-y divide-[color-mix(in_oklch,var(--ink)_6%,transparent)] overflow-y-auto overscroll-contain">
                   {items.length === 0 && (
                     <li className="px-4 py-10 text-center text-sm text-ink-subtle">

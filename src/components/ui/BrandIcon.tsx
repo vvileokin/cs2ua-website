@@ -29,6 +29,8 @@ const SOURCES = {
   "points-epl": "/brand/points-epl.webp",
   /** Event currency for PGL Masters Bucharest — the same solid in the event's cobalt. */
   "points-pgl": "/brand/points-pgl.webp",
+  /** Валюта PGL Major Singapore — багряна монета з емблемою CS2. */
+  "points-major": "/brand/points-major.png",
   /**
    * The same solid in silver, identical geometry to `points-ewc`.
    *

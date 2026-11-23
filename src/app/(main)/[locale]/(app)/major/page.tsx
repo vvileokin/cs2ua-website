@@ -14,6 +14,7 @@ import { getChampionTally, getMyChampionVote } from "@/lib/db/champion";
 import { findTeam } from "@/lib/data";
 import {
   getStages, getMyCards, getBoard, getStageBoard, getDistribution, getSpread,
+  getOpeningLive,
   isOpen, isReady, hasStarted, shapeFor, currentStage, isSignedIn,
   type BoardRow, type Distribution,
 } from "@/lib/db/pickem";
@@ -61,10 +62,11 @@ export default async function MajorPickemPage({
   const open = isOpen(stage);
   const ready = isReady(stage);
   const card = cards[stage.stage] ?? null;
-  const [dist, stageBoard, spread] = await Promise.all([
+  const [dist, stageBoard, spread, openingLive] = await Promise.all([
     getDistribution(stage.stage, stage.startsAt),
     stage.scoredAt ? getStageBoard(stage.stage) : Promise.resolve<BoardRow[]>([]),
     getSpread(stage.stage),
+    getOpeningLive(),
   ]);
 
   /* Учасники голосування — усі, кого вписали в стадії, від найвищого посіву
@@ -92,7 +94,7 @@ export default async function MajorPickemPage({
       {/* Найближчі матчі — над вкладками, бо вони про те, що станеться зі
           стадією, а не про картку. Коли розкладу ще немає, стрічки немає
           теж: порожня смуга над вкладками обіцяє те, чого в ній нема. */}
-      <OpeningStrip matches={stage.opening} />
+      <OpeningStrip matches={stage.opening} live={openingLive} />
 
       {/* Стадії — плитами: дрібна капітель, обрана заливається кольором
           події цілком. Ряд
