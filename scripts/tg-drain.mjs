@@ -76,16 +76,23 @@ if (!Array.isArray(rows) || !rows.length) {
     const started = Date.now();
     for (const [i, r] of ready.entries()) {
       const p = r.payload ?? {};
+      /* Фото — інший метод і інше поле під текст. `photo` у черзі завжди
+         `file_id`: той, хто ставив рядки, завантажив картинку один раз, і
+         далі вона ходить по чатах посиланням, а не трьомастами кілобайтами
+         на кожен. */
+      const photo = p.photo ? String(p.photo) : null;
+      const method = photo ? "sendPhoto" : "sendMessage";
       const body = {
         chat_id: chats.get(r.user_id),
-        text: String(p.text ?? ""),
+        ...(photo
+          ? { photo, caption: String(p.text ?? "") }
+          : { text: String(p.text ?? ""), link_preview_options: { is_disabled: true } }),
         parse_mode: "HTML",
-        link_preview_options: { is_disabled: true },
         ...(p.button?.text && p.button?.url
           ? { reply_markup: { inline_keyboard: [[{ text: p.button.text, url: p.button.url }]] } }
           : {}),
       };
-      let out = await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+      let out = await fetch(`https://api.telegram.org/bot${TOKEN}/${method}`, {
         method: "POST", headers: { "content-type": "application/json" },
         body: JSON.stringify(body),
       }).then((x) => x.json());
@@ -94,7 +101,7 @@ if (!Array.isArray(rows) || !rows.length) {
          гліфами замість тегів, як це робить `send` у telegram-notify. */
       if (!out.ok && /emoji/i.test(String(out.description ?? ""))) {
         body.text = body.text.replace(/<tg-emoji[^>]*>(.*?)<\/tg-emoji>/g, "$1");
-        out = await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+        out = await fetch(`https://api.telegram.org/bot${TOKEN}/${method}`, {
           method: "POST", headers: { "content-type": "application/json" },
           body: JSON.stringify(body),
         }).then((x) => x.json());
