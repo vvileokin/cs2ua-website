@@ -1,6 +1,7 @@
 import * as React from "react";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
+import { MajorBanner } from "@/components/major/MajorBanner";
 import { MajorMode } from "@/components/major/MajorMode";
 import { MajorCrest } from "@/components/major/MajorCrest";
 import { MajorPrizes } from "@/components/major/MajorPrizes";
@@ -83,6 +84,10 @@ export default async function MajorPickemPage({
   return (
     <div className="space-y-5 sm:space-y-6">
       <MajorMode />
+
+      {/* Банер — той самий, яким головна кличе на цю сторінку: прийшов за
+          ним і бачиш його ж угорі, тобто потрапив куди йшов. */}
+      <MajorBanner image="/brand/hero-major.webp" />
 
       {/* Найближчі матчі — над вкладками, бо вони про те, що станеться зі
           стадією, а не про картку. Коли розкладу ще немає, стрічки немає
