@@ -104,17 +104,17 @@ export function MajorRoad({ stages }: { stages: RoadStage[] }) {
           className="flex items-center gap-2 border-t border-white/[0.07] px-3 py-2.5 transition-colors hover:bg-white/[0.04] sm:px-4"
         >
           <span className="size-1.5 shrink-0 rounded-full bg-[var(--major-hot)] shadow-[0_0_10px_var(--major-hot)]" />
-          {/* Без `truncate`: перший кадр показує абсолютну дату («24 листопада
-              о 08:00»), і на телефоні вона обрізалася просто посередині. Два
-              рядки краще за півфрази — тим паче що після монтування рядок і
-              так стискається до «через 11 год». */}
-          <span className="min-w-0 flex-1 text-[0.8125rem] leading-snug text-ink-muted">
-            Картка на «{open.title}» закриється{" "}
-            <LockCountdown
-              at={open.startsAt}
-              className="font-extrabold text-[var(--major-hot)]"
-            />
+          {/* Дія, а не опис. «Картка на «Стадія 1» закриється…» переказувало
+              те, що вже написано на плиті над ним, і займало два рядки, щоб
+              сказати одне слово. Лишилось, власне, слово — і час, якого воно
+              варте. */}
+          <span className="flex-1 text-[0.8125rem] font-semibold text-ink">
+            Зробити пікем
           </span>
+          <LockCountdown
+            at={open.startsAt}
+            className="shrink-0 text-[0.8125rem] font-extrabold text-[var(--major-hot)]"
+          />
           <ChevronRight className="size-4 shrink-0 text-ink-dim" />
         </Link>
       )}
