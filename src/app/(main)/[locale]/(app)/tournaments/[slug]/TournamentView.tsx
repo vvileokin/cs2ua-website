@@ -28,6 +28,7 @@ import { EplMark } from "@/components/ui/EplMark";
 import { SwissBracket } from "@/components/tournament/SwissBracket";
 import { PlayoffBracket } from "@/components/tournament/PlayoffBracket";
 import { BracketPanel } from "@/components/tournament/BracketPanel";
+import { MajorRoad } from "@/components/major/MajorRoad";
 import { EplSwissCard } from "@/components/tournament/EplSwissCard";
 import { TeamLogo } from "@/components/ui/TeamLogo";
 import { MatchDayGroups } from "@/components/cards/MatchDayGroups";
@@ -70,7 +71,13 @@ export function TournamentView({
   /** Live world ranks by slug, from Valve's standings. */
   ranks?: Record<string, number>;
   /** Стадії мейджора з бази. Для решти турнірів порожньо. */
-  majorStages?: { stage: number; title: string; kind: string; teams: string[] }[];
+  majorStages?: {
+    stage: number;
+    title: string;
+    kind: string;
+    startsAt: string;
+    teams: string[];
+  }[];
 }) {
   /* Яку стадію розгорнути: ту, що зараз грає, інакше першу.
      Чотири розгорнуті сітки поспіль — це чотири екрани прокрутки до того, що
@@ -370,6 +377,12 @@ export function TournamentView({
       </div>
 
       {/* Panels */}
+      {/* Дорога мейджора — під шапкою і над вкладками.
+          Це не вміст вкладки: вона однаково правдива і для огляду, і для
+          команд, і для лідерборду, бо каже, де зараз турнір. Вкладка —
+          це вибір читача, стадія — стан події. */}
+      {t.skin === "major" && <MajorRoad stages={majorStages} />}
+
       {tab === "overview" && (
         <div className="space-y-6">
           {/* Phones only: the tournament facts live here instead of the banner —
