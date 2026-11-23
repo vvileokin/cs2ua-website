@@ -523,7 +523,10 @@ export const allTournaments: Tournament[] = [
       "chinggis", "lynn",
     ],
     format: "Три швейцарки (BO3) → плейоф",
-    coverImage: "/brand/hero-major.webp",
+    /* Обкладинка окремо від банера: у картки інша пропорція (8:3 проти 3:1) і
+       зовсім інший розмір, тож банер у ній або обрізався б по боках, або
+       показував би сам напис «ПІКЕМ» завбільшки з картку. */
+    coverImage: "/brand/major-cover.png",
     heroImage: "/brand/hero-major.webp",
     /* Той самий багряний, що й `--major-hot` на сторінці пікемів. */
     accent: "oklch(0.665 0.262 29)",

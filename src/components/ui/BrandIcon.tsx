@@ -19,7 +19,10 @@ import { cn } from "@/lib/utils";
  * are `aria-hidden` throughout; the accessible name lives on the parent.
  */
 const SOURCES = {
-  points: "/brand/points.webp",
+  /* Жовта монета з емблемою CS2 — та сама геометрія, що в івентових, тільки
+     в кольорі сезонних поінтів. PNG, бо приходить із прозорістю й без втрат;
+     наступні монети цього набору теж PNG. */
+  points: "/brand/points.png",
   streak: "/brand/streak.webp",
   /** Event currency for EWC 2026 — same solid, the event's fire palette. */
   "points-ewc": "/brand/points-ewc.webp",
