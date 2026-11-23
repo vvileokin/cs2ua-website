@@ -169,6 +169,33 @@ html {
   background: transparent;
 }
 
+/* На тачі смугу малює система, а не ми.
+   Правила вище написані під мишу: одинадцять пікселів ширини, власний колір
+   повзунка й зарезервований жолоб. На телефоні з цього виходить справжня
+   смуга збоку сторінки — а оскільки на мейджорі `--border-strong` багряний,
+   вона ще й червона, і при гортанні Chrome проявляє її ширшою. Виглядає це
+   як вертикальна лінія, що розсувається, хоча ніякої лінії в макеті немає.
+
+   Пальцем смугу не тягають, тож тут вона потрібна рівно як індикатор —
+   тобто такою, якою її й так малює система поверх вмісту. */
+@media (pointer: coarse) {
+  html {
+    scrollbar-gutter: auto;
+  }
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: auto;
+  }
+  ::-webkit-scrollbar {
+    width: initial;
+    height: initial;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: initial;
+    border: 0;
+  }
+}
+
 /* Opt-out: hide the scrollbar on horizontal tab/filter strips. The Tailwind
    arbitrary variants don't win over the global `* { scrollbar-width }` rule,
    so this is hand-written. */
