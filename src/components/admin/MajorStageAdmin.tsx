@@ -23,6 +23,13 @@ import { cn } from "@/lib/utils";
  */
 
 export type PlayedMatch = { a: string; b: string; w: string };
+export type OpeningMatch = {
+  a: string;
+  b: string;
+  at: string;
+  oa?: number | null;
+  ob?: number | null;
+};
 
 export type AdminStage = {
   stage: number;
@@ -31,6 +38,7 @@ export type AdminStage = {
   teams: string[];
   startsAt: string;
   played: PlayedMatch[];
+  opening: OpeningMatch[];
   actual: Record<string, string> | null;
   scoredAt: string | null;
 };
@@ -88,6 +96,7 @@ function StagePanel({ stage }: { stage: AdminStage }) {
   const [actual, setActual] = React.useState<Record<string, string>>(stage.actual ?? {});
   const [played, setPlayed] = React.useState<PlayedMatch[]>(stage.played ?? []);
   const [pair, setPair] = React.useState<{ a: string; b: string }>({ a: "", b: "" });
+  const [odds, setOdds] = React.useState<OpeningMatch[]>(stage.opening ?? []);
   const [busy, setBusy] = React.useState<string | null>(null);
   const [note, setNote] = React.useState<{ ok: boolean; text: string } | null>(null);
 
@@ -173,6 +182,54 @@ function StagePanel({ stage }: { stage: AdminStage }) {
           )}
         </div>
       </Panel>
+
+      {/* Коефіцієнти BetKing.
+          Вносяться руками, бо брати їх нема звідки: лінія живе всередині
+          їхнього застосунку, без відкритого ендпоінта. Вісім матчів —
+          шістнадцять чисел, і зате це справжні чужі числа, а не наші,
+          видані за чужі. Порожнє поле — рядок просто без пігулки. */}
+      {stage.opening.length > 0 && (
+        <Panel
+          title="Коефіцієнти BetKing"
+          action={
+            <button
+              type="button"
+              onClick={() => void call("odds", { opening: odds })}
+              disabled={!!busy}
+              className="inline-flex items-center gap-2 rounded-lg bg-fill-2 px-3 py-2 text-sm font-bold text-ink transition-colors hover:bg-fill-3 disabled:opacity-50"
+            >
+              {busy === "odds" ? <Loader2 className="size-4 animate-spin" /> : <Check className="size-4" />}
+              Зберегти коефіцієнти
+            </button>
+          }
+        >
+          <div className="space-y-1.5">
+            {stage.opening.map((m, i) => (
+              <div key={`${m.a}-${m.b}`} className="flex flex-wrap items-center gap-2">
+                <span className="w-32 shrink-0 truncate text-sm font-bold text-ink">
+                  {findTeam(m.a)?.tag ?? m.a} — {findTeam(m.b)?.tag ?? m.b}
+                </span>
+                <OddsInput
+                  value={odds[i]?.oa}
+                  onChange={(v) =>
+                    setOdds((list) => list.map((x, k) => (k === i ? { ...x, oa: v } : x)))
+                  }
+                />
+                <OddsInput
+                  value={odds[i]?.ob}
+                  onChange={(v) =>
+                    setOdds((list) => list.map((x, k) => (k === i ? { ...x, ob: v } : x)))
+                  }
+                />
+              </div>
+            ))}
+          </div>
+          <p className="mt-3 text-[0.8125rem] text-ink-dim">
+            Лінія: betking.com.ua → Кіберспорт → CS2 Major Singapore. У них
+            BC.Game називається GOSH.
+          </p>
+        </Panel>
+      )}
 
       {/* Зіграні матчі — не для нарахування, а для шансів.
           Нарахування бере підсумок стадії (нижче), а шанси рахуються від
@@ -353,6 +410,30 @@ function StagePanel({ stage }: { stage: AdminStage }) {
         </p>
       )}
     </div>
+  );
+}
+
+function OddsInput({
+  value,
+  onChange,
+}: {
+  value: number | null | undefined;
+  onChange: (v: number | null) => void;
+}) {
+  return (
+    <input
+      type="number"
+      step="0.01"
+      min="1"
+      inputMode="decimal"
+      placeholder="—"
+      value={value ?? ""}
+      onChange={(e) => {
+        const n = Number(e.target.value);
+        onChange(e.target.value === "" || !Number.isFinite(n) ? null : n);
+      }}
+      className="tnum h-9 w-20 rounded-lg surface-1 px-2 text-sm font-bold text-ink"
+    />
   );
 }
 

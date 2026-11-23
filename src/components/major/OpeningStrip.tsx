@@ -1,6 +1,8 @@
+import Image from "next/image";
 import { MajorCrest } from "./MajorCrest";
 import { findTeam } from "@/lib/data";
 import type { StageMatch } from "@/lib/db/pickem";
+import { cn } from "@/lib/utils";
 
 /**
  * Перший тур стадії.
@@ -24,6 +26,9 @@ import type { StageMatch } from "@/lib/db/pickem";
 export function OpeningStrip({ matches }: { matches: StageMatch[] }) {
   if (!matches.length) return null;
 
+  /** Чи є хоч один коефіцієнт — від цього залежить ширина колонок. */
+  const odds = matches.some((m) => m.oa && m.ob);
+
   /* Групування по моменту старту, у хронологічному порядку. Ключем іде сам
      ISO, а не відформатована година: дві різні доби з однаковим «08:00»
      склеїлися б в одну колонку. */
@@ -39,7 +44,16 @@ export function OpeningStrip({ matches }: { matches: StageMatch[] }) {
       {/* Підпису «Перший тур» тут немає. Чотири години поспіль із парами під
           кожною — це розклад і ні що інше; слово над ним називало те, що й
           так видно, і забирало рядок у того, що треба прочитати. */}
-      <div className="grid grid-cols-2 gap-x-4 gap-y-4 sm:grid-cols-4">
+      {/* На широкому — дві колонки замість чотирьох, коли є коефіцієнти.
+          Пігулка з двома числами й логотипом займає приблизно стільки ж, як
+          обидва теги разом, і в колонку на чверть ширини вона не вміщається
+          разом із ними. Без коефіцієнтів ряд лишається вузьким, як був. */}
+      <div
+        className={cn(
+          "grid grid-cols-2 gap-x-4 gap-y-4 sm:grid-cols-4",
+          odds && "lg:grid-cols-2 lg:gap-x-8",
+        )}
+      >
         {[...slots.entries()].map(([at, list]) => (
           <div key={at}>
             <p className="mb-1.5 flex items-center gap-1.5 text-[0.6875rem] font-extrabold tabular-nums text-[var(--major-hot)]">
@@ -69,7 +83,35 @@ export function OpeningStrip({ matches }: { matches: StageMatch[] }) {
                     </span>
                     {/* Тире, а не «vs»: воно коротше за будь-яке слово і не
                         конкурує з тегами за увагу в рядку завширшки з палець. */}
-                    <span aria-hidden className="text-[0.625rem] text-ink-faint">
+                    {/* Коефіцієнти — тільки на ПК і тільки там, де вони є.
+                        Біла пігулка посеред рядка: це чуже число на нашій
+                        сторінці, і воно має виглядати як вставка, а не як
+                        наша цифра. Логотип між двома числами каже, чиї вони,
+                        без жодного підпису. */}
+                    {m.oa && m.ob ? (
+                      <span className="hidden shrink-0 items-center gap-1.5 rounded-[3px] bg-white px-1.5 py-0.5 lg:inline-flex">
+                        <span className="tnum text-[0.6875rem] font-black text-[#E11322]">
+                          {m.oa.toFixed(2)}
+                        </span>
+                        <Image
+                          src="/brand/partner-betking.svg"
+                          alt="BETKING"
+                          width={44}
+                          height={10}
+                          className="h-2.5 w-auto"
+                        />
+                        <span className="tnum text-[0.6875rem] font-black text-[#E11322]">
+                          {m.ob.toFixed(2)}
+                        </span>
+                      </span>
+                    ) : null}
+                    <span
+                      aria-hidden
+                      className={cn(
+                        "text-[0.625rem] text-ink-faint",
+                        m.oa && m.ob && "lg:hidden",
+                      )}
+                    >
                       —
                     </span>
                     <span className="min-w-0 flex-1 truncate text-right text-[0.6875rem] font-bold text-ink-muted">

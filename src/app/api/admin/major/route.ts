@@ -17,11 +17,12 @@ import { shapeOf, type StageKind } from "@/lib/major-pickem";
  */
 
 type Body = {
-  action?: "lock" | "outcome" | "score" | "teams" | "played";
+  action?: "lock" | "outcome" | "score" | "teams" | "played" | "odds";
   stage?: number;
   actual?: Record<string, string>;
   teams?: string[];
   played?: { a: string; b: string; w: string }[];
+  opening?: { a: string; b: string; at: string; oa?: number | null; ob?: number | null }[];
 };
 
 export async function POST(request: Request) {
@@ -66,6 +67,39 @@ export async function POST(request: Request) {
       .eq("stage", stage);
     await logAdmin("major", `стадія ${stage}: склад — ${list.length} команд`);
     return NextResponse.json({ ok: true, teams: list });
+  }
+
+  /* --- Коефіцієнти букмекера -------------------------------------------- */
+  // Чужі числа, тому вносяться руками: у BetKing лінія живе всередині їхнього
+  // застосунку, відкритого ендпоінта немає, а вигадувати коефіцієнти й ставити
+  // під чужий логотип не можна — це вже не цитата, а підробка.
+  //
+  // Пари не чіпаємо: приходить той самий `opening`, у якому міняються лише
+  // `oa`/`ob`. Так помилка в полі не може переписати розклад.
+  if (body.action === "odds") {
+    const list = Array.isArray(body.opening) ? body.opening : [];
+    const was = (row.opening as { a: string; b: string }[] | null) ?? [];
+    if (list.length !== was.length) {
+      return NextResponse.json(
+        { ok: false, error: "Кількість пар не збігається." },
+        { status: 400 },
+      );
+    }
+    const next = was.map((m, i) => {
+      const o = list[i];
+      const num = (v: unknown) => {
+        const n = Number(v);
+        return Number.isFinite(n) && n > 1 ? Math.round(n * 100) / 100 : null;
+      };
+      return { ...m, oa: num(o?.oa), ob: num(o?.ob) };
+    });
+
+    await admin
+      .from("major_stages")
+      .update({ opening: next, updated_at: new Date().toISOString() })
+      .eq("stage", stage);
+    await logAdmin("major", `стадія ${stage}: коефіцієнти оновлено`);
+    return NextResponse.json({ ok: true, filled: next.filter((m) => m.oa && m.ob).length });
   }
 
   /* --- Зіграні матчі ---------------------------------------------------- */

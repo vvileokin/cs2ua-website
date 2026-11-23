@@ -27,6 +27,7 @@ export default async function MajorAdminPage() {
     teams: (r.teams as string[]) ?? [],
     startsAt: r.starts_at as string,
     played: (r.played as { a: string; b: string; w: string }[] | null) ?? [],
+    opening: (r.opening as AdminStage["opening"] | null) ?? [],
     actual: (r.actual as Record<string, string> | null) ?? null,
     scoredAt: (r.scored_at as string | null) ?? null,
   }));
