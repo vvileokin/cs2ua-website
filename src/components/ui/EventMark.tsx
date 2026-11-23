@@ -3,6 +3,7 @@ import { PortoMark } from "@/components/ui/PortoMark";
 import { EwcMark } from "@/components/ui/EwcMark";
 import { EplMark } from "@/components/ui/EplMark";
 import { PglMark } from "@/components/ui/PglMark";
+import { MajorMark } from "@/components/ui/MajorMark";
 import type { EventSkin } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
@@ -65,6 +66,16 @@ export function EventMark({
       <PglMark
         className={cn(caps ? "h-3 w-[0.875rem]" : "h-4 w-[1.1875rem]", "shrink-0", className)}
         style={caps ? box(14, 12) : box(19, 16)}
+      />
+    );
+  if (skin === "major")
+    return (
+      <MajorMark
+        /* Локап вертикальний (131×185), тож ширина йде від висоти рядка, а не
+           навпаки: по висоті він рівний сусіднім знакам, а по ширині вузький,
+           як і має бути вертикальний знак. */
+        className={cn(caps ? "h-3 w-[0.53125rem]" : "h-4 w-[0.6875rem]", "shrink-0", className)}
+        style={caps ? box(8.5, 12) : box(11, 16)}
       />
     );
   if (skin === "blast")
