@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { BETKING_URL } from "@/components/ui/BetkingMark";
 import { MajorCrest } from "./MajorCrest";
 import { findTeam } from "@/lib/data";
 import type { StageMatch } from "@/lib/db/pickem";
@@ -89,7 +90,18 @@ export function OpeningStrip({ matches }: { matches: StageMatch[] }) {
                         наша цифра. Логотип між двома числами каже, чиї вони,
                         без жодного підпису. */}
                     {m.oa && m.ob ? (
-                      <span className="hidden shrink-0 items-center gap-1.5 rounded-[3px] bg-white px-1.5 py-0.5 lg:inline-flex">
+                      /* Пігулка веде до букмекера, як і всі інші його місця на
+                         сайті: ті самі `target`, `rel="sponsored"` і те саме
+                         посилання з реферальним кодом. Коефіцієнт, який нікуди
+                         не веде, — це просто число; клікабельний — це вже
+                         інтеграція, а саме нею він і є. */
+                      <a
+                        href={BETKING_URL}
+                        target="_blank"
+                        rel="noopener noreferrer sponsored"
+                        aria-label={`BetKing: ${a?.name ?? m.a} ${m.oa.toFixed(2)}, ${b?.name ?? m.b} ${m.ob.toFixed(2)}`}
+                        className="hidden shrink-0 items-center gap-2.5 rounded-[3px] bg-white px-2 py-0.5 transition-[filter] hover:brightness-95 lg:inline-flex"
+                      >
                         <span className="tnum text-[0.6875rem] font-black text-[#E11322]">
                           {m.oa.toFixed(2)}
                         </span>
@@ -103,7 +115,7 @@ export function OpeningStrip({ matches }: { matches: StageMatch[] }) {
                         <span className="tnum text-[0.6875rem] font-black text-[#E11322]">
                           {m.ob.toFixed(2)}
                         </span>
-                      </span>
+                      </a>
                     ) : null}
                     <span
                       aria-hidden
