@@ -3,7 +3,7 @@
 import * as React from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Bell, Target, Swords, Gift, TrendingUp, Check, LogIn, Loader2, X } from "lucide-react";
+import { Bell, Target, Swords, Gift, TrendingUp, Trophy, Check, LogIn, Loader2, X } from "lucide-react";
 import { Brand } from "./Brand";
 import { Avatar } from "@/components/ui/Avatar";
 import { EventConvertModal } from "./EventConvertModal";
@@ -11,17 +11,33 @@ import { BrandIcon } from "@/components/ui/BrandIcon";
 import { runningEvent, eventGem } from "@/lib/data";
 import { displayName } from "@/lib/supabase/use-user";
 import { useProfile, refreshProfile } from "@/lib/supabase/use-profile";
+import { BellSolid } from "@/components/icons/BellSolid";
 import { createClient } from "@/lib/supabase/client";
 import { formatInt } from "@/lib/utils";
 import { type NotifKind } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
-const kindIcon: Record<NotifKind, typeof Bell> = {
-  reward: Target,
-  match: Swords,
-  giveaway: Gift,
-  rank: TrendingUp,
-  duel: Swords,
+/**
+ * Вигляд рядка за видом сповіщення.
+ *
+ * Раніше тут були самі іконки, та й ті майже завжди однакові: ставки — це
+ * дев'ять із десяти рядків, і колонка зі значками перетворювалася на
+ * вертикальну смугу з одного символу. Колонка, у якій усе однакове, не
+ * допомагає читати — вона просто є.
+ *
+ * Тепер знак сидить на плитці свого кольору. Око чіпляється за колір раніше,
+ * ніж за форму, тож кілька видів поспіль стають видимими як різні ще до
+ * того, як прочитано хоч слово.
+ */
+const kindLook: Record<NotifKind, { icon: typeof Bell; tint: string }> = {
+  reward: { icon: Target, tint: "var(--accent)" },
+  match: { icon: Swords, tint: "var(--info)" },
+  giveaway: { icon: Gift, tint: "var(--success)" },
+  rank: { icon: TrendingUp, tint: "var(--tier1)" },
+  duel: { icon: Swords, tint: "var(--warning)" },
+  /* Мейджор світиться своїм багряним — тим самим, у який пофарбована його
+     сторінка. Рядок про нього впізнається, не доходячи до тексту. */
+  major: { icon: Trophy, tint: "var(--major-hot)" },
 };
 
 type Notif = {
@@ -50,6 +66,7 @@ export function Topbar() {
   const { user, profile } = useProfile();
   const [open, setOpen] = React.useState(false);
   const [items, setItems] = React.useState<Notif[]>([]);
+
   const [pending, setPending] = React.useState<Set<string>>(new Set());
   const [acting, setActing] = React.useState<string | null>(null);
   const [actError, setActError] = React.useState<string | null>(null);
@@ -309,7 +326,7 @@ export function Topbar() {
                 : "bg-fill-1 text-ink-muted hover:bg-surface-2 hover:text-ink",
             )}
           >
-            <Bell className="size-4" />
+            <BellSolid className="size-4" />
             {unread > 0 && (
               /* The product's own yellow. It was on the live red — the colour
                  this site paints a match in progress — and an unread count is
@@ -346,31 +363,72 @@ export function Topbar() {
                     </li>
                   )}
                   {items.map((n) => {
-                    const Icon = kindIcon[n.kind] ?? Bell;
+                    const look = kindLook[n.kind] ?? kindLook.reward;
+                    const Icon = look.icon;
                     const duelId = n.kind === "duel" ? n.data?.duel : undefined;
+                    /* Заголовок майже завжди складений із двох частин через
+                       «·»: що сталося і з чим. Перша — це підмет рядка, і
+                       напівжирним вона витягує очі до себе; решта лишається
+                       подробицею. Коли роздільника немає, рядок просто весь
+                       однаковий, і нічого не ламається. */
+                    const cut = n.title.indexOf(" · ");
+                    const lead = cut < 0 ? n.title : n.title.slice(0, cut);
+                    const rest = cut < 0 ? "" : n.title.slice(cut + 3);
+
                     return (
                       <li
                         key={n.id}
+                        /* Мейджор фарбує рядок цілком, а не самий знак: про
+                           нього питали окремо, і він справді інший — це не
+                           чергова ставка, а стадія, яку зарахували. */
+                        style={
+                          n.kind === "major"
+                            ? {
+                                background:
+                                  "linear-gradient(90deg, color-mix(in oklch, var(--major-hot) 16%, transparent), transparent 70%)",
+                              }
+                            : undefined
+                        }
                         className={cn(
-                          "flex gap-2.5 px-3.5 py-2.5",
-                          !n.read && "bg-[color-mix(in_oklch,var(--accent)_5%,transparent)]",
+                          "flex items-start gap-3 px-3.5 py-3",
+                          n.kind !== "major" &&
+                            !n.read &&
+                            "bg-[color-mix(in_oklch,var(--accent)_5%,transparent)]",
                         )}
                       >
-                        <Icon
+                        {/* Плитка зі знаком. Розмір сталий, тож рядки з
+                            однорядковим і дворядковим текстом усе одно
+                            шикуються в один стовпчик зліва. */}
+                        <span
                           {...(n.kind === "duel" ? { "data-skin": "porto" } : {})}
-                          className={cn(
-                            "mt-0.5 size-4 shrink-0",
-                            !n.read
-                              ? n.kind === "duel"
-                                ? "text-[rgb(var(--skin-ring))]"
-                                : "text-accent"
-                              : "text-ink-subtle",
-                          )}
-                          strokeWidth={2.25}
-                        />
+                          className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-[4px]"
+                          style={{
+                            color: n.kind === "duel" ? "rgb(var(--skin-ring))" : look.tint,
+                            backgroundColor: `color-mix(in oklch, ${
+                              n.kind === "duel" ? "rgb(var(--skin-ring))" : look.tint
+                            } ${n.read ? 10 : 18}%, transparent)`,
+                          }}
+                        >
+                          <Icon className="size-4" strokeWidth={2.25} />
+                        </span>
+
                         <div className="min-w-0 flex-1">
-                          <p className="text-[0.8125rem] leading-snug text-ink">{n.title}</p>
-                          <p className="text-[0.6875rem] leading-snug text-ink-subtle">
+                          {/* Два рядки, а не один через крапку.
+                              «Розіграш AWP | Duality · ти в числі учасників»
+                              читається як одне речення, у якому хтось забув
+                              кому: крапка посеред тексту не поділила його, а
+                              просто стала ще одним знаком. Заголовок окремим
+                              рядком ділить сам собою — і список стає списком
+                              подій, а не абзацом. */}
+                          <p className="truncate text-[0.8125rem] font-bold leading-snug text-ink">
+                            {lead}
+                          </p>
+                          {rest && (
+                            <p className="line-clamp-2 text-[0.8125rem] leading-snug text-ink-muted">
+                              {rest}
+                            </p>
+                          )}
+                          <p className="mt-0.5 text-[0.6875rem] leading-snug text-ink-subtle">
                             {timeAgo(n.created_at)}
                           </p>
 
@@ -416,8 +474,18 @@ export function Topbar() {
                             </p>
                           )}
                         </div>
+                        {/* Непрочитане. Колір — того ж роду, що й рядок: у
+                            мейджора багряний, щоб крапка не сперечалася з
+                            підсвіткою поруч. */}
                         {!n.read && (
-                          <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-accent" />
+                          <span
+                            aria-label="непрочитане"
+                            className="mt-2 size-1.5 shrink-0 rounded-full"
+                            style={{
+                              backgroundColor:
+                                n.kind === "major" ? "var(--major-hot)" : "var(--accent)",
+                            }}
+                          />
                         )}
                       </li>
                     );

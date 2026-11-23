@@ -156,23 +156,36 @@ export function PickemCard({
   /* --- Перетягування --------------------------------------------------- *
    *
    * Тап нікуди не дівся: команда, потім кошик. Він лишається основним на
-   * телефоні й єдиним із клавіатури. Але миша просить іншого — узяти герб і
-   * покласти, як у клієнті, — і без цього сторінка відчувається як форма, а
-   * не як пікем.
+   * телефоні й єдиним із клавіатури. Миша просить іншого — узяти герб і
+   * покласти, як у клієнті.
    *
    * Зроблено на pointer-подіях, а не на HTML5 drag&drop: той на тачі не
-   * працює взагалі, і довелося б тримати два різні механізми для миші й для
-   * пальця. Тут один на обох.
+   * працює взагалі, і довелося б тримати два різні механізми.
    *
-   * Поріг у шість пікселів відділяє тап від перетягування: без нього
-   * найменше тремтіння пальця перетворювало б дотик на драг, і картка
-   * переставала б слухатися тапів.
+   * Миша і палець починають драг по-різному, і це не примха.
+   *
+   * Миші досить шести пікселів руху: іншої роботи на цьому гербі в неї
+   * немає. У пальця є — ним гортають сторінку, а склад займає пів екрана,
+   * тож майже кожен свайп починається на якомусь гербі. Поки драг стартував
+   * від руху, доводилося глушити прокрутку (`touch-action: none`) — і
+   * сторінка переставала гортатися саме там, де на неї найбільше тиснуть
+   * пальцем.
+   *
+   * Тому на тачі драг починається від утримання: палець лежить нерухомо
+   * чверть секунди — і тільки тоді герб переходить у руку. Короткий свайп
+   * лишається свайпом, прокрутка працює як скрізь.
    */
+  const HOLD_MS = 240;
+  const JITTER = 8;
+
   const startRef = React.useRef<{
     x: number;
     y: number;
     team: string;
+    touch: boolean;
+    /** Драг почався: для миші — після руху, для пальця — після утримання. */
     moved: boolean;
+    timer: number;
   } | null>(null);
   /* Після перетягування браузер усе одно шле click по спільному предку —
      без цього прапорця він відразу ж скасовував би щойно покладене. */
@@ -185,8 +198,22 @@ export function PickemCard({
   } | null>(null);
 
   function beginDrag(e: React.PointerEvent, team: string) {
-    if (e.button !== 0 && e.pointerType === "mouse") return;
-    startRef.current = { x: e.clientX, y: e.clientY, team, moved: false };
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+    const touch = e.pointerType !== "mouse";
+    const at = { x: e.clientX, y: e.clientY };
+    const start = { ...at, team, touch, moved: false, timer: 0 };
+    startRef.current = start;
+
+    if (!touch) return;
+    start.timer = window.setTimeout(() => {
+      if (startRef.current !== start) return;
+      start.moved = true;
+      atRef.current = at;
+      setDrag({ team, x: at.x, y: at.y, over: null });
+      /* Коротке відлуння: палець має відчути, що герб перейшов у руку, бо
+         очима в цю мить дивляться на кошик, а не на склад. */
+      navigator.vibrate?.(12);
+    }, HOLD_MS);
   }
 
   /* Куди зараз показує палець — для автопрокрутки. Окремо від `drag`, бо
@@ -203,16 +230,40 @@ export function PickemCard({
     function onMove(e: PointerEvent) {
       const s = startRef.current;
       if (!s) return;
-      if (!s.moved && Math.hypot(e.clientX - s.x, e.clientY - s.y) < 6) return;
-      s.moved = true;
+
+      if (!s.moved) {
+        const far = Math.hypot(e.clientX - s.x, e.clientY - s.y);
+        /* Палець поїхав, не дочекавшись утримання, — це прокрутка, а не
+           драг. Віддаємо жест браузеру цілком. */
+        if (s.touch) {
+          if (far > JITTER) {
+            clearTimeout(s.timer);
+            startRef.current = null;
+          }
+          return;
+        }
+        if (far < 6) return;
+        s.moved = true;
+      }
+
       atRef.current = { x: e.clientX, y: e.clientY };
       setDrag({ team: s.team, x: e.clientX, y: e.clientY, over: boxAt(e.clientX, e.clientY) });
+    }
+
+    /* Поки герб у руці, сторінка під ним не гортається.
+       `touch-action` тут не поміг би: браузер читає його на початку жесту, а
+       ми вирішуємо пізніше. `preventDefault` на touchmove — єдиний спосіб
+       забрати прокрутку в жесту, який уже почався, і тому слухач мусить бути
+       неласивим. */
+    function onTouchMove(e: TouchEvent) {
+      if (startRef.current?.moved) e.preventDefault();
     }
 
     function onUp(e: PointerEvent) {
       const s = startRef.current;
       startRef.current = null;
       atRef.current = null;
+      if (s) clearTimeout(s.timer);
       if (!s?.moved) return;
       setDrag(null);
       draggedRef.current = true;
@@ -247,11 +298,13 @@ export function PickemCard({
     window.addEventListener("pointermove", onMove);
     window.addEventListener("pointerup", onUp);
     window.addEventListener("pointercancel", onUp);
+    window.addEventListener("touchmove", onTouchMove, { passive: false });
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("pointermove", onMove);
       window.removeEventListener("pointerup", onUp);
       window.removeEventListener("pointercancel", onUp);
+      window.removeEventListener("touchmove", onTouchMove);
     };
   }, [place]);
 
@@ -442,11 +495,8 @@ export function PickemCard({
                 disabled={used}
                 aria-pressed={sel === slug}
                 title={team?.name ?? slug}
-                /* `touch-action: none` — інакше палець, що тягне герб униз,
-                   прокручує сторінку замість перетягування. Вимкнено рівно
-                   на гербах: решта сторінки гортається як завжди. */
                 className={cn(
-                  "flex min-w-0 touch-none select-none flex-col items-center gap-1 rounded-[3px] p-1 transition-colors duration-150",
+                  "flex min-w-0 select-none flex-col items-center gap-1 rounded-[3px] p-1 transition-colors duration-150",
                   used
                     ? "cursor-default"
                     : "cursor-grab hover:bg-white/[0.04] active:cursor-grabbing",
@@ -604,7 +654,7 @@ export function PickemCard({
                       }}
                       onDragStart={(e) => e.preventDefault()}
                       className={cn(
-                        "group flex w-9 shrink-0 cursor-grab touch-none select-none flex-col items-center gap-0.5 active:cursor-grabbing sm:w-10 sm:gap-1",
+                        "group flex w-9 shrink-0 cursor-grab select-none flex-col items-center gap-0.5 active:cursor-grabbing sm:w-10 sm:gap-1",
                         drag?.team === slug && "opacity-40",
                       )}
                     >
