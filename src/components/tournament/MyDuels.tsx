@@ -86,12 +86,20 @@ export function MyDuels({ matches }: { matches: Match[] }) {
 
   if (!user) return null;
 
-  const live = (duels ?? []).filter((d) => d.status === "open" || d.status === "matched");
+  /* Тільки дуелі цього турніру.
+     Запит повертає всі, в яких людина бере участь, і поки блок стояв лише на
+     сторінці Porto, це було те саме. Тепер він є і в мейджора — і показував
+     торішні портівські виклики без назви матчу, бо того матчу в цьому
+     турнірі немає. Сторінка турніру відповідає за свій турнір: решта дуелей
+     є там, де вони грались. */
+  const here = (duels ?? []).filter((d) => byId.has(d.matchId));
+
+  const live = here.filter((d) => d.status === "open" || d.status === "matched");
   // Settled only. A duel that was voided or never taken gave everyone their
   // stake back — nobody won, nobody lost, nothing happened — so it has no
   // business sitting in a ledger of results. The refund is the whole story and
   // the balance already tells it.
-  const done = (duels ?? []).filter((d) => d.status === "settled");
+  const done = here.filter((d) => d.status === "settled");
   const won = done.filter((d) => d.winner === me).length;
   const lost = done.length - won;
 

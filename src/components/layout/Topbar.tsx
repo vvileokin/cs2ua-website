@@ -429,8 +429,13 @@ export function Topbar() {
                           <p className="truncate text-[0.8125rem] font-bold leading-snug text-ink">
                             {lead}
                           </p>
+                          {/* Без обрізання. Двох рядків вистачало, поки
+                              сповіщення були на кшталт «ставка не зіграла»;
+                              довше повідомлення вони рубали посеред слова, а
+                              дочитати його ніде: рядок нікуди не розгортається
+                              й нікуди не веде. Панель і так гортається. */}
                           {rest && (
-                            <p className="line-clamp-2 text-[0.8125rem] leading-snug text-ink-muted">
+                            <p className="text-[0.8125rem] leading-snug text-ink-muted">
                               {rest}
                             </p>
                           )}
