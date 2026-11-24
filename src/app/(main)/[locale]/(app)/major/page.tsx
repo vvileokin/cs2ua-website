@@ -14,7 +14,7 @@ import { getChampionTally, getMyChampionVote } from "@/lib/db/champion";
 import { findTeam } from "@/lib/data";
 import {
   getStages, getMyCards, getBoard, getStageBoard, getDistribution, getSpread,
-  getOpeningLive,
+  getStageRound,
   isOpen, isReady, hasStarted, shapeFor, currentStage, isSignedIn,
   type BoardRow, type Distribution,
 } from "@/lib/db/pickem";
@@ -62,12 +62,17 @@ export default async function MajorPickemPage({
   const open = isOpen(stage);
   const ready = isReady(stage);
   const card = cards[stage.stage] ?? null;
-  const [dist, stageBoard, spread, openingLive] = await Promise.all([
+  const [dist, stageBoard, spread, round] = await Promise.all([
     getDistribution(stage.stage, stage.startsAt),
     stage.scoredAt ? getStageBoard(stage.stage) : Promise.resolve<BoardRow[]>([]),
     getSpread(stage.stage),
-    getOpeningLive(),
+    getStageRound(),
   ]);
+
+  /* Стрічка показує тур, який іде. Поки матчів у таблиці немає — розклад
+     першого туру з `major_stages.opening`: до початку події це єдине, що про
+     неї взагалі відомо. */
+  const strip = round.matches.length ? round.matches : stage.opening;
 
   /* Учасники голосування — усі, кого вписали в стадії, від найвищого посіву
      до найнижчого: третя стадія це верх таблиці VRS, перша — низ. Окремого
@@ -94,7 +99,7 @@ export default async function MajorPickemPage({
       {/* Найближчі матчі — над вкладками, бо вони про те, що станеться зі
           стадією, а не про картку. Коли розкладу ще немає, стрічки немає
           теж: порожня смуга над вкладками обіцяє те, чого в ній нема. */}
-      <OpeningStrip matches={stage.opening} live={openingLive} />
+      <OpeningStrip matches={strip} live={round.live} />
 
       {/* Стадії — плитами: дрібна капітель, обрана заливається кольором
           події цілком. Ряд

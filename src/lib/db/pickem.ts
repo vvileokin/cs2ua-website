@@ -106,8 +106,12 @@ export type OpeningLive = {
   status: string;
   scoreA: number;
   scoreB: number;
-  /** Чи в тому ж порядку команди стоять у матчі, що й у парі. */
-  flipped: boolean;
+  /** Слаг команди, чий рахунок у матчі стоїть першим. Порівнюється з парою
+   *  на місці: ключ складено з відсортованих слагів, і сам по собі він про
+   *  порядок нічого не каже. */
+  teamA: string;
+  /** Друга команда матчу, у тому ж порядку. */
+  teamB: string;
   /** Початок за даними матчу. Він правдивіший за розклад стадії: розклад
    *  вносили один раз міграцією, а матч заводять із сітки події. */
   startAt: string | null;
@@ -126,7 +130,12 @@ export type OpeningLive = {
  *
  * Ключ складається з двох слагів, відсортованих за абеткою, тож порядок
  * команд у матчі й у парі може не збігатися — а він і не збігається, коли
- * матч заводять руками.
+ * матч заводять руками. Саме тому тут їде `teamA`, а не прапорець «перевернуто»:
+ * перша версія виводила його як `a > b`, тобто з абетки, і мовчки припускала,
+ * що в розкладі команди стоять за абеткою теж. Вони там не за абеткою, і
+ * чотири рахунки з восьми показувалися задом наперед — 9z, що програли
+ * Lynn Vision, стояли в стрічці з 1:0. Порядок знає тільки той, у кого на
+ * руках обидві пари, і це місце виклику.
  */
 export const getOpeningLive = cache(
   async (): Promise<Record<string, OpeningLive>> => {
@@ -151,7 +160,8 @@ export const getOpeningLive = cache(
         status,
         scoreA: (m.score_a as number) ?? 0,
         scoreB: (m.score_b as number) ?? 0,
-        flipped: a > b,
+        teamA: a,
+        teamB: b,
         startAt,
         /* Живий — або так каже статус, або час старту вже минув, а
            «завершено» ще ніхто не поставив. Друге важливо: у мейджора немає
@@ -163,6 +173,80 @@ export const getOpeningLive = cache(
       };
     }
     return out;
+  },
+);
+
+/**
+ * Поточний тур стадії — із самої таблиці матчів.
+ *
+ * Стрічка нагорі сторінки спершу малювала `major_stages.opening`, тобто
+ * перший тур і тільки його. Поки йшов перший тур, це було те саме; коли він
+ * скінчився, сторінка мейджора лишилася показувати вісім дограних пар, а
+ * другий тур, який у цей час ішов, був на ній не видний ніде.
+ *
+ * Тур тут не читається з поля — такого поля немає. Він виводиться з того, що
+ * тур таке: **у турі кожна команда грає не більше разу**. Тому беремо
+ * найраніший незавершений матч і додаємо далі за часом, доки не трапиться
+ * команда, яка вже є. Це правило не знає ні про вісімки, ні про години, тож
+ * однаково працює і на турі з восьми пар, і на турі з трьох, і в плей-офі —
+ * і не збивається, коли матчі наступного туру заводять заздалегідь.
+ *
+ * Коли незавершених не лишилось, показується останній тур: стадія скінчилася,
+ * і найкорисніше, що може сказати стрічка, — чим вона скінчилася.
+ */
+export const getStageRound = cache(
+  async (): Promise<{ matches: StageMatch[]; live: Record<string, OpeningLive> }> => {
+    const live = await getOpeningLive();
+    const all = Object.values(live)
+      .filter((r) => !!r.startAt)
+      .sort((x, y) => (x.startAt as string).localeCompare(y.startAt as string));
+    if (!all.length) return { matches: [], live };
+
+    /* Старт — найраніший незавершений матч. Коли таких немає, стадія
+       дограна, і показується останній тур: тоді старт — найпізніший матч, а
+       набір іде назад. */
+    const open = all.findIndex((r) => r.status !== "finished");
+    const from = open >= 0 ? open : all.length - 1;
+
+    const taken = new Set<string>();
+    const round: OpeningLive[] = [];
+    /* Від старту в обидва боки: найраніший незавершений не обов'язково
+       перший у своєму турі — о 12:00 може бути незавершеним, поки матч того ж
+       туру о 10:45 іще йде, а вже дограний матч о 10:45 опинився б позаду. */
+    for (const side of [all.slice(from), all.slice(0, from).reverse()]) {
+      for (const r of side) {
+        if (taken.has(r.teamA) || taken.has(r.teamB)) break;
+        taken.add(r.teamA);
+        taken.add(r.teamB);
+        round.push(r);
+      }
+    }
+    round.sort((x, y) => (x.startAt as string).localeCompare(y.startAt as string));
+
+    /* Коефіцієнти — з питання «Хто переможе?», поки воно відкрите. Лінію
+       ведуть там, а не в розкладі стадії: розклад вносили один раз. */
+    const sb = await createClient();
+    const { data: qs } = await sb
+      .from("questions")
+      .select("match_id, options, status")
+      .in("match_id", round.map((r) => r.id));
+    const odds = new Map<string, [number | null, number | null]>();
+    for (const q of qs ?? []) {
+      if ((q.status as string) !== "open") continue;
+      const o = (q.options ?? []) as { id: string; odds?: number }[];
+      odds.set(q.match_id as string, [
+        o.find((x) => x.id === "oa")?.odds ?? null,
+        o.find((x) => x.id === "ob")?.odds ?? null,
+      ]);
+    }
+
+    const matches: StageMatch[] = round.map((r) => {
+      const [oa, ob] = odds.get(r.id) ?? [null, null];
+      /* Порядок команд — як у матчі: звідти ж і рахунок, і коефіцієнти. */
+      return { a: r.teamA, b: r.teamB, at: r.startAt as string, oa, ob };
+    });
+
+    return { matches, live };
   },
 );
 

@@ -46,8 +46,16 @@ const ODDS = {
   "parivision-vs-flyquest": [1.42, 2.86],
   "liquid-vs-wildcard": [1.35, 3.20],
   "eternalfire-vs-sharks": [1.73, 2.10],
-  // 100 Thieves — Imperial і FaZe — BC.Game: BetKing ще не виставив лінію.
-  // Додати сюди, коли з'явиться, і прогнати скрипт ще раз.
+  /* На ці дві пари BetKing ринку не відкрив — а без коефіцієнта немає й
+     питання, тобто немає ставок на два матчі туру. Лінія порахована
+     `major-line.mjs` на його ж шкалі: для 100 Thieves — Imperial із чужої
+     лінії (ggua), з якої знято її маржу й підставлено маржу BetKing; для
+     FaZe — BC.Game із сил команд, відновлених із чотирнадцяти його власних
+     ліній на цю подію. Перевірка: Liquid — BC.Game він відкривав 1.68/2.16, а
+     FaZe за його ж лініями трохи слабший за Liquid. Якщо він усе-таки
+     відкриє ринок — замінити на справжні числа. */
+  "hundredthieves-vs-imperial": [1.52, 2.50],
+  "faze-vs-bcgame": [1.70, 2.13],
 };
 
 const src = fs.readFileSync(new URL("../src/lib/data.ts", import.meta.url), "utf8");
