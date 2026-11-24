@@ -42,11 +42,18 @@ export function OpeningStrip({
   /* Групування по моменту старту, у хронологічному порядку. Ключем іде сам
      ISO, а не відформатована година: дві різні доби з однаковим «08:00»
      склеїлися б в одну колонку. */
+  /* Час беремо з матчу, якщо він заведений, і тільки інакше — з розкладу
+     стадії. Розклад вносили один раз міграцією, і в ньому години виявилися
+     зміщеними на дві: матч заводять із сітки події, тож він правдивіший. Поки
+     джерел два, перемагає те, що ближче до самої події. */
+  const at = (m: StageMatch) => live[[m.a, m.b].sort().join("|")]?.startAt ?? m.at;
+
   const slots = new Map<string, StageMatch[]>();
-  for (const m of [...matches].sort((x, y) => x.at.localeCompare(y.at))) {
-    const list = slots.get(m.at) ?? [];
+  for (const m of [...matches].sort((x, y) => at(x).localeCompare(at(y)))) {
+    const key = at(m);
+    const list = slots.get(key) ?? [];
     list.push(m);
-    slots.set(m.at, list);
+    slots.set(key, list);
   }
 
   return (
@@ -64,17 +71,53 @@ export function OpeningStrip({
           odds && "lg:grid-cols-2 lg:gap-x-8",
         )}
       >
-        {[...slots.entries()].map(([at, list]) => (
-          <div key={at}>
-            <p className="mb-1.5 flex items-center gap-1.5 text-[0.6875rem] font-extrabold tabular-nums text-[var(--major-hot)]">
-              <span className="size-1 rounded-full bg-[var(--major-hot)]" />
-              <time dateTime={at}>
-                {new Date(at).toLocaleTimeString("uk-UA", {
+        {[...slots.entries()].map(([slot, list]) => {
+          const hits = list.map((m) => live[[m.a, m.b].sort().join("|")]);
+          const now = hits.some((h) => h?.live);
+          /* «Позаду» — тільки коли заведені всі матчі години й усі дограні.
+             Напівзаповнена година не пригашується: сірий час над парою, що
+             ще не почалась, читався б як скасовану. */
+          const done = hits.every((h) => h?.status === "finished");
+          return (
+          <div key={slot}>
+            {/* Три стани години, і вони читаються згори вниз як хід туру:
+                попереду — червоним, іде — білим із живою крапкою і словом,
+                позаду — пригашено.
+
+                Слово «LIVE» тут не окраса. Перша спроба красила годину в
+                `--live` і вважала справу зробленою, але на цій сторінці все
+                червоне: `--live` і `--major-hot` різняться на сотi — вживу
+                колонка, що йде, не відрізнялася від тієї, що буде за годину.
+                Відрізняє білий час і слово поруч; пульс крапки це
+                підтверджує, але сам по собі в статиці нічого не каже. */}
+            <p
+              className={cn(
+                "mb-1.5 flex items-center gap-1.5 text-[0.6875rem] font-extrabold tabular-nums",
+                now ? "text-white" : done ? "text-ink-faint" : "text-[var(--major-hot)]",
+              )}
+            >
+              <span
+                className={cn(
+                  "size-1 rounded-full",
+                  now
+                    ? "live-dot bg-live"
+                    : done
+                      ? "bg-ink-faint"
+                      : "bg-[var(--major-hot)]",
+                )}
+              />
+              <time dateTime={slot}>
+                {new Date(slot).toLocaleTimeString("uk-UA", {
                   hour: "2-digit",
                   minute: "2-digit",
                   timeZone: "Europe/Kyiv",
                 })}
               </time>
+              {now && (
+                <span className="text-[0.5625rem] font-black tracking-wide text-live">
+                  LIVE
+                </span>
+              )}
             </p>
 
             <div className="space-y-1">
@@ -87,7 +130,10 @@ export function OpeningStrip({
                    0:2 просто через порядок стовпців. */
                 const sa = hit ? (hit.flipped ? hit.scoreB : hit.scoreA) : 0;
                 const sb = hit ? (hit.flipped ? hit.scoreA : hit.scoreB) : 0;
-                const played = !!hit && hit.status !== "upcoming";
+                /* Рахунок показуємо, щойно матч пішов, а не лише коли
+                   дограний: нуль-нуль у живому матчі — теж відповідь на
+                   питання «що там зараз». */
+                const played = !!hit && (hit.live || hit.status === "finished");
 
                 const row = (
                   <>
@@ -113,7 +159,11 @@ export function OpeningStrip({
                         target="_blank"
                         rel="noopener noreferrer sponsored"
                         aria-label={`BetKing: ${a?.name ?? m.a} ${m.oa.toFixed(2)}, ${b?.name ?? m.b} ${m.ob.toFixed(2)}`}
-                        className="hidden shrink-0 items-center gap-2.5 rounded-[3px] bg-white px-2 py-0.5 transition-[filter] hover:brightness-95 lg:inline-flex"
+                        /* `relative` тут не про розташування. Рядок накритий
+                           посиланням на матч (див. нижче), а воно позиційоване
+                           — і без власного позиціювання пігулка опинилася б
+                           під ним і перестала б натискатися. */
+                        className="relative hidden shrink-0 items-center gap-2.5 rounded-[3px] bg-white px-2 py-0.5 transition-[filter] hover:brightness-95 lg:inline-flex"
                       >
                         <span className="tnum text-[0.6875rem] font-black text-[#E11322]">
                           {m.oa.toFixed(2)}
@@ -134,7 +184,12 @@ export function OpeningStrip({
                       /* Зіграний матч показує рахунок замість тире: коефіцієнти
                          після початку вже нічого не варті, а рахунок — єдине,
                          по що на цей рядок дивляться. */
-                      <span className="tnum shrink-0 text-[0.6875rem] font-black text-ink">
+                      <span
+                        className={cn(
+                          "tnum shrink-0 text-[0.6875rem] font-black",
+                          hit?.live ? "text-live" : "text-ink",
+                        )}
+                      >
                         {sa}:{sb}
                       </span>
                     ) : (
@@ -157,28 +212,42 @@ export function OpeningStrip({
 
                 /* Матч є — рядок стає посиланням на його сторінку, де є і
                    склад, і ставки. Немає — лишається тим, чим був. */
-                const cls =
-                  "flex items-center gap-1.5 rounded-[3px] bg-black/25 px-1.5 py-1";
+                /* Матч, що йде, обведений червоним. Самого червоного
+                   рахунку мало: він стоїть посеред рядка, завширшки в три
+                   символи, і в колонці з чотирьох пар його треба шукати.
+                   Рамка обводить увесь рядок, і шукати не треба. */
+                const cls = cn(
+                  "relative flex items-center gap-1.5 rounded-[3px] bg-black/25 px-1.5 py-1",
+                  hit && "transition-colors hover:bg-black/40",
+                  hit?.live &&
+                    "bg-[color-mix(in_oklch,var(--live)_12%,oklch(0_0_0_/_0.25))] ring-1 ring-inset ring-[color-mix(in_oklch,var(--live)_42%,transparent)]",
+                );
                 const title = `${a?.name ?? m.a} — ${b?.name ?? m.b}`;
 
-                return hit ? (
-                  <Link
-                    key={`${m.a}-${m.b}-${i}`}
-                    href={`/matches/${hit.id}`}
-                    title={title}
-                    className={cn(cls, "transition-colors hover:bg-black/40")}
-                  >
-                    {row}
-                  </Link>
-                ) : (
+                /* Посилання на матч накриває рядок, а не обгортає його.
+                   Обгортало — і тоді пігулка букмекера, яка теж посилання,
+                   опинялася всередині нього. Вкладене `<a>` недійсне: браузер
+                   розриває розмітку на свій лад, React бачить інше дерево, ніж
+                   надіслав сервер, і вся сторінка перемальовується наново на
+                   кожному завантаженні. Накриття лишає обидва посилання
+                   сусідами й кожне веде туди, куди має. */
+                return (
                   <div key={`${m.a}-${m.b}-${i}`} title={title} className={cls}>
+                    {hit && (
+                      <Link
+                        href={`/matches/${hit.id}`}
+                        aria-label={title}
+                        className="absolute inset-0 rounded-[3px]"
+                      />
+                    )}
                     {row}
                   </div>
                 );
               })}
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

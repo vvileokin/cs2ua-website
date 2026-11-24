@@ -342,7 +342,13 @@ function LockedStage({
           const team = findTeam(slug);
           const mine = picks?.[slug];
           const out = actual?.[slug];
-          const hit = mine ? isHit(mine, out) : null;
+          /* `out` обов'язковий, а не лише `mine`.
+             `isHit` на порожньому підсумку чесно повертає false — його
+             питають «чи вгадано», а не «чи вже відомо». Тому щойно стадія
+             закрилась і жодного результату ще немає, кожен вибір малювався
+             перекресленим, тобто програним. Невідомо — це третій стан, і він
+             тут `null`. */
+          const hit = mine && out ? isHit(mine, out) : null;
           const d = dist?.byTeam[slug];
           const total = dist?.total ?? 0;
 
@@ -411,8 +417,7 @@ function LockedStage({
       {dist && dist.total > 0 && (
         <p className="px-1 text-[0.75rem] text-ink-dim">
           Відсотки — частка карток, у яких команда стоїть у цій ролі. Усього карток:{" "}
-          <span className="tnum font-bold">{dist.total}</span>. Колонки в тому ж порядку,
-          що й кошики: {shape.roles.map((r) => `${r.label.toLowerCase()} ×${r.price}`).join(", ")}.
+          <span className="tnum font-bold">{dist.total}</span>.
         </p>
       )}
     </div>

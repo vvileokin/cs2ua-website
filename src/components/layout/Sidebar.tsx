@@ -126,18 +126,21 @@ export function Sidebar({
         })}
       </nav>
 
-      {/* Порожнеча під меню була найбільшим блоком рейки, і на сайті про
-          матчі єдине, чого там бракувало, — матчі.
+      {/* Порожнеча живе між меню і підніжжям, і це її єдине правильне
+          місце. Спершу `flex-1` стояв на самому LiveRail — а він малює null,
+          коли нічого не йде, і разом із ним зникала розтяжка: клітинка
+          мейджора підскакувала під меню. Потім розтяжку тримала обгортка
+          навколо блоку, і живі матчі опинялися вгорі, а під ними лишалася
+          та сама порожнеча. Порожній div робить те, заради чого він тут, і
+          нічого більше: тримає місце незалежно від того, чи є що показати. */}
+      <div className="min-h-0 flex-1" />
 
-          Розтяжка живе тут, а не всередині блоку. Спершу `flex-1` стояв на
-          самому LiveRail, а він малює null, коли нічого не йде, — і разом із
-          ним зникала розтяжка, яку до того тримало меню. Клітинка мейджора
-          підскакувала під меню, а піврейки лишалося порожнім унизу. Тепер
-          місце тримає обгортка: вона є завжди, незалежно від того, чи є що
-          в неї покласти. */}
-      <div className="min-h-0 flex-1 overflow-y-auto">
+      {/* Підніжжя: що йде зараз — і подія, в якій воно йде.
+          Два блоки впритул, одним стовпчиком. Живий блок без клітинки під ним
+          — це новина без адреси: видно, що хтось грає, і незрозуміло, де про
+          це решта. Разом вони одна річ. */}
+      <div className="flex min-h-0 flex-col gap-2 px-3 pb-5">
         <LiveRail initial={live} />
-      </div>
 
       {/* The Major, in its own cell at the foot of the rail.
           Not a sixth row in the list: it is one event with its own colour and
@@ -145,7 +148,6 @@ export function Sidebar({
           would still be here in March. The cell is lit from within — the same
           light the page itself is built on — so the rail has one warm thing at
           the bottom instead of six cold ones in a column. */}
-      <div className="px-3 pb-5">
         <Link
           href={majorNav.href}
           aria-current={isActive(pathname, majorNav.href) ? "page" : undefined}

@@ -108,6 +108,11 @@ export type OpeningLive = {
   scoreB: number;
   /** Чи в тому ж порядку команди стоять у матчі, що й у парі. */
   flipped: boolean;
+  /** Початок за даними матчу. Він правдивіший за розклад стадії: розклад
+   *  вносили один раз міграцією, а матч заводять із сітки події. */
+  startAt: string | null;
+  /** Матч уже почався і ще не завершений. */
+  live: boolean;
 };
 
 /**
@@ -128,8 +133,10 @@ export const getOpeningLive = cache(
     const sb = await createClient();
     const { data } = await sb
       .from("matches")
-      .select("id, team_a, team_b, status, score_a, score_b")
+      .select("id, team_a, team_b, status, score_a, score_b, start_at")
       .eq("tournament_slug", MAJOR_SLUG);
+
+    const now = Date.now();
 
     const out: Record<string, OpeningLive> = {};
     for (const m of data ?? []) {
@@ -137,12 +144,22 @@ export const getOpeningLive = cache(
       const b = m.team_b as string;
       if (!a || !b) continue;
       const key = [a, b].sort().join("|");
+      const status = (m.status as string) ?? "upcoming";
+      const startAt = (m.start_at as string | null) ?? null;
       out[key] = {
         id: m.id as string,
-        status: (m.status as string) ?? "upcoming",
+        status,
         scoreA: (m.score_a as number) ?? 0,
         scoreB: (m.score_b as number) ?? 0,
         flipped: a > b,
+        startAt,
+        /* Живий — або так каже статус, або час старту вже минув, а
+           «завершено» ще ніхто не поставив. Друге важливо: у мейджора немає
+           фіду, статус міняють руками, і без цієї умови матч, який почався
+           півгодини тому, виглядав би як майбутній. */
+        live:
+          status === "live" ||
+          (status !== "finished" && !!startAt && now >= new Date(startAt).getTime()),
       };
     }
     return out;
