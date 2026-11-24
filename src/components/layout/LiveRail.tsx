@@ -62,7 +62,7 @@ export function LiveRail({ initial }: { initial: Match[] }) {
 
   return (
     <section className="live-cell overflow-hidden rounded-lg">
-      <p className="flex items-center gap-1.5 px-2.5 pb-1.5 pt-2 text-[0.625rem] font-bold uppercase tracking-wide text-[var(--major-hot)]">
+      <p className="flex items-center gap-1.5 px-2.5 pb-1 pt-2 text-[0.625rem] font-bold uppercase tracking-wide text-[var(--major-hot)]">
         {/* Крапка б'ється, бо саме вона тут і є новиною: решта блоку — це
             імена й числа, які виглядають однаково й тоді, коли все давно
             скінчилось. */}
@@ -89,10 +89,10 @@ export function LiveRail({ initial }: { initial: Match[] }) {
             <Link
               key={m.id}
               href={`/matches/${m.id}`}
-              className="block px-2.5 py-2 transition-colors duration-150 hover:bg-white/[0.045]"
+              className="block px-2.5 pb-2 pt-1.5 transition-colors duration-150 hover:bg-white/[0.045]"
             >
               {meta && (
-                <p className="mb-1 text-[0.5625rem] font-bold uppercase tracking-wide text-ink-dim">
+                <p className="mb-0.5 text-[0.5625rem] font-bold uppercase tracking-wide text-ink-dim">
                   {meta}
                 </p>
               )}
