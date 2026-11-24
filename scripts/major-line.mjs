@@ -47,10 +47,23 @@ const API = ENV.NEXT_PUBLIC_SUPABASE_URL + "/rest/v1/";
 const H = { apikey: ENV.SUPABASE_SERVICE_ROLE_KEY, Authorization: "Bearer " + ENV.SUPABASE_SERVICE_ROLE_KEY };
 const j = async (q) => (await fetch(API + q, { headers: H })).json();
 
-/** Пари без лінії — те, заради чого все це. */
-const WANT = [["hundredthieves", "imperial"], ["faze", "bcgame"]];
+/** Пари без лінії — те, заради чого все це. Формат важить: у BO3 та сама
+    перевага по карті дає більшу перевагу в серії. */
+const WANT = [
+  ["imperial", "flyquest", "BO3"],
+  ["bcgame", "chinggis", "BO3"],
+];
 /** Чужа лінія на них, якщо є. Перемагає модель: ринок знає більше. */
-const FOREIGN = { "hundredthieves|imperial": [1.49, 2.45] };
+const FOREIGN = {};
+/** Лінії, яких ще немає в базі, — щоб калібрування бачило і їх теж. */
+const EXTRA = {
+  "heroic-vs-m80": [1.68, 2.17],
+  "eternalfire-vs-hundredthieves": [2.25, 1.64],
+  "parivision-vs-faze": [1.70, 2.14],
+  "wildcard-vs-lynn": [1.73, 2.10],
+  "ninez-vs-sharks": [1.62, 2.29],
+  "nip-vs-liquid": [2.10, 1.73],
+};
 
 const proj = await j("major_projection?select=slug,vrs");
 const PTS = new Map(proj.filter((r) => r.slug).map((r) => [r.slug, r.vrs]));
@@ -60,7 +73,7 @@ const PTS = new Map(proj.filter((r) => r.slug).map((r) => [r.slug, r.vrs]));
    хтось веде 10:3, сказав би про силу команд не те, що було відомо до
    початку. */
 const qs = await j("questions?select=match_id,options&id=like.q-major-*");
-const ms = await j(`matches?select=id,team_a,team_b&tournament_slug=eq.pgl-major-singapore-2026`);
+const ms = await j(`matches?select=id,team_a,team_b,format&tournament_slug=eq.pgl-major-singapore-2026`);
 const BY = new Map(ms.map((m) => [m.id, m]));
 
 const Q = Math.log(10) / 400, RD = 75, D = 817.4;
@@ -76,15 +89,44 @@ const price = (p) => 1 / (p * MARGIN);
 /** Ринкова ймовірність: з пари коефіцієнтів знімається маржа. */
 const devig = ([oa, ob]) => (1 / oa) / (1 / oa + 1 / ob);
 
+/* Серія з трьох карт підсилює фаворита: p²(3−2p). Калібрування ж іде по
+   силі на одній карті, інакше BO1 і BO3 говорили б різними одиницями й
+   тягнули б підгонку в різні боки. Тому ринкова ймовірність серії спершу
+   зводиться назад до карти — функція монотонна, тож ділення відрізка
+   знаходить корінь без жодної алгебри. */
+const bo3 = (q) => q * q * (3 - 2 * q);
+const unBo3 = (p) => {
+  let lo = 0, hi = 1;
+  for (let i = 0; i < 60; i++) {
+    const mid = (lo + hi) / 2;
+    if (bo3(mid) < p) lo = mid; else hi = mid;
+  }
+  return (lo + hi) / 2;
+};
+
 const obs = [];
+const add = (m, oa, ob) => {
+  if (!oa || !ob) return;
+  if (!PTS.has(m.team_a) || !PTS.has(m.team_b)) return;
+  const series = devig([oa, ob]);
+  obs.push({
+    id: m.id, team_a: m.team_a, team_b: m.team_b, o: [oa, ob],
+    bo: m.format === "BO3" ? 3 : 1,
+    series,
+    /* Саме по цьому підганяються сили. */
+    market: m.format === "BO3" ? unBo3(series) : series,
+  });
+};
 for (const q of qs) {
   const m = BY.get(q.match_id);
   if (!m) continue;
-  const oa = q.options?.find((o) => o.id === "oa")?.open;
-  const ob = q.options?.find((o) => o.id === "ob")?.open;
-  if (!oa || !ob) continue;
-  if (!PTS.has(m.team_a) || !PTS.has(m.team_b)) continue;
-  obs.push({ id: m.id, team_a: m.team_a, team_b: m.team_b, o: [oa, ob], market: devig([oa, ob]) });
+  add(m, q.options?.find((o) => o.id === "oa")?.open, q.options?.find((o) => o.id === "ob")?.open);
+}
+for (const [id, [oa, ob]] of Object.entries(EXTRA)) {
+  const m = BY.get(id);
+  if (!m) { console.warn(`  (пропущено, немає матчу: ${id})`); continue; }
+  if (obs.some((o) => o.id === id)) continue;
+  add(m, oa, ob);
 }
 if (obs.length < 4) throw new Error(`замало ліній для калібрування: ${obs.length}`);
 
@@ -176,28 +218,31 @@ console.log(`похибка: рейтинг ${rms((m) => p1(m.team_a, m.team_b, 
   `, сили ${rms((m) => pBT(m.team_a, m.team_b)).toFixed(3)} логіта\n`);
 console.log("звірка на відомих   сили → ринок BetKing");
 for (const m of obs) {
-  const p = pBT(m.team_a, m.team_b);
+  const map = pBT(m.team_a, m.team_b);
+  const p = m.bo === 3 ? bo3(map) : map;
   const back = [price(p), price(1 - p)];
   console.log(
-    `  ${m.id.padEnd(24)} ${(p * 100).toFixed(1)}% / ${(m.market * 100).toFixed(1)}%` +
+    `  ${m.id.padEnd(26)} ${m.bo === 3 ? "BO3" : "BO1"}  ${(p * 100).toFixed(1)}% / ${(m.series * 100).toFixed(1)}%` +
     `   ${back[0].toFixed(2)} ${back[1].toFixed(2)}  (у них ${m.o[0].toFixed(2)} ${m.o[1].toFixed(2)})`,
   );
 }
 
 console.log("\nнова лінія");
-for (const [a, b] of WANT) {
+for (const [a, b, format] of WANT) {
   for (const t of [a, b]) if (!PTS.has(t)) throw new Error(`немає VRS: ${t}`);
   const f = FOREIGN[`${a}|${b}`];
-  /* Чужа лінія, якщо є, інакше модель. */
+  /* Чужа лінія, якщо є, інакше сили, інакше голий рейтинг. */
   const known = teams.includes(a) && teams.includes(b);
-  const p = f ? devig(f) : known ? pBT(a, b) : p1(a, b, K);
+  const map = known ? pBT(a, b) : p1(a, b, K);
+  const p = f ? devig(f) : format === "BO3" ? bo3(map) : map;
   const oa = Math.round(price(p) * 100) / 100;
   const ob = Math.round(price(1 - p) * 100) / 100;
   console.log(
     `  "${a}-vs-${b}": [${oa.toFixed(2)}, ${ob.toFixed(2)}],` +
-    `   ${a} ${(p * 100).toFixed(1)}%  ` +
+    `   ${format}  ${a} ${(p * 100).toFixed(1)}%` +
+    (format === "BO3" ? ` (по карті ${(map * 100).toFixed(1)}%)` : "") + "  " +
     (f
-      ? `з лінії ggua ${f[0].toFixed(2)} ${f[1].toFixed(2)} (сили дали б ${(pBT(a, b) * 100).toFixed(1)}%, рейтинг ${(p1(a, b, K) * 100).toFixed(1)}%)`
-      : `із сил BetKing (рейтинг дав би ${(p1(a, b, K) * 100).toFixed(1)}%)`),
+      ? `з чужої лінії ${f[0].toFixed(2)} ${f[1].toFixed(2)}`
+      : `із сил BetKing (голий рейтинг дав би ${(p1(a, b, K) * 100).toFixed(1)}% по карті)`),
   );
 }
