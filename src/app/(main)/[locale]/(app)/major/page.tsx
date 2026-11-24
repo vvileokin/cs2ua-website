@@ -416,7 +416,8 @@ function LockedStage({
 
       {dist && dist.total > 0 && (
         <p className="px-1 text-[0.75rem] text-ink-dim">
-          Відсотки — частка карток, у яких команда стоїть у цій ролі. Усього карток:{" "}
+          Відсотки — частка пікемів, у яких команда стоїть у одному або іншому
+          кошику. Усього пікемів:{" "}
           <span className="tnum font-bold">{dist.total}</span>.
         </p>
       )}
