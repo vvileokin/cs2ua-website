@@ -333,7 +333,7 @@ function LockedStage({
 
       {!picks && (
         <p className="rounded-[4px] surface-1 px-4 py-3 text-sm text-ink-subtle">
-          Картки на цю стадію в тебе немає. Нижче — як розклалася спільнота.
+          Пікем на цю стадію уже неможливий. Нижче пікеми спільноти.
         </p>
       )}
 
