@@ -65,10 +65,11 @@ export function TournamentCard({ t }: { t: Tournament }) {
         {/* The chips sit straight on the artwork now — no scrim under them.
             Each carries its own opaque plate and border, so the gradient was
             only ever dimming the cover it sat on. */}
+        {/* Без тиру. Він стояв першим на обкладинці кожної картки й нічого
+            не розрізняв: майже все, що ми ведемо, — Tier 1, тож мітка була в
+            усіх однакова й забирала перше місце в тієї, що справді щось
+            каже, — «live» або «завершено». */}
         <div className="absolute left-3 top-3 flex items-center gap-1.5">
-          <Badge tone={isAuraSkin(t.skin) ? "ewc" : t.tier === 1 ? "tier1" : "tier2"}>
-            Tier {t.tier}
-          </Badge>
           {t.status === "live" && <LiveBadge />}
           {t.status === "finished" && <Badge tone="neutral">{tr("finished")}</Badge>}
         </div>
@@ -140,9 +141,6 @@ export function TournamentCardWide({ t }: { t: Tournament }) {
       </div>
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-1.5">
-          <Badge tone={isAuraSkin(t.skin) ? "ewc" : t.tier === 1 ? "tier1" : "tier2"}>
-            T{t.tier}
-          </Badge>
           <h3 className="truncate text-sm font-bold text-ink">{t.name}</h3>
         </div>
         <p className="mt-0.5 truncate text-xs text-ink-subtle">

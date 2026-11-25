@@ -275,10 +275,6 @@ export function TournamentView({
                 ) : (
                   <span>{t.status === "upcoming" ? "Незабаром" : "Завершено"}</span>
                 )}
-                <Sep />
-                <span className={cn(isAuraSkin(t.skin) && "text-[rgb(var(--skin-ring))]")}>
-                  Tier {t.tier}
-                </span>
               </p>
             ) : (
               <>
@@ -289,7 +285,6 @@ export function TournamentView({
                 ) : (
                   <Badge tone="neutral">Завершено</Badge>
                 )}
-                <Badge tone={t.tier === 1 ? "tier1" : "tier2"}>Tier {t.tier}</Badge>
               </>
             )}
           </div>
