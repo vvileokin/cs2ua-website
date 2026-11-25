@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { Link } from "@/i18n/navigation";
 import { Avatar } from "@/components/ui/Avatar";
 import { BrandIcon } from "@/components/ui/BrandIcon";
 import { eventGem } from "@/lib/data";
@@ -26,6 +27,11 @@ import { cn } from "@/lib/utils";
  *
  * Межа призів намальована. Без неї таблиця каже, хто попереду, але не каже
  * головного — де та лінія, заради якої все це складали.
+ *
+ * Рядок веде на картку людини. Таблиця каже, хто попереду, і зупиняється
+ * рівно там, де виникає питання «а що він навибирав»; відповідь лежить
+ * поруч, і після замка стадії вона нікому не шкодить. Кому саме видно чужу
+ * картку, вирішує політика в базі (0094), а не ця розмітка.
  *
  * Показується десятка, решта — за трьома крапками. Сто вісімдесят рядків
  * нижче десятого місця нічого не додають тому, хто дивиться, хто попереду, а
@@ -81,7 +87,11 @@ export function PickemBoard({
 
             return (
               <React.Fragment key={r.userId}>
-                <li className="flex items-center gap-3 px-3 py-2.5 sm:px-4">
+                <li>
+                  <Link
+                    href={`/major/card/${r.userId}`}
+                    className="flex items-center gap-3 px-3 py-2.5 transition-colors hover:bg-white/[0.04] sm:px-4"
+                  >
                   <span
                     className={cn(
                       "tnum w-6 shrink-0 text-right text-sm font-extrabold",
@@ -110,6 +120,7 @@ export function PickemBoard({
                     {r.points}
                     <BrandIcon name={eventGem("major")} className="size-3.5" />
                   </span>
+                  </Link>
                 </li>
 
                 {edge && (

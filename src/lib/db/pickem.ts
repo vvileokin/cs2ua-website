@@ -314,6 +314,55 @@ export const getMyCards = cache(async (): Promise<Record<number, PickemCard>> =>
   return out;
 });
 
+/** Чужа картка: хто це і що він виклав. */
+export type SomeonesCards = {
+  handle: string | null;
+  avatarUrl: string | null;
+  cards: Record<number, PickemCard>;
+};
+
+/**
+ * Картки однієї людини — чиї завгодно.
+ *
+ * Жодної перевірки «чи можна» тут немає, і це не недогляд. Політика на
+ * `major_pickem` (0094) уже каже рівно те, що треба: своя картка видна
+ * завжди, чужа — лише після замка стадії. Писати ту саму умову вдруге в
+ * запиті означало б завести друге правило про те саме, і одного дня вони
+ * розійшлися б. Тож запит іде як є, а повертається те, що людині видно: до
+ * замка чужа картка просто не приходить, і сторінка каже, що її немає.
+ *
+ * Ключ — uuid, а не нік. Ніки в нас неунікальні й бувають із пробілами та
+ * лапками; у посиланні з такого нічого доброго не виходить, а в таблиці
+ * `major_pickem_board` uuid і так лежить відкрито.
+ */
+export const getCardsOf = cache(
+  async (userId: string): Promise<SomeonesCards | null> => {
+    const sb = await createClient();
+
+    const [{ data: who }, { data: rows }] = await Promise.all([
+      sb.from("profiles").select("handle, avatar_url").eq("id", userId).maybeSingle(),
+      sb.from("major_pickem").select("stage, picks, points, hits, scored_at").eq("user_id", userId),
+    ]);
+    if (!who) return null;
+
+    const cards: Record<number, PickemCard> = {};
+    for (const r of rows ?? []) {
+      cards[r.stage as number] = {
+        stage: r.stage as number,
+        picks: (r.picks as PickemPicks) ?? {},
+        points: (r.points as number) ?? 0,
+        hits: (r.hits as number) ?? 0,
+        scored: !!r.scored_at,
+      };
+    }
+    return {
+      handle: (who.handle as string | null) ?? null,
+      avatarUrl: (who.avatar_url as string | null) ?? null,
+      cards,
+    };
+  },
+);
+
 /**
  * Підсумкова таблиця — сума за всі зіграні стадії.
  *
