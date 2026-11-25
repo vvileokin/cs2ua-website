@@ -1,5 +1,9 @@
+"use client";
+
 import * as React from "react";
 import { Avatar } from "@/components/ui/Avatar";
+import { BrandIcon } from "@/components/ui/BrandIcon";
+import { eventGem } from "@/lib/data";
 import { PRIZE_TOP, tierOf, type CardShape, type PickemTier } from "@/lib/major-pickem";
 import type { BoardRow } from "@/lib/db/pickem";
 import { cn } from "@/lib/utils";
@@ -22,6 +26,12 @@ import { cn } from "@/lib/utils";
  *
  * Межа призів намальована. Без неї таблиця каже, хто попереду, але не каже
  * головного — де та лінія, заради якої все це складали.
+ *
+ * Показується десятка, решта — за трьома крапками. Сто вісімдесят рядків
+ * нижче десятого місця нічого не додають тому, хто дивиться, хто попереду, а
+ * сторінку розтягують на три екрани. Крапки — той самий знак, що й у
+ * сезонному лідерборді: одне місце в продукті, один спосіб сказати «далі є
+ * ще».
  */
 export function PickemBoard({
   rows,
@@ -29,6 +39,7 @@ export function PickemBoard({
   caption,
   empty,
   shape,
+  topN = 10,
 }: {
   rows: BoardRow[];
   title: string;
@@ -38,7 +49,15 @@ export function PickemBoard({
   /** Форма картки — щоб показати рівень. Для підсумкової таблиці її немає:
    *  сума влучань за стадії різної форми в одну шкалу не зводиться. */
   shape?: CardShape;
+  /** Скільки рядків видно до розгортання. 0 — показати всіх одразу. */
+  topN?: number;
 }) {
+  const [open, setOpen] = React.useState(false);
+  /* Ріжемо за місцем, а не за позицією в масиві: при рівних очках місця
+     повторюються, і зріз по індексу розірвав би таких людей навпіл. */
+  const shown = !topN || open ? rows : rows.filter((r) => r.rank <= topN);
+  const hidden = rows.length - shown.length;
+
   return (
     <section>
       <h2 className="mb-3 flex flex-wrap items-baseline gap-x-2 px-1 text-base font-extrabold text-ink">
@@ -52,13 +71,13 @@ export function PickemBoard({
         </p>
       ) : (
         <ol className="major-plate major-divide overflow-hidden rounded-[4px]">
-          {rows.map((r, i) => {
+          {shown.map((r, i) => {
             const tier = shape ? tierOf(r.hits, shape) : null;
             const paid = r.rank <= PRIZE_TOP;
             /* Межу малюємо лише тоді, коли по той бік від неї справді хтось
                стоїть: лінія «нижче призів» під останнім рядком обіцяє
                продовження, якого немає. */
-            const edge = paid && rows[i + 1] && rows[i + 1].rank > PRIZE_TOP;
+            const edge = paid && shown[i + 1] && shown[i + 1].rank > PRIZE_TOP;
 
             return (
               <React.Fragment key={r.userId}>
@@ -78,16 +97,18 @@ export function PickemBoard({
 
                   {tier && <TierChip tier={tier} />}
 
-                  <span className="tnum w-14 shrink-0 text-right text-[0.75rem] font-bold text-ink-dim">
-                    {r.hits} вл.
-                  </span>
+                  {/* Камінь біля числа, бо це не абстрактний рахунок: ці
+                      очки лягають на мейджорський гаманець, тим самим, яким
+                      тут платять за ставки. Голе число не казало, що саме
+                      нараховано, і скільки на нього можна поставити. */}
                   <span
                     className={cn(
-                      "tnum w-16 shrink-0 text-right text-sm font-extrabold",
+                      "tnum flex w-20 shrink-0 items-center justify-end gap-1 text-sm font-extrabold",
                       paid ? "text-[var(--major-hot)]" : "text-ink-muted",
                     )}
                   >
                     {r.points}
+                    <BrandIcon name={eventGem("major")} className="size-3.5" />
                   </span>
                 </li>
 
@@ -106,6 +127,29 @@ export function PickemBoard({
               </React.Fragment>
             );
           })}
+
+          {hidden > 0 && (
+            <li>
+              <button
+                onClick={() => setOpen(true)}
+                aria-label={`Показати решту: ${hidden}`}
+                className="flex w-full items-center justify-center py-2 text-ink-faint transition-colors hover:bg-white/[0.04] hover:text-ink-muted"
+              >
+                <span className="text-xs tracking-widest">· · ·</span>
+              </button>
+            </li>
+          )}
+
+          {open && topN > 0 && rows.length > topN && (
+            <li>
+              <button
+                onClick={() => setOpen(false)}
+                className="flex w-full items-center justify-center py-2 text-[0.6875rem] font-bold text-ink-dim transition-colors hover:bg-white/[0.04] hover:text-ink-muted"
+              >
+                Згорнути
+              </button>
+            </li>
+          )}
         </ol>
       )}
     </section>
@@ -124,14 +168,4 @@ function TierChip({ tier }: { tier: PickemTier }) {
       {tier.name}
     </span>
   );
-}
-
-/** Українське число: 1 картка, 2 картки, 5 карток. */
-export function plural(n: number, one: string, few: string, many: string) {
-  const a = Math.abs(n) % 100;
-  const b = a % 10;
-  if (a > 10 && a < 20) return many;
-  if (b > 1 && b < 5) return few;
-  if (b === 1) return one;
-  return many;
 }

@@ -99,13 +99,28 @@ export function OpeningStrip({
           лишилося б нічого.
 
           До lg пігулка схована (вона `lg:inline-flex`), ряд там це два теги з
-          гербами, і колонок стільки ж, скільки годин, до чотирьох. */}
+          гербами, і колонок стільки ж, скільки годин, до чотирьох.
+
+          І окремо — самотній блок. Там, де колонок рівно дві, а годин
+          непарна кількість, остання лишається сама, і праворуч від неї
+          зяє порожня клітинка — на телефоні це помітно так само, як на
+          широкому екрані. Тоді вона займає обидві: ряди в ній стають ширші
+          за сусідні зверху, зате плита не має дірки. Там, де колонок
+          стільки ж, скільки годин, нічого розтягувати не треба. */}
       <div
         className={cn(
           "grid grid-cols-2 gap-x-4 gap-y-4",
           SM_COLS[Math.min(slots.size, 4)],
           odds && "lg:grid-cols-2 lg:gap-x-8",
           odds && slots.size === 3 && "2xl:grid-cols-3",
+          /* Дві колонки й непарно — на найвужчому завжди. */
+          slots.size % 2 === 1 && "[&>*:last-child]:col-span-2",
+          /* Від sm колонок уже стільки ж, скільки годин (до чотирьох). */
+          slots.size % 2 === 1 && "sm:[&>*:last-child]:col-span-1",
+          /* З коефіцієнтами на lg знову дві. */
+          odds && slots.size % 2 === 1 && "lg:[&>*:last-child]:col-span-2",
+          /* А на 2xl для трьох годин — три. */
+          odds && slots.size === 3 && "2xl:[&>*:last-child]:col-span-1",
         )}
       >
         {[...slots.entries()].map(([slot, list]) => {
@@ -116,7 +131,11 @@ export function OpeningStrip({
              ще не почалась, читався б як скасовану. */
           const done = hits.every((h) => h?.status === "finished");
           return (
-          <div key={slot}>
+          /* Колонка — контейнер запиту. Пігулка нижче з'являється не на
+             певному екрані, а щойно в самій колонці стає для неї місце: на
+             телефоні останній блок розтягнутий на обидві клітинки, і там
+             вона влазить так само, як на ПК, хоча екран той самий. */
+          <div key={slot} className="@container">
             {/* Три стани години, і вони читаються згори вниз як хід туру:
                 попереду — червоним, іде — білим із живою крапкою і словом,
                 позаду — пригашено.
@@ -206,8 +225,12 @@ export function OpeningStrip({
                         /* `relative` тут не про розташування. Рядок накритий
                            посиланням на матч (див. нижче), а воно позиційоване
                            — і без власного позиціювання пігулка опинилася б
-                           під ним і перестала б натискатися. */
-                        className="relative hidden shrink-0 items-center gap-2.5 rounded-[3px] bg-white px-2 py-0.5 transition-[filter] hover:brightness-95 lg:inline-flex"
+                           під ним і перестала б натискатися.
+
+                           21rem — це ширина, за якої ряд тримає пігулку (163
+                           пікселі), два герби, відступи й по сорок із чимось
+                           на теги. Вужче — показується тире. */
+                        className="relative hidden shrink-0 items-center gap-2.5 rounded-[3px] bg-white px-2 py-0.5 transition-[filter] hover:brightness-95 @[21rem]:inline-flex"
                       >
                         <span className="tnum text-[0.6875rem] font-black text-[#E11322]">
                           {m.oa.toFixed(2)}
@@ -241,7 +264,7 @@ export function OpeningStrip({
                         aria-hidden
                         className={cn(
                           "text-[0.625rem] text-ink-faint",
-                          m.oa && m.ob && "lg:hidden",
+                          m.oa && m.ob && "@[21rem]:hidden",
                         )}
                       >
                         —

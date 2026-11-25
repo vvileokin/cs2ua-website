@@ -9,19 +9,19 @@ import { ChampionPoll } from "@/components/major/ChampionPoll";
 import { OpeningStrip } from "@/components/major/OpeningStrip";
 import { LockCountdown } from "@/components/major/LockCountdown";
 import { PickemCard } from "@/components/major/PickemCard";
-import { PickemBoard, plural } from "@/components/major/PickemBoard";
+import { PickemBoard } from "@/components/major/PickemBoard";
 import { getChampionTally, getMyChampionVote } from "@/lib/db/champion";
 import { findTeam } from "@/lib/data";
 import {
-  getStages, getMyCards, getBoard, getStageBoard, getDistribution, getSpread,
+  getStages, getMyCards, getBoard, getDistribution, getSpread,
   getStageRound,
   isOpen, isReady, hasStarted, shapeFor, currentStage, isSignedIn,
-  type BoardRow, type Distribution, type MajorStage,
+  type Distribution,
 } from "@/lib/db/pickem";
 import {
   isHit, tierOf, type CardShape, type PickRole, type StageOutcome,
 } from "@/lib/major-pickem";
-import { cn } from "@/lib/utils";
+import { cn, plural } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Пікеми на мейджор",
@@ -33,18 +33,16 @@ export const metadata: Metadata = {
    збереженням. Кешувати тут нічого. */
 export const dynamic = "force-dynamic";
 
-/** Чи є в стадії бодай один відомий підсумок — тобто чи вже є що рахувати. */
-function decided(s: MajorStage) {
-  return !!s.scoredAt || Object.keys(s.actual ?? {}).length > 0;
-}
-
 export default async function MajorPickemPage({
   searchParams,
 }: {
   searchParams: Promise<{ stage?: string }>;
 }) {
   const [{ stage: wanted }, stages, cards, board, tally, myVote] = await Promise.all([
-    searchParams, getStages(), getMyCards(), getBoard(50),
+    searchParams, getStages(), getMyCards(),
+    /* Уся таблиця, а не перші п'ятдесят: видно з неї однаково десятку, а
+       решта лежить за трьома крапками — і «решта» має означати решту. */
+    getBoard(500),
     getChampionTally(), getMyChampionVote(),
   ]);
   const signedIn = await isSignedIn();
@@ -67,9 +65,8 @@ export default async function MajorPickemPage({
   const open = isOpen(stage);
   const ready = isReady(stage);
   const card = cards[stage.stage] ?? null;
-  const [dist, stageBoard, spread, round] = await Promise.all([
+  const [dist, spread, round] = await Promise.all([
     getDistribution(stage.stage, stage.startsAt),
-    decided(stage) ? getStageBoard(stage.stage) : Promise.resolve<BoardRow[]>([]),
     getSpread(stage.stage),
     getStageRound(),
   ]);
@@ -174,16 +171,7 @@ export default async function MajorPickemPage({
             </p>
           ) : (
             <p className="text-sm text-ink-muted">
-              {stage.scoredAt
-                ? "Зіграно й зараховано"
-                : decided(stage)
-                  ? /* Третій стан. Швейцарка дізнається свої підсумки не
-                       разом: 3-0 і 0-3 остаточні вже після третього туру, а
-                       прохід — аж після п'ятого. Очки за перше вже в
-                       профілях, і рядок мусить це визнавати, інакше людина
-                       читає «картки закриті» й не розуміє, звідки очки. */
-                    "Картки закриті. Очки за 3-0 і 0-3 нараховані, за прохід — коли стадія дограє"
-                  : "Стадія почалася, картки закриті"}
+              {stage.scoredAt ? "Зіграно й зараховано" : "Пікеми закриті"}
             </p>
           )
         ) : null}
@@ -227,18 +215,6 @@ export default async function MajorPickemPage({
       />
 
       <MajorPrizes stage={stage.stage} />
-
-      {/* Таблиця самої стадії — тільки коли є що показувати. Саме по ній
-          їдуть скіни за цю стадію, тож вона стоїть ближче, ніж підсумок. */}
-      {stageBoard.length > 0 && (
-        <PickemBoard
-          rows={stageBoard}
-          shape={shape}
-          title={`Залік: ${stage.title.toLowerCase()}`}
-          caption={`${stageBoard.length} ${plural(stageBoard.length, "картка", "картки", "карток")}`}
-          empty=""
-        />
-      )}
 
       <PickemBoard
         rows={board}
@@ -348,12 +324,6 @@ function LockedStage({
             </div>
           )}
         </div>
-      )}
-
-      {!picks && (
-        <p className="rounded-[4px] surface-1 px-4 py-3 text-sm text-ink-subtle">
-          Пікем на цю стадію уже неможливий. Нижче пікеми спільноти.
-        </p>
       )}
 
       <div className="major-plate major-divide overflow-hidden rounded-[4px]">

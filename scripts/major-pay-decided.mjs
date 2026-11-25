@@ -108,9 +108,12 @@ const patch = async (path, body) => {
 await patch(`major_stages?stage=eq.${STAGE}`, { actual, updated_at: new Date().toISOString() });
 console.log(`підсумок стадії: ${Object.keys(actual).length} команд із 16`);
 
+/* Гаманець — івентовий, не сезонний. Ставки на мейджорі приймає саме він
+   (0102), і нагорода, якою не можна скористатися там, де її дали, — це не
+   нагорода. */
 const profiles = Object.fromEntries(
-  (await j(`profiles?select=id,points&id=in.(${writes.map((p) => p.user_id).join(",")})`))
-    .map((p) => [p.id, p.points ?? 0]),
+  (await j(`profiles?select=id,event_points&id=in.(${writes.map((p) => p.user_id).join(",")})`))
+    .map((p) => [p.id, p.event_points ?? 0]),
 );
 
 let n = 0;
@@ -121,7 +124,8 @@ for (const p of writes) {
   await patch(`major_pickem?user_id=eq.${p.user_id}&stage=eq.${STAGE}`,
     { points: p.pts, hits: p.hits });
   if (p.add !== 0) {
-    await patch(`profiles?id=eq.${p.user_id}`, { points: (profiles[p.user_id] ?? 0) + p.add });
+    await patch(`profiles?id=eq.${p.user_id}`,
+      { event_points: (profiles[p.user_id] ?? 0) + p.add });
   }
   n++;
 }
@@ -142,7 +146,7 @@ const rows = plan.map((p) => ({
   title:
     `${stage.title} · 3-0 і 0-3 вже відомі: ` +
     (p.hits
-      ? `${p.hits} влучання з чотирьох, +${p.pts} очок. `
+      ? `${p.hits} влучання з чотирьох, +${p.pts} мейджорських поінтів. `
       : "жодного влучання з чотирьох. ") +
     "Очки за прохід нарахуємо, коли стадія дограє.",
 }));
