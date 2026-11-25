@@ -9,12 +9,12 @@ import {
   Users,
   GitFork,
   History,
-  Swords,
 } from "lucide-react";
 import { Badge, LiveBadge } from "@/components/ui/Badge";
 import {
   TrophyGlyph,
   SwordsGlyph,
+  DuelGlyph,
   CrownGlyph,
   DateGlyph,
   GeoGlyph,
@@ -160,7 +160,7 @@ export function TournamentView({
                 ? /* Мейджор має своє: пікеми живуть окремою сторінкою, а тут —
                      дуелі. Вкладка названа по тому, що в ній лежить, а не
                      «Інтерактиви»: інтерактив тут рівно один. */
-                  { id: "predictor" as Tab, label: "Дуелі", icon: Swords }
+                  { id: "predictor" as Tab, label: "Дуелі", icon: DuelGlyph }
                 : t.skin
                   ? null
                   : { id: "predictor" as Tab, label: "Прогнозатор", icon: GitFork },

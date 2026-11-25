@@ -2,7 +2,8 @@
 
 import * as React from "react";
 import { Link } from "@/i18n/navigation";
-import { Check, Loader2, Swords, X } from "lucide-react";
+import { Check, Loader2, X } from "lucide-react";
+import { DuelGlyph } from "@/components/layout/NavGlyphs";
 import { Avatar } from "@/components/ui/Avatar";
 import { TeamLogo } from "@/components/ui/TeamLogo";
 import { BrandIcon } from "@/components/ui/BrandIcon";
@@ -107,7 +108,7 @@ export function MyDuels({ matches }: { matches: Match[] }) {
     <div className="skin-aura-card space-y-3 rounded-xl p-3 sm:p-4">
       <div className="flex items-center justify-between gap-2">
         <p className="flex items-center gap-2 text-sm font-extrabold tracking-tight text-white">
-          <Swords className="size-4 text-[rgb(var(--skin-ring))]" />
+          <DuelGlyph className="size-4 text-[rgb(var(--skin-ring))]" />
           Мої дуелі
         </p>
         {/* The record, not a points total. Duels deliberately stay out of the

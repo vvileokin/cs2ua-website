@@ -3,7 +3,8 @@
 import * as React from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Bell, Target, Swords, Gift, TrendingUp, Trophy, Check, LogIn, Loader2, X } from "lucide-react";
+import { DuelGlyph } from "@/components/layout/NavGlyphs";
+import { Target, Swords, Gift, TrendingUp, Trophy, Check, LogIn, Loader2, X } from "lucide-react";
 import { Brand } from "./Brand";
 import { Avatar } from "@/components/ui/Avatar";
 import { EventConvertModal } from "./EventConvertModal";
@@ -29,12 +30,18 @@ import { cn } from "@/lib/utils";
  * ніж за форму, тож кілька видів поспіль стають видимими як різні ще до
  * того, як прочитано хоч слово.
  */
-const kindLook: Record<NotifKind, { icon: typeof Bell; tint: string }> = {
+/* Плитка бере і lucide, і наші власні фігури, тож тип описує те, що плитка
+   справді передає, а не те, чим виявився перший знак у наборі. `strokeWidth`
+   лишається в типі заради lucide; залитій фігурі він просто нічого не
+   каже. */
+type TileIcon = React.ComponentType<{ className?: string; strokeWidth?: number }>;
+
+const kindLook: Record<NotifKind, { icon: TileIcon; tint: string }> = {
   reward: { icon: Target, tint: "var(--accent)" },
   match: { icon: Swords, tint: "var(--info)" },
   giveaway: { icon: Gift, tint: "var(--success)" },
   rank: { icon: TrendingUp, tint: "var(--tier1)" },
-  duel: { icon: Swords, tint: "var(--warning)" },
+  duel: { icon: DuelGlyph, tint: "var(--warning)" },
   /* Мейджор світиться своїм багряним — тим самим, у який пофарбована його
      сторінка. Рядок про нього впізнається, не доходячи до тексту. */
   major: { icon: Trophy, tint: "var(--major-hot)" },

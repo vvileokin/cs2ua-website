@@ -2,7 +2,8 @@
 
 import * as React from "react";
 import { Link } from "@/i18n/navigation";
-import { Check, ChevronLeft, Loader2, LogIn, Plus, Swords, X } from "lucide-react";
+import { Check, ChevronLeft, Loader2, LogIn, Plus, X } from "lucide-react";
+import { DuelGlyph } from "@/components/layout/NavGlyphs";
 import { TeamLogo } from "@/components/ui/TeamLogo";
 import { Avatar } from "@/components/ui/Avatar";
 import { BrandIcon } from "@/components/ui/BrandIcon";
@@ -135,7 +136,7 @@ export function DuelBoard({ match }: { match: Match }) {
           A heading that is nearly the same as its neighbours is worse than one
           that is plainly different. */}
       <h2 className="flex items-center gap-2.5 pl-1 text-[0.8125rem] font-bold uppercase tracking-wide text-ink-muted">
-        <Swords className="size-4 shrink-0 text-ink-subtle" />
+        <DuelGlyph className="size-4 shrink-0 text-ink-subtle" />
         Дуелі
       </h2>
 

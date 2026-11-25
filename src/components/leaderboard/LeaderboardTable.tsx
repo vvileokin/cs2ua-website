@@ -1,7 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { ChevronUp, ChevronDown, Minus, Swords } from "lucide-react";
+import { ChevronUp, ChevronDown, Minus } from "lucide-react";
+import { DuelGlyph } from "@/components/layout/NavGlyphs";
 import { formatInt } from "@/lib/utils";
 import { type LeaderRow, type EventSkin } from "@/lib/data";
 import { Avatar } from "@/components/ui/Avatar";
@@ -181,7 +182,7 @@ function Row({
           title={`Викликати ${row.handle}`}
           className="grid size-8 shrink-0 place-items-center rounded-lg text-ink-subtle transition-colors hover:bg-white/[0.08] hover:text-[rgb(var(--skin-ring))]"
         >
-          <Swords className="size-4" />
+          <DuelGlyph className="size-4" />
         </button>
       )}
     </div>
@@ -332,7 +333,7 @@ function Podium({
                       first ? "size-7" : "size-6",
                     )}
                   >
-                    <Swords className={first ? "size-3.5" : "size-3"} />
+                    <DuelGlyph className={first ? "size-3.5" : "size-3"} />
                   </button>
                 )}
 

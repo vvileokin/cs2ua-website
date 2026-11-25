@@ -16,7 +16,7 @@ import {
   getStages, getMyCards, getBoard, getStageBoard, getDistribution, getSpread,
   getStageRound,
   isOpen, isReady, hasStarted, shapeFor, currentStage, isSignedIn,
-  type BoardRow, type Distribution,
+  type BoardRow, type Distribution, type MajorStage,
 } from "@/lib/db/pickem";
 import {
   isHit, tierOf, type CardShape, type PickRole, type StageOutcome,
@@ -32,6 +32,11 @@ export const metadata: Metadata = {
 /* Сторінка читає картки конкретної людини й розподіл, що міняється з кожним
    збереженням. Кешувати тут нічого. */
 export const dynamic = "force-dynamic";
+
+/** Чи є в стадії бодай один відомий підсумок — тобто чи вже є що рахувати. */
+function decided(s: MajorStage) {
+  return !!s.scoredAt || Object.keys(s.actual ?? {}).length > 0;
+}
 
 export default async function MajorPickemPage({
   searchParams,
@@ -64,7 +69,7 @@ export default async function MajorPickemPage({
   const card = cards[stage.stage] ?? null;
   const [dist, stageBoard, spread, round] = await Promise.all([
     getDistribution(stage.stage, stage.startsAt),
-    stage.scoredAt ? getStageBoard(stage.stage) : Promise.resolve<BoardRow[]>([]),
+    decided(stage) ? getStageBoard(stage.stage) : Promise.resolve<BoardRow[]>([]),
     getSpread(stage.stage),
     getStageRound(),
   ]);
@@ -169,7 +174,16 @@ export default async function MajorPickemPage({
             </p>
           ) : (
             <p className="text-sm text-ink-muted">
-              {stage.scoredAt ? "Зіграно й зараховано" : "Стадія почалася, картки закриті"}
+              {stage.scoredAt
+                ? "Зіграно й зараховано"
+                : decided(stage)
+                  ? /* Третій стан. Швейцарка дізнається свої підсумки не
+                       разом: 3-0 і 0-3 остаточні вже після третього туру, а
+                       прохід — аж після п'ятого. Очки за перше вже в
+                       профілях, і рядок мусить це визнавати, інакше людина
+                       читає «картки закриті» й не розуміє, звідки очки. */
+                    "Картки закриті. Очки за 3-0 і 0-3 нараховані, за прохід — коли стадія дограє"
+                  : "Стадія почалася, картки закриті"}
             </p>
           )
         ) : null}
