@@ -594,9 +594,16 @@ export function TournamentView({
               // tournament, so no event board carries the column.
               showStreak={!isAuraSkin(t.skin)}
               ewc={isAuraSkin(t.skin)}
-              // Duels are Porto's, so the swords only appear on Porto's board.
+              /* Виклик на дуель — скрізь, де турнір живе з івентового
+                 гаманця, бо дуель списує саме його. Тут стояв Porto, і це та
+                 сама помилка, яку в базі виправила 0103: доки Porto йшов,
+                 «дуелі — це Porto» працювало, а коли він скінчився, стало
+                 означати «ніде». Умова тепер така сама, як у сусідній
+                 сторінці для вибору дошки: `isAuraSkin` і є «турнір на
+                 івентовому гаманці». Два правила про одні гроші мусять
+                 дивитися в один бік. */
               onChallenge={
-                t.skin === "porto"
+                isAuraSkin(t.skin)
                   ? (row) =>
                       row.userId && setChallenging({ id: row.userId, handle: row.handle })
                   : undefined

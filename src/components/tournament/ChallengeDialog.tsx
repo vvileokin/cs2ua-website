@@ -33,7 +33,8 @@ export function ChallengeDialog({
   open: boolean;
   onClose: () => void;
   target: { id: string; handle: string } | null;
-  /** Porto fixtures; only the ones not yet started can be challenged on. */
+  /** Матчі турніру, з чиєї дошки відкрили виклик. Вибрати можна лише ті,
+   *  що ще не почались. */
   matches: Match[];
 }) {
   const upcoming = React.useMemo(
@@ -77,6 +78,10 @@ export function ChallengeDialog({
     too_many_open: "Забагато відкритих викликів — максимум три",
     started: "Матч уже почався",
     self: "Це ти",
+    /* Турнір не на івентовому гаманці — дуелі там не живуть (0103). Побачити
+       це можна тільки якщо кнопку показали там, де не слід, тож текст каже
+       не «помилка», а що саме не так. */
+    not_event: "На цьому турнірі дуелей немає",
   };
 
   async function send() {
@@ -102,10 +107,10 @@ export function ChallengeDialog({
 
   return (
     <Modal open={open} onClose={onClose} title={`Виклик · ${target?.handle ?? ""}`}>
-      {/* The dialog is opened from Porto's board about a Porto fixture, so it
-          wears the event. `data-skin` sits here rather than on a parent because
-          a modal renders into its own tree, outside the page that declares the
-          palette — without it every token would fall back to the World Cup. */}
+      {/* Виклик кидають з дошки події, тож діалог носить її кольори.
+          `data-skin` стоїть саме тут, а не на батьківському вузлі: модалка
+          малюється у власне дерево, поза сторінкою, яка оголошує палітру, і
+          без цього рядка всі токени впали б назад на World Cup. */}
       <div data-skin={runningEvent()?.skin}>
       {done ? (
         <p className="rounded-xl bg-success/10 px-3 py-4 text-center text-sm font-bold text-success">
