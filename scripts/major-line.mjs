@@ -49,16 +49,13 @@ const j = async (q) => (await fetch(API + q, { headers: H })).json();
 
 /** Пари без лінії — те, заради чого все це. Формат важить: у BO3 та сама
     перевага по карті дає більшу перевагу в серії. */
-const WANT = [["imperial", "liquid", "BO3"]];
+const WANT = [["imperial", "wildcard", "BO3"]];
 /** Чужа лінія на них, якщо є. Перемагає модель: ринок знає більше. */
-const FOREIGN = { "imperial|liquid": [2.71, 1.45] };
+const FOREIGN = {};
 /** Лінії, яких ще немає в базі, — щоб калібрування бачило і їх теж. */
 const EXTRA = {
-  "m80-vs-eternalfire": [2.00, 1.80],
-  "heroic-vs-faze": [1.85, 1.95],
-  "lynn-vs-parivision": [4.20, 1.23],
-  "hundredthieves-vs-ninez": [1.73, 2.10],
-  "wildcard-vs-chinggis": [1.32, 3.33],
+  "lynn-vs-heroic": [3.60, 1.29],
+  "m80-vs-hundredthieves": [2.30, 1.62],
 };
 
 const proj = await j("major_projection?select=slug,vrs");
