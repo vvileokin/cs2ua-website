@@ -242,10 +242,15 @@ export function OpeningStrip({
                            — і без власного позиціювання пігулка опинилася б
                            під ним і перестала б натискатися.
 
-                           21rem — це ширина, за якої ряд тримає пігулку (163
-                           пікселі), два герби, відступи й по сорок із чимось
-                           на теги. Вужче — показується тире. */
-                        className="relative hidden shrink-0 items-center gap-2.5 rounded-[3px] bg-white px-2 py-0.5 transition-[filter] hover:brightness-95 @[21rem]:inline-flex"
+                           Порогів два, бо й пігулка не одна. Від 21rem вона
+                           йде в повну ширину — 163 пікселі з вільними
+                           відступами. Від 17rem — підтиснута: менші проміжки,
+                           коротший логотип, тонший внутрішній відступ; це
+                           близько двадцяти пікселів, яких саме й бракувало,
+                           щоб вона влізла в телефон, тримаючи теги. Ще вужче
+                           показується тире: там уже не лишилося б самих
+                           тегів. */
+                        className="relative hidden shrink-0 items-center gap-1.5 rounded-[3px] bg-white px-1.5 py-0.5 transition-[filter] hover:brightness-95 @[17rem]:inline-flex @[21rem]:gap-2.5 @[21rem]:px-2"
                       >
                         <span className="tnum text-[0.6875rem] font-black text-[#E11322]">
                           {m.oa.toFixed(2)}
@@ -255,7 +260,7 @@ export function OpeningStrip({
                           alt="BETKING"
                           width={44}
                           height={10}
-                          className="h-2.5 w-auto"
+                          className="h-2 w-auto @[21rem]:h-2.5"
                         />
                         <span className="tnum text-[0.6875rem] font-black text-[#E11322]">
                           {m.ob.toFixed(2)}
@@ -279,7 +284,7 @@ export function OpeningStrip({
                         aria-hidden
                         className={cn(
                           "text-[0.625rem] text-ink-faint",
-                          m.oa && m.ob && "@[21rem]:hidden",
+                          m.oa && m.ob && "@[17rem]:hidden",
                         )}
                       >
                         —
