@@ -148,12 +148,32 @@ if (!fresh.length) {
   process.exit(0);
 }
 
-/* Фото вантажиться один раз, у перший чат черги. Він отримає повідомлення
-   одразу, решта — коли чергу вичерпають. */
-const fileId = await sendPhoto(fresh[0].telegram_id);
-console.log(`\nфото завантажено, file_id ${fileId.slice(0, 24)}…`);
+/* Фото вантажиться один раз, у перший чат, який його ПРИЙМЕ. Саме так, а
+   не «в перший у списку»: людина могла заблокувати бота, і тоді Telegram
+   відповідає 403. Перша версія бралася за `fresh[0]` наосліп, і через
+   одного такого падала вся розсилка, не поставивши в чергу нікого.
 
-const rows = fresh.slice(1).map((p) => ({
+   Хто відмовив — лишається в черзі нарівні з рештою: розбиратися, кому вже
+   нічого не дійде, має вичерпувач черги, а не анонс. */
+let fileId = null;
+let host = -1;
+const refused = [];
+for (let i = 0; i < fresh.length && !fileId; i++) {
+  try {
+    fileId = await sendPhoto(fresh[i].telegram_id);
+    host = i;
+  } catch (e) {
+    refused.push(`${fresh[i].handle ?? fresh[i].id}: ${String(e.message).slice(-70)}`);
+  }
+}
+if (!fileId) throw new Error("жоден чат не прийняв фото: " + refused.join("; "));
+if (refused.length) {
+  console.log(`\nне прийняли фото, лишаються в черзі: ${refused.length}`);
+  for (const r of refused.slice(0, 5)) console.log("  " + r);
+}
+console.log(`\nфото завантажено в чат «${fresh[host].handle}», file_id ${fileId.slice(0, 24)}…`);
+
+const rows = fresh.filter((_, i) => i !== host).map((p) => ({
   user_id: p.id,
   kind: KIND,
   payload: { text: TEXT, button: BUTTON, photo: fileId },
