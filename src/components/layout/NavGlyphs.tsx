@@ -82,7 +82,13 @@ export function SwordsGlyph({ className }: GlyphProps) {
  */
 export function DuelGlyph({ className }: GlyphProps) {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className={className}>
+    /* Поле ширше за малюнок, і це не випадковість. Фігура намальована від
+       краю до краю двадцяти чотирьох одиниць, а поруч із нею стоять іконки
+       lucide, у яких лишається приблизно по дві одиниці полів з кожного боку.
+       За однакового `size-4` наша виходила помітно більшою за сусідні — не
+       тому, що більша, а тому, що без полів. Розширене поле додає їх, не
+       чіпаючи самої фігури. */
+    <svg viewBox="-2.5 -2.5 29 29" fill="currentColor" aria-hidden className={className}>
       <path d="M0 1.8 L0 22.2 L8.6 15.4 L8.6 8.6 Z" />
       <path d="M12 8.2 L13.9 12 L12 15.8 L10.1 12 Z" />
       <path d="M24 1.8 L24 22.2 L15.4 15.4 L15.4 8.6 Z" />
