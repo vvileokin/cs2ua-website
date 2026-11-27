@@ -49,13 +49,20 @@ const j = async (q) => (await fetch(API + q, { headers: H })).json();
 
 /** Пари без лінії — те, заради чого все це. Формат важить: у BO3 та сама
     перевага по карті дає більшу перевагу в серії. */
-const WANT = [["imperial", "wildcard", "BO3"]];
+const WANT = [
+  ["astralis", "imperial", "BO1"],
+  ["g2", "liquid", "BO1"],
+  ["onewin", "eternalfire", "BO1"],
+];
 /** Чужа лінія на них, якщо є. Перемагає модель: ринок знає більше. */
 const FOREIGN = {};
 /** Лінії, яких ще немає в базі, — щоб калібрування бачило і їх теж. */
 const EXTRA = {
-  "lynn-vs-heroic": [3.60, 1.29],
-  "m80-vs-hundredthieves": [2.30, 1.62],
+  "fut-vs-flyquest": [1.36, 3.10],
+  "mongolz-vs-lynn": [1.33, 3.25],
+  "nemiga-vs-nip": [1.73, 2.10],
+  "natus-vs-parivision": [1.42, 2.86],
+  "mibr-vs-hundredthieves": [2.17, 1.68],
 };
 
 const proj = await j("major_projection?select=slug,vrs");
@@ -236,6 +243,12 @@ for (const [a, b, format] of WANT) {
     (format === "BO3" ? ` (по карті ${(map * 100).toFixed(1)}%)` : "") + "  " +
     (f
       ? `з чужої лінії ${f[0].toFixed(2)} ${f[1].toFixed(2)}`
-      : `із сил BetKing (голий рейтинг дав би ${(p1(a, b, K) * 100).toFixed(1)}% по карті)`),
+      : known
+        ? `із сил BetKing (голий рейтинг дав би ${(p1(a, b, K) * 100).toFixed(1)}% по карті)`
+        /* Жодної лінії BetKing на цю команду в цій події ще не було, отже
+           сил із чого відновлювати теж немає — лишається голий рейтинг. Це
+           помітно слабше, і підпис мусить про це казати, а не вдавати, що
+           число приїхало з ринку. */
+        : `З ГОЛОГО РЕЙТИНГУ: ${[a, b].filter((t) => !teams.includes(t)).join(", ")} ще не котирували`),
   );
 }
