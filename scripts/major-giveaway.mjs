@@ -37,21 +37,20 @@ const END = "2026-12-15T21:59:59Z";
 
 /* Дев'ять призів, дев'ять переможців. Порядок у масиві — це порядок місць:
    перший бере мишу, дев'ятий USP. Окремого поля з номером немає свідомо —
-   два джерела порядку рано чи пізно розійдуться.
-
-   `scale` — частка ширини коробки під картинкою. Миша квадратна, ніж
-   короткий, AWP довга; без цього всі троє виглядали б однаковими за
-   розміром, хоча вони не однакові. */
+   два джерела порядку рано чи пізно розійдуться. */
 const PRIZES = [
-  { title: "Logitech G PRO X3 SUPERSTRIKE", sub: "Lightspeed Wireless", img: "/prizes/logitech-pro-x3.png", scale: 0.42 },
-  { title: "Ігрова джерсі NAVI", sub: "Natus Vincere", img: "/prizes/navi-jersey.png", scale: 0.46 },
-  { title: "Nomad Knife", sub: "Forest DDPAT [FT]", img: "/prizes/nomad-forest-ddpat.png", scale: 0.5 },
-  { title: "AK-47", sub: "Point Disarray [MW]", img: "/prizes/ak-point-disarray.webp", scale: 1 },
-  { title: "Desert Eagle", sub: "Conspiracy [MW]", img: "/prizes/deagle-conspiracy.webp", scale: 0.56 },
-  { title: "AWP", sub: "Fever Dream [MW]", img: "/prizes/awp-fever-dream.png", scale: 1 },
-  { title: "M4A1-S", sub: "Decimator [FT]", img: "/prizes/m4a1s-decimator.png", scale: 0.94 },
-  { title: "AK-47", sub: "Midnight Laminate [MW]", img: "/prizes/ak-midnight-laminate.webp", scale: 1 },
-  { title: "USP-S", sub: "Cortex [MW]", img: "/prizes/usp-cortex.webp", scale: 0.62 },
+  /* `fit` — найбільша частка висоти коробки. Без нього пістолети й ніж
+     упираються у висоту й виглядають масивнішими за автомат, який упирається
+     в ширину. Миша й джерсі квадратні — їм висота потрібна вся. */
+  { title: "Logitech G PRO X3 SUPERSTRIKE", sub: "Lightspeed Wireless", img: "/prizes/logitech-pro-x3.png" },
+  { title: "Ігрова джерсі NAVI", sub: "Natus Vincere", img: "/prizes/navi-jersey.png" },
+  { title: "Nomad Knife", sub: "Forest DDPAT [FT]", img: "/prizes/nomad-forest-ddpat.png", fit: 0.66 },
+  { title: "AK-47", sub: "Point Disarray [MW]", img: "/prizes/ak-point-disarray.webp" },
+  { title: "Desert Eagle", sub: "Conspiracy [MW]", img: "/prizes/deagle-conspiracy.webp", fit: 0.52 },
+  { title: "AWP", sub: "Fever Dream [MW]", img: "/prizes/awp-fever-dream.png" },
+  { title: "M4A1-S", sub: "Decimator [FT]", img: "/prizes/m4a1s-decimator.png" },
+  { title: "AK-47", sub: "Midnight Laminate [MW]", img: "/prizes/ak-midnight-laminate.webp" },
+  { title: "USP-S", sub: "Cortex [MW]", img: "/prizes/usp-cortex.webp", fit: 0.58 },
 ];
 
 const ROW = {

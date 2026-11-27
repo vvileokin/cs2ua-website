@@ -156,12 +156,17 @@ export default async function GiveawayPage({
           </section>
         </div>
 
-        {/* Right: entry / status.
-            It used to be `self-start` so it could stick, which left its plate
-            ending 25px short of the conditions beside it — a step with nothing
-            to explain it. The page is one short paragraph and four rules long,
-            so there was never enough scroll for sticky to earn that. */}
-        <div className="flex flex-col">
+        {/* Праворуч — участь і стан.
+            `self-start`: інакше колонка тягнеться на висоту сусідньої, а
+            сусідня тепер буває довгою. На розіграші з дев'ятьма призами
+            плита участі виростала на пів екрана порожнечі під кнопкою —
+            таймер нагорі, кнопка під ним і сімсот пікселів нічого.
+
+            Колись `self-start` звідси прибрали з протилежної причини: на
+            короткій сторінці плита закінчувалася на двадцять п'ять пікселів
+            вище за сусідню, і це читалося як сходинка. Сходинка в двадцять
+            п'ять пікселів дешевша за пів екрана порожнечі. */}
+        <div className="flex flex-col self-start">
           <GiveawayEntry giveaway={g} />
         </div>
       </div>

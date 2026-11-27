@@ -71,9 +71,10 @@ export function GiveawayCard({ g }: { g: Giveaway }) {
             it sits on a text baseline and picks up ~3px of leading above it —
             which is exactly how far it hung below the price chip on the right. */}
         <div className="absolute left-3 top-3 flex">
-          {/* A drawn giveaway is a different thing from an open one, and the
-              card is where most people meet it — showing "Активний" on a prize
-              that already has a winner is the one wrong answer here. */}
+          {/* Тільки те, що міняє справу. «Розіграно» і «Завершується» —
+              новини: перше каже, що запізнився, друге — що майже. «Активний»
+              новиною не був: активні тут майже всі, і плашка лише лягала
+              поверх картинки, заради якої на картку й дивляться. */}
           {g.winners.length > 0 || g.status === "finished" ? (
             /* Orange, not grey: a decided giveaway is the outcome people came
                back for, and the neutral chip made it read as archived. The word
@@ -85,12 +86,7 @@ export function GiveawayCard({ g }: { g: Giveaway }) {
             </Badge>
           ) : g.status === "ending" ? (
             <Badge tone="live">Завершується</Badge>
-          ) : (
-            /* На картці стан потрібен: у стрічці серед турнірів і матчів вона
-               мусить сама сказати, чи туди ще можна. Усередині розіграшу — ні,
-               там про це кажуть таймер і кнопка. */
-            <Badge tone={dressed ? "ewc" : "success"}>Активний</Badge>
-          )}
+          ) : null}
         </div>
 
         {/* The price of a ticket, opposite the status. A paid giveaway that
