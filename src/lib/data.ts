@@ -1315,7 +1315,19 @@ export const seasonLeaderboard: LeaderRow[] = [
 
 /* --- Giveaways --- */
 
+/** Один приз у списку розіграшу. Порядок у масиві — це і є місця. */
+export type GiveawayPrize = {
+  title: string;
+  /** Назва скіна й стан, або модель. Необов'язково. */
+  sub?: string;
+  img?: string;
+  /** Частка ширини коробки, яку займає картинка: ніж і AWP не однакові. */
+  scale?: number;
+};
+
 export type Giveaway = {
+  /** Список призів за місцями. Порожній — приз один, він у `prize`. */
+  prizes?: GiveawayPrize[];
   slug: string;
   prize: string;
   sponsor: string;

@@ -24,6 +24,7 @@ type Row = {
   entry_currency: Giveaway["entryCurrency"] | null;
   max_tickets: number | null;
   require_telegram: boolean | null;
+  prizes: Giveaway["prizes"] | null;
 };
 
 function toGiveaway(r: Row): Giveaway {
@@ -56,6 +57,9 @@ function toGiveaway(r: Row): Giveaway {
     entryCurrency: r.entry_currency ?? "points",
     maxTickets: r.max_tickets ?? 1,
     requireTelegram: r.require_telegram ?? false,
+    /* Порожній, доки не виконана 0107: розіграш із одним призом у `prize`
+       поводиться так само, як поводився. */
+    prizes: r.prizes ?? [],
     myTickets: 0,
   };
 }

@@ -35,6 +35,25 @@ const H = {
    коли вважає, що встигла. */
 const END = "2026-12-15T21:59:59Z";
 
+/* Дев'ять призів, дев'ять переможців. Порядок у масиві — це порядок місць:
+   перший бере мишу, дев'ятий USP. Окремого поля з номером немає свідомо —
+   два джерела порядку рано чи пізно розійдуться.
+
+   `scale` — частка ширини коробки під картинкою. Миша квадратна, ніж
+   короткий, AWP довга; без цього всі троє виглядали б однаковими за
+   розміром, хоча вони не однакові. */
+const PRIZES = [
+  { title: "Logitech G PRO X3 SUPERSTRIKE", sub: "Lightspeed Wireless", img: "/prizes/logitech-pro-x3.png", scale: 0.42 },
+  { title: "Ігрова джерсі NAVI", sub: "Natus Vincere", img: "/prizes/navi-jersey.png", scale: 0.46 },
+  { title: "Nomad Knife", sub: "Forest DDPAT [FT]", img: "/prizes/nomad-forest-ddpat.png", scale: 0.5 },
+  { title: "AK-47", sub: "Point Disarray [MW]", img: "/prizes/ak-point-disarray.webp", scale: 1 },
+  { title: "Desert Eagle", sub: "Conspiracy [MW]", img: "/prizes/deagle-conspiracy.webp", scale: 0.56 },
+  { title: "AWP", sub: "Fever Dream [MW]", img: "/prizes/awp-fever-dream.png", scale: 1 },
+  { title: "M4A1-S", sub: "Decimator [FT]", img: "/prizes/m4a1s-decimator.png", scale: 0.94 },
+  { title: "AK-47", sub: "Midnight Laminate [MW]", img: "/prizes/ak-midnight-laminate.webp", scale: 1 },
+  { title: "USP-S", sub: "Cortex [MW]", img: "/prizes/usp-cortex.webp", scale: 0.62 },
+];
+
 const ROW = {
   slug: "mega-major-singapore-2026",
   prize: "МЕГА-розіграш до PGL Singapore Major 2026",
@@ -46,13 +65,15 @@ const ROW = {
   status: "open",
   skin: "major",
   cover: "oklch(0.665 0.262 29)",
-  image: "/brand/major-cover.png",
+  image: "/brand/major-giveaway-cover.webp",
   description:
     "Мейджор у Сінгапурі — найбільша подія року, і ми відзначаємо її найбільшим " +
-    "розіграшем. Участь безкоштовна: жодних квитків, жодних поінтів. " +
-    "Достатньо бути підписаним на наш Telegram-канал.",
+    "розіграшем: дев'ять призів, дев'ять переможців. Участь безкоштовна — " +
+    "жодних квитків і жодних поінтів, достатньо бути підписаним на наш " +
+    "Telegram-канал.",
   conditions: ["Підписка на Telegram-канал CS2 UA"],
-  winners_count: 1,
+  winners_count: PRIZES.length,
+  prizes: PRIZES,
   entry_cost: 0,
   entry_currency: "points",
   max_tickets: 1,
@@ -69,6 +90,14 @@ console.log(`  участь      ${ROW.entry_cost ? ROW.entry_cost + " очок"
 console.log(`  умова       ${ROW.conditions.join("; ")}`);
 console.log(`  перевірка   require_telegram = ${ROW.require_telegram}`);
 console.log(`  переможців  ${ROW.winners_count}`);
+console.log("  призи:");
+ROW.prizes.forEach((p, i) => {
+  const ok = fs.existsSync(new URL(`../public${p.img}`, import.meta.url));
+  console.log(`   ${String(i + 1).padStart(2)}. ${p.title} · ${p.sub}  ${ok ? "" : "← НЕМАЄ КАРТИНКИ " + p.img}`);
+});
+if (ROW.prizes.some((p) => !fs.existsSync(new URL(`../public${p.img}`, import.meta.url)))) {
+  throw new Error("не всі картинки на місці");
+}
 console.log(`  оформлення  скін «${ROW.skin}», обкладинка ${ROW.image}`);
 
 /* Канал і бот — перевіряємо, що умова взагалі перевіряється. Розіграш, де

@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import type { Metadata } from "next";
 import { ChevronLeft, Check, ListChecks } from "lucide-react";
 import { GiveawayEntry } from "@/components/giveaway/GiveawayEntry";
+import { GiveawayPrizes } from "@/components/giveaway/GiveawayPrizes";
 import { isAuraSkin } from "@/lib/data";
 import { getGiveawayBySlug } from "@/lib/db/giveaways";
 import { cn } from "@/lib/utils";
@@ -111,6 +112,11 @@ export default async function GiveawayPage({
           <p className="text-pretty text-sm leading-relaxed text-ink-muted sm:text-base">
             {g.description}
           </p>
+
+          {/* Призи перед умовами: спершу «що я можу виграти», потім «що для
+              цього треба». Зворотний порядок читається як список вимог, у
+              кінці якого щось дають. */}
+          <GiveawayPrizes prizes={g.prizes ?? []} dressed={dressed} />
 
           <section className="space-y-3">
             <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-ink-muted">
