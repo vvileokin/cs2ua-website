@@ -1,5 +1,5 @@
 import { findTeam } from "@/lib/data";
-import { isHit, tierOf, type CardShape, type PickRole, type StageOutcome } from "@/lib/major-pickem";
+import { isHit, type CardShape, type PickRole, type StageOutcome } from "@/lib/major-pickem";
 import type { Distribution } from "@/lib/db/pickem";
 import { MajorCrest } from "./MajorCrest";
 import { cn } from "@/lib/utils";
@@ -28,8 +28,6 @@ export function LockedStage({
   scored: boolean;
   dist: Distribution | null;
 }) {
-  const tier = scored ? tierOf(hits, shape) : null;
-
   return (
     <div className="space-y-3">
       {scored && (
@@ -50,19 +48,6 @@ export function LockedStage({
               {points}
             </p>
           </div>
-          {tier && (
-            <div>
-              <p className="text-[0.6875rem] font-semibold uppercase tracking-wide text-ink-dim">
-                Рівень
-              </p>
-              <p
-                className="text-2xl font-black leading-tight"
-                style={{ color: tier.tone }}
-              >
-                {tier.name}
-              </p>
-            </div>
-          )}
         </div>
       )}
 

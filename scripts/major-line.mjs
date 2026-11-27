@@ -51,18 +51,13 @@ const j = async (q) => (await fetch(API + q, { headers: H })).json();
     перевага по карті дає більшу перевагу в серії. */
 const WANT = [
   ["astralis", "imperial", "BO1"],
-  ["g2", "liquid", "BO1"],
   ["onewin", "eternalfire", "BO1"],
 ];
 /** Чужа лінія на них, якщо є. Перемагає модель: ринок знає більше. */
-const FOREIGN = {};
+const FOREIGN = { "astralis|imperial": [1.61, 2.20] };
 /** Лінії, яких ще немає в базі, — щоб калібрування бачило і їх теж. */
 const EXTRA = {
-  "fut-vs-flyquest": [1.36, 3.10],
-  "mongolz-vs-lynn": [1.33, 3.25],
-  "nemiga-vs-nip": [1.73, 2.10],
-  "natus-vs-parivision": [1.42, 2.86],
-  "mibr-vs-hundredthieves": [2.17, 1.68],
+  "g2-vs-liquid": [1.80, 2.00],
 };
 
 const proj = await j("major_projection?select=slug,vrs");
