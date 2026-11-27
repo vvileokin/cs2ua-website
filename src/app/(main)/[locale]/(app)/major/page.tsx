@@ -121,7 +121,13 @@ export default async function MajorPickemPage({
               href={`/major?stage=${s.stage}`}
               aria-current={here ? "page" : undefined}
               className={cn(
-                "px-2 py-3 text-center transition-colors duration-150 sm:px-3",
+                /* Висота задана, а не набігає з вмісту. У зіграної стадії
+                   під назвою з'являється другий рядок, і на відступах уся
+                   смуга підростала — у того, хто зіграв, кнопки вищі, ніж у
+                   того, хто ні. Сорок пікселів тримають і один рядок, і два,
+                   тож смуга виглядає однаково в усіх і не ворушиться, коли
+                   стадію зараховують. */
+                "flex h-10 flex-col items-center justify-center px-2 text-center transition-colors duration-150 sm:px-3",
                 here
                   ? "bg-[var(--major-hot)]"
                   : "bg-[var(--major-floor)] hover:bg-white/[0.05]",
@@ -136,11 +142,16 @@ export default async function MajorPickemPage({
                 {s.title}
               </p>
               {mine?.scored && (
+                /* Тільки влучання. Очки за стадію тут були зайві: та сама
+                   сума стоїть у таблиці нижче, а на вкладці вона
+                   перетворювала назву стадії на рядок звіту. Влучання —
+                   інша річ: це те, як ти зіграв, і воно має бути поруч із
+                   тим, у що ти грав. */
                 <p className={cn(
-                  "mt-0.5 truncate text-[0.6875rem] font-bold tabular-nums",
+                  "truncate text-[0.625rem] font-bold leading-tight tabular-nums",
                   here ? "text-[var(--major-ink)]/75" : "text-ink-dim",
                 )}>
-                  {mine.hits}/{shapeFor(s).picks} · {mine.points}
+                  {mine.hits}/{shapeFor(s).picks}
                 </p>
               )}
             </Link>

@@ -92,13 +92,12 @@ export default async function SomeonesCardPage({
       ) : (
         shown.map(({ stage, card }) => (
           <section key={stage.stage} className="space-y-3">
-            <h2 className="flex flex-wrap items-baseline gap-x-2 px-1 text-base font-extrabold text-ink">
+            {/* Тільки назва стадії. Влучання тут стояли теж — і той самий
+                рахунок одразу під заголовком малює сама картка, великою
+                цифрою під підписом «Влучань». Двічі про одне в двох рядках
+                поспіль читається як помилка, а не як наголос. */}
+            <h2 className="px-1 text-base font-extrabold text-ink">
               {stage.title}
-              {card!.scored && (
-                <span className="text-[0.75rem] font-bold text-ink-dim">
-                  {card!.hits} із {shapeFor(stage).picks}
-                </span>
-              )}
             </h2>
             <LockedStage
               shape={shapeFor(stage)}
