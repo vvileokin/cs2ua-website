@@ -79,12 +79,23 @@ export function TournamentView({
     teams: string[];
   }[];
 }) {
-  /* Яку стадію розгорнути: ту, що зараз грає, інакше першу.
-     Чотири розгорнуті сітки поспіль — це чотири екрани прокрутки до того, що
-     людина шукала. */
+  /* Яку стадію розгорнути: ту, що зараз грає. Чотири розгорнуті сітки
+     поспіль — це чотири екрани прокрутки до того, що людина шукала.
+
+     Остання стадія з матчами, а не перша. `find` брав першу, в якої матчі
+     взагалі є, — а це довіку стадія 1, бо її матчі нікуди не діваються. Тож
+     на другий день мейджора сторінка відкривалася на дограному, і до
+     сьогоднішнього туру доводилося спершу згорнути вчорашній.
+
+     Ознака — наявність матчів, а не час початку: матчі з'являються рівно
+     тоді, коли тур розведено, і це те саме, що «зараз грає». Час тут був би
+     гірший ще й тим, що `Date.now()` у клієнтському компоненті дає різні
+     відповіді на сервері й у браузері, а це розходження при гідратації. */
+  const staged = majorStages.filter((st) =>
+    matches.some((m) => new RegExp(String(st.stage)).test(m.stage ?? "")),
+  );
   const openMajorStage =
-    majorStages.find((st) => matches.some((m) => new RegExp(String(st.stage)).test(m.stage ?? "")))
-      ?.stage ?? majorStages[0]?.stage;
+    staged[staged.length - 1]?.stage ?? majorStages[0]?.stage;
   const tabs: {
     id: Tab;
     label: string;
@@ -543,12 +554,12 @@ export function TournamentView({
           </div>
         ) : t.skin === "major" ? (
           <div className="space-y-3">
-            <MyDuels matches={matches} />
+            <MyDuels matches={matches} skin={t.skin} />
           </div>
         ) : t.skin === "porto" ? (
           <div className="space-y-3">
             <PortoGroupCard />
-            <MyDuels matches={matches} />
+            <MyDuels matches={matches} skin={t.skin} />
           </div>
         ) : t.skin === "ewc" ? (
           <div className="space-y-3">

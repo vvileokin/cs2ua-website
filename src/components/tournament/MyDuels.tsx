@@ -9,7 +9,7 @@ import { TeamLogo } from "@/components/ui/TeamLogo";
 import { BrandIcon } from "@/components/ui/BrandIcon";
 import { useUser } from "@/lib/supabase/use-user";
 import { refreshProfile } from "@/lib/supabase/use-profile";
-import { getTeam, type Match } from "@/lib/data";
+import { getTeam, eventGem, type EventSkin, type Match } from "@/lib/data";
 import { cn, formatInt } from "@/lib/utils";
 import type { Duel } from "@/components/match/DuelBoard";
 
@@ -24,7 +24,7 @@ import type { Duel } from "@/components/match/DuelBoard";
  * Waiting first, then decided. A challenge nobody has taken is the only row
  * that still needs a decision from anybody, so it cannot be below the history.
  */
-export function MyDuels({ matches }: { matches: Match[] }) {
+export function MyDuels({ matches, skin }: { matches: Match[]; skin?: EventSkin | null }) {
   const user = useUser();
   const [duels, setDuels] = React.useState<Duel[] | null>(null);
   const [me, setMe] = React.useState<string | null>(null);
@@ -135,6 +135,7 @@ export function MyDuels({ matches }: { matches: Match[] }) {
               key={d.id}
               duel={d}
               me={me}
+              skin={skin}
               match={byId.get(d.matchId)}
               busy={busy === d.id}
               onAccept={() => act(d.id, "PATCH")}
@@ -156,6 +157,7 @@ export function MyDuels({ matches }: { matches: Match[] }) {
 function DuelRow({
   duel,
   me,
+  skin,
   match,
   busy,
   onAccept,
@@ -163,6 +165,7 @@ function DuelRow({
 }: {
   duel: Duel;
   me: string | null;
+  skin?: EventSkin | null;
   match?: Match;
   busy: boolean;
   onAccept: () => void;
@@ -220,7 +223,12 @@ function DuelRow({
           settled ? (won ? "text-success" : "text-white/30") : "text-[rgb(var(--skin-ring))]",
         )}
       >
-        <BrandIcon name="points-porto" className="size-3.5" />
+        {/* Камінь валюти — той, у який вдягнений турнір, а не зашитий. Тут
+            стояв `points-porto`: дуелі народилися на Порто, і з того часу
+            кожна наступна подія показувала в ставці чужий камінь. Ставка
+            списується з івентового гаманця цієї події, тож і знак має бути
+            її. */}
+        <BrandIcon name={eventGem(skin)} className="size-3.5" />
         {settled
           ? won
             ? `+${formatInt(duel.stake * 2)}`
